@@ -306,15 +306,18 @@ const Projects = () => {
 
   useEffect(() => {
     // Since repository is private, we'll show static projects instead
-    const staticProjects = [
+    const staticProjects: Repository[] = [
       {
         id: 1,
         name: 'raju-portfolio',
         description: 'Professional portfolio website showcasing data science projects and skills',
         language: 'TypeScript',
         html_url: 'https://github.com/Plpraju2001/raju-portfolio',
+        homepage: 'https://lakshmipathirajup.com',
         private: true,
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
+        stargazers_count: 0,
+        forks_count: 0
       }
     ];
     setRepositories(staticProjects);
