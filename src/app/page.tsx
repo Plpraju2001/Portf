@@ -914,9 +914,9 @@ const FixedProfilePicture = () => {
   useEffect(() => {
     // Your actual LinkedIn profile picture URL
     const possibleUrls = [
-      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_200_200/B4EZn.xfxkIIAY-/0/1760916012507?e=1761523200&v=beta&t=vmOai2i52jwIj0HwNiJg7Q4FKXJ4lVrH_QaD6X3ZU4w`,
-      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_400_400/B4EZn.xfxkIIAY-/0/1760916012507?e=1761523200&v=beta&t=vmOai2i52jwIj0HwNiJg7Q4FKXJ4lVrH_QaD6X3ZU4w`,
-      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_100_100/B4EZn.xfxkIIAY-/0/1760916012507?e=1761523200&v=beta&t=vmOai2i52jwIj0HwNiJg7Q4FKXJ4lVrH_QaD6X3ZU4w`
+      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_200_200/B4EZn.xfxkIIAk-/0/1760916012507?e=1762300800&v=beta&t=o96o0DfF6bH9TUWIHX9N1NQ583lfgDFO-SWlWwlDbOM`,
+      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_400_400/B4EZn.xfxkIIAk-/0/1760916012507?e=1762300800&v=beta&t=o96o0DfF6bH9TUWIHX9N1NQ583lfgDFO-SWlWwlDbOM`,
+      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_100_100/B4EZn.xfxkIIAk-/0/1760916012507?e=1762300800&v=beta&t=o96o0DfF6bH9TUWIHX9N1NQ583lfgDFO-SWlWwlDbOM`
     ];
     
     const tryLoadImage = (urls: string[], index = 0) => {
