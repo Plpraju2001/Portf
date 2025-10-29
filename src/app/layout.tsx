@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Lakshmipathiraju Pericharla - Data Scientist Portfolio",
   description: "Data Scientist with 3+ years experience in causal inference, econometrics, and ROI-driven analytics. Specializing in campaign measurement, advanced data engineering, and business intelligence with proven results in marketing and financial products.",
+  other: {
+    'cache-control': 'no-cache, no-store, must-revalidate',
+    'pragma': 'no-cache',
+    'expires': '0',
+  },
 };
 
 export default function RootLayout({
