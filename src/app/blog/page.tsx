@@ -8,7 +8,7 @@ const blogPosts = [
     id: 1,
     title: 'Advanced Causal Inference: Beyond Traditional A/B Testing',
     excerpt: 'Deep dive into sophisticated causal inference methods I\'m exploring to solve complex business problems. Sharing insights from my latest research on uplift modeling and heterogeneous treatment effects.',
-    date: 'December 15, 2024',
+    date: 'October 25, 2025',
     readTime: '12 min read',
     category: 'Advanced Analytics',
     content: `
@@ -59,7 +59,7 @@ const blogPosts = [
     id: 2,
     title: 'Data Science Tips & Tricks: Pro Techniques from the Field',
     excerpt: 'Essential tips and tricks I\'ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results.',
-    date: 'December 10, 2024',
+    date: 'October 20, 2025',
     readTime: '8 min read',
     category: 'Tips & Tricks',
     content: `
