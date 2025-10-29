@@ -36,6 +36,13 @@ jobs:
       - name: Copy CNAME file
         run: cp public/CNAME out/CNAME
         
+      - name: List build output
+        run: |
+          echo "Build output contents:"
+          ls -la out/
+          echo "CNAME file check:"
+          cat out/CNAME
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
