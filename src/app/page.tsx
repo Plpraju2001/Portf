@@ -908,58 +908,18 @@ const Footer = () => (
 
 // Fixed Profile Picture Component
 const FixedProfilePicture = () => {
-  const [profileImage, setProfileImage] = useState('/api/placeholder/80/80');
-  const [imageLoading, setImageLoading] = useState(true);
-
-  useEffect(() => {
-    // Your actual LinkedIn profile picture URL
-    const possibleUrls = [
-      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_200_200/B4EZn.xfxkIIAk-/0/1760916012507?e=1762300800&v=beta&t=o96o0DfF6bH9TUWIHX9N1NQ583lfgDFO-SWlWwlDbOM`,
-      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_400_400/B4EZn.xfxkIIAk-/0/1760916012507?e=1762300800&v=beta&t=o96o0DfF6bH9TUWIHX9N1NQ583lfgDFO-SWlWwlDbOM`,
-      `https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_100_100/B4EZn.xfxkIIAk-/0/1760916012507?e=1762300800&v=beta&t=o96o0DfF6bH9TUWIHX9N1NQ583lfgDFO-SWlWwlDbOM`
-    ];
-    
-    const tryLoadImage = (urls: string[], index = 0) => {
-      if (index >= urls.length) {
-        setProfileImage('https://via.placeholder.com/80x80/3B82F6/FFFFFF?text=L');
-        setImageLoading(false);
-        return;
-      }
-      
-      // Use fetch to test if image URL is valid
-      fetch(urls[index], { method: 'HEAD' })
-        .then(response => {
-          if (response.ok) {
-            setProfileImage(urls[index]);
-            setImageLoading(false);
-          } else {
-            tryLoadImage(urls, index + 1);
-          }
-        })
-        .catch(() => {
-          tryLoadImage(urls, index + 1);
-        });
-    };
-    
-    tryLoadImage(possibleUrls);
-  }, []);
+  const profileImage = '/profile-picture.jpg'; // Local profile picture from public folder
 
   return (
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
       <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-gray-200/50">
-        {imageLoading ? (
-          <div className="w-32 h-32 rounded-full bg-gray-200 animate-pulse flex items-center justify-center">
-            <div className="w-16 h-16 bg-gray-300 rounded-full"></div>
-          </div>
-        ) : (
-          <Image
-            src={profileImage}
-            alt="Lakshmipathiraju Pericharla"
-            width={128}
-            height={128}
-            className="w-32 h-32 rounded-full object-cover border-4 border-blue-500"
-          />
-        )}
+        <Image
+          src={profileImage}
+          alt="Lakshmipathiraju Pericharla"
+          width={128}
+          height={128}
+          className="w-32 h-32 rounded-full object-cover border-4 border-blue-500"
+        />
         <div className="mt-3 text-center">
           <h3 className="text-sm font-semibold text-gray-800 tracking-tight">Raju P</h3>
         </div>
