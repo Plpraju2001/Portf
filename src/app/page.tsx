@@ -908,7 +908,7 @@ const Footer = () => (
 
 // Fixed Profile Picture Component
 const FixedProfilePicture = () => {
-  const profileImage = '/profile-picture.jpg'; // Local profile picture from public folder
+  const profileImage = 'https://media.licdn.com/dms/image/v2/D4E35AQELk1KhBtqpOA/profile-framedphoto-shrink_100_100/B4EZn.xfxkIIAk-/0/1760916012507?e=1762322400&v=beta&t=yZnBKwe6bmQW7J3WBbkQb1TfBFRcOEV89TWzXz_vUHk'; // LinkedIn profile picture
 
   return (
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
