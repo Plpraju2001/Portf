@@ -1,0 +1,25 @@
+URGENT: Add DNS Records in Namecheap
+
+Your DNS records were removed! You need to add them back in Namecheap.
+
+Go to Namecheap -> Manage Domain -> Advanced DNS
+
+Add these 8 A records:
+
+FOR @ (root domain):
+1. Type: A Record, Host: @, Value: 185.199.108.153, TTL: Automatic
+2. Type: A Record, Host: @, Value: 185.199.109.153, TTL: Automatic
+3. Type: A Record, Host: @, Value: 185.199.110.153, TTL: Automatic
+4. Type: A Record, Host: @, Value: 185.199.111.153, TTL: Automatic
+
+FOR www:
+1. Type: A Record, Host: www, Value: 185.199.108.153, TTL: Automatic
+2. Type: A Record, Host: www, Value: 185.199.109.153, TTL: Automatic
+3. Type: A Record, Host: www, Value: 185.199.110.153, TTL: Automatic
+4. Type: A Record, Host: www, Value: 185.199.111.153, TTL: Automatic
+
+Click "Save All Changes"
+Wait 10-15 minutes
+
+Then visit: https://lakshmipathirajup.com
+
