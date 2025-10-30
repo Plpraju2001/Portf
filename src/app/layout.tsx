@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Lakshmipathiraju Pericharla - Data Scientist Portfolio",
   description: "Data Scientist with 3+ years experience in causal inference, econometrics, and ROI-driven analytics. Specializing in campaign measurement, advanced data engineering, and business intelligence with proven results in marketing and financial products.",
   icons: {
-    icon: '/green-dot-favicon.svg',
+    icon: '/plp-favicon.svg',
   },
   other: {
     'cache-control': 'no-cache, no-store, must-revalidate',
