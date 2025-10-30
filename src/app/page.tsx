@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 // Simple background component (no animations)
 // Background removed - clean static design only
+// Deployment trigger
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
