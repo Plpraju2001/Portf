@@ -6,243 +6,76 @@ import Link from 'next/link';
 const blogPosts = [
   {
     id: 1,
-    title: 'Embarking on My Data Science Bootcamp Journey: Deepening Core Skills',
-    excerpt: 'I\'ve started a comprehensive bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning. Sharing my journey and the topics I\'m mastering.',
+    title: 'Starting My Data Science Bootcamp',
+    excerpt: 'I\'ve just started a bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning.',
     date: 'October 30, 2025',
-    readTime: '6 min read',
+    readTime: '2 min read',
     category: 'Learning Journey',
     content: `
-      <h2>Why I Started This Bootcamp</h2>
-      <p>As a Data Scientist with 3+ years of experience, I've built a strong foundation in practical applications and business impact. However, I realized that to truly excel in this rapidly evolving field, I needed to dive deeper into the fundamental concepts that power modern data science.</p>
+      <h2>Just Getting Started</h2>
+      <p>I've recently started a data science bootcamp to strengthen my foundational skills. This is a journey to deepen my understanding of core concepts in data science, machine learning, and deep learning.</p>
       
-      <h2>My Learning Goals</h2>
-      <p>I've embarked on a comprehensive bootcamp to strengthen my skills across three critical domains:</p>
-      
-      <h3>1. Data Science Fundamentals</h3>
+      <h2>What I'm Learning</h2>
+      <p>The bootcamp covers three main areas:</p>
       <ul>
-        <li><strong>Statistics & Probability:</strong> Deepening my understanding of statistical inference, hypothesis testing, and probability distributions</li>
-        <li><strong>Exploratory Data Analysis:</strong> Mastering advanced techniques for uncovering hidden patterns in complex datasets</li>
-        <li><strong>Data Wrangling:</strong> Becoming more efficient with large-scale data preprocessing and transformation</li>
-        <li><strong>Causal Inference:</strong> Expanding my knowledge beyond basic A/B testing to sophisticated econometric methods</li>
-      </ul>
-      
-      <h3>2. Machine Learning Core Concepts</h3>
-      <ul>
-        <li><strong>Supervised Learning:</strong> Regression and classification algorithms from scratch</li>
-        <li><strong>Unsupervised Learning:</strong> Clustering, dimensionality reduction, and anomaly detection</li>
-        <li><strong>Ensemble Methods:</strong> Random Forests, Gradient Boosting, and advanced ensemble techniques</li>
-        <li><strong>Model Evaluation:</strong> Mastering cross-validation, hyperparameter tuning, and bias-variance tradeoff</li>
-        <li><strong>Feature Engineering:</strong> Advanced techniques for creating meaningful features</li>
-      </ul>
-      
-      <h3>3. Deep Learning Essentials</h3>
-      <ul>
-        <li><strong>Neural Networks Basics:</strong> Understanding forward and backpropagation in depth</li>
-        <li><strong>CNNs for Computer Vision:</strong> Convolutional layers, pooling, and transfer learning</li>
-        <li><strong>RNNs & LSTMs:</strong> Sequential data modeling and time-series prediction</li>
-        <li><strong>Transformers & Attention:</strong> Modern architectures powering NLP breakthroughs</li>
-        <li><strong>Deep Learning Frameworks:</strong> Mastering PyTorch and TensorFlow for production use</li>
-      </ul>
-      
-      <h2>Topics I'm Currently Mastering</h2>
-      <p>Right now, I'm focusing on strengthening these areas:</p>
-      
-      <h3>Advanced Statistics</h3>
-      <p>I'm revisiting statistical concepts with fresh eyes, particularly Bayesian inference, hypothesis testing under various conditions, and understanding when different statistical tests are appropriate. This is helping me make more confident decisions in my analytical work.</p>
-      
-      <h3>Model Interpretability</h3>
-      <p>Beyond just building models, I'm diving deep into SHAP values, LIME, partial dependence plots, and other techniques that help explain model decisions. This is crucial for building trust with business stakeholders.</p>
-      
-      <h3>Optimization Algorithms</h3>
-      <p>Understanding the math behind gradient descent variations (SGD, Adam, RMSprop), learning rate scheduling, and convergence theory is giving me better intuition for why models behave the way they do.</p>
-      
-      <h2>Practical Application</h2>
-      <p>What makes this bootcamp valuable is the practical component. I'm not just learning theory—I'm:</p>
-      <ul>
-        <li>Building projects from scratch to reinforce concepts</li>
-        <li>Implementing algorithms manually to understand their internals</li>
-        <li>Applying new techniques to real datasets</li>
-        <li>Sharing my learnings with the data science community</li>
+        <li><strong>Data Science:</strong> Statistics, probability, exploratory data analysis, and data preprocessing</li>
+        <li><strong>Machine Learning:</strong> Supervised and unsupervised learning, model evaluation, and feature engineering</li>
+        <li><strong>Deep Learning:</strong> Neural networks, CNNs, RNNs, and modern architectures</li>
       </ul>
       
       <h2>Why This Matters</h2>
-      <p>In the data science field, technology evolves rapidly. New algorithms, tools, and approaches emerge constantly. By strengthening my fundamentals now, I'm building a solid foundation that will help me:</p>
-      <ul>
-        <li>Understand new techniques faster when they emerge</li>
-        <li>Make better architectural decisions in my work</li>
-        <li>Debug and optimize models more effectively</li>
-        <li>Communicate technical concepts more clearly</li>
-        <li>Design better experiments and analysis frameworks</li>
-      </ul>
+      <p>With 3+ years of practical experience, I want to ensure I have solid fundamentals to build upon. The field moves fast, and having strong foundational knowledge will help me adapt to new technologies and techniques more effectively.</p>
       
-      <h2>Join Me on This Journey</h2>
-      <p>I'll be sharing my learnings, challenges, and insights throughout this bootcamp journey. Whether you're just starting out or an experienced practitioner looking to strengthen your fundamentals, I hope my reflections and practical tips will be valuable.</p>
-      
-      <p>Learning is a continuous journey in data science, and I'm excited to deepen my knowledge while sharing what I discover along the way. Stay tuned for more posts about specific topics, projects, and insights from this learning experience!</p>
+      <p>I'll be documenting my journey as I go. Stay tuned for updates!</p>
     `
   },
   {
     id: 2,
-    title: 'Completing Data Science Basics: Navigating the Current Market Boom',
-    excerpt: 'I\'ve completed the fundamentals of data science, machine learning, and deep learning. Here\'s my take on the current market landscape and opportunities in this booming field.',
+    title: 'Completed Data Science Basics',
+    excerpt: 'I\'ve finished the basics of data science, machine learning, and deep learning. The field is booming with opportunities.',
     date: 'November 5, 2025',
-    readTime: '8 min read',
+    readTime: '3 min read',
     category: 'Career Insights',
     content: `
-      <h2>Completing the Foundations</h2>
-      <p>After intensive learning, I've completed the core fundamentals of data science, machine learning, and deep learning. This journey has reinforced my existing experience and added new depth to my understanding of the field. Now, with both practical experience and renewed theoretical knowledge, I'm more equipped than ever to tackle complex data challenges.</p>
+      <h2>Basics Complete</h2>
+      <p>I've completed the fundamentals of data science, machine learning, and deep learning. This has reinforced my existing experience and added depth to my understanding of the field.</p>
       
-      <h2>What I've Mastered</h2>
-      
-      <h3>Data Science Foundations ✅</h3>
-      <p>I now have a comprehensive understanding of:</p>
+      <h2>What I Learned</h2>
       <ul>
-        <li>Statistical methods and probability theory</li>
-        <li>Hypothesis testing and confidence intervals</li>
-        <li>Advanced exploratory data analysis techniques</li>
-        <li>Causal inference beyond A/B testing</li>
-        <li>Time series analysis and forecasting</li>
+        <li><strong>Data Science:</strong> Statistics, probability, EDA, and data preprocessing</li>
+        <li><strong>Machine Learning:</strong> Core algorithms, model evaluation, and feature engineering</li>
+        <li><strong>Deep Learning:</strong> Neural networks, CNNs, RNNs, and modern architectures</li>
       </ul>
       
-      <h3>Machine Learning Essentials ✅</h3>
-      <p>The bootcamp covered:</p>
-      <ul>
-        <li>All major ML algorithms and their mathematical foundations</li>
-        <li>Model selection and evaluation strategies</li>
-        <li>Hyperparameter tuning and optimization</li>
-        <li>Ensemble methods and stacking</li>
-        <li>Handling imbalanced data and feature engineering</li>
-      </ul>
-      
-      <h3>Deep Learning Fundamentals ✅</h3>
-      <p>I've strengthened my knowledge in:</p>
-      <ul>
-        <li>Neural network architectures and backpropagation</li>
-        <li>Convolutional Neural Networks for image data</li>
-        <li>Recurrent Neural Networks and LSTMs for sequences</li>
-        <li>Attention mechanisms and transformers</li>
-        <li>Practical implementation with PyTorch and TensorFlow</li>
-      </ul>
-      
-      <h2>The Current Data Science Market Boom</h2>
-      <p>The data science field is experiencing unprecedented growth and transformation. Here's what I'm observing:</p>
+      <h2>The Market Boom</h2>
+      <p>The data science field is experiencing unprecedented growth. Here's what I'm seeing:</p>
       
       <h3>Unprecedented Demand</h3>
-      <p>The job market for data scientists has exploded:</p>
       <ul>
-        <li><strong>Record Job Postings:</strong> Companies across all industries are hiring data scientists at unprecedented rates</li>
-        <li><strong>Diverse Industries:</strong> From finance to healthcare, retail to manufacturing—every sector needs data expertise</li>
-        <li><strong>Generous Compensation:</strong> Data science roles continue to command premium salaries</li>
-        <li><strong>Remote Opportunities:</strong> The field has embraced remote work, opening up global opportunities</li>
+        <li>Record job postings across all industries</li>
+        <li>Generous compensation packages</li>
+        <li>Expanded remote opportunities</li>
       </ul>
       
-      <h3>Why the Boom?</h3>
-      <p>Several factors are driving this growth:</p>
-      
-      <h4>1. AI Revolution</h4>
-      <p>Generative AI, LLMs, and recent breakthroughs have made businesses recognize data science as mission-critical. Companies are investing heavily in:</p>
+      <h3>Why It's Booming</h3>
       <ul>
-        <li>Predictive analytics for strategic decisions</li>
-        <li>Automated systems and AI integration</li>
-        <li>Customer insights and personalization</li>
-        <li>Risk management and fraud detection</li>
+        <li><strong>AI Revolution:</strong> Generative AI and LLMs have made data science mission-critical</li>
+        <li><strong>Data Explosion:</strong> Companies need skilled professionals to harness data</li>
+        <li><strong>Competitive Pressure:</strong> Data-driven decisions are key to success</li>
       </ul>
       
-      <h4>2. Data Explosion</h4>
-      <p>We're generating more data than ever before. Organizations need skilled professionals to:</p>
+      <h2>Hot Areas</h2>
       <ul>
-        <li>Harness this data for competitive advantage</li>
-        <li>Build scalable data infrastructure</li>
-        <li>Transform raw data into actionable insights</li>
-        <li>Ensure data quality and governance</li>
-      </ul>
-      
-      <h4>3. Competitive Pressure</h4>
-      <p>Companies realize that data-driven decisions are the difference between success and failure. This has created:</p>
-      <ul>
-        <li>Urgency to adopt data science practices</li>
-        <li>Investment in data science teams</li>
-        <li>Focus on ROI-driven analytics</li>
-        <li>Expansion of data science capabilities</li>
-      </ul>
-      
-      <h2>Current Market Opportunities</h2>
-      
-      <h3>Hot Areas Right Now</h3>
-      <ul>
-        <li><strong>Generative AI & LLMs:</strong> Massive demand for professionals who understand transformer architectures and prompt engineering</li>
-        <li><strong>MLOps:</strong> Bridging the gap between model development and production deployment</li>
-        <li><strong>Causal Inference:</strong> Moving beyond correlation to establish true causation</li>
-        <li><strong>Customer Analytics:</strong> Churn prediction, lifetime value, and personalization</li>
-        <li><strong>Risk Analytics:</strong> Fraud detection, credit scoring, and financial modeling</li>
-        <li><strong>Healthcare Analytics:</strong> Drug discovery, patient outcome prediction, and medical imaging</li>
-      </ul>
-      
-      <h3>In-Demand Skills</h3>
-      <p>The market is particularly valuing:</p>
-      <ul>
-        <li>End-to-end ML pipeline development (from raw data to production)</li>
-        <li>Cloud platforms (AWS, GCP, Azure) and big data tools</li>
-        <li>Statistical rigor and experimental design</li>
-        <li>Business acumen and stakeholder management</li>
-        <li>Deep learning for specific domains (NLP, computer vision)</li>
-      </ul>
-      
-      <h2>My Take on the Market</h2>
-      
-      <h3>This is a Golden Era</h3>
-      <p>For data scientists at any stage—from beginners to experienced professionals—we're in a golden era:</p>
-      <ul>
-        <li><strong>Skill Premium:</strong> Data science skills are highly valued across industries</li>
-        <li><strong>Career Growth:</strong> Clear paths for advancement to senior roles and leadership</li>
-        <li><strong>Learning Opportunities:</strong> Abundant resources, communities, and bootcamps</li>
-        <li><strong>Innovation Velocity:</strong> Rapid progress keeps the field exciting</li>
-      </ul>
-      
-      <h3>But It's Also Competitive</h3>
-      <p>With opportunity comes competition:</p>
-      <ul>
-        <li><strong>Rising Standards:</strong> Employers expect more comprehensive skill sets</li>
-        <li><strong>Specialization Matters:</strong> Generalists must also have deep expertise</li>
-        <li><strong>Continuous Learning:</strong> The field requires staying current with developments</li>
-        <li><strong>Practical Experience:</strong> Theoretical knowledge alone isn't enough</li>
-      </ul>
-      
-      <h2>Advice for Aspiring Data Scientists</h2>
-      
-      <h3>For Beginners</h3>
-      <ul>
-        <li><strong>Build Strong Foundations:</strong> Focus on statistics, programming, and ML fundamentals</li>
-        <li><strong>Create a Portfolio:</strong> Showcase projects that demonstrate your skills</li>
-        <li><strong>Contribute to Open Source:</strong> Gain practical experience and visibility</li>
-        <li><strong>Network Actively:</strong> Join communities, attend meetups, engage on LinkedIn</li>
-      </ul>
-      
-      <h3>For Experienced Practitioners</h3>
-      <ul>
-        <li><strong>Stay Current:</strong> Keep learning new techniques and tools</li>
-        <li><strong>Deepen Specialization:</strong> Become the go-to expert in a specific domain</li>
-        <li><strong>Share Knowledge:</strong> Blog, teach, mentor—build your personal brand</li>
-        <li><strong>Focus on Impact:</strong> Translate technical work into business value</li>
+        <li>Generative AI & LLMs</li>
+        <li>MLOps and production deployment</li>
+        <li>Causal inference and advanced analytics</li>
+        <li>Customer analytics and personalization</li>
       </ul>
       
       <h2>Looking Forward</h2>
-      <p>With my fundamentals now solidified and the market booming, I'm excited about the opportunities ahead. The combination of:</p>
-      <ul>
-        <li>Strong foundational knowledge in statistics, ML, and deep learning</li>
-        <li>Practical experience delivering business impact</li>
-        <li>Commitment to continuous learning</li>
-        <li>Awareness of market trends and opportunities</li>
-      </ul>
+      <p>With solid fundamentals and practical experience, I'm excited about the opportunities ahead. The field is evolving rapidly, and there's never been a better time to be a data scientist.</p>
       
-      <p>...positions me well to contribute meaningfully to the field and advance in my career.</p>
-      
-      <h2>Final Thoughts</h2>
-      <p>The data science market boom is real, and it's creating incredible opportunities for those who invest in their skills. Whether you're just starting or have years of experience, there's never been a better time to be a data scientist.</p>
-      
-      <p>What's exciting to me is that this field is far from mature. New breakthroughs in AI, novel applications of ML, and evolving best practices mean there's always something new to discover. The key is maintaining curiosity, investing in continuous learning, and focusing on delivering real value.</p>
-      
-      <p>I'm looking forward to what the future holds and to being part of this exciting journey. Let's build the future of data science together!</p>
+      <p>I'm looking forward to diving deeper into advanced topics and sharing more insights as I continue learning!</p>
     `
   },
   {
