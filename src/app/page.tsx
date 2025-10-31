@@ -595,13 +595,13 @@ const Experience = () => {
                 </ul>
               </div>
               <div className="flex-shrink-0 flex items-center justify-center">
-                <div className="w-28 h-28 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
+                <div className="min-w-[130px] min-h-[130px] max-w-[150px] max-h-[150px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm">
                   <Image
                     src={exp.logo}
                     alt={`${exp.company} Logo`}
-                    width={112}
-                    height={112}
-                    className="object-contain w-full h-full"
+                    width={130}
+                    height={130}
+                    className="object-contain w-auto h-auto max-w-full max-h-full"
                     onError={(e) => {
                       // Fallback to external URL if local image doesn't exist
                       const target = e.target as HTMLImageElement;
@@ -751,13 +751,13 @@ const Education = () => (
               <p className="text-gray-600">Advanced studies in high-end data science, machine learning, cloud computing, database systems, and information systems management. Specialized coursework in data analytics, business intelligence, and enterprise architecture.</p>
             </div>
             <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="w-24 h-24 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
+              <div className="min-w-[120px] min-h-[120px] max-w-[140px] max-h-[140px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm">
                 <Image
                   src="/logos/clark-university-logo.png"
                   alt="Clark University Logo"
-                  width={96}
-                  height={96}
-                  className="object-contain w-full h-full"
+                  width={120}
+                  height={120}
+                  className="object-contain w-auto h-auto max-w-full max-h-full"
                   onError={(e) => {
                     // Fallback to external URL if local image doesn't exist
                     const target = e.target as HTMLImageElement;
@@ -782,13 +782,13 @@ const Education = () => (
               <p className="text-gray-600">Strong foundation in critical thinking and basic aptitude skills with good understanding of analytical problem-solving methodologies.</p>
             </div>
             <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="w-24 h-24 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
+              <div className="min-w-[120px] min-h-[120px] max-w-[140px] max-h-[140px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm">
                 <Image
                   src="/logos/jntuk-logo.png"
                   alt="JNTUK Logo"
-                  width={96}
-                  height={96}
-                  className="object-contain w-full h-full"
+                  width={120}
+                  height={120}
+                  className="object-contain w-auto h-auto max-w-full max-h-full"
                   onError={(e) => {
                     // Fallback to external URL if local image doesn't exist
                     const target = e.target as HTMLImageElement;
