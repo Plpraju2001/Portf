@@ -698,26 +698,40 @@ const Blog = () => {
     <section id="blog" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Data Science Blog</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <motion.h2 
+            className="text-4xl font-bold text-gray-800 mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            Data Science Blog
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
             Insights, tutorials, and deep dives into advanced data science concepts, 
             causal inference, and marketing analytics.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <motion.div
             className="bg-white rounded-lg shadow-md p-8 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
           >
             <div className="mb-6">
               <svg className="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
