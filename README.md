@@ -89,3 +89,7 @@ npm start
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Last updated:** October 30, 2025
