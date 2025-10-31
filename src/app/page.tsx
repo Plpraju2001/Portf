@@ -522,6 +522,8 @@ const Experience = () => {
       title: 'Data Scientist - Marketing Analytics',
       company: 'UnitedHealth Group',
       period: 'Jul 2024 - Present',
+      logo: '/logos/unitedhealth-group-logo.png',
+      logoFallback: 'https://logos-world.net/wp-content/uploads/2020/11/UnitedHealth-Group-Logo.png',
       achievements: [
         'Drove **22% engagement lift** and **15% churn reduction** through advanced causal inference analysis across multi-channel marketing campaigns',
         'Engineered **scalable SQL/Python pipelines** processing **terabyte-scale** datasets, cutting data prep time by **45%**',
@@ -535,6 +537,8 @@ const Experience = () => {
       title: 'Marketing Data Analyst',
       company: 'Brane Enterprises',
       period: 'Jan 2021 - Dec 2022',
+      logo: '/logos/brane-enterprises-logo.png',
+      logoFallback: 'https://via.placeholder.com/150?text=Brane+Enterprises',
       achievements: [
         'Analyzed **50K+ records** across customer lifecycle and campaigns, uncovering targeting insights that improved precision marketing',
         'Developed **automated ETL pipelines** (SQL, Python) reducing manual reporting errors by **35%** and enabling faster campaign iterations',
@@ -566,28 +570,46 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.title}
-              className="bg-white rounded-lg shadow-md p-6 mb-6"
+              className="bg-white rounded-lg shadow-md p-6 mb-6 flex items-start gap-6"
               initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
-                  <p className="text-blue-600 font-medium">{exp.company}</p>
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
+                    <p className="text-blue-600 font-medium">{exp.company}</p>
+                  </div>
+                  <span className="text-gray-500 text-sm mt-1 md:mt-0">{exp.period}</span>
                 </div>
-                <span className="text-gray-500 text-sm mt-1 md:mt-0">{exp.period}</span>
+                <ul className="space-y-2">
+                  {exp.achievements.map((achievement, idx) => (
+                    <li key={idx} className="text-gray-600 leading-relaxed flex items-start">
+                      <span className="text-blue-600 font-bold mr-2">•</span>
+                      <span dangerouslySetInnerHTML={{ __html: achievement.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-800 font-semibold">$1</strong>') }} />
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2">
-                {exp.achievements.map((achievement, idx) => (
-                  <li key={idx} className="text-gray-600 leading-relaxed flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span dangerouslySetInnerHTML={{ __html: achievement.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-800 font-semibold">$1</strong>') }} />
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-shrink-0 flex items-center justify-center">
+                <div className="w-28 h-28 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
+                  <Image
+                    src={exp.logo}
+                    alt={`${exp.company} Logo`}
+                    width={112}
+                    height={112}
+                    className="object-contain w-full h-full"
+                    onError={(e) => {
+                      // Fallback to external URL if local image doesn't exist
+                      const target = e.target as HTMLImageElement;
+                      target.src = exp.logoFallback;
+                    }}
+                  />
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -716,29 +738,65 @@ const Education = () => (
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <motion.div
-            className="bg-white rounded-lg shadow-md p-6"
+            className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
           >
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Master of Science in Information Technology</h3>
-            <p className="text-blue-600 font-medium mb-2">Clark University, Worcester, MA</p>
-            <p className="text-gray-600">Advanced studies in high-end data science, machine learning, cloud computing, database systems, and information systems management. Specialized coursework in data analytics, business intelligence, and enterprise architecture.</p>
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Master of Science in Information Technology</h3>
+              <p className="text-blue-600 font-medium mb-2">Clark University, Worcester, MA</p>
+              <p className="text-gray-600">Advanced studies in high-end data science, machine learning, cloud computing, database systems, and information systems management. Specialized coursework in data analytics, business intelligence, and enterprise architecture.</p>
+            </div>
+            <div className="flex-shrink-0 flex items-center justify-center">
+              <div className="w-24 h-24 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
+                <Image
+                  src="/logos/clark-university-logo.png"
+                  alt="Clark University Logo"
+                  width={96}
+                  height={96}
+                  className="object-contain w-full h-full"
+                  onError={(e) => {
+                    // Fallback to external URL if local image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Clark_University_seal.svg/200px-Clark_University_seal.svg.png';
+                  }}
+                />
+              </div>
+            </div>
           </motion.div>
           
           <motion.div
-            className="bg-white rounded-lg shadow-md p-6"
+            className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
           >
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Bachelor of Technology in Mechanical Engineering</h3>
-            <p className="text-blue-600 font-medium mb-2">JNTUK, Visakhapatnam, Andhra Pradesh</p>
-            <p className="text-gray-600">Strong foundation in critical thinking and basic aptitude skills with good understanding of analytical problem-solving methodologies.</p>
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Bachelor of Technology in Mechanical Engineering</h3>
+              <p className="text-blue-600 font-medium mb-2">JNTUK, Visakhapatnam, Andhra Pradesh</p>
+              <p className="text-gray-600">Strong foundation in critical thinking and basic aptitude skills with good understanding of analytical problem-solving methodologies.</p>
+            </div>
+            <div className="flex-shrink-0 flex items-center justify-center">
+              <div className="w-24 h-24 bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
+                <Image
+                  src="/logos/jntuk-logo.png"
+                  alt="JNTUK Logo"
+                  width={96}
+                  height={96}
+                  className="object-contain w-full h-full"
+                  onError={(e) => {
+                    // Fallback to external URL if local image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://jntuk.edu.in/wp-content/uploads/2019/05/JNTUK_logo.png';
+                  }}
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
 
