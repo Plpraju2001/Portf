@@ -519,16 +519,16 @@ const Projects = () => {
 const Experience = () => {
   const experiences = [
     {
-      title: 'Data Scientist – Marketing Analytics',
-      company: 'UnitedHealth Group, MA',
-      period: 'Aug 2023 - Present',
-      description: 'Conducted descriptive and causal inference analysis for multi-channel campaigns, improving engagement by 22% and reducing churn by 15%. Built SQL/Python pipelines for large-scale (terabyte+) marketing data ingestion, reducing preparation time by 45%. Delivered campaign performance dashboards in Tableau and Keynote, enabling real-time tracking of CTR, conversion, and retention metrics.'
+      title: 'Data Scientist - Marketing Analytics',
+      company: 'UnitedHealth Group',
+      period: 'Jul 2024 - Present',
+      description: 'Conducted descriptive and causal inference analysis for multi-channel campaigns, improving engagement by 22% and reducing churn by 15%. Built SQL/Python pipelines for large-scale (terabyte+) marketing data ingestion and transformation, reducing preparation time by 45%. Designed regression and time-series models to evaluate ROI across email, web, and in-app campaigns. Delivered campaign performance dashboards in Tableau and Keynote, enabling leaders to track CTR, conversion, and retention in real time. Partnered with marketing managers to design and analyze A/B experiments, applying significance testing to guide strategy. Developed causal models to measure incremental campaign lift, directly informing budget reallocations to higher-performing channels. Collaborated with scientists to prototype pipelines for large-scale marketing data ingestion and campaign filtering workflows.'
     },
     {
       title: 'Marketing Data Analyst',
-      company: 'Brane Enterprises, India',
-      period: 'May 2021 - Dec 2022',
-      description: 'Collected, cleaned, and analyzed 50K+ customer and campaign records, uncovering insights that improved targeting strategies. Built SQL queries and Python ETL scripts for campaign pipelines, reducing reporting errors and manual effort by 35%. Developed Tableau and Power BI dashboards for campaign KPIs, contributing to a 22% lift in campaign ROI.'
+      company: 'Brane Enterprises',
+      period: 'Jan 2021 - Dec 2022',
+      description: 'Collected, cleaned, and analyzed 50K+ customer and campaign records, uncovering insights that improved targeting strategies. Built SQL queries and Python ETL scripts for campaign pipelines, reducing reporting errors and manual effort by 35%. Conducted exploratory data analysis and econometric modeling to measure channel performance, customer retention, and attribution across campaigns. Developed Tableau and Power BI dashboards for campaign KPIs (conversion, churn, ROI), delivering actionable insights to stakeholders. Partnered with product managers to define success metrics for customer acquisition and funnel optimization experiments. Delivered recurring insights reports, contributing to a 22% lift in campaign ROI. Scoped and validated datasets for machine learning workflows supporting customer acquisition analytics.'
     }
   ];
 
