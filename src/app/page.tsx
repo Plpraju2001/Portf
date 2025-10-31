@@ -307,21 +307,8 @@ const Projects = () => {
   ];
 
   useEffect(() => {
-    // Since repository is private, we'll show static projects instead
-    const staticProjects: Repository[] = [
-      {
-        id: 1,
-        name: 'raju-portfolio',
-        description: 'Professional portfolio website showcasing data science projects and skills',
-        language: 'TypeScript',
-        html_url: 'https://github.com/Plpraju2001/raju-portfolio',
-        homepage: 'https://lakshmipathirajup.com',
-        private: true,
-        updated_at: new Date().toISOString(),
-        stargazers_count: 0,
-        forks_count: 0
-      }
-    ];
+    // No static projects to show
+    const staticProjects: Repository[] = [];
     setRepositories(staticProjects);
     setLoading(false);
   }, []);
@@ -370,95 +357,83 @@ const Projects = () => {
         </motion.div>
 
         {/* GitHub Projects Section */}
-        <div className="mb-16">
-          <motion.h3 
-            className="text-2xl font-bold text-gray-800 mb-8 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Completed Projects (GitHub)
-          </motion.h3>
-          
-          {loading ? (
-            <div className="flex justify-center items-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-              <span className="ml-3 text-gray-600">Loading projects...</span>
-            </div>
-          ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {repositories.map((repo, index) => (
-                <motion.div
-                  key={repo.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <h4 className="text-xl font-semibold text-gray-800">{repo.name}</h4>
-                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                        {repo.private ? 'Private' : 'Public'}
-                      </span>
-                    </div>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {repo.description || 'No description available'}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {repo.language && (
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${getLanguageColor(repo.language)}`}>
-                          {repo.language}
+        {repositories.length > 0 && (
+          <div className="mb-16">
+            <motion.h3 
+              className="text-2xl font-bold text-gray-800 mb-8 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Completed Projects (GitHub)
+            </motion.h3>
+            
+            {loading ? (
+              <div className="flex justify-center items-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <span className="ml-3 text-gray-600">Loading projects...</span>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {repositories.map((repo, index) => (
+                  <motion.div
+                    key={repo.id}
+                    className="bg-white rounded-lg shadow-lg overflow-hidden"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="p-6">
+                      <div className="flex justify-between items-start mb-3">
+                        <h4 className="text-xl font-semibold text-gray-800">{repo.name}</h4>
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                          {repo.private ? 'Private' : 'Public'}
                         </span>
-                      )}
-                      <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                        ⭐ {repo.stargazers_count}
-                      </span>
-                      <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                        🍴 {repo.forks_count}
-                      </span>
-                    </div>
-                    
-                    <div className="text-sm text-gray-500 mb-4">
-                      Updated: {formatDate(repo.updated_at)}
-                    </div>
-                    
-                    <div className="flex gap-3">
-                      <motion.a
-                        href={`/projects/${repo.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
-                        whileHover={{ x: 5 }}
-                      >
-                        View Project
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </motion.a>
-                      {repo.homepage && (
+                      </div>
+                      <p className="text-gray-600 mb-4 leading-relaxed">
+                        {repo.description || 'No description available'}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {repo.language && (
+                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${getLanguageColor(repo.language)}`}>
+                            {repo.language}
+                          </span>
+                        )}
+                        <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                          ⭐ {repo.stargazers_count}
+                        </span>
+                        <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                          🍴 {repo.forks_count}
+                        </span>
+                      </div>
+                      
+                      <div className="text-sm text-gray-500 mb-4">
+                        Updated: {formatDate(repo.updated_at)}
+                      </div>
+                      
+                      <div className="flex gap-3">
                         <motion.a
-                          href={repo.homepage}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-green-600 hover:text-green-800 font-semibold"
+                          href={`/projects/${repo.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold"
                           whileHover={{ x: 5 }}
                         >
-                          Live Demo
+                          View Project
                           <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </motion.a>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          )}
-        </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Upcoming Projects Section */}
         <div>
