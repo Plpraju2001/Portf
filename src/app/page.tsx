@@ -137,30 +137,56 @@ const About = () => {
     <section id="about" className="py-20 bg-gray-50 relative">
     <div className="container mx-auto px-6">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, margin: "-100px" }}
         className="max-w-4xl mx-auto text-center"
       >
-          <h2 className="text-4xl font-bold text-gray-800 mb-8 tracking-tight">About Me</h2>
+          <motion.h2 
+            className="text-4xl font-bold text-gray-800 mb-8 tracking-tight"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            About Me
+          </motion.h2>
           
 
-        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+        <motion.p 
+          className="text-lg text-gray-600 mb-8 leading-relaxed"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
           My journey into data science began with a simple question: &quot;What if we could predict the future?&quot; This curiosity led me down a path where I discovered that data isn&apos;t just numbers—it&apos;s stories waiting to be told. 
           I&apos;ve spent the last few years transforming complex datasets into actionable insights that drive real business impact.
-        </p>
-        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+        </motion.p>
+        <motion.p 
+          className="text-lg text-gray-600 mb-8 leading-relaxed"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
           What excites me most is the challenge of finding causality in a world full of correlation. I love diving deep into sophisticated statistical methods, 
           but I&apos;m equally passionate about making complex concepts accessible to everyone. As a lifelong continuous learner, I&apos;m always exploring new methodologies 
           and staying current with the latest developments in data science. Whether I&apos;m building advanced causal inference models or teaching others 
           through my blog, I believe knowledge should be shared and understood.
-        </p>
-        <p className="text-lg text-gray-600 mb-12 leading-relaxed">
+        </motion.p>
+        <motion.p 
+          className="text-lg text-gray-600 mb-12 leading-relaxed"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
           My vision is to bridge the gap between cutting-edge data science research and practical business applications. I want to help organizations make better decisions 
           through data, while also contributing to the data science community by sharing what I learn along the way. The future of data science is collaborative, 
           and I&apos;m excited to be part of that evolution.
-        </p>
+        </motion.p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -171,10 +197,10 @@ const About = () => {
             <motion.div
               key={skill.title}
               className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl border border-gray-100 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 60, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-50px" }}
               whileHover={{ y: -8, scale: 1.02 }}
             >
               <h3 className="text-xl font-semibold text-gray-800 mb-3 tracking-tight">{skill.title}</h3>
@@ -193,11 +219,25 @@ const PersonalInterests = () => {
     <section id="interests" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8 tracking-tight">Personal Interests</h2>
+          <motion.h2 
+            className="text-4xl font-bold text-gray-800 mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            Personal Interests
+          </motion.h2>
           
-          <p className="text-lg text-gray-600 mb-12 leading-relaxed">
+          <motion.p 
+            className="text-lg text-gray-600 mb-12 leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
             When I&apos;m not diving deep into data science, here&apos;s what keeps me inspired and energized:
-          </p>
+          </motion.p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -233,14 +273,19 @@ const PersonalInterests = () => {
                 title: '🚀 Continuous Learning', 
                 desc: "I'm always exploring new technologies and methodologies. The data science field never stops evolving." 
               }
-            ].map((interest) => (
-              <div
+            ].map((interest, index) => (
+              <motion.div
                 key={interest.title}
                 className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-300"
+                initial={{ opacity: 0, y: 50, rotateY: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: false, margin: "-50px" }}
+                whileHover={{ y: -5, scale: 1.05, rotateY: 5 }}
               >
                 <h3 className="text-lg font-semibold text-gray-800 mb-3">{interest.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{interest.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -361,17 +406,31 @@ const Projects = () => {
     <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Data Science & Engineering Projects</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <motion.h2 
+            className="text-4xl font-bold text-gray-800 mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            Data Science & Engineering Projects
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
             A combination of completed GitHub projects and upcoming advanced data science initiatives 
             focusing on causal inference, high-end data engineering, and sophisticated analytics solutions.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* GitHub Projects Section */}
@@ -398,11 +457,11 @@ const Projects = () => {
                   <motion.div
                     key={repo.id}
                     className="bg-white rounded-lg shadow-lg overflow-hidden"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, y: 60, x: index % 2 === 0 ? -40 : 40 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0 }}
+                    transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
+                    viewport={{ once: false, margin: "-50px" }}
+                    whileHover={{ y: -8, scale: 1.02 }}
                   >
                     <div className="p-6">
                       <div className="flex justify-between items-start mb-3">
@@ -457,10 +516,10 @@ const Projects = () => {
         <div>
           <motion.h3 
             className="text-2xl font-bold text-gray-800 mb-8 text-center"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
           >
             Upcoming Data Science Projects
           </motion.h3>
@@ -470,11 +529,11 @@ const Projects = () => {
             <motion.div
               key={project.title}
               className="bg-white rounded-lg shadow-lg overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
+              initial={{ opacity: 0, y: 60, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.12, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-50px" }}
+              whileHover={{ y: -8, scale: 1.02 }}
             >
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
@@ -554,16 +613,30 @@ const Experience = () => {
     <section id="experience" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Experience</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <motion.h2 
+            className="text-4xl font-bold text-gray-800 mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            Experience
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
             My professional journey in data science and analytics.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
@@ -571,11 +644,11 @@ const Experience = () => {
             <motion.div
               key={exp.title}
               className="bg-white rounded-lg shadow-md p-6 mb-6 flex items-start gap-6"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80, y: 40 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-50px" }}
+              whileHover={{ scale: 1.02, y: -3 }}
             >
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -723,27 +796,41 @@ const Education = () => (
   <section id="education" className="py-20 bg-gray-50">
     <div className="container mx-auto px-6">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, margin: "-100px" }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Education & Certifications</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <motion.h2 
+          className="text-4xl font-bold text-gray-800 mb-4"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
+          Education & Certifications
+        </motion.h2>
+        <motion.p 
+          className="text-lg text-gray-600 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
           My academic background and professional certifications that drive my expertise.
-        </p>
+        </motion.p>
       </motion.div>
 
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <motion.div
             className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5 }}
+            initial={{ opacity: 0, y: 60, x: -60 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
+            whileHover={{ y: -5, x: 3 }}
           >
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Master of Science in Information Technology</h3>
@@ -770,11 +857,11 @@ const Education = () => (
           
           <motion.div
             className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5 }}
+            initial={{ opacity: 0, y: 60, x: 60 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
+            whileHover={{ y: -5, x: -3 }}
           >
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Bachelor of Technology in Mechanical Engineering</h3>
@@ -802,11 +889,11 @@ const Education = () => (
 
         <motion.div
           className="bg-white rounded-lg shadow-md p-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -5 }}
+          initial={{ opacity: 0, y: 60, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+          viewport={{ once: false, margin: "-50px" }}
+          whileHover={{ y: -5, scale: 1.02 }}
         >
           <h3 className="text-xl font-semibold text-gray-800 mb-4">Professional Certifications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -849,27 +936,41 @@ const Contact = () => (
   <section id="contact" className="py-20">
     <div className="container mx-auto px-6">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, margin: "-100px" }}
         className="text-center max-w-2xl mx-auto"
       >
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-        <p className="text-lg text-gray-600 mb-12">
+        <motion.h2 
+          className="text-4xl font-bold text-gray-800 mb-4"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
+          Get In Touch
+        </motion.h2>
+        <motion.p 
+          className="text-lg text-gray-600 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: false, margin: "-100px" }}
+        >
           I&apos;m always interested in new opportunities and collaborations. 
           Let&apos;s discuss how we can work together to solve complex data challenges and drive business growth.
-        </p>
+        </motion.p>
         
         {/* Contact Information in Smaller Boxes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
           <motion.div
             className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 text-white shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -3, scale: 1.02 }}
+            initial={{ opacity: 0, x: -60, y: 40 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
+            whileHover={{ y: -5, scale: 1.03, rotate: 1 }}
           >
             <div className="text-center">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -892,11 +993,11 @@ const Contact = () => (
 
           <motion.div
             className="bg-gradient-to-br from-green-600 to-teal-600 rounded-xl p-6 text-white shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -3, scale: 1.02 }}
+            initial={{ opacity: 0, x: 60, y: 40 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
+            whileHover={{ y: -5, scale: 1.03, rotate: -1 }}
           >
             <div className="text-center">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
