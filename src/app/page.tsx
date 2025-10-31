@@ -307,9 +307,8 @@ const Projects = () => {
   ];
 
   useEffect(() => {
-    // No static projects to show
-    const staticProjects: Repository[] = [];
-    setRepositories(staticProjects);
+    // No completed projects to show
+    setRepositories([]);
     setLoading(false);
   }, []);
 
