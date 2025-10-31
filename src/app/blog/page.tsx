@@ -8,7 +8,7 @@ const blogPosts = [
     id: 1,
     title: 'Starting My Data Science Bootcamp',
     excerpt: 'I\'ve just started a bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning.',
-    date: 'October 30, 2025',
+    date: 'October 29, 2025',
     readTime: '2 min read',
     category: 'Learning Journey',
     content: `
@@ -33,7 +33,7 @@ const blogPosts = [
     id: 2,
     title: 'Completed Data Science Basics',
     excerpt: 'I\'ve finished the basics of data science, machine learning, and deep learning. The field is booming with opportunities.',
-    date: 'November 5, 2025',
+    date: 'October 30, 2025',
     readTime: '3 min read',
     category: 'Career Insights',
     content: `
@@ -130,10 +130,10 @@ const blogPosts = [
     `
   },
   {
-    id: 2,
+    id: 4,
     title: 'Data Science Tips & Tricks: Pro Techniques from the Field',
     excerpt: 'Essential tips and tricks I\'ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results.',
-    date: 'October 20, 2025',
+    date: 'October 28, 2025',
     readTime: '8 min read',
     category: 'Tips & Tricks',
     content: `
