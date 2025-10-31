@@ -16,12 +16,16 @@ export async function generateStaticParams() {
 
   // Try to fetch GitHub repositories for static generation
   try {
-    const response = await fetch('https://api.github.com/users/Plpraju2001/repos?sort=updated&per_page=6', {
+    const response = await fetch('https://api.github.com/users/Plpraju2001/repos?sort=updated&per_page=100', {
       next: { revalidate: 3600 }
     });
     if (response.ok) {
       const repos = await response.json();
-      const githubProjects = repos.map((repo: { name: string }) => ({
+      // Filter out unwanted repositories
+      const filteredRepos = repos.filter((repo: { name: string }) => 
+        !['raju-portfolio', 'cursor', 'portf'].includes(repo.name.toLowerCase())
+      );
+      const githubProjects = filteredRepos.map((repo: { name: string }) => ({
         slug: repo.name.toLowerCase().replace(/[^a-z0-9]/g, '-')
       }));
       return [...predefinedProjects, ...githubProjects];

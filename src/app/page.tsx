@@ -307,9 +307,28 @@ const Projects = () => {
   ];
 
   useEffect(() => {
-    // No completed projects to show
-    setRepositories([]);
-    setLoading(false);
+    const fetchRepos = async () => {
+      try {
+        const response = await fetch('https://api.github.com/users/Plpraju2001/repos?sort=updated&per_page=100');
+        if (response.ok) {
+          const repos = await response.json();
+          // Filter out unwanted repositories
+          const filteredRepos = repos.filter((repo: Repository) => 
+            !['raju-portfolio', 'cursor', 'portf'].includes(repo.name.toLowerCase())
+          );
+          setRepositories(filteredRepos);
+        } else {
+          setRepositories([]);
+        }
+      } catch (error) {
+        console.error('Error fetching repositories:', error);
+        setRepositories([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchRepos();
   }, []);
 
   const getLanguageColor = (language: string) => {
