@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { getLatestBlogPost } from './blog/blogData';
 
 // Simple background component (no animations)
 // Background removed - clean static design only
@@ -581,108 +582,106 @@ const Experience = () => {
   );
 };
 
-const Blog = () => (
-  <section id="blog" className="py-20 bg-gray-50">
-    <div className="container mx-auto px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-center mb-16"
-      >
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Data Science Blog</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Insights, tutorials, and deep dives into advanced data science concepts, 
-          causal inference, and marketing analytics.
-        </p>
-      </motion.div>
-
-      <div className="max-w-4xl mx-auto">
+const Blog = () => {
+  const latestPost = getLatestBlogPost();
+  
+  return (
+    <section id="blog" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="bg-white rounded-lg shadow-md p-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <div className="mb-6">
-            <svg className="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-            </svg>
-          </div>
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Coming Soon: Advanced Data Science Content</h3>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            I&apos;m currently working on comprehensive blog posts covering advanced topics in causal inference, 
-            marketing mix modeling, and sophisticated analytics techniques. Stay tuned for deep dives into 
-            the methodologies that drive real business impact.
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Data Science Blog</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Insights, tutorials, and deep dives into advanced data science concepts, 
+            causal inference, and marketing analytics.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Causal Inference</span>
-            <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Marketing Analytics</span>
-            <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Econometrics</span>
-            <span className="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">A/B Testing</span>
-          </div>
+        </motion.div>
+
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl p-6 text-white shadow-2xl max-w-md mx-auto"
+            className="bg-white rounded-lg shadow-md p-8 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            whileHover={{ y: -5, scale: 1.02 }}
           >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">Latest Deep Dive</h3>
-                  <p className="text-sm text-white/80">Published Yesterday</p>
-                </div>
-              </div>
-              <div className="bg-white/20 px-2 py-1 rounded-full text-xs font-semibold">
-                NEW
-              </div>
+            <div className="mb-6">
+              <svg className="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
             </div>
-            
-            <h4 className="text-lg font-bold mb-2">&quot;Data Science Tips & Tricks: Pro Techniques from the Field&quot;</h4>
-            <p className="text-white/90 mb-4 text-sm leading-relaxed">
-              Essential tips and tricks I&apos;ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results...
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Coming Soon: Advanced Data Science Content</h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              I&apos;m currently working on comprehensive blog posts covering advanced topics in causal inference, 
+              marketing mix modeling, and sophisticated analytics techniques. Stay tuned for deep dives into 
+              the methodologies that drive real business impact.
             </p>
-            
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3 text-xs text-white/80">
-                <span className="flex items-center">
-                  <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
-                  8 min read
-                </span>
-                <span className="flex items-center">
-                  <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                  32 likes
-                </span>
-          </div>
-              <motion.a
-                href="/blog"
-                className="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Read Deep Dive
-              </motion.a>
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Causal Inference</span>
+              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Marketing Analytics</span>
+              <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Econometrics</span>
+              <span className="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">A/B Testing</span>
             </div>
+            <motion.div
+              className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl p-6 text-white shadow-2xl max-w-md mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Latest Deep Dive</h3>
+                    <p className="text-sm text-white/80">{latestPost.date}</p>
+                  </div>
+                </div>
+                <div className="bg-white/20 px-2 py-1 rounded-full text-xs font-semibold">
+                  NEW
+                </div>
+              </div>
+              
+              <h4 className="text-lg font-bold mb-2">&quot;{latestPost.title}&quot;</h4>
+              <p className="text-white/90 mb-4 text-sm leading-relaxed">
+                {latestPost.excerpt}
+              </p>
+              
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3 text-xs text-white/80">
+                  <span className="flex items-center">
+                    <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    {latestPost.readTime}
+                  </span>
+                </div>
+                <motion.a
+                  href="/blog"
+                  className="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-sm"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Read Deep Dive
+                </motion.a>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Education = () => (
   <section id="education" className="py-20 bg-gray-50">
