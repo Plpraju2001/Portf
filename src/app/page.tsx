@@ -522,13 +522,27 @@ const Experience = () => {
       title: 'Data Scientist - Marketing Analytics',
       company: 'UnitedHealth Group',
       period: 'Jul 2024 - Present',
-      description: 'Conducted descriptive and causal inference analysis for multi-channel campaigns, improving engagement by 22% and reducing churn by 15%. Built SQL/Python pipelines for large-scale (terabyte+) marketing data ingestion and transformation, reducing preparation time by 45%. Designed regression and time-series models to evaluate ROI across email, web, and in-app campaigns. Delivered campaign performance dashboards in Tableau and Keynote, enabling leaders to track CTR, conversion, and retention in real time. Partnered with marketing managers to design and analyze A/B experiments, applying significance testing to guide strategy. Developed causal models to measure incremental campaign lift, directly informing budget reallocations to higher-performing channels. Collaborated with scientists to prototype pipelines for large-scale marketing data ingestion and campaign filtering workflows.'
+      achievements: [
+        'Drove **22% engagement lift** and **15% churn reduction** through advanced causal inference analysis across multi-channel marketing campaigns',
+        'Engineered **scalable SQL/Python pipelines** processing **terabyte-scale** datasets, cutting data prep time by **45%**',
+        'Built **production-grade ML models** (regression, time-series) to quantify cross-channel ROI, informing multi-million dollar budget allocations',
+        'Delivered **executive dashboards** in Tableau translating complex analytics into actionable insights for C-suite decision making',
+        'Led **statistically rigorous A/B experiments** with marketing teams, applying hypothesis testing to validate campaign strategies',
+        'Advanced **causal modeling** capabilities to measure true incremental impact, driving channel optimization and budget reallocation'
+      ]
     },
     {
       title: 'Marketing Data Analyst',
       company: 'Brane Enterprises',
       period: 'Jan 2021 - Dec 2022',
-      description: 'Collected, cleaned, and analyzed 50K+ customer and campaign records, uncovering insights that improved targeting strategies. Built SQL queries and Python ETL scripts for campaign pipelines, reducing reporting errors and manual effort by 35%. Conducted exploratory data analysis and econometric modeling to measure channel performance, customer retention, and attribution across campaigns. Developed Tableau and Power BI dashboards for campaign KPIs (conversion, churn, ROI), delivering actionable insights to stakeholders. Partnered with product managers to define success metrics for customer acquisition and funnel optimization experiments. Delivered recurring insights reports, contributing to a 22% lift in campaign ROI. Scoped and validated datasets for machine learning workflows supporting customer acquisition analytics.'
+      achievements: [
+        'Analyzed **50K+ records** across customer lifecycle and campaigns, uncovering targeting insights that improved precision marketing',
+        'Developed **automated ETL pipelines** (SQL, Python) reducing manual reporting errors by **35%** and enabling faster campaign iterations',
+        'Applied **econometric techniques** to measure attribution and retention, building predictive models for customer lifetime value',
+        'Created **interactive BI dashboards** (Tableau, Power BI) tracking campaign KPIs in real-time for executive monitoring',
+        'Partnered with product teams to design **experimental frameworks** for acquisition funnel optimization and conversion testing',
+        'Delivered data-driven insights that contributed to **22% ROI improvement** across marketing channel mix'
+      ]
     }
   ];
 
@@ -559,14 +573,21 @@ const Experience = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
                   <p className="text-blue-600 font-medium">{exp.company}</p>
                 </div>
                 <span className="text-gray-500 text-sm mt-1 md:mt-0">{exp.period}</span>
               </div>
-              <p className="text-gray-600 leading-relaxed">{exp.description}</p>
+              <ul className="space-y-2">
+                {exp.achievements.map((achievement, idx) => (
+                  <li key={idx} className="text-gray-600 leading-relaxed flex items-start">
+                    <span className="text-blue-600 font-bold mr-2">•</span>
+                    <span dangerouslySetInnerHTML={{ __html: achievement.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-800 font-semibold">$1</strong>') }} />
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
