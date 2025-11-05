@@ -1877,7 +1877,8 @@ const FixedProfilePicture = () => {
             alt="Lakshmipathiraju Pericharla"
             width={128}
             height={128}
-            className="w-32 h-32 rounded-full object-cover border-4 border-blue-500"
+            className="w-32 h-32 rounded-full object-cover object-[center_top] border-4 border-blue-500"
+            style={{ objectPosition: 'center 25%' }}
             onError={() => setImageError(true)}
             loading="eager"
           />
