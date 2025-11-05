@@ -848,6 +848,105 @@ interface Repository {
   private: boolean;
 }
 
+const ProjectCard = ({ repo, index, getLanguageColor, formatDate }: { repo: Repository; index: number; getLanguageColor: (lang: string) => string; formatDate: (date: string) => string }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      key={repo.id}
+      className="bg-white rounded-xl shadow-lg overflow-hidden relative group cursor-pointer transform-3d"
+      initial={{ opacity: 0, y: 60, rotateX: 20 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ 
+        duration: 0.8, 
+        delay: index * 0.08,
+        type: "spring",
+        stiffness: 100,
+        damping: 20
+      }}
+      viewport={{ once: false, margin: "-50px" }}
+      whileHover={{ y: -10, scale: 1.03, rotateX: 5, rotateY: 2 }}
+      whileTap={{ scale: 0.98 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Glowing border on hover */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 0.1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+      
+      {/* Animated gradient overlay */}
+      <motion.div
+        className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/50 to-purple-100/50 rounded-bl-full pointer-events-none"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: index * 0.3,
+        }}
+      />
+      
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-3">
+          <h4 className="text-xl font-semibold text-gray-800">{repo.name}</h4>
+          <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+            {repo.private ? 'Private' : 'Public'}
+          </span>
+        </div>
+        <p className="text-gray-600 mb-4 leading-relaxed">
+          {repo.description || 'No description available'}
+        </p>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          {repo.language && (
+            <span className={`px-3 py-1 rounded-full text-sm font-medium ${getLanguageColor(repo.language)}`}>
+              {repo.language}
+            </span>
+          )}
+          <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+            ⭐ {repo.stargazers_count}
+          </span>
+          <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+            🍴 {repo.forks_count}
+          </span>
+        </div>
+        
+        <div className="text-sm text-gray-500 mb-4">
+          Updated: {formatDate(repo.updated_at)}
+        </div>
+        
+        <div className="flex gap-3 relative z-10">
+          <motion.a
+            href={`/projects/${repo.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold relative"
+            whileHover={{ x: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Project
+            <motion.svg 
+              className="w-4 h-4 ml-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </motion.svg>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Projects = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
@@ -1038,96 +1137,13 @@ const Projects = () => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {repositories.map((repo, index) => (
-                  <motion.div
+                  <ProjectCard 
                     key={repo.id}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden relative group cursor-pointer transform-3d"
-                    initial={{ opacity: 0, y: 60, rotateX: 20 }}
-                    whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: index * 0.08,
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 20
-                    }}
-                    viewport={{ once: false, margin: "-50px" }}
-                    whileHover={{ y: -10, scale: 1.03, rotateX: 5, rotateY: 2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {/* Glowing border on hover */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 rounded-xl"
-                      initial={false}
-                      whileHover={{ opacity: 0.1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    
-                    {/* Animated gradient overlay */}
-                    <motion.div
-                      className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/50 to-purple-100/50 rounded-bl-full"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.3,
-                      }}
-                    />
-                    
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-semibold text-gray-800">{repo.name}</h4>
-                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                          {repo.private ? 'Private' : 'Public'}
-                        </span>
-                      </div>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {repo.description || 'No description available'}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {repo.language && (
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${getLanguageColor(repo.language)}`}>
-                            {repo.language}
-                          </span>
-                        )}
-                        <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                          ⭐ {repo.stargazers_count}
-                        </span>
-                        <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                          🍴 {repo.forks_count}
-                        </span>
-                      </div>
-                      
-                      <div className="text-sm text-gray-500 mb-4">
-                        Updated: {formatDate(repo.updated_at)}
-                      </div>
-                      
-                      <div className="flex gap-3 relative z-10">
-                        <motion.a
-                          href={`/projects/${repo.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold relative"
-                          whileHover={{ x: 8 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          View Project
-                          <motion.svg 
-                            className="w-4 h-4 ml-2" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </motion.svg>
-                        </motion.a>
-                      </div>
-                    </div>
-                  </motion.div>
+                    repo={repo}
+                    index={index}
+                    getLanguageColor={getLanguageColor}
+                    formatDate={formatDate}
+                  />
                 ))}
               </div>
             )}
@@ -1170,7 +1186,7 @@ const Projects = () => {
             >
               {/* Pulse animation overlay */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-orange-200/30 to-yellow-200/30"
+                className="absolute inset-0 bg-gradient-to-br from-orange-200/30 to-yellow-200/30 pointer-events-none"
                 animate={{
                   opacity: [0.3, 0.6, 0.3],
                 }}
@@ -1184,7 +1200,7 @@ const Projects = () => {
               
               {/* Shimmer effect */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none"
                 initial={{ x: "-100%" }}
                 animate={{ x: "200%" }}
                 transition={{
