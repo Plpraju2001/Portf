@@ -308,7 +308,7 @@ const Hero = () => {
             Specializing in campaign measurement, causal inference, econometrics, and ROI-driven optimization with proven results in campaign performance and retention.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
             initial={{ opacity: 0, y: 50, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ 
@@ -401,6 +401,39 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
+              />
+            </motion.a>
+            <motion.a
+              href="/Lakshmipathiraju_resume.pdf"
+              download
+              className="relative bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg"
+              whileHover={{ scale: 1.15, y: -5, rotate: 1 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 10px 40px rgba(59, 130, 246, 0.3), 0 0 0 0 rgba(59, 130, 246, 0.4)",
+                  "0 20px 60px rgba(59, 130, 246, 0.5), 0 0 0 4px rgba(59, 130, 246, 0)",
+                ],
+              }}
+              transition={{
+                boxShadow: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+              }}
+            >
+              <motion.span
+                className="relative z-10"
+                initial={{ color: "#2563eb" }}
+                whileHover={{ color: "white" }}
+              >
+                Download Resume
+              </motion.span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
               />
             </motion.a>
           </motion.div>
@@ -1778,6 +1811,15 @@ const Contact = () => (
         {/* Additional Links */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <motion.a
+            href="/Lakshmipathiraju_resume.pdf"
+            download
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Download Resume
+          </motion.a>
+          <motion.a
             href="https://www.linkedin.com/in/lakshmipathirajup"
             target="_blank"
             rel="noopener noreferrer"
@@ -1862,7 +1904,15 @@ const FixedProfilePicture = () => {
         <div className="mt-3 text-center">
           <h3 className="text-sm font-semibold text-gray-800 tracking-tight">Raju P</h3>
         </div>
-        
+        <motion.a
+          href="/Lakshmipathiraju_resume.pdf"
+          download
+          className="mt-3 flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Download Resume
+        </motion.a>
         {/* Navigation Menu */}
         <div className="mt-4 space-y-2">
           {['About', 'Interests', 'Projects', 'Experience', 'Blog', 'Contact'].map((item) => (
