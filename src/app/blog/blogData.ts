@@ -3,7 +3,7 @@ export const blogPosts = [
     id: 1,
     title: 'Completed Python Data Structures and Comprehensions',
     excerpt: 'Just finished mastering Python data structures and comprehensions with multiple practice assignments. Sharing my journey and key insights from working with lists, dictionaries, sets, and powerful comprehension techniques.',
-    date: 'November 1, 2025',
+    date: 'October 31, 2025',
     readTime: '3 min read',
     category: 'Learning Journey',
   },
