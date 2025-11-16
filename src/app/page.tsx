@@ -1811,15 +1811,6 @@ const Contact = () => (
         {/* Additional Links */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <motion.a
-            href="/Lakshmipathiraju_resume.pdf"
-            download
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Download Resume
-          </motion.a>
-          <motion.a
             href="https://www.linkedin.com/in/lakshmipathirajup"
             target="_blank"
             rel="noopener noreferrer"
@@ -1904,15 +1895,6 @@ const FixedProfilePicture = () => {
         <div className="mt-3 text-center">
           <h3 className="text-sm font-semibold text-gray-800 tracking-tight">Raju P</h3>
         </div>
-        <motion.a
-          href="/Lakshmipathiraju_resume.pdf"
-          download
-          className="mt-3 flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Download Resume
-        </motion.a>
         {/* Navigation Menu */}
         <div className="mt-4 space-y-2">
           {['About', 'Interests', 'Projects', 'Experience', 'Blog', 'Contact'].map((item) => (

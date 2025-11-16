@@ -6,6 +6,77 @@ import Link from 'next/link';
 const blogPosts = [
   {
     id: 1,
+    title: 'Completed Python Data Structures and Comprehensions',
+    excerpt: 'Just finished mastering Python data structures and comprehensions with multiple practice assignments. Sharing my journey and key insights from working with lists, dictionaries, sets, and powerful comprehension techniques.',
+    date: 'November 1, 2025',
+    readTime: '3 min read',
+    category: 'Learning Journey',
+    content: `
+      <h2>Mastering Python Fundamentals</h2>
+      <p>I've just completed an intensive deep dive into Python data structures and comprehensions, working through multiple practice assignments that have significantly strengthened my programming foundation. This journey has been incredibly rewarding, and I'm excited to share what I've learned.</p>
+      
+      <h2>What I Covered</h2>
+      <p>Over the past few days, I've thoroughly explored:</p>
+      <ul>
+        <li><strong>Lists:</strong> Dynamic arrays, slicing, list methods, and nested lists</li>
+        <li><strong>Dictionaries:</strong> Key-value pairs, dictionary comprehensions, and advanced operations</li>
+        <li><strong>Sets:</strong> Unique collections, set operations, and set comprehensions</li>
+        <li><strong>Tuples:</strong> Immutable sequences and their practical applications</li>
+        <li><strong>Comprehensions:</strong> List, dictionary, and set comprehensions for elegant data manipulation</li>
+      </ul>
+      
+      <h2>Practice Through Multiple Assignments</h2>
+      <p>What made this learning experience particularly effective was working through multiple assignments that progressively increased in complexity. Each assignment built upon the previous one, reinforcing concepts through hands-on practice.</p>
+      
+      <h3>Assignment Highlights</h3>
+      <ul>
+        <li><strong>Data Manipulation:</strong> Transforming and filtering datasets using comprehensions</li>
+        <li><strong>Nested Structures:</strong> Working with complex nested lists and dictionaries</li>
+        <li><strong>Multiple Assignment:</strong> Mastering tuple unpacking and multiple variable assignments</li>
+        <li><strong>Real-world Scenarios:</strong> Solving practical problems that mirror actual data science tasks</li>
+      </ul>
+      
+      <h2>Key Insights</h2>
+      <h3>1. Comprehensions Are Powerful</h3>
+      <p>Python comprehensions are not just syntactic sugar—they're incredibly efficient and readable. I've learned to write more Pythonic code that's both faster and easier to understand.</p>
+      <pre><code># Example: Filtering and transforming data
+squared_evens = [x**2 for x in range(10) if x % 2 == 0]
+student_grades = {name: score*1.1 for name, score in grades.items() if score >= 80}</code></pre>
+      
+      <h3>2. Multiple Assignment is Game-Changing</h3>
+      <p>Multiple assignment (tuple unpacking) has become one of my favorite Python features. It makes code cleaner and more intuitive, especially when working with data structures.</p>
+      <pre><code># Swapping variables elegantly
+a, b = b, a
+
+# Unpacking nested structures
+name, (age, city) = person_data
+
+# Iterating with multiple values
+for key, value in dictionary.items():
+    process(key, value)</code></pre>
+      
+      <h3>3. Choosing the Right Data Structure Matters</h3>
+      <p>Understanding when to use lists vs. dictionaries vs. sets has improved my code's efficiency. Each structure has its strengths, and choosing appropriately can make a huge difference in performance.</p>
+      
+      <h2>Why This Matters for Data Science</h2>
+      <p>As a data scientist, these fundamentals are crucial. Data structures and comprehensions are the building blocks of:</p>
+      <ul>
+        <li>Data preprocessing and cleaning</li>
+        <li>Feature engineering</li>
+        <li>Data transformation pipelines</li>
+        <li>Efficient data manipulation</li>
+      </ul>
+      
+      <p>Having a strong grasp of these concepts makes working with pandas, NumPy, and other data science libraries much more intuitive.</p>
+      
+      <h2>Next Steps</h2>
+      <p>With these fundamentals solid, I'm ready to dive deeper into more advanced Python topics and continue building my data science toolkit. The practice assignments have given me confidence to tackle more complex problems.</p>
+      
+      <p>If you're learning Python for data science, I highly recommend focusing on data structures and comprehensions early. They form the foundation for everything else you'll do. Practice with multiple assignments—it's the best way to truly internalize these concepts!</p>
+    `
+  },
+  {
+    id: 2,
     title: 'Starting My Data Science Bootcamp',
     excerpt: 'I\'ve just started a bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning.',
     date: 'October 29, 2025',
@@ -30,7 +101,7 @@ const blogPosts = [
     `
   },
   {
-    id: 2,
+    id: 3,
     title: 'Completed Data Science Basics',
     excerpt: 'I\'ve finished the basics of data science, machine learning, and deep learning. The field is booming with opportunities.',
     date: 'October 30, 2025',
@@ -79,7 +150,7 @@ const blogPosts = [
     `
   },
   {
-    id: 3,
+    id: 4,
     title: 'Advanced Causal Inference: Beyond Traditional A/B Testing',
     excerpt: 'Deep dive into sophisticated causal inference methods I\'m exploring to solve complex business problems. Sharing insights from my latest research on uplift modeling and heterogeneous treatment effects.',
     date: 'October 25, 2025',
@@ -130,7 +201,7 @@ const blogPosts = [
     `
   },
   {
-    id: 4,
+    id: 5,
     title: 'Data Science Tips & Tricks: Pro Techniques from the Field',
     excerpt: 'Essential tips and tricks I\'ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results.',
     date: 'October 28, 2025',
