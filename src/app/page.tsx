@@ -1885,10 +1885,10 @@ const FixedProfilePicture = () => {
               height={128}
               className="w-full h-full object-cover"
               style={{ 
-                objectPosition: '70% 30%', 
+                objectPosition: 'center 30%', 
                 objectFit: 'cover',
-                transform: 'scale(1.3) translateX(-8%)',
-                transformOrigin: '60% center'
+                transform: 'scale(1.3)',
+                transformOrigin: 'center center'
               }}
               onError={() => setImageError(true)}
               loading="eager"
