@@ -1883,7 +1883,7 @@ const FixedProfilePicture = () => {
             width={128}
             height={128}
             className="w-32 h-32 rounded-full object-cover border-4 border-blue-500"
-            style={{ objectPosition: 'center 25%', objectFit: 'cover' }}
+            style={{ objectPosition: 'center center', objectFit: 'cover' }}
             onError={() => setImageError(true)}
             loading="eager"
           />
