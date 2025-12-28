@@ -1877,16 +1877,23 @@ const FixedProfilePicture = () => {
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
       <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-gray-200/50">
         {!imageError ? (
-          <img
-            src={profileImage}
-            alt="Lakshmipathiraju Pericharla"
-            width={128}
-            height={128}
-            className="w-32 h-32 rounded-full object-cover border-4 border-blue-500"
-            style={{ objectPosition: 'center center', objectFit: 'cover' }}
-            onError={() => setImageError(true)}
-            loading="eager"
-          />
+          <div className="w-32 h-32 rounded-full border-4 border-blue-500 overflow-hidden">
+            <img
+              src={profileImage}
+              alt="Lakshmipathiraju Pericharla"
+              width={128}
+              height={128}
+              className="w-full h-full object-cover"
+              style={{ 
+                objectPosition: 'center 30%', 
+                objectFit: 'cover',
+                transform: 'scale(1.3)',
+                transformOrigin: 'center center'
+              }}
+              onError={() => setImageError(true)}
+              loading="eager"
+            />
+          </div>
         ) : (
           <div className="w-32 h-32 rounded-full border-4 border-blue-500 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold">
             LP
