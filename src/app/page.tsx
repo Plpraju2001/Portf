@@ -1887,8 +1887,8 @@ const FixedProfilePicture = () => {
               style={{ 
                 objectPosition: '70% 30%', 
                 objectFit: 'cover',
-                transform: 'scale(1.3)',
-                transformOrigin: 'center center'
+                transform: 'scale(1.3) translateX(-8%)',
+                transformOrigin: '60% center'
               }}
               onError={() => setImageError(true)}
               loading="eager"
