@@ -1885,7 +1885,7 @@ const FixedProfilePicture = () => {
               height={128}
               className="w-full h-full object-cover"
               style={{ 
-                objectPosition: 'center 30%', 
+                objectPosition: '55% 30%', 
                 objectFit: 'cover',
                 transform: 'scale(1.3)',
                 transformOrigin: 'center center'
