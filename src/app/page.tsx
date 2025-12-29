@@ -208,7 +208,7 @@ const Hero = () => {
             ease: [0.4, 0, 0.6, 1],
           }}
           style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.01}px, ${(mousePosition.y - window.innerHeight / 2) * 0.01}px)`
+            transform: `translate(${mousePosition.x ? (mousePosition.x - 960) * 0.01 : 0}px, ${mousePosition.y ? (mousePosition.y - 540) * 0.01 : 0}px)`
           }}
         />
         <motion.div
@@ -225,7 +225,7 @@ const Hero = () => {
             ease: [0.4, 0, 0.6, 1],
           }}
           style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * -0.008}px, ${(mousePosition.y - window.innerHeight / 2) * -0.008}px)`
+            transform: `translate(${mousePosition.x ? (mousePosition.x - 960) * -0.008 : 0}px, ${mousePosition.y ? (mousePosition.y - 540) * -0.008 : 0}px)`
           }}
         />
         <motion.div
@@ -242,7 +242,7 @@ const Hero = () => {
             ease: [0.4, 0, 0.6, 1],
           }}
           style={{
-            transform: `translate(${(mousePosition.x - window.innerWidth / 2) * 0.005}px, ${(mousePosition.y - window.innerHeight / 2) * 0.005}px)`
+            transform: `translate(${mousePosition.x ? (mousePosition.x - 960) * 0.005 : 0}px, ${mousePosition.y ? (mousePosition.y - 540) * 0.005 : 0}px)`
           }}
         />
       </div>
