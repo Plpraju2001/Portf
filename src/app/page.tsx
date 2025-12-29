@@ -131,14 +131,23 @@ const Header = () => {
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
   const [letters, setLetters] = useState<string[]>([]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    handleResize();
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -208,7 +217,7 @@ const Hero = () => {
             ease: [0.4, 0, 0.6, 1],
           }}
           style={{
-            transform: `translate(${mousePosition.x ? (mousePosition.x - 960) * 0.01 : 0}px, ${mousePosition.y ? (mousePosition.y - 540) * 0.01 : 0}px)`
+            transform: `translate(${mousePosition.x ? (mousePosition.x - windowSize.width / 2) * 0.01 : 0}px, ${mousePosition.y ? (mousePosition.y - windowSize.height / 2) * 0.01 : 0}px)`
           }}
         />
         <motion.div
@@ -225,7 +234,7 @@ const Hero = () => {
             ease: [0.4, 0, 0.6, 1],
           }}
           style={{
-            transform: `translate(${mousePosition.x ? (mousePosition.x - 960) * -0.008 : 0}px, ${mousePosition.y ? (mousePosition.y - 540) * -0.008 : 0}px)`
+            transform: `translate(${mousePosition.x ? (mousePosition.x - windowSize.width / 2) * -0.008 : 0}px, ${mousePosition.y ? (mousePosition.y - windowSize.height / 2) * -0.008 : 0}px)`
           }}
         />
         <motion.div
@@ -242,7 +251,7 @@ const Hero = () => {
             ease: [0.4, 0, 0.6, 1],
           }}
           style={{
-            transform: `translate(${mousePosition.x ? (mousePosition.x - 960) * 0.005 : 0}px, ${mousePosition.y ? (mousePosition.y - 540) * 0.005 : 0}px)`
+            transform: `translate(${mousePosition.x ? (mousePosition.x - windowSize.width / 2) * 0.005 : 0}px, ${mousePosition.y ? (mousePosition.y - windowSize.height / 2) * 0.005 : 0}px)`
           }}
         />
       </div>
