@@ -130,142 +130,91 @@ const Header = () => {
 };
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [windowSize, setWindowSize] = useState({ width: 1920, height: 1080 });
   const [letters, setLetters] = useState<string[]>([]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-    handleResize();
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     setLetters('Raju'.split(''));
   }, []);
 
-  // Generate enhanced particles with better physics
-  const particles = Array.from({ length: 80 }, (_, i) => ({
+  // Moderate elegant particles
+  const particles = Array.from({ length: 30 }, (_, i) => ({
     id: i,
-    size: Math.random() * 5 + 1.5,
+    size: Math.random() * 3 + 2,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    duration: Math.random() * 25 + 12,
-    delay: Math.random() * 5,
+    duration: Math.random() * 15 + 10,
+    delay: Math.random() * 3,
   }));
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
-      {/* Enhanced floating particles with parallax */}
+      {/* Elegant floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute rounded-full bg-gradient-to-br from-blue-400/40 via-purple-400/30 to-pink-400/20"
+            className="absolute rounded-full bg-gradient-to-br from-blue-400/30 to-purple-400/30"
             style={{
               width: particle.size,
               height: particle.size,
               left: `${particle.x}%`,
               top: `${particle.y}%`,
-              filter: 'blur(0.5px)',
             }}
             animate={{
-              y: [-30, 30, -30],
-              x: [-15, 15, -15],
-              scale: [1, 1.4, 0.9, 1],
-              opacity: [0.2, 0.8, 0.4, 0.2],
-              rotate: [0, 360],
+              y: [-20, 20, -20],
+              x: [-10, 10, -10],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
               duration: particle.duration,
               repeat: Infinity,
-              ease: [0.4, 0, 0.6, 1],
+              ease: "easeInOut",
               delay: particle.delay,
-            }}
-            whileHover={{
-              scale: 2,
-              opacity: 1,
-              transition: { duration: 0.3 }
             }}
           />
         ))}
       </div>
 
-      {/* Multiple floating animated background elements for depth */}
+      {/* Elegant floating background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/25 to-cyan-400/25 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl"
           animate={{
-            x: [0, 250, -120, 0],
-            y: [0, -120, 60, 0],
-            scale: [1, 1.3, 0.7, 1],
-            opacity: [0.6, 0.8, 0.5, 0.6],
+            x: [0, 200, -100, 0],
+            y: [0, -100, 50, 0],
+            scale: [1, 1.2, 0.8, 1],
           }}
           transition={{
-            duration: 18,
+            duration: 15,
             repeat: Infinity,
-            ease: [0.4, 0, 0.6, 1],
-          }}
-          style={{
-            transform: `translate(${mousePosition.x ? (mousePosition.x - windowSize.width / 2) * 0.01 : 0}px, ${mousePosition.y ? (mousePosition.y - windowSize.height / 2) * 0.01 : 0}px)`
+            ease: "easeInOut",
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/25 to-pink-400/25 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-full blur-3xl"
           animate={{
-            x: [0, -180, 120, 0],
-            y: [0, 120, -60, 0],
-            scale: [1, 0.8, 1.4, 1],
-            opacity: [0.6, 0.8, 0.5, 0.6],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: [0.4, 0, 0.6, 1],
-          }}
-          style={{
-            transform: `translate(${mousePosition.x ? (mousePosition.x - windowSize.width / 2) * -0.008 : 0}px, ${mousePosition.y ? (mousePosition.y - windowSize.height / 2) * -0.008 : 0}px)`
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-gradient-to-br from-indigo-400/20 to-violet-400/20 rounded-full blur-3xl"
-          animate={{
-            x: [-250, 250, 0],
-            y: [0, 0, -250],
-            scale: [0.7, 1.3, 1],
-            opacity: [0.5, 0.7, 0.5],
+            x: [0, -150, 100, 0],
+            y: [0, 100, -50, 0],
+            scale: [1, 0.9, 1.3, 1],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: [0.4, 0, 0.6, 1],
-          }}
-          style={{
-            transform: `translate(${mousePosition.x ? (mousePosition.x - windowSize.width / 2) * 0.005 : 0}px, ${mousePosition.y ? (mousePosition.y - windowSize.height / 2) * 0.005 : 0}px)`
+            ease: "easeInOut",
           }}
         />
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.3, rotateY: -180, z: -100 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0, z: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ 
-            duration: 1.5,
+            duration: 0.8,
             type: "spring",
-            stiffness: 120,
-            damping: 20,
-            mass: 0.8
+            stiffness: 100,
+            damping: 20
           }}
         >
           <motion.h1 
@@ -286,23 +235,17 @@ const Hero = () => {
                     scale: 1
                   }}
                   transition={{
-                    duration: 1,
-                    delay: index * 0.12,
+                    duration: 0.8,
+                    delay: index * 0.15,
                     type: "spring",
-                    stiffness: 300,
-                    damping: 20,
-                    mass: 0.5
+                    stiffness: 200,
+                    damping: 15
                   }}
                   whileHover={{
-                    scale: 1.6,
-                    rotate: [0, 15, -15, 0],
-                    y: [0, -25, 0],
-                    filter: 'brightness(1.2)',
-                    transition: { 
-                      duration: 0.6,
-                      type: "spring",
-                      stiffness: 400
-                    }
+                    scale: 1.3,
+                    rotate: [0, 10, -10, 0],
+                    y: [0, -15, 0],
+                    transition: { duration: 0.4 }
                   }}
                   style={{ 
                     display: "inline-block",
@@ -316,30 +259,28 @@ const Hero = () => {
           </motion.h1>
           <motion.p 
             className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30, blur: 10 }}
-            animate={{ opacity: 1, y: 0, blur: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 1, 
-              delay: 0.4,
+              duration: 0.8, 
+              delay: 0.2,
               type: "spring",
-              stiffness: 100,
-              damping: 25,
-              mass: 0.8
+              stiffness: 80,
+              damping: 20
             }}
           >
             Data Scientist with Advanced Data Engineering & Business Analytics Expertise
           </motion.p>
           <motion.p 
             className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-12"
-            initial={{ opacity: 0, y: 30, blur: 10 }}
-            animate={{ opacity: 1, y: 0, blur: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 1, 
-              delay: 0.6,
+              duration: 0.8, 
+              delay: 0.4,
               type: "spring",
-              stiffness: 100,
-              damping: 25,
-              mass: 0.8
+              stiffness: 80,
+              damping: 20
             }}
           >
             Data Scientist with 3+ years of experience applying advanced data science and analytics to marketing and financial product domains. 
@@ -347,112 +288,73 @@ const Hero = () => {
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
-            initial={{ opacity: 0, y: 60, scale: 0.7, rotateX: 15 }}
-            animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+            initial={{ opacity: 0, y: 50, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ 
-              duration: 1.2, 
-              delay: 0.9,
+              duration: 1, 
+              delay: 0.8,
               type: "spring",
-              stiffness: 120,
-              damping: 25,
-              mass: 0.7
+              stiffness: 80,
+              damping: 20
             }}
           >
             <motion.a
               href="#projects"
               className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg"
-              whileHover={{ 
-                scale: 1.12, 
-                y: -8, 
-                rotate: 0.5,
-                boxShadow: "0 25px 70px rgba(59, 130, 246, 0.9), 0 0 0 6px rgba(59, 130, 246, 0.3)"
-              }}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{ scale: 1.1, y: -5 }}
+              whileTap={{ scale: 0.95 }}
               animate={{
                 boxShadow: [
-                  "0 15px 50px rgba(59, 130, 246, 0.7), 0 0 0 0 rgba(59, 130, 246, 0.5)",
-                  "0 25px 70px rgba(59, 130, 246, 0.9), 0 0 0 5px rgba(59, 130, 246, 0.2)",
+                  "0 10px 40px rgba(59, 130, 246, 0.6), 0 0 0 0 rgba(59, 130, 246, 0.4)",
+                  "0 20px 60px rgba(59, 130, 246, 0.8), 0 0 0 4px rgba(59, 130, 246, 0)",
                 ],
               }}
               transition={{
                 boxShadow: {
-                  duration: 2.5,
+                  duration: 2,
                   repeat: Infinity,
-                  ease: [0.4, 0, 0.6, 1],
+                  ease: "easeInOut",
                 },
-                default: {
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 25
-                }
               }}
             >
               <span className="relative z-10">View My Work</span>
-              {/* Enhanced animated gradient wave */}
+              {/* Animated gradient wave */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
-                transition={{ 
-                  duration: 0.6,
-                  ease: [0.4, 0, 0.2, 1]
-                }}
+                transition={{ duration: 0.8 }}
               />
-              {/* Enhanced shimmer effect */}
+              {/* Shimmer effect */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
                 animate={{
                   x: ["-200%", "200%"],
                 }}
                 transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatDelay: 1
-                }}
-              />
-              {/* Glow pulse effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl"
-                animate={{
-                  opacity: [0.3, 0.7, 0.3],
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "linear",
                 }}
               />
             </motion.a>
             <motion.a
               href="#contact"
               className="relative border-2 border-blue-600 text-blue-600 px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg bg-white"
-              whileHover={{ 
-                scale: 1.12, 
-                y: -8, 
-                rotate: -0.5,
-                borderWidth: 3,
-                boxShadow: "0 25px 70px rgba(59, 130, 246, 0.6), 0 0 0 6px rgba(59, 130, 246, 0.2)"
-              }}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{ scale: 1.1, y: -5 }}
+              whileTap={{ scale: 0.95 }}
               animate={{
                 boxShadow: [
-                  "0 15px 50px rgba(59, 130, 246, 0.4), 0 0 0 0 rgba(59, 130, 246, 0.5)",
-                  "0 25px 70px rgba(59, 130, 246, 0.6), 0 0 0 5px rgba(59, 130, 246, 0.2)",
+                  "0 10px 40px rgba(59, 130, 246, 0.3), 0 0 0 0 rgba(59, 130, 246, 0.4)",
+                  "0 20px 60px rgba(59, 130, 246, 0.5), 0 0 0 4px rgba(59, 130, 246, 0)",
                 ],
               }}
               transition={{
                 boxShadow: {
-                  duration: 2.5,
+                  duration: 2,
                   repeat: Infinity,
-                  ease: [0.4, 0, 0.6, 1],
+                  ease: "easeInOut",
                 },
-                default: {
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 25
-                }
               }}
             >
               <motion.span 
