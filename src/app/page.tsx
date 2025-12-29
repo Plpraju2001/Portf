@@ -1924,16 +1924,16 @@ export default function Home() {
   return (
         <>
           <style jsx global>{`
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
             * {
-              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             }
             body {
-              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             }
             h1, h2, h3, h4, h5, h6 {
               font-weight: 700;
-              letter-spacing: -0.025em;
+              letter-spacing: -0.02em;
             }
             .gradient-text {
               background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
