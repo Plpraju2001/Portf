@@ -174,29 +174,296 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Chart-like Bar Elements */}
+      {/* Enhanced Bar Chart with Professional Look */}
       <div className="absolute bottom-20 left-10 hidden md:block">
-        {[...Array(5)].map((_, i) => (
+        <div className="relative">
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={`bar-${i}`}
+              className="absolute bg-gradient-to-t from-blue-600/40 via-purple-500/40 to-pink-500/40 rounded-t shadow-lg"
+              style={{
+                width: '24px',
+                height: `${40 + i * 20}px`,
+                left: `${i * 35}px`,
+                bottom: 0,
+              }}
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{
+                duration: 1.2,
+                delay: i * 0.15,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: 2.5,
+                ease: "easeOut",
+              }}
+            />
+          ))}
+          {/* Bar chart grid lines */}
+          <div className="absolute bottom-0 left-0 w-full h-full opacity-20">
+            {[...Array(4)].map((_, i) => (
+              <div
+                key={`grid-${i}`}
+                className="absolute w-full border-t border-blue-300/30"
+                style={{ bottom: `${i * 25}%` }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Animated Pie Chart */}
+      <div className="absolute top-20 right-20 hidden lg:block">
+        <motion.div
+          className="relative w-32 h-32"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <circle
+              cx="50"
+              cy="50"
+              r="45"
+              fill="none"
+              stroke="rgba(59, 130, 246, 0.1)"
+              strokeWidth="8"
+            />
+            {/* Pie slice 1 - 35% */}
+            <motion.path
+              d="M 50 50 L 50 5 A 45 45 0 0 1 81.5 25 Z"
+              fill="url(#pieGradient1)"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: 0.8, repeat: Infinity, repeatDelay: 3 }}
+            />
+            {/* Pie slice 2 - 30% */}
+            <motion.path
+              d="M 50 50 L 81.5 25 A 45 45 0 0 1 81.5 75 Z"
+              fill="url(#pieGradient2)"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: 1, repeat: Infinity, repeatDelay: 3 }}
+            />
+            {/* Pie slice 3 - 25% */}
+            <motion.path
+              d="M 50 50 L 81.5 75 A 45 45 0 0 1 18.5 75 Z"
+              fill="url(#pieGradient3)"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: 1.2, repeat: Infinity, repeatDelay: 3 }}
+            />
+            {/* Pie slice 4 - 10% */}
+            <motion.path
+              d="M 50 50 L 18.5 75 A 45 45 0 0 1 50 5 Z"
+              fill="url(#pieGradient4)"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: 1.4, repeat: Infinity, repeatDelay: 3 }}
+            />
+            <defs>
+              <linearGradient id="pieGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.6)" />
+                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.3)" />
+              </linearGradient>
+              <linearGradient id="pieGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(139, 92, 246, 0.6)" />
+                <stop offset="100%" stopColor="rgba(139, 92, 246, 0.3)" />
+              </linearGradient>
+              <linearGradient id="pieGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(236, 72, 153, 0.6)" />
+                <stop offset="100%" stopColor="rgba(236, 72, 153, 0.3)" />
+              </linearGradient>
+              <linearGradient id="pieGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.4)" />
+                <stop offset="100%" stopColor="rgba(139, 92, 246, 0.2)" />
+              </linearGradient>
+            </defs>
+          </svg>
+          {/* Center circle */}
           <motion.div
-            key={`bar-${i}`}
-            className="absolute bg-gradient-to-t from-blue-500/30 to-purple-500/30 rounded-t"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center"
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full" />
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Geometric Hexagons */}
+      <div className="absolute top-1/4 left-1/4 hidden xl:block">
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={`hex-${i}`}
+            className="absolute"
             style={{
-              width: '20px',
-              height: `${30 + i * 15}px`,
-              left: `${i * 30}px`,
-              bottom: 0,
+              width: '60px',
+              height: '60px',
+              left: `${i * 80}px`,
+              top: `${i * 40}px`,
             }}
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
+            animate={{
+              rotate: [0, 60, 120, 180, 240, 300, 360],
+              scale: [1, 1.2, 1],
+              opacity: [0.4, 0.8, 0.4],
+            }}
             transition={{
-              duration: 1,
-              delay: i * 0.2,
+              duration: 4 + i,
               repeat: Infinity,
-              repeatType: "reverse",
-              repeatDelay: 2,
+              ease: "easeInOut",
+              delay: i * 0.5,
             }}
-          />
+          >
+            <svg viewBox="0 0 100 100" className="w-full h-full">
+              <polygon
+                points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"
+                fill="none"
+                stroke={`url(#hexGradient${i})`}
+                strokeWidth="2"
+                opacity="0.6"
+              />
+              <defs>
+                <linearGradient id={`hexGradient${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor={i === 0 ? "rgba(59, 130, 246, 0.5)" : i === 1 ? "rgba(139, 92, 246, 0.5)" : "rgba(236, 72, 153, 0.5)"} />
+                  <stop offset="100%" stopColor={i === 0 ? "rgba(59, 130, 246, 0.2)" : i === 1 ? "rgba(139, 92, 246, 0.2)" : "rgba(236, 72, 153, 0.2)"} />
+                </linearGradient>
+              </defs>
+            </svg>
+          </motion.div>
         ))}
+      </div>
+
+      {/* Network Nodes with Connections */}
+      <div className="absolute bottom-1/4 right-1/4 hidden lg:block">
+        <svg width="200" height="200" className="opacity-40">
+          {/* Network connections */}
+          {[
+            { x1: 50, y1: 50, x2: 100, y2: 30 },
+            { x1: 50, y1: 50, x2: 150, y2: 80 },
+            { x1: 50, y1: 50, x2: 100, y2: 120 },
+            { x1: 50, y1: 50, x2: 20, y2: 100 },
+          ].map((line, i) => (
+            <motion.line
+              key={`network-${i}`}
+              x1={line.x1}
+              y1={line.y1}
+              x2={line.x2}
+              y2={line.y2}
+              stroke="rgba(59, 130, 246, 0.3)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: [0, 0.6, 0.3] }}
+              transition={{
+                duration: 2,
+                delay: i * 0.3,
+                repeat: Infinity,
+                repeatDelay: 3,
+              }}
+            />
+          ))}
+          {/* Network nodes */}
+          {[
+            { x: 50, y: 50 },
+            { x: 100, y: 30 },
+            { x: 150, y: 80 },
+            { x: 100, y: 120 },
+            { x: 20, y: 100 },
+          ].map((node, i) => (
+            <motion.circle
+              key={`node-${i}`}
+              cx={node.x}
+              cy={node.y}
+              r="8"
+              fill={i === 0 ? "rgba(59, 130, 246, 0.8)" : "rgba(139, 92, 246, 0.6)"}
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0.8] }}
+              transition={{
+                duration: 1,
+                delay: i * 0.2,
+                repeat: Infinity,
+                repeatDelay: 3,
+              }}
+            />
+          ))}
+        </svg>
+      </div>
+
+      {/* Data Cube (3D Geometric) */}
+      <div className="absolute top-1/3 right-1/3 hidden xl:block">
+        <motion.div
+          className="relative w-20 h-20"
+          style={{ perspective: "1000px" }}
+          animate={{
+            rotateX: [0, 360],
+            rotateY: [0, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          <div className="relative w-full h-full" style={{ transformStyle: "preserve-3d" }}>
+            {/* Cube faces */}
+            {[
+              { rotate: "rotateY(0deg)", color: "rgba(59, 130, 246, 0.4)" },
+              { rotate: "rotateY(90deg)", color: "rgba(139, 92, 246, 0.4)" },
+              { rotate: "rotateY(180deg)", color: "rgba(236, 72, 153, 0.4)" },
+              { rotate: "rotateY(-90deg)", color: "rgba(59, 130, 246, 0.3)" },
+              { rotate: "rotateX(90deg)", color: "rgba(139, 92, 246, 0.3)" },
+              { rotate: "rotateX(-90deg)", color: "rgba(236, 72, 153, 0.3)" },
+            ].map((face, i) => (
+              <div
+                key={`cube-face-${i}`}
+                className="absolute w-full h-full border-2 border-blue-400/50"
+                style={{
+                  background: face.color,
+                  transform: `${face.rotate} translateZ(40px)`,
+                  backfaceVisibility: "hidden",
+                }}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Radar/Sonar Sweep Animation */}
+      <div className="absolute bottom-1/3 left-1/3 hidden xl:block">
+        <motion.div
+          className="relative"
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          <svg width="120" height="120" className="opacity-30">
+            {/* Radar circles */}
+            {[1, 2, 3].map((radius) => (
+              <circle
+                key={`radar-circle-${radius}`}
+                cx="60"
+                cy="60"
+                r={radius * 20}
+                fill="none"
+                stroke="rgba(59, 130, 246, 0.3)"
+                strokeWidth="1"
+              />
+            ))}
+            {/* Sweep line */}
+            <line
+              x1="60"
+              y1="60"
+              x2="60"
+              y2="0"
+              stroke="rgba(59, 130, 246, 0.8)"
+              strokeWidth="2"
+            />
+          </svg>
+        </motion.div>
       </div>
 
       {/* Data Points Scatter */}
