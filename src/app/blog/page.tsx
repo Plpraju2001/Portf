@@ -5,6 +5,66 @@ import Link from 'next/link';
 
 const blogPosts = [
   {
+    id: 6,
+    title: 'Back from Holidays: Refreshed, Recharged, and Ready to Excel',
+    excerpt: 'Returning from a wonderful holiday break, I\'m back with renewed energy and focus. Excited to share that I\'ve taken a DataCamp membership and am working towards earning the Data Scientist Professional certification. Here\'s to being more productive than ever!',
+    date: 'January 6, 2026',
+    readTime: '4 min read',
+    category: 'Learning Journey',
+    content: `
+      <h2>Welcome Back!</h2>
+      <p>I hope everyone had a fantastic holiday season! Whether you spent time with family, traveled to new places, or simply took a well-deserved break, I hope you're returning refreshed and recharged, just like I am.</p>
+      
+      <h2>Refreshed and Ready</h2>
+      <p>After a wonderful holiday break, I'm back and feeling more energized than ever. There's something special about taking time away that helps you return with a fresh perspective and renewed motivation. I'm ready to dive back into my work with even greater focus and determination.</p>
+      
+      <h2>More Productive Than Before</h2>
+      <p>One of my goals coming back from the holidays is to be more productive than I was before. I've used this break to reflect on my learning journey and set clear objectives for the year ahead. I'm committed to:</p>
+      <ul>
+        <li><strong>Structured Learning:</strong> Following a more organized approach to skill development</li>
+        <li><strong>Consistent Practice:</strong> Building daily habits that compound over time</li>
+        <li><strong>Goal-Oriented Progress:</strong> Focusing on measurable outcomes and certifications</li>
+        <li><strong>Continuous Improvement:</strong> Pushing myself to reach new heights in data science</li>
+      </ul>
+      
+      <h2>New Learning Journey: DataCamp Membership</h2>
+      <p>I'm excited to share that I've recently taken a DataCamp membership! DataCamp has been an incredible platform for data science learning, and I'm thrilled to have access to their comprehensive curriculum and hands-on projects.</p>
+      
+      <p>What makes DataCamp special is their interactive learning approach - you learn by doing, which is exactly how I prefer to master new concepts. Their courses cover everything from Python and R fundamentals to advanced machine learning, deep learning, and specialized topics like MLOps and causal inference.</p>
+      
+      <h2>Working Towards Data Scientist Professional Certification</h2>
+      <p>One of my primary goals with this DataCamp membership is to earn the <strong>Data Scientist Professional</strong> certification. This is a comprehensive certification that validates expertise across the entire data science workflow:</p>
+      <ul>
+        <li><strong>Data Manipulation:</strong> Advanced techniques for cleaning and transforming data</li>
+        <li><strong>Statistical Analysis:</strong> Deep understanding of statistical methods and hypothesis testing</li>
+        <li><strong>Machine Learning:</strong> Building, evaluating, and deploying machine learning models</li>
+        <li><strong>Data Visualization:</strong> Creating compelling visualizations that tell data stories</li>
+        <li><strong>Best Practices:</strong> Industry-standard approaches to data science projects</li>
+      </ul>
+      
+      <h2>The Path Forward</h2>
+      <p>I'm actively working through the DataCamp curriculum and making steady progress towards this certification. The journey involves completing multiple courses, hands-on projects, and assessments that test both theoretical knowledge and practical skills.</p>
+      
+      <p>I'm committed to putting in the work and staying consistent. With the structured learning path that DataCamp provides, combined with my existing experience, I'm confident that I'll be able to earn this certification soon.</p>
+      
+      <h2>What This Means</h2>
+      <p>Earning the Data Scientist Professional certification will be a significant milestone in my career. It represents:</p>
+      <ul>
+        <li>A comprehensive validation of my data science skills</li>
+        <li>Recognition from a respected platform in the data science community</li>
+        <li>Proof of my commitment to continuous learning and professional development</li>
+        <li>A stepping stone to even more advanced certifications and opportunities</li>
+      </ul>
+      
+      <h2>Looking Ahead</h2>
+      <p>I'm excited about what's ahead. The combination of being refreshed from the holidays, having a clear learning path with DataCamp, and working towards a meaningful certification has me feeling incredibly motivated.</p>
+      
+      <p>I'll be sharing updates on my progress as I work through the DataCamp curriculum and move closer to earning the Data Scientist Professional certification. Stay tuned for more updates on this journey!</p>
+      
+      <p>Here's to a productive year ahead, filled with learning, growth, and achievement. Let's make it count!</p>
+    `
+  },
+  {
     id: 1,
     title: 'Completed Python Data Structures and Comprehensions',
     excerpt: 'Just finished mastering Python data structures and comprehensions with multiple practice assignments. Sharing my journey and key insights from working with lists, dictionaries, sets, and powerful comprehension techniques.',
