@@ -5,9 +5,102 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
 
-// Simple background component (no animations)
-// Background removed - clean static design only
-// Deployment trigger
+// Global Geometric Watermark Background Component
+const GeometricWatermarkBackground = () => {
+  // Generate ellipses and circles at various positions
+  const geometricShapes = [
+    // Large ellipses
+    { type: 'ellipse', width: 400, height: 200, x: 5, y: 10, delay: 0, duration: 20 },
+    { type: 'ellipse', width: 300, height: 150, x: 75, y: 20, delay: 2, duration: 18 },
+    { type: 'ellipse', width: 350, height: 180, x: 40, y: 60, delay: 4, duration: 22 },
+    { type: 'ellipse', width: 250, height: 120, x: 85, y: 70, delay: 1, duration: 19 },
+    { type: 'ellipse', width: 320, height: 160, x: 10, y: 50, delay: 3, duration: 21 },
+    { type: 'ellipse', width: 280, height: 140, x: 60, y: 85, delay: 5, duration: 17 },
+    // Circles
+    { type: 'circle', size: 150, x: 20, y: 30, delay: 0.5, duration: 15 },
+    { type: 'circle', size: 120, x: 80, y: 40, delay: 1.5, duration: 16 },
+    { type: 'circle', size: 100, x: 15, y: 75, delay: 2.5, duration: 14 },
+    { type: 'circle', size: 130, x: 70, y: 15, delay: 3.5, duration: 17 },
+    { type: 'circle', size: 110, x: 90, y: 60, delay: 4.5, duration: 18 },
+    { type: 'circle', size: 140, x: 30, y: 90, delay: 5.5, duration: 16 },
+    // Medium ellipses
+    { type: 'ellipse', width: 200, height: 100, x: 25, y: 25, delay: 6, duration: 20 },
+    { type: 'ellipse', width: 180, height: 90, x: 65, y: 55, delay: 7, duration: 18 },
+    { type: 'ellipse', width: 220, height: 110, x: 45, y: 80, delay: 8, duration: 22 },
+  ];
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {geometricShapes.map((shape, index) => (
+        <motion.div
+          key={`shape-${index}`}
+          className="absolute opacity-[0.03]"
+          style={{
+            left: `${shape.x}%`,
+            top: `${shape.y}%`,
+            width: shape.type === 'ellipse' ? `${shape.width}px` : `${shape.size}px`,
+            height: shape.type === 'ellipse' ? `${shape.height}px` : `${shape.size}px`,
+            borderRadius: shape.type === 'circle' ? '50%' : '50%',
+            background: `linear-gradient(135deg, 
+              rgba(59, 130, 246, 0.15) 0%, 
+              rgba(139, 92, 246, 0.15) 50%, 
+              rgba(236, 72, 153, 0.15) 100%)`,
+            border: `1px solid rgba(59, 130, 246, 0.1)`,
+          }}
+          animate={{
+            scale: [1, 1.1, 0.95, 1],
+            rotate: [0, 5, -5, 0],
+            opacity: [0.03, 0.05, 0.04, 0.03],
+            x: [0, 20, -15, 0],
+            y: [0, -15, 20, 0],
+          }}
+          transition={{
+            duration: shape.duration || 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: shape.delay || 0,
+          }}
+        />
+      ))}
+      
+      {/* Additional floating geometric shapes */}
+      {[...Array(20)].map((_, i) => {
+        const size = 60 + Math.random() * 80;
+        const isCircle = Math.random() > 0.5;
+        return (
+          <motion.div
+            key={`floating-${i}`}
+            className="absolute opacity-[0.02]"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${size}px`,
+              height: isCircle ? `${size}px` : `${size * 1.5}px`,
+              borderRadius: isCircle ? '50%' : '50%',
+              background: `linear-gradient(${Math.random() * 360}deg, 
+                rgba(59, 130, 246, 0.1), 
+                rgba(139, 92, 246, 0.1), 
+                rgba(236, 72, 153, 0.1))`,
+            }}
+            animate={{
+              scale: [1, 1.2, 0.9, 1],
+              rotate: [0, 360],
+              opacity: [0.02, 0.04, 0.03, 0.02],
+              x: [0, Math.random() * 100 - 50],
+              y: [0, Math.random() * 100 - 50],
+            }}
+            transition={{
+              duration: 15 + Math.random() * 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 5,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -147,7 +240,7 @@ const Hero = () => {
   }));
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white/95 via-blue-50/40 to-purple-50/30 z-10">
       {/* Data Science Background Elements */}
       {/* Data Flow Lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -770,7 +863,7 @@ const Hero = () => {
 const About = () => {
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50/95 to-blue-50/40 relative overflow-hidden z-10">
       {/* Data Science Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Subtle data flow lines */}
@@ -1005,7 +1098,7 @@ const About = () => {
 
 const PersonalInterests = () => {
   return (
-    <section id="interests" className="py-20 bg-gradient-to-br from-white to-purple-50/20 relative">
+    <section id="interests" className="py-20 bg-gradient-to-br from-white/95 to-purple-50/30 relative z-10">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
@@ -1397,7 +1490,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden">
+    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/40 to-white/95 relative overflow-hidden z-10">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -1669,7 +1762,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50">
+    <section id="experience" className="py-20 bg-gray-50/95 relative z-10">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -1819,7 +1912,7 @@ const Blog = () => {
   const latestPost = getLatestBlogPost();
   
   return (
-    <section id="blog" className="py-20 bg-gray-50">
+    <section id="blog" className="py-20 bg-gray-50/95 relative z-10">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -1931,7 +2024,7 @@ const Blog = () => {
 };
 
 const Education = () => (
-  <section id="education" className="py-20 bg-gray-50">
+  <section id="education" className="py-20 bg-gray-50/95 relative z-10">
     <div className="container mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -2071,7 +2164,7 @@ const Education = () => (
 
 
 const Contact = () => (
-  <section id="contact" className="py-20">
+  <section id="contact" className="py-20 bg-white/95 relative z-10">
     <div className="container mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -2271,7 +2364,9 @@ const FixedProfilePicture = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Global Geometric Watermark Background - Visible on all sections */}
+      <GeometricWatermarkBackground />
       <Header />
         <FixedProfilePicture />
       <Hero />

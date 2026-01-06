@@ -551,9 +551,58 @@ const BlogPost = ({ post }: { post: typeof blogPosts[0] }) => (
   </motion.article>
 );
 
+// Geometric Watermark Background Component for Blog
+const GeometricWatermarkBackground = () => {
+  const geometricShapes = [
+    { type: 'ellipse', width: 400, height: 200, x: 5, y: 10, delay: 0, duration: 20 },
+    { type: 'ellipse', width: 300, height: 150, x: 75, y: 20, delay: 2, duration: 18 },
+    { type: 'ellipse', width: 350, height: 180, x: 40, y: 60, delay: 4, duration: 22 },
+    { type: 'circle', size: 150, x: 20, y: 30, delay: 0.5, duration: 15 },
+    { type: 'circle', size: 120, x: 80, y: 40, delay: 1.5, duration: 16 },
+    { type: 'circle', size: 100, x: 15, y: 75, delay: 2.5, duration: 14 },
+  ];
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {geometricShapes.map((shape, index) => (
+        <motion.div
+          key={`blog-shape-${index}`}
+          className="absolute opacity-[0.03]"
+          style={{
+            left: `${shape.x}%`,
+            top: `${shape.y}%`,
+            width: shape.type === 'ellipse' ? `${shape.width}px` : `${shape.size}px`,
+            height: shape.type === 'ellipse' ? `${shape.height}px` : `${shape.size}px`,
+            borderRadius: '50%',
+            background: `linear-gradient(135deg, 
+              rgba(59, 130, 246, 0.15) 0%, 
+              rgba(139, 92, 246, 0.15) 50%, 
+              rgba(236, 72, 153, 0.15) 100%)`,
+            border: `1px solid rgba(59, 130, 246, 0.1)`,
+          }}
+          animate={{
+            scale: [1, 1.1, 0.95, 1],
+            rotate: [0, 5, -5, 0],
+            opacity: [0.03, 0.05, 0.04, 0.03],
+            x: [0, 20, -15, 0],
+            y: [0, -15, 20, 0],
+          }}
+          transition={{
+            duration: shape.duration || 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: shape.delay || 0,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50/95 relative">
+      <GeometricWatermarkBackground />
       {/* Header */}
       <motion.header 
         className="bg-white shadow-sm"
@@ -579,7 +628,7 @@ export default function Blog() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600/95 to-purple-600/95 text-white relative z-10">
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -599,7 +648,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
