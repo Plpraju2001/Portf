@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,8 +22,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   scroll-behavior: smooth;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */
@@ -233,6 +236,203 @@ body {
   animation: tilt 8s ease-in-out infinite;
 }
 
+/* Data Science Themed Animations */
+@keyframes dataFlow {
+  0% {
+    transform: translateX(-100%) translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes chartGrow {
+  0% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes dataPoint {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes networkPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes analyticsWave {
+  0% {
+    transform: translateY(0) scaleX(1);
+  }
+  25% {
+    transform: translateY(-10px) scaleX(1.1);
+  }
+  50% {
+    transform: translateY(0) scaleX(1);
+  }
+  75% {
+    transform: translateY(10px) scaleX(0.9);
+  }
+  100% {
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+@keyframes dataStream {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scatterPlot {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translate(10px, -15px) scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-5px, 10px) scale(0.9);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(-10px, -5px) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes barChartRise {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes lineGraph {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes heatmap {
+  0%, 100% {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    background-color: rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes dataProcessing {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* Data Science Animation Classes */
+.animate-data-flow {
+  animation: dataFlow 3s ease-in-out infinite;
+}
+
+.animate-chart-grow {
+  animation: chartGrow 1.5s ease-out forwards;
+}
+
+.animate-data-point {
+  animation: dataPoint 2s ease-in-out infinite;
+}
+
+.animate-network-pulse {
+  animation: networkPulse 2s ease-in-out infinite;
+}
+
+.animate-analytics-wave {
+  animation: analyticsWave 4s ease-in-out infinite;
+}
+
+.animate-data-stream {
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.1) 0%, 
+    rgba(139, 92, 246, 0.3) 50%, 
+    rgba(59, 130, 246, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: dataStream 3s linear infinite;
+}
+
+.animate-scatter-plot {
+  animation: scatterPlot 4s ease-in-out infinite;
+}
+
+.animate-bar-chart {
+  animation: barChartRise 1s ease-out forwards;
+}
+
+.animate-line-graph {
+  stroke-dasharray: 1000;
+  animation: lineGraph 2s ease-out forwards;
+}
+
+.animate-heatmap {
+  animation: heatmap 3s ease-in-out infinite;
+}
+
+.animate-data-processing {
+  animation: dataProcessing 3s linear infinite;
+}
+
 /* Glassmorphism effect */
 .glass-effect {
   background: rgba(255, 255, 255, 0.85);
@@ -252,17 +452,53 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
   display: inline-block;
+  background-size: 200% 200%;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .gradient-text:hover {
   animation: gradientShift 2s ease infinite;
-  background-size: 200% 200%;
+}
+
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Professional Data Science Accents */
+.data-science-accent {
+  position: relative;
+}
+
+.data-science-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  border-radius: 2px;
+  opacity: 0.6;
 }
 
 /* Stagger animation helper */

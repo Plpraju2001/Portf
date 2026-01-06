@@ -148,6 +148,84 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+      {/* Data Science Background Elements */}
+      {/* Data Flow Lines */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`flow-${i}`}
+            className="absolute h-0.5 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
+            style={{
+              left: `${i * 12.5}%`,
+              top: `${20 + (i % 3) * 25}%`,
+              width: '200px',
+            }}
+            animate={{
+              x: [0, 300, 0],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: 4 + i * 0.5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.3,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Chart-like Bar Elements */}
+      <div className="absolute bottom-20 left-10 hidden md:block">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`bar-${i}`}
+            className="absolute bg-gradient-to-t from-blue-500/30 to-purple-500/30 rounded-t"
+            style={{
+              width: '20px',
+              height: `${30 + i * 15}px`,
+              left: `${i * 30}px`,
+              bottom: 0,
+            }}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{
+              duration: 1,
+              delay: i * 0.2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 2,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Data Points Scatter */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={`point-${i}`}
+            className="absolute rounded-full bg-blue-500/20"
+            style={{
+              width: `${4 + Math.random() * 4}px`,
+              height: `${4 + Math.random() * 4}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.3, 0.8, 0.3],
+              y: [-10, 10, -10],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Elegant floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((particle) => (
@@ -426,6 +504,31 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+      {/* Data Science Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Subtle data flow lines */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`about-flow-${i}`}
+            className="absolute h-px bg-gradient-to-r from-transparent via-blue-300/20 to-transparent"
+            style={{
+              left: `${i * 20}%`,
+              top: `${30 + (i % 2) * 40}%`,
+              width: '150px',
+            }}
+            animate={{
+              x: [0, 200, 0],
+              opacity: [0, 0.4, 0],
+            }}
+            transition={{
+              duration: 5 + i,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.5,
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -1850,7 +1953,7 @@ const Footer = () => (
 // Fixed Profile Picture Component
 const FixedProfilePicture = () => {
   const [imageError, setImageError] = useState(false);
-  const profileImage = '/profile-picture.jpg'; // Profile picture - updated
+  const profileImage = '/profile_picture.jpeg'; // Profile picture - previous version
 
   return (
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
@@ -1901,27 +2004,7 @@ const FixedProfilePicture = () => {
 
 export default function Home() {
   return (
-        <>
-          <style jsx global>{`
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-            * {
-              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            }
-            body {
-              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            }
-            h1, h2, h3, h4, h5, h6 {
-              font-weight: 700;
-              letter-spacing: -0.02em;
-            }
-            .gradient-text {
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-            }
-          `}</style>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Header />
         <FixedProfilePicture />
       <Hero />
@@ -1934,6 +2017,5 @@ export default function Home() {
       <Contact />
       <Footer />
     </div>
-    </>
   );
 }
