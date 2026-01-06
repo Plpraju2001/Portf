@@ -2220,7 +2220,7 @@ const Footer = () => (
 // Fixed Profile Picture Component
 const FixedProfilePicture = () => {
   const [imageError, setImageError] = useState(false);
-  const profileImage = '/profile_picture.jpeg'; // Profile picture - previous version
+  const profileImage = '/profile_picture.jpg'; // Profile picture
 
   return (
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
