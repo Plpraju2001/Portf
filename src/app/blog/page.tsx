@@ -8,7 +8,7 @@ const blogPosts = [
     id: 6,
     title: 'Back from Holidays: Refreshed, Recharged, and Ready to Excel',
     excerpt: 'Returning from a wonderful holiday break, I\'m back with renewed energy and focus. Excited to share that I\'ve taken a DataCamp membership and am working towards earning the Data Scientist Professional certification. Here\'s to being more productive than ever!',
-    date: 'January 6, 2026',
+    date: 'January 15, 2025',
     readTime: '4 min read',
     category: 'Learning Journey',
     content: `
@@ -62,107 +62,6 @@ const blogPosts = [
       <p>I'll be sharing updates on my progress as I work through the DataCamp curriculum and move closer to earning the Data Scientist Professional certification. Stay tuned for more updates on this journey!</p>
       
       <p>Here's to a productive year ahead, filled with learning, growth, and achievement. Let's make it count!</p>
-    `
-  },
-  {
-    id: 7,
-    title: 'Why DataCamp is the Ultimate Platform for Data Science Certifications',
-    excerpt: 'DataCamp isn\'t just another learning platform - it\'s a rigorous certification system that makes you truly tough in data science. With 3 progressive assessments and only 2 chances, their certifications create real enthusiasm and deep learning. Here\'s why every aspiring data scientist should consider DataCamp.',
-    date: 'January 6, 2026',
-    readTime: '5 min read',
-    category: 'Learning Journey',
-    content: `
-      <h2>DataCamp: More Than Just Courses</h2>
-      <p>I've been using DataCamp for my certification journey, and I have to say - it's been an absolutely incredible experience. DataCamp is not just another online learning platform; it's a comprehensive ecosystem designed to make you genuinely proficient in data science. Let me share why I believe it's one of the best places to take certifications and advance your data science career.</p>
-      
-      <h2>What Makes DataCamp Special</h2>
-      <p>DataCamp stands out because it goes beyond traditional course-based learning. The platform creates genuine enthusiasm for learning through its interactive, hands-on approach. Every lesson is designed to make you code, think, and solve problems - not just passively consume content.</p>
-      
-      <p>The quality of content is exceptional. You're not just learning theory; you're applying concepts immediately through coding exercises, projects, and real-world scenarios. This approach ensures that knowledge sticks and you develop practical skills that translate directly to your work.</p>
-      
-      <h2>The Rigorous Certification Process</h2>
-      <p>Here's what really sets DataCamp apart: their certification process is genuinely challenging and designed to make you tough in data science. The certification journey consists of <strong>3 progressive assessments</strong>, each building on the previous one.</p>
-      
-      <h3>How the Assessment System Works</h3>
-      <ul>
-        <li><strong>Assessment 1:</strong> The first assessment tests your foundational knowledge and core skills</li>
-        <li><strong>Assessment 2:</strong> Once you pass the first, you move to the second assessment which covers more advanced topics</li>
-        <li><strong>Assessment 3:</strong> The final assessment is the most comprehensive, testing your ability to apply everything you've learned</li>
-      </ul>
-      
-      <h2>The Challenge: Only 2 Chances</h2>
-      <p>What makes DataCamp certifications truly rigorous is that you only get <strong>2 chances</strong> to pass each assessment. This isn't a limitation - it's a feature that makes you:</p>
-      <ul>
-        <li><strong>Study More Thoroughly:</strong> Knowing you have limited attempts makes you prepare more carefully</li>
-        <li><strong>Learn Deeply:</strong> You can't just memorize answers; you need to truly understand concepts</li>
-        <li><strong>Build Real Confidence:</strong> Passing under these conditions means you've genuinely mastered the material</li>
-        <li><strong>Develop Resilience:</strong> The challenge makes you mentally tough and better prepared for real-world data science work</li>
-      </ul>
-      
-      <p>This approach ensures that when you earn a DataCamp certification, it's a real achievement. It's not something you can breeze through - you have to earn it through genuine understanding and skill.</p>
-      
-      <h2>Why This Makes You Tough in Data Science</h2>
-      <p>The rigorous certification process does more than just test your knowledge - it builds character and competence:</p>
-      <ul>
-        <li><strong>Real-World Preparation:</strong> The pressure and limited attempts mirror real-world scenarios where you need to get things right</li>
-        <li><strong>Deep Understanding:</strong> You can't pass by guessing - you need comprehensive knowledge</li>
-        <li><strong>Problem-Solving Skills:</strong> The assessments require you to think critically and solve complex problems</li>
-        <li><strong>Confidence Building:</strong> Successfully passing these assessments gives you genuine confidence in your abilities</li>
-      </ul>
-      
-      <h2>Creating Enthusiasm Through Learning</h2>
-      <p>One of the most remarkable things about DataCamp is how it creates enthusiasm for learning. The platform makes data science exciting through:</p>
-      <ul>
-        <li><strong>Interactive Learning:</strong> You're coding from day one, not just reading</li>
-        <li><strong>Immediate Feedback:</strong> You know right away if you're on the right track</li>
-        <li><strong>Progress Tracking:</strong> Clear visibility into your learning journey keeps you motivated</li>
-        <li><strong>Community Support:</strong> Access to a community of learners and experts</li>
-        <li><strong>Real Projects:</strong> Hands-on projects that you can add to your portfolio</li>
-      </ul>
-      
-      <p>This enthusiasm isn't just temporary motivation - it translates into sustained learning and genuine skill development.</p>
-      
-      <h2>Lots and Lots of Knowledge</h2>
-      <p>DataCamp doesn't hold back when it comes to content. The platform feeds you with extensive knowledge across:</p>
-      <ul>
-        <li><strong>Programming Fundamentals:</strong> Python, R, SQL, and more</li>
-        <li><strong>Data Manipulation:</strong> pandas, dplyr, and data cleaning techniques</li>
-        <li><strong>Statistical Analysis:</strong> Hypothesis testing, regression, and advanced statistics</li>
-        <li><strong>Machine Learning:</strong> From basics to advanced algorithms and ensemble methods</li>
-        <li><strong>Deep Learning:</strong> Neural networks, CNNs, RNNs, and modern architectures</li>
-        <li><strong>Specialized Topics:</strong> MLOps, causal inference, time series, and more</li>
-        <li><strong>Data Visualization:</strong> Creating compelling visualizations with various tools</li>
-        <li><strong>Best Practices:</strong> Industry standards and professional workflows</li>
-      </ul>
-      
-      <p>The breadth and depth of content ensure that by the time you're ready for certification, you have a comprehensive understanding of data science.</p>
-      
-      <h2>My Recommendation: Take the Membership</h2>
-      <p>If you're aspiring to reach great heights in your data science journey, I strongly recommend taking a DataCamp membership. Here's why:</p>
-      
-      <h3>1. Structured Learning Path</h3>
-      <p>DataCamp provides clear learning paths that guide you from beginner to advanced levels. You don't have to figure out what to learn next - the platform guides you.</p>
-      
-      <h3>2. Get There Easily (But Not Too Easily)</h3>
-      <p>While the certifications are challenging, DataCamp makes the learning process smooth and accessible. The interactive exercises, clear explanations, and progressive difficulty make complex topics approachable.</p>
-      
-      <h3>3. Comprehensive Knowledge Base</h3>
-      <p>You'll have access to hundreds of courses covering every aspect of data science. This extensive library ensures you can dive deep into any area that interests you or is relevant to your career goals.</p>
-      
-      <h3>4. Industry-Recognized Certifications</h3>
-      <p>DataCamp certifications are respected in the industry. Earning one demonstrates your commitment to learning and validates your skills to employers.</p>
-      
-      <h3>5. Build Real Skills</h3>
-      <p>More than just certificates, DataCamp helps you build genuine skills that you'll use in your career. The hands-on approach ensures you can actually apply what you learn.</p>
-      
-      <h2>Final Thoughts</h2>
-      <p>DataCamp has transformed my approach to learning data science. The combination of high-quality content, rigorous certification process, and engaging learning experience makes it an exceptional platform for anyone serious about advancing in data science.</p>
-      
-      <p>The fact that their certifications are challenging - with only 2 chances across 3 assessments - isn't a drawback. It's what makes them valuable. When you earn a DataCamp certification, you know you've truly earned it through hard work and genuine understanding.</p>
-      
-      <p>If you're on a data science journey and want to reach great heights, I can't recommend DataCamp enough. Take the membership, commit to the learning process, and let the platform feed you with the knowledge and skills you need to excel. The journey might be challenging, but that's exactly what makes it worthwhile.</p>
-      
-      <p>Here's to building real skills, earning meaningful certifications, and becoming genuinely tough in data science! 🚀</p>
     `
   },
   {
@@ -544,65 +443,26 @@ const BlogPost = ({ post }: { post: typeof blogPosts[0] }) => (
       <p className="text-lg text-gray-600 mb-6 leading-relaxed">{post.excerpt}</p>
       
       <div 
-        className="prose prose-lg max-w-none"
+        className="blog-content max-w-none text-gray-700"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </div>
   </motion.article>
 );
 
-// Geometric Watermark Background Component for Blog
-const GeometricWatermarkBackground = () => {
-  const geometricShapes = [
-    { type: 'ellipse', width: 400, height: 200, x: 5, y: 10, delay: 0, duration: 20 },
-    { type: 'ellipse', width: 300, height: 150, x: 75, y: 20, delay: 2, duration: 18 },
-    { type: 'ellipse', width: 350, height: 180, x: 40, y: 60, delay: 4, duration: 22 },
-    { type: 'circle', size: 150, x: 20, y: 30, delay: 0.5, duration: 15 },
-    { type: 'circle', size: 120, x: 80, y: 40, delay: 1.5, duration: 16 },
-    { type: 'circle', size: 100, x: 15, y: 75, delay: 2.5, duration: 14 },
-  ];
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {geometricShapes.map((shape, index) => (
-        <motion.div
-          key={`blog-shape-${index}`}
-          className="absolute opacity-[0.03]"
-          style={{
-            left: `${shape.x}%`,
-            top: `${shape.y}%`,
-            width: shape.type === 'ellipse' ? `${shape.width}px` : `${shape.size}px`,
-            height: shape.type === 'ellipse' ? `${shape.height}px` : `${shape.size}px`,
-            borderRadius: '50%',
-            background: `linear-gradient(135deg, 
-              rgba(59, 130, 246, 0.15) 0%, 
-              rgba(139, 92, 246, 0.15) 50%, 
-              rgba(236, 72, 153, 0.15) 100%)`,
-            border: `1px solid rgba(59, 130, 246, 0.1)`,
-          }}
-          animate={{
-            scale: [1, 1.1, 0.95, 1],
-            rotate: [0, 5, -5, 0],
-            opacity: [0.03, 0.05, 0.04, 0.03],
-            x: [0, 20, -15, 0],
-            y: [0, -15, 20, 0],
-          }}
-          transition={{
-            duration: shape.duration || 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: shape.delay || 0,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+// Floating particles for blog page
+const blogParticles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  size: Math.random() * 4 + 2,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  duration: Math.random() * 12 + 8,
+  delay: Math.random() * 3,
+}));
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-gray-50/95 relative">
-      <GeometricWatermarkBackground />
+    <div className="min-h-screen bg-gray-50 relative">
       {/* Header */}
       <motion.header 
         className="bg-white shadow-sm"
@@ -628,7 +488,7 @@ export default function Blog() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600/95 to-purple-600/95 text-white relative z-10">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -648,18 +508,86 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-20 relative z-10">
-        <div className="container mx-auto px-6">
+      <section className="py-20 relative overflow-hidden">
+        {/* Animated background particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {blogParticles.map((particle) => (
+            <motion.div
+              key={particle.id}
+              className="absolute rounded-full bg-gradient-to-br from-blue-400/15 to-purple-400/15"
+              style={{
+                width: particle.size,
+                height: particle.size,
+                left: `${particle.x}%`,
+                top: `${particle.y}%`,
+              }}
+              animate={{
+                y: [-20, 20, -20],
+                x: [-10, 10, -10],
+                opacity: [0.15, 0.4, 0.15],
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: particle.delay,
+              }}
+            />
+          ))}
+          <motion.div
+            className="absolute top-1/4 right-0 w-72 h-72 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"
+            animate={{
+              x: [0, -50, 0],
+              y: [0, 30, 0],
+              scale: [1, 1.15, 1],
+            }}
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 left-0 w-64 h-64 bg-gradient-to-br from-pink-200/20 to-orange-200/20 rounded-full blur-3xl"
+            animate={{
+              x: [0, 40, 0],
+              y: [0, -25, 0],
+              scale: [1, 0.9, 1],
+            }}
+            transition={{
+              duration: 13,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Latest Posts</h2>
+            <motion.h2 
+              className="text-3xl font-bold text-gray-800 mb-12 text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+            >
+              Latest Posts
+            </motion.h2>
             
-            {blogPosts.map((post) => (
-              <BlogPost key={post.id} post={post} />
+            {blogPosts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: false, margin: "-50px" }}
+              >
+                <BlogPost post={post} />
+              </motion.div>
             ))}
           </motion.div>
         </div>

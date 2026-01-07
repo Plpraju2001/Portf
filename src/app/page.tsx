@@ -5,102 +5,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
 
-// Global Geometric Watermark Background Component
-const GeometricWatermarkBackground = () => {
-  // Generate ellipses and circles at various positions
-  const geometricShapes = [
-    // Large ellipses
-    { type: 'ellipse', width: 400, height: 200, x: 5, y: 10, delay: 0, duration: 20 },
-    { type: 'ellipse', width: 300, height: 150, x: 75, y: 20, delay: 2, duration: 18 },
-    { type: 'ellipse', width: 350, height: 180, x: 40, y: 60, delay: 4, duration: 22 },
-    { type: 'ellipse', width: 250, height: 120, x: 85, y: 70, delay: 1, duration: 19 },
-    { type: 'ellipse', width: 320, height: 160, x: 10, y: 50, delay: 3, duration: 21 },
-    { type: 'ellipse', width: 280, height: 140, x: 60, y: 85, delay: 5, duration: 17 },
-    // Circles
-    { type: 'circle', size: 150, x: 20, y: 30, delay: 0.5, duration: 15 },
-    { type: 'circle', size: 120, x: 80, y: 40, delay: 1.5, duration: 16 },
-    { type: 'circle', size: 100, x: 15, y: 75, delay: 2.5, duration: 14 },
-    { type: 'circle', size: 130, x: 70, y: 15, delay: 3.5, duration: 17 },
-    { type: 'circle', size: 110, x: 90, y: 60, delay: 4.5, duration: 18 },
-    { type: 'circle', size: 140, x: 30, y: 90, delay: 5.5, duration: 16 },
-    // Medium ellipses
-    { type: 'ellipse', width: 200, height: 100, x: 25, y: 25, delay: 6, duration: 20 },
-    { type: 'ellipse', width: 180, height: 90, x: 65, y: 55, delay: 7, duration: 18 },
-    { type: 'ellipse', width: 220, height: 110, x: 45, y: 80, delay: 8, duration: 22 },
-  ];
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {geometricShapes.map((shape, index) => (
-        <motion.div
-          key={`shape-${index}`}
-          className="absolute opacity-[0.03]"
-          style={{
-            left: `${shape.x}%`,
-            top: `${shape.y}%`,
-            width: shape.type === 'ellipse' ? `${shape.width}px` : `${shape.size}px`,
-            height: shape.type === 'ellipse' ? `${shape.height}px` : `${shape.size}px`,
-            borderRadius: shape.type === 'circle' ? '50%' : '50%',
-            background: `linear-gradient(135deg, 
-              rgba(59, 130, 246, 0.15) 0%, 
-              rgba(139, 92, 246, 0.15) 50%, 
-              rgba(236, 72, 153, 0.15) 100%)`,
-            border: `1px solid rgba(59, 130, 246, 0.1)`,
-          }}
-          animate={{
-            scale: [1, 1.1, 0.95, 1],
-            rotate: [0, 5, -5, 0],
-            opacity: [0.03, 0.05, 0.04, 0.03],
-            x: [0, 20, -15, 0],
-            y: [0, -15, 20, 0],
-          }}
-          transition={{
-            duration: shape.duration || 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: shape.delay || 0,
-          }}
-        />
-      ))}
-      
-      {/* Additional floating geometric shapes */}
-      {[...Array(20)].map((_, i) => {
-        const size = 60 + Math.random() * 80;
-        const isCircle = Math.random() > 0.5;
-        return (
-          <motion.div
-            key={`floating-${i}`}
-            className="absolute opacity-[0.02]"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${size}px`,
-              height: isCircle ? `${size}px` : `${size * 1.5}px`,
-              borderRadius: isCircle ? '50%' : '50%',
-              background: `linear-gradient(${Math.random() * 360}deg, 
-                rgba(59, 130, 246, 0.1), 
-                rgba(139, 92, 246, 0.1), 
-                rgba(236, 72, 153, 0.1))`,
-            }}
-            animate={{
-              scale: [1, 1.2, 0.9, 1],
-              rotate: [0, 360],
-              opacity: [0.02, 0.04, 0.03, 0.02],
-              x: [0, Math.random() * 100 - 50],
-              y: [0, Math.random() * 100 - 50],
-            }}
-            transition={{
-              duration: 15 + Math.random() * 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 5,
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-};
+// Simple background component (no animations)
+// Background removed - clean static design only
+// Deployment trigger
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -240,352 +147,7 @@ const Hero = () => {
   }));
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white/95 via-blue-50/40 to-purple-50/30 z-10">
-      {/* Data Science Background Elements */}
-      {/* Data Flow Lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`flow-${i}`}
-            className="absolute h-0.5 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
-            style={{
-              left: `${i * 12.5}%`,
-              top: `${20 + (i % 3) * 25}%`,
-              width: '200px',
-            }}
-            animate={{
-              x: [0, 300, 0],
-              opacity: [0, 0.6, 0],
-            }}
-            transition={{
-              duration: 4 + i * 0.5,
-              repeat: Infinity,
-              ease: "linear",
-              delay: i * 0.3,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Enhanced Bar Chart with Professional Look */}
-      <div className="absolute bottom-20 left-10 hidden md:block">
-        <div className="relative">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={`bar-${i}`}
-              className="absolute bg-gradient-to-t from-blue-600/40 via-purple-500/40 to-pink-500/40 rounded-t shadow-lg"
-              style={{
-                width: '24px',
-                height: `${40 + i * 20}px`,
-                left: `${i * 35}px`,
-                bottom: 0,
-              }}
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              transition={{
-                duration: 1.2,
-                delay: i * 0.15,
-                repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 2.5,
-                ease: "easeOut",
-              }}
-            />
-          ))}
-          {/* Bar chart grid lines */}
-          <div className="absolute bottom-0 left-0 w-full h-full opacity-20">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={`grid-${i}`}
-                className="absolute w-full border-t border-blue-300/30"
-                style={{ bottom: `${i * 25}%` }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Animated Pie Chart */}
-      <div className="absolute top-20 right-20 hidden lg:block">
-        <motion.div
-          className="relative w-32 h-32"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <circle
-              cx="50"
-              cy="50"
-              r="45"
-              fill="none"
-              stroke="rgba(59, 130, 246, 0.1)"
-              strokeWidth="8"
-            />
-            {/* Pie slice 1 - 35% */}
-            <motion.path
-              d="M 50 50 L 50 5 A 45 45 0 0 1 81.5 25 Z"
-              fill="url(#pieGradient1)"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 0.8, repeat: Infinity, repeatDelay: 3 }}
-            />
-            {/* Pie slice 2 - 30% */}
-            <motion.path
-              d="M 50 50 L 81.5 25 A 45 45 0 0 1 81.5 75 Z"
-              fill="url(#pieGradient2)"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 1, repeat: Infinity, repeatDelay: 3 }}
-            />
-            {/* Pie slice 3 - 25% */}
-            <motion.path
-              d="M 50 50 L 81.5 75 A 45 45 0 0 1 18.5 75 Z"
-              fill="url(#pieGradient3)"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 1.2, repeat: Infinity, repeatDelay: 3 }}
-            />
-            {/* Pie slice 4 - 10% */}
-            <motion.path
-              d="M 50 50 L 18.5 75 A 45 45 0 0 1 50 5 Z"
-              fill="url(#pieGradient4)"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 1.4, repeat: Infinity, repeatDelay: 3 }}
-            />
-            <defs>
-              <linearGradient id="pieGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.6)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.3)" />
-              </linearGradient>
-              <linearGradient id="pieGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(139, 92, 246, 0.6)" />
-                <stop offset="100%" stopColor="rgba(139, 92, 246, 0.3)" />
-              </linearGradient>
-              <linearGradient id="pieGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(236, 72, 153, 0.6)" />
-                <stop offset="100%" stopColor="rgba(236, 72, 153, 0.3)" />
-              </linearGradient>
-              <linearGradient id="pieGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(59, 130, 246, 0.4)" />
-                <stop offset="100%" stopColor="rgba(139, 92, 246, 0.2)" />
-              </linearGradient>
-            </defs>
-          </svg>
-          {/* Center circle */}
-          <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full" />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Geometric Hexagons */}
-      <div className="absolute top-1/4 left-1/4 hidden xl:block">
-        {[...Array(3)].map((_, i) => (
-          <motion.div
-            key={`hex-${i}`}
-            className="absolute"
-            style={{
-              width: '60px',
-              height: '60px',
-              left: `${i * 80}px`,
-              top: `${i * 40}px`,
-            }}
-            animate={{
-              rotate: [0, 60, 120, 180, 240, 300, 360],
-              scale: [1, 1.2, 1],
-              opacity: [0.4, 0.8, 0.4],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5,
-            }}
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <polygon
-                points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"
-                fill="none"
-                stroke={`url(#hexGradient${i})`}
-                strokeWidth="2"
-                opacity="0.6"
-              />
-              <defs>
-                <linearGradient id={`hexGradient${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor={i === 0 ? "rgba(59, 130, 246, 0.5)" : i === 1 ? "rgba(139, 92, 246, 0.5)" : "rgba(236, 72, 153, 0.5)"} />
-                  <stop offset="100%" stopColor={i === 0 ? "rgba(59, 130, 246, 0.2)" : i === 1 ? "rgba(139, 92, 246, 0.2)" : "rgba(236, 72, 153, 0.2)"} />
-                </linearGradient>
-              </defs>
-            </svg>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Network Nodes with Connections */}
-      <div className="absolute bottom-1/4 right-1/4 hidden lg:block">
-        <svg width="200" height="200" className="opacity-40">
-          {/* Network connections */}
-          {[
-            { x1: 50, y1: 50, x2: 100, y2: 30 },
-            { x1: 50, y1: 50, x2: 150, y2: 80 },
-            { x1: 50, y1: 50, x2: 100, y2: 120 },
-            { x1: 50, y1: 50, x2: 20, y2: 100 },
-          ].map((line, i) => (
-            <motion.line
-              key={`network-${i}`}
-              x1={line.x1}
-              y1={line.y1}
-              x2={line.x2}
-              y2={line.y2}
-              stroke="rgba(59, 130, 246, 0.3)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0, 0.6, 0.3] }}
-              transition={{
-                duration: 2,
-                delay: i * 0.3,
-                repeat: Infinity,
-                repeatDelay: 3,
-              }}
-            />
-          ))}
-          {/* Network nodes */}
-          {[
-            { x: 50, y: 50 },
-            { x: 100, y: 30 },
-            { x: 150, y: 80 },
-            { x: 100, y: 120 },
-            { x: 20, y: 100 },
-          ].map((node, i) => (
-            <motion.circle
-              key={`node-${i}`}
-              cx={node.x}
-              cy={node.y}
-              r="8"
-              fill={i === 0 ? "rgba(59, 130, 246, 0.8)" : "rgba(139, 92, 246, 0.6)"}
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0.8] }}
-              transition={{
-                duration: 1,
-                delay: i * 0.2,
-                repeat: Infinity,
-                repeatDelay: 3,
-              }}
-            />
-          ))}
-        </svg>
-      </div>
-
-      {/* Data Cube (3D Geometric) */}
-      <div className="absolute top-1/3 right-1/3 hidden xl:block">
-        <motion.div
-          className="relative w-20 h-20"
-          style={{ perspective: "1000px" }}
-          animate={{
-            rotateX: [0, 360],
-            rotateY: [0, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          <div className="relative w-full h-full" style={{ transformStyle: "preserve-3d" }}>
-            {/* Cube faces */}
-            {[
-              { rotate: "rotateY(0deg)", color: "rgba(59, 130, 246, 0.4)" },
-              { rotate: "rotateY(90deg)", color: "rgba(139, 92, 246, 0.4)" },
-              { rotate: "rotateY(180deg)", color: "rgba(236, 72, 153, 0.4)" },
-              { rotate: "rotateY(-90deg)", color: "rgba(59, 130, 246, 0.3)" },
-              { rotate: "rotateX(90deg)", color: "rgba(139, 92, 246, 0.3)" },
-              { rotate: "rotateX(-90deg)", color: "rgba(236, 72, 153, 0.3)" },
-            ].map((face, i) => (
-              <div
-                key={`cube-face-${i}`}
-                className="absolute w-full h-full border-2 border-blue-400/50"
-                style={{
-                  background: face.color,
-                  transform: `${face.rotate} translateZ(40px)`,
-                  backfaceVisibility: "hidden",
-                }}
-              />
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Radar/Sonar Sweep Animation */}
-      <div className="absolute bottom-1/3 left-1/3 hidden xl:block">
-        <motion.div
-          className="relative"
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          <svg width="120" height="120" className="opacity-30">
-            {/* Radar circles */}
-            {[1, 2, 3].map((radius) => (
-              <circle
-                key={`radar-circle-${radius}`}
-                cx="60"
-                cy="60"
-                r={radius * 20}
-                fill="none"
-                stroke="rgba(59, 130, 246, 0.3)"
-                strokeWidth="1"
-              />
-            ))}
-            {/* Sweep line */}
-            <line
-              x1="60"
-              y1="60"
-              x2="60"
-              y2="0"
-              stroke="rgba(59, 130, 246, 0.8)"
-              strokeWidth="2"
-            />
-          </svg>
-        </motion.div>
-      </div>
-
-      {/* Data Points Scatter */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={`point-${i}`}
-            className="absolute rounded-full bg-blue-500/20"
-            style={{
-              width: `${4 + Math.random() * 4}px`,
-              height: `${4 + Math.random() * 4}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.3, 0.8, 0.3],
-              y: [-10, 10, -10],
-            }}
-            transition={{
-              duration: 2 + Math.random() * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
       {/* Elegant floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((particle) => (
@@ -863,32 +425,7 @@ const Hero = () => {
 const About = () => {
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50/95 to-blue-50/40 relative overflow-hidden z-10">
-      {/* Data Science Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle data flow lines */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={`about-flow-${i}`}
-            className="absolute h-px bg-gradient-to-r from-transparent via-blue-300/20 to-transparent"
-            style={{
-              left: `${i * 20}%`,
-              top: `${30 + (i % 2) * 40}%`,
-              width: '150px',
-            }}
-            animate={{
-              x: [0, 200, 0],
-              opacity: [0, 0.4, 0],
-            }}
-            transition={{
-              duration: 5 + i,
-              repeat: Infinity,
-              ease: "linear",
-              delay: i * 0.5,
-            }}
-          />
-        ))}
-      </div>
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -1046,13 +583,12 @@ const About = () => {
                   <motion.div
                     className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-5xl mb-4"
                     animate={{
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1],
+                      scale: [1, 1.05, 1],
                     }}
                     transition={{
-                      duration: 5,
+                      duration: 3,
                       repeat: Infinity,
-                      ease: "linear",
+                      ease: "easeInOut",
                     }}
                   >
                     {skill.icon}
@@ -1098,7 +634,7 @@ const About = () => {
 
 const PersonalInterests = () => {
   return (
-    <section id="interests" className="py-20 bg-gradient-to-br from-white/95 to-purple-50/30 relative z-10">
+    <section id="interests" className="py-20 bg-gradient-to-br from-white to-purple-50/20 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
@@ -1490,7 +1026,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/40 to-white/95 relative overflow-hidden z-10">
+    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -1728,6 +1264,16 @@ const Projects = () => {
 };
 
 const Experience = () => {
+  // Floating particles for experience section
+  const experienceParticles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 12 + 8,
+    delay: Math.random() * 2,
+  }));
+
   const experiences = [
     {
       title: 'Data Scientist - Marketing Analytics',
@@ -1762,8 +1308,47 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50/95 relative z-10">
-      <div className="container mx-auto px-6">
+    <section id="experience" className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* Animated floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {experienceParticles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+            }}
+            animate={{
+              y: [-15, 15, -15],
+              x: [-8, 8, -8],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: particle.delay,
+            }}
+          />
+        ))}
+        <motion.div
+          className="absolute top-1/4 right-10 w-64 h-64 bg-gradient-to-br from-indigo-200/20 to-blue-200/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 20, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1912,8 +1497,37 @@ const Blog = () => {
   const latestPost = getLatestBlogPost();
   
   return (
-    <section id="blog" className="py-20 bg-gray-50/95 relative z-10">
-      <div className="container mx-auto px-6">
+    <section id="blog" className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/3 left-10 w-56 h-56 bg-gradient-to-br from-purple-200/25 to-pink-200/25 rounded-full blur-3xl"
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -25, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-10 w-48 h-48 bg-gradient-to-br from-blue-200/25 to-cyan-200/25 rounded-full blur-3xl"
+          animate={{
+            x: [0, -35, 0],
+            y: [0, 20, 0],
+            scale: [1, 0.9, 1],
+          }}
+          transition={{
+            duration: 11,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -2024,8 +1638,37 @@ const Blog = () => {
 };
 
 const Education = () => (
-  <section id="education" className="py-20 bg-gray-50/95 relative z-10">
-    <div className="container mx-auto px-6">
+  <section id="education" className="py-20 bg-gray-50 relative overflow-hidden">
+    {/* Animated background elements */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <motion.div
+        className="absolute top-1/3 right-0 w-72 h-72 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"
+        animate={{
+          x: [0, -50, 0],
+          y: [0, 30, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-0 w-64 h-64 bg-gradient-to-br from-green-200/20 to-teal-200/20 rounded-full blur-3xl"
+        animate={{
+          x: [0, 40, 0],
+          y: [0, -20, 0],
+          scale: [1, 0.9, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    </div>
+    <div className="container mx-auto px-6 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -2126,35 +1769,84 @@ const Education = () => (
           viewport={{ once: false, margin: "-50px" }}
           whileHover={{ y: -5, scale: 1.02 }}
         >
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Professional Certifications</h3>
+          <motion.h3 
+            className="text-xl font-semibold text-gray-800 mb-4"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: false }}
+          >
+            Professional Certifications
+          </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <motion.a
               href="https://www.linkedin.com/in/lakshmipathirajup/details/certifications/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-300"
-              whileHover={{ scale: 1.02 }}
+              className="text-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-300 relative overflow-hidden group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: false }}
+              whileHover={{ scale: 1.03, y: -3 }}
             >
-              <div className="flex items-center justify-center mb-2">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-200/50 to-purple-200/50 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <div className="flex items-center justify-center mb-2 relative z-10">
                 <svg className="w-6 h-6 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
                 <h4 className="font-semibold text-gray-800">View All Certifications</h4>
               </div>
-              <p className="text-sm text-gray-600">Click to view my LinkedIn certifications</p>
+              <p className="text-sm text-gray-600 relative z-10">Click to view my LinkedIn certifications</p>
             </motion.a>
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-semibold text-gray-800">AWS Certified Data Analytics</h4>
-              <p className="text-sm text-gray-600">Amazon Web Services</p>
-            </div>
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-semibold text-gray-800">Power BI Data Analyst Associate</h4>
-              <p className="text-sm text-gray-600">Microsoft Certified</p>
-            </div>
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-semibold text-gray-800">Azure Database Administrator</h4>
-              <p className="text-sm text-gray-600">Microsoft Certified</p>
-            </div>
+            <motion.div 
+              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: false }}
+              whileHover={{ scale: 1.03, y: -3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-orange-200/50 to-yellow-200/50 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <h4 className="font-semibold text-gray-800 relative z-10">AWS Certified Data Analytics</h4>
+              <p className="text-sm text-gray-600 relative z-10">Amazon Web Services</p>
+            </motion.div>
+            <motion.div 
+              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: false }}
+              whileHover={{ scale: 1.03, y: -3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-green-200/50 to-teal-200/50 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <h4 className="font-semibold text-gray-800 relative z-10">Power BI Data Analyst Associate</h4>
+              <p className="text-sm text-gray-600 relative z-10">Microsoft Certified</p>
+            </motion.div>
+            <motion.div 
+              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: false }}
+              whileHover={{ scale: 1.03, y: -3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-pink-200/50 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <h4 className="font-semibold text-gray-800 relative z-10">Azure Database Administrator</h4>
+              <p className="text-sm text-gray-600 relative z-10">Microsoft Certified</p>
+            </motion.div>
           </div>
         </motion.div>
       </div>
@@ -2164,8 +1856,37 @@ const Education = () => (
 
 
 const Contact = () => (
-  <section id="contact" className="py-20 bg-white/95 relative z-10">
-    <div className="container mx-auto px-6">
+  <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-br from-white to-blue-50/30">
+    {/* Animated background elements */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-purple-300/20 rounded-full blur-3xl"
+        animate={{
+          x: [0, 60, 0],
+          y: [0, -40, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-gradient-to-br from-pink-300/20 to-orange-300/20 rounded-full blur-3xl"
+        animate={{
+          x: [0, -50, 0],
+          y: [0, 30, 0],
+          scale: [1, 0.85, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    </div>
+    <div className="container mx-auto px-6 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -2313,7 +2034,7 @@ const Footer = () => (
 // Fixed Profile Picture Component
 const FixedProfilePicture = () => {
   const [imageError, setImageError] = useState(false);
-  const profileImage = '/profile_picture.jpg'; // Profile picture
+  const profileImage = '/profile_picture.jpeg'; // Profile picture - previous version
 
   return (
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
@@ -2364,9 +2085,27 @@ const FixedProfilePicture = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white relative">
-      {/* Global Geometric Watermark Background - Visible on all sections */}
-      <GeometricWatermarkBackground />
+        <>
+          <style jsx global>{`
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+            * {
+              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            }
+            body {
+              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            }
+            h1, h2, h3, h4, h5, h6 {
+              font-weight: 700;
+              letter-spacing: -0.02em;
+            }
+            .gradient-text {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            }
+          `}</style>
+      <div className="min-h-screen bg-white">
       <Header />
         <FixedProfilePicture />
       <Hero />
@@ -2379,5 +2118,6 @@ export default function Home() {
       <Contact />
       <Footer />
     </div>
+    </>
   );
 }
