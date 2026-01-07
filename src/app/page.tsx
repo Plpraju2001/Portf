@@ -5,9 +5,226 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
 
-// Simple background component (no animations)
-// Background removed - clean static design only
-// Deployment trigger
+// Data Science Watermark Components
+const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="120"
+    height="80"
+    viewBox="0 0 120 80"
+    className="opacity-10"
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ 
+      opacity: [0.05, 0.15, 0.05],
+      scale: [0.8, 1, 0.8],
+      y: [0, -10, 0],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Bar Chart */}
+    <rect x="10" y="50" width="15" height="20" fill="url(#barGradient1)" rx="2" />
+    <rect x="30" y="40" width="15" height="30" fill="url(#barGradient2)" rx="2" />
+    <rect x="50" y="30" width="15" height="40" fill="url(#barGradient3)" rx="2" />
+    <rect x="70" y="35" width="15" height="35" fill="url(#barGradient4)" rx="2" />
+    <rect x="90" y="25" width="15" height="45" fill="url(#barGradient5)" rx="2" />
+    <defs>
+      <linearGradient id="barGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#ec4899" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGradient4" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#10b981" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGradient5" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.8" />
+      </linearGradient>
+    </defs>
+  </motion.svg>
+);
+
+const PieChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="100"
+    height="100"
+    viewBox="0 0 100 100"
+    className="opacity-10"
+    initial={{ opacity: 0, rotate: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.15, 0.05],
+      rotate: [0, 360],
+      scale: [0.8, 1.1, 0.8],
+    }}
+    transition={{
+      duration: 20,
+      repeat: Infinity,
+      delay,
+      ease: "linear",
+    }}
+  >
+    {/* Pie Chart Slices */}
+    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient1)" strokeWidth="20" 
+            strokeDasharray={`${2 * Math.PI * 40 * 0.3} ${2 * Math.PI * 40}`} 
+            transform="rotate(-90 50 50)" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient2)" strokeWidth="20" 
+            strokeDasharray={`${2 * Math.PI * 40 * 0.25} ${2 * Math.PI * 40}`} 
+            strokeDashoffset={-2 * Math.PI * 40 * 0.3}
+            transform="rotate(-90 50 50)" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient3)" strokeWidth="20" 
+            strokeDasharray={`${2 * Math.PI * 40 * 0.2} ${2 * Math.PI * 40}`} 
+            strokeDashoffset={-2 * Math.PI * 40 * 0.55}
+            transform="rotate(-90 50 50)" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient4)" strokeWidth="20" 
+            strokeDasharray={`${2 * Math.PI * 40 * 0.25} ${2 * Math.PI * 40}`} 
+            strokeDashoffset={-2 * Math.PI * 40 * 0.75}
+            transform="rotate(-90 50 50)" />
+    <defs>
+      <linearGradient id="pieGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.6" />
+      </linearGradient>
+      <linearGradient id="pieGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.6" />
+      </linearGradient>
+      <linearGradient id="pieGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#ec4899" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.6" />
+      </linearGradient>
+      <linearGradient id="pieGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#10b981" stopOpacity="0.6" />
+      </linearGradient>
+    </defs>
+  </motion.svg>
+);
+
+const HeatMapWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="150"
+    height="100"
+    viewBox="0 0 150 100"
+    className="opacity-10"
+    initial={{ opacity: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.2, 0.05],
+      scale: [0.9, 1.05, 0.9],
+    }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Heat Map Grid */}
+    {Array.from({ length: 5 }).map((_, row) =>
+      Array.from({ length: 7 }).map((_, col) => {
+        const intensity = (row * 7 + col) / 35;
+        const colors = ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#ec4899', '#f59e0b'];
+        const colorIndex = Math.floor(intensity * (colors.length - 1));
+        return (
+          <rect
+            key={`${row}-${col}`}
+            x={col * 20 + 5}
+            y={row * 18 + 5}
+            width="15"
+            height="13"
+            fill={colors[colorIndex]}
+            opacity={0.3 + intensity * 0.4}
+            rx="2"
+          />
+        );
+      })
+    )}
+  </motion.svg>
+);
+
+const LineChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="140"
+    height="80"
+    viewBox="0 0 140 80"
+    className="opacity-10"
+    initial={{ opacity: 0, pathLength: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.15, 0.05],
+      pathLength: [0, 1, 0],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Line Chart */}
+    <polyline
+      points="10,60 25,50 40,35 55,45 70,25 85,30 100,20 115,15 130,10"
+      fill="none"
+      stroke="url(#lineGradient)"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <defs>
+      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+        <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.8" />
+        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.8" />
+      </linearGradient>
+    </defs>
+  </motion.svg>
+);
+
+// Data Science Watermark Container
+const DataScienceWatermarks = () => {
+  const watermarks = [
+    { type: 'bar', x: 5, y: 10, delay: 0 },
+    { type: 'pie', x: 85, y: 15, delay: 2 },
+    { type: 'heat', x: 10, y: 70, delay: 1 },
+    { type: 'line', x: 70, y: 60, delay: 3 },
+    { type: 'bar', x: 50, y: 30, delay: 4 },
+    { type: 'pie', x: 20, y: 50, delay: 5 },
+    { type: 'heat', x: 80, y: 40, delay: 2.5 },
+    { type: 'line', x: 15, y: 80, delay: 1.5 },
+  ];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+      {watermarks.map((wm, idx) => {
+        const style = {
+          position: 'absolute' as const,
+          left: `${wm.x}%`,
+          top: `${wm.y}%`,
+          zIndex: 0,
+        };
+        if (wm.type === 'bar') {
+          return <div key={idx} style={style}><BarChartWatermark delay={wm.delay} /></div>;
+        } else if (wm.type === 'pie') {
+          return <div key={idx} style={style}><PieChartWatermark delay={wm.delay} /></div>;
+        } else if (wm.type === 'heat') {
+          return <div key={idx} style={style}><HeatMapWatermark delay={wm.delay} /></div>;
+        } else {
+          return <div key={idx} style={style}><LineChartWatermark delay={wm.delay} /></div>;
+        }
+      })}
+    </div>
+  );
+};
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -148,6 +365,8 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+      {/* Data Science Watermarks */}
+      <DataScienceWatermarks />
       {/* Elegant floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((particle) => (
@@ -426,7 +645,8 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-      <div className="container mx-auto px-6">
+      <DataScienceWatermarks />
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -635,7 +855,8 @@ const About = () => {
 const PersonalInterests = () => {
   return (
     <section id="interests" className="py-20 bg-gradient-to-br from-white to-purple-50/20 relative">
-      <div className="container mx-auto px-6">
+      <DataScienceWatermarks />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
             className="text-4xl font-bold text-gray-800 mb-8 tracking-tight"
@@ -1027,6 +1248,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden">
+      <DataScienceWatermarks />
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -1309,6 +1531,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20 bg-gray-50 relative overflow-hidden">
+      <DataScienceWatermarks />
       {/* Animated floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {experienceParticles.map((particle) => (
@@ -1498,6 +1721,7 @@ const Blog = () => {
   
   return (
     <section id="blog" className="py-20 bg-gray-50 relative overflow-hidden">
+      <DataScienceWatermarks />
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -1639,6 +1863,7 @@ const Blog = () => {
 
 const Education = () => (
   <section id="education" className="py-20 bg-gray-50 relative overflow-hidden">
+    <DataScienceWatermarks />
     {/* Animated background elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
@@ -1857,6 +2082,7 @@ const Education = () => (
 
 const Contact = () => (
   <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-br from-white to-blue-50/30">
+    <DataScienceWatermarks />
     {/* Animated background elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
@@ -2034,7 +2260,7 @@ const Footer = () => (
 // Fixed Profile Picture Component
 const FixedProfilePicture = () => {
   const [imageError, setImageError] = useState(false);
-  const profileImage = '/profile_picture.jpeg'; // Profile picture - previous version
+  const profileImage = '/profile_picture.jpg'; // Profile picture
 
   return (
     <div className="fixed top-24 right-6 z-50 hidden lg:block">
