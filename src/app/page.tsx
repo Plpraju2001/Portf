@@ -5,18 +5,17 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
 
-// Data Science Watermark Components
+// Professional Data Science Visualization Components
 const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="120"
-    height="80"
-    viewBox="0 0 120 80"
-    className="opacity-10"
-    initial={{ opacity: 0, scale: 0.8 }}
+    width="140"
+    height="90"
+    viewBox="0 0 140 90"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0 }}
     animate={{ 
-      opacity: [0.05, 0.15, 0.05],
-      scale: [0.8, 1, 0.8],
-      y: [0, -10, 0],
+      opacity: [0.05, 0.12, 0.05],
+      y: [0, -5, 0],
     }}
     transition={{
       duration: 8,
@@ -25,144 +24,111 @@ const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       ease: "easeInOut",
     }}
   >
-    {/* Bar Chart */}
-    <rect x="10" y="50" width="15" height="20" fill="url(#barGradient1)" rx="2" />
-    <rect x="30" y="40" width="15" height="30" fill="url(#barGradient2)" rx="2" />
-    <rect x="50" y="30" width="15" height="40" fill="url(#barGradient3)" rx="2" />
-    <rect x="70" y="35" width="15" height="35" fill="url(#barGradient4)" rx="2" />
-    <rect x="90" y="25" width="15" height="45" fill="url(#barGradient5)" rx="2" />
-    <defs>
-      <linearGradient id="barGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
-      </linearGradient>
-      <linearGradient id="barGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.8" />
-      </linearGradient>
-      <linearGradient id="barGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#ec4899" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.8" />
-      </linearGradient>
-      <linearGradient id="barGradient4" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#10b981" stopOpacity="0.8" />
-      </linearGradient>
-      <linearGradient id="barGradient5" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.8" />
-      </linearGradient>
-    </defs>
+    {/* Axes */}
+    <line x1="15" y1="75" x2="125" y2="75" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    <line x1="15" y1="75" x2="15" y2="10" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    {/* Bars with realistic heights */}
+    <rect x="20" y="60" width="12" height="15" fill="#3b82f6" opacity="0.6" rx="1" />
+    <rect x="35" y="50" width="12" height="25" fill="#6366f1" opacity="0.6" rx="1" />
+    <rect x="50" y="40" width="12" height="35" fill="#8b5cf6" opacity="0.6" rx="1" />
+    <rect x="65" y="45" width="12" height="30" fill="#a855f7" opacity="0.6" rx="1" />
+    <rect x="80" y="35" width="12" height="40" fill="#ec4899" opacity="0.6" rx="1" />
+    <rect x="95" y="30" width="12" height="45" fill="#f59e0b" opacity="0.6" rx="1" />
+    <rect x="110" y="55" width="12" height="20" fill="#10b981" opacity="0.6" rx="1" />
   </motion.svg>
 );
 
-const PieChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+const ScatterPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="100"
+    width="130"
     height="100"
-    viewBox="0 0 100 100"
-    className="opacity-10"
-    initial={{ opacity: 0, rotate: 0 }}
-    animate={{ 
-      opacity: [0.05, 0.15, 0.05],
-      rotate: [0, 360],
-      scale: [0.8, 1.1, 0.8],
-    }}
-    transition={{
-      duration: 20,
-      repeat: Infinity,
-      delay,
-      ease: "linear",
-    }}
-  >
-    {/* Pie Chart Slices */}
-    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient1)" strokeWidth="20" 
-            strokeDasharray={`${2 * Math.PI * 40 * 0.3} ${2 * Math.PI * 40}`} 
-            transform="rotate(-90 50 50)" />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient2)" strokeWidth="20" 
-            strokeDasharray={`${2 * Math.PI * 40 * 0.25} ${2 * Math.PI * 40}`} 
-            strokeDashoffset={-2 * Math.PI * 40 * 0.3}
-            transform="rotate(-90 50 50)" />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient3)" strokeWidth="20" 
-            strokeDasharray={`${2 * Math.PI * 40 * 0.2} ${2 * Math.PI * 40}`} 
-            strokeDashoffset={-2 * Math.PI * 40 * 0.55}
-            transform="rotate(-90 50 50)" />
-    <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pieGradient4)" strokeWidth="20" 
-            strokeDasharray={`${2 * Math.PI * 40 * 0.25} ${2 * Math.PI * 40}`} 
-            strokeDashoffset={-2 * Math.PI * 40 * 0.75}
-            transform="rotate(-90 50 50)" />
-    <defs>
-      <linearGradient id="pieGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
-        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.6" />
-      </linearGradient>
-      <linearGradient id="pieGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.6" />
-        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.6" />
-      </linearGradient>
-      <linearGradient id="pieGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#ec4899" stopOpacity="0.6" />
-        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.6" />
-      </linearGradient>
-      <linearGradient id="pieGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.6" />
-        <stop offset="100%" stopColor="#10b981" stopOpacity="0.6" />
-      </linearGradient>
-    </defs>
-  </motion.svg>
-);
-
-const HeatMapWatermark = ({ delay = 0 }: { delay?: number }) => (
-  <motion.svg
-    width="150"
-    height="100"
-    viewBox="0 0 150 100"
-    className="opacity-10"
+    viewBox="0 0 130 100"
+    className="opacity-[0.08]"
     initial={{ opacity: 0 }}
     animate={{ 
-      opacity: [0.05, 0.2, 0.05],
-      scale: [0.9, 1.05, 0.9],
+      opacity: [0.05, 0.12, 0.05],
+      scale: [0.95, 1.05, 0.95],
     }}
     transition={{
-      duration: 6,
+      duration: 7,
       repeat: Infinity,
       delay,
       ease: "easeInOut",
     }}
   >
-    {/* Heat Map Grid */}
-    {Array.from({ length: 5 }).map((_, row) =>
-      Array.from({ length: 7 }).map((_, col) => {
-        const intensity = (row * 7 + col) / 35;
-        const colors = ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#ec4899', '#f59e0b'];
-        const colorIndex = Math.floor(intensity * (colors.length - 1));
-        return (
-          <rect
-            key={`${row}-${col}`}
-            x={col * 20 + 5}
-            y={row * 18 + 5}
-            width="15"
-            height="13"
-            fill={colors[colorIndex]}
-            opacity={0.3 + intensity * 0.4}
-            rx="2"
-          />
-        );
-      })
-    )}
+    {/* Axes */}
+    <line x1="15" y1="85" x2="115" y2="85" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    <line x1="15" y1="85" x2="15" y2="15" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    {/* Scatter points with correlation pattern */}
+    {[
+      { x: 20, y: 70, size: 3 }, { x: 30, y: 65, size: 4 }, { x: 40, y: 60, size: 3 },
+      { x: 50, y: 55, size: 5 }, { x: 60, y: 50, size: 4 }, { x: 70, y: 45, size: 3 },
+      { x: 80, y: 40, size: 4 }, { x: 90, y: 35, size: 5 }, { x: 100, y: 30, size: 3 },
+      { x: 25, y: 68, size: 3 }, { x: 45, y: 58, size: 4 }, { x: 65, y: 48, size: 3 },
+      { x: 85, y: 38, size: 4 }, { x: 35, y: 63, size: 3 }, { x: 55, y: 53, size: 4 },
+    ].map((point, i) => (
+      <circle
+        key={i}
+        cx={point.x}
+        cy={point.y}
+        r={point.size}
+        fill="#3b82f6"
+        opacity="0.5"
+      />
+    ))}
   </motion.svg>
 );
 
-const LineChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+const BoxPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="140"
-    height="80"
-    viewBox="0 0 140 80"
-    className="opacity-10"
-    initial={{ opacity: 0, pathLength: 0 }}
+    width="120"
+    height="90"
+    viewBox="0 0 120 90"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.12, 0.05],
+      x: [0, 3, 0],
+    }}
+    transition={{
+      duration: 9,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Axes */}
+    <line x1="15" y1="75" x2="105" y2="75" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    {/* Box plots */}
+    {[
+      { x: 25, min: 70, q1: 60, median: 50, q3: 40, max: 30 },
+      { x: 60, min: 65, q1: 55, median: 45, q3: 35, max: 25 },
+      { x: 95, min: 68, q1: 58, median: 48, q3: 38, max: 28 },
+    ].map((box, i) => (
+      <g key={i}>
+        {/* Whiskers */}
+        <line x1={box.x} y1={box.min} x2={box.x} y2={box.max} stroke="#3b82f6" strokeWidth="1.5" opacity="0.5" />
+        <line x1={box.x - 5} y1={box.min} x2={box.x + 5} y2={box.min} stroke="#3b82f6" strokeWidth="1.5" opacity="0.5" />
+        <line x1={box.x - 5} y1={box.max} x2={box.x + 5} y2={box.max} stroke="#3b82f6" strokeWidth="1.5" opacity="0.5" />
+        {/* Box */}
+        <rect x={box.x - 8} y={box.q3} width="16" height={box.q1 - box.q3} fill="#8b5cf6" opacity="0.4" />
+        {/* Median line */}
+        <line x1={box.x - 8} y1={box.median} x2={box.x + 8} y2={box.median} stroke="#ec4899" strokeWidth="2" opacity="0.6" />
+      </g>
+    ))}
+  </motion.svg>
+);
+
+const CorrelationMatrixWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="110"
+    height="110"
+    viewBox="0 0 110 110"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0 }}
     animate={{ 
       opacity: [0.05, 0.15, 0.05],
-      pathLength: [0, 1, 0],
+      rotate: [0, 5, 0],
     }}
     transition={{
       duration: 10,
@@ -171,36 +137,239 @@ const LineChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       ease: "easeInOut",
     }}
   >
-    {/* Line Chart */}
+    {/* Correlation matrix grid */}
+    {Array.from({ length: 5 }).map((_, row) =>
+      Array.from({ length: 5 }).map((_, col) => {
+        const correlation = row === col ? 1 : Math.abs(1 - Math.abs(row - col) / 4);
+        const color = correlation > 0.7 ? '#10b981' : correlation > 0.4 ? '#f59e0b' : '#ef4444';
+        return (
+          <rect
+            key={`${row}-${col}`}
+            x={col * 20 + 10}
+            y={row * 20 + 10}
+            width="16"
+            height="16"
+            fill={color}
+            opacity={0.3 + correlation * 0.3}
+            rx="2"
+          />
+        );
+      })
+    )}
+  </motion.svg>
+);
+
+const TimeSeriesWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="150"
+    height="85"
+    viewBox="0 0 150 85"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0, pathLength: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.12, 0.05],
+      pathLength: [0, 1, 0],
+    }}
+    transition={{
+      duration: 12,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Axes */}
+    <line x1="15" y1="70" x2="135" y2="70" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    <line x1="15" y1="70" x2="15" y2="15" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    {/* Time series line with trend */}
     <polyline
-      points="10,60 25,50 40,35 55,45 70,25 85,30 100,20 115,15 130,10"
+      points="15,65 25,60 35,55 45,50 55,45 65,40 75,38 85,35 95,32 105,30 115,28 125,25 135,22"
       fill="none"
-      stroke="url(#lineGradient)"
-      strokeWidth="3"
+      stroke="#3b82f6"
+      strokeWidth="2.5"
       strokeLinecap="round"
-      strokeLinejoin="round"
+      opacity="0.6"
+    />
+    {/* Area under curve */}
+    <polyline
+      points="15,70 15,65 25,60 35,55 45,50 55,45 65,40 75,38 85,35 95,32 105,30 115,28 125,25 135,22 135,70"
+      fill="url(#timeSeriesGradient)"
+      opacity="0.3"
     />
     <defs>
-      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-        <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.8" />
+      <linearGradient id="timeSeriesGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.1" />
       </linearGradient>
     </defs>
   </motion.svg>
 );
 
-// Data Science Watermark Container
+const HistogramWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="130"
+    height="90"
+    viewBox="0 0 130 90"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.12, 0.05],
+      scale: [0.98, 1.02, 0.98],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Axes */}
+    <line x1="15" y1="75" x2="115" y2="75" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    <line x1="15" y1="75" x2="15" y2="15" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    {/* Histogram bars (normal distribution shape) */}
+    <rect x="20" y="70" width="8" height="5" fill="#6366f1" opacity="0.5" />
+    <rect x="30" y="65" width="8" height="10" fill="#8b5cf6" opacity="0.5" />
+    <rect x="40" y="55" width="8" height="20" fill="#a855f7" opacity="0.5" />
+    <rect x="50" y="45" width="8" height="30" fill="#ec4899" opacity="0.5" />
+    <rect x="60" y="40" width="8" height="35" fill="#f59e0b" opacity="0.5" />
+    <rect x="70" y="45" width="8" height="30" fill="#ec4899" opacity="0.5" />
+    <rect x="80" y="55" width="8" height="20" fill="#a855f7" opacity="0.5" />
+    <rect x="90" y="65" width="8" height="10" fill="#8b5cf6" opacity="0.5" />
+    <rect x="100" y="70" width="8" height="5" fill="#6366f1" opacity="0.5" />
+  </motion.svg>
+);
+
+const HeatMapWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="140"
+    height="100"
+    viewBox="0 0 140 100"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.15, 0.05],
+      scale: [0.95, 1.05, 0.95],
+    }}
+    transition={{
+      duration: 7,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Professional heat map with gradient colors */}
+    {Array.from({ length: 6 }).map((_, row) =>
+      Array.from({ length: 8 }).map((_, col) => {
+        const intensity = Math.sin((row + col) * 0.5) * 0.5 + 0.5;
+        const colors = ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#ec4899', '#f59e0b'];
+        const colorIndex = Math.floor(intensity * (colors.length - 1));
+        return (
+          <rect
+            key={`${row}-${col}`}
+            x={col * 16 + 10}
+            y={row * 14 + 10}
+            width="12"
+            height="10"
+            fill={colors[colorIndex]}
+            opacity={0.2 + intensity * 0.4}
+            rx="1"
+          />
+        );
+      })
+    )}
+  </motion.svg>
+);
+
+const PieChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="100"
+    height="100"
+    viewBox="0 0 100 100"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0, rotate: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.12, 0.05],
+      rotate: [0, 360],
+    }}
+    transition={{
+      duration: 25,
+      repeat: Infinity,
+      delay,
+      ease: "linear",
+    }}
+  >
+    {/* Professional pie chart with proper slices */}
+    <path d="M 50,50 L 50,10 A 40,40 0 0,1 78,22 Z" fill="#3b82f6" opacity="0.5" />
+    <path d="M 50,50 L 78,22 A 40,40 0 0,1 90,50 Z" fill="#6366f1" opacity="0.5" />
+    <path d="M 50,50 L 90,50 A 40,40 0 0,1 78,78 Z" fill="#8b5cf6" opacity="0.5" />
+    <path d="M 50,50 L 78,78 A 40,40 0 0,1 50,90 Z" fill="#a855f7" opacity="0.5" />
+    <path d="M 50,50 L 50,90 A 40,40 0 0,1 22,78 Z" fill="#ec4899" opacity="0.5" />
+    <path d="M 50,50 L 22,78 A 40,40 0 0,1 10,50 Z" fill="#f59e0b" opacity="0.5" />
+    <path d="M 50,50 L 10,50 A 40,40 0 0,1 22,22 Z" fill="#10b981" opacity="0.5" />
+    <path d="M 50,50 L 22,22 A 40,40 0 0,1 50,10 Z" fill="#3b82f6" opacity="0.5" />
+  </motion.svg>
+);
+
+const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
+  <motion.svg
+    width="140"
+    height="85"
+    viewBox="0 0 140 85"
+    className="opacity-[0.08]"
+    initial={{ opacity: 0 }}
+    animate={{ 
+      opacity: [0.05, 0.12, 0.05],
+      y: [0, -3, 0],
+    }}
+    transition={{
+      duration: 9,
+      repeat: Infinity,
+      delay,
+      ease: "easeInOut",
+    }}
+  >
+    {/* Axes */}
+    <line x1="15" y1="70" x2="125" y2="70" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    <line x1="15" y1="70" x2="15" y2="15" stroke="#64748b" strokeWidth="1" opacity="0.3" />
+    {/* Stacked area chart */}
+    <polygon points="15,70 25,65 35,60 45,55 55,50 65,45 75,40 85,35 95,30 105,25 115,20 125,15 125,70" 
+             fill="url(#areaGradient1)" opacity="0.4" />
+    <polygon points="15,70 25,68 35,65 45,62 55,58 65,55 75,52 85,48 95,45 105,42 115,38 125,35 125,70" 
+             fill="url(#areaGradient2)" opacity="0.3" />
+    <defs>
+      <linearGradient id="areaGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
+      </linearGradient>
+      <linearGradient id="areaGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.4" />
+        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.15" />
+      </linearGradient>
+    </defs>
+  </motion.svg>
+);
+
+// Professional Data Science Watermark Container
 const DataScienceWatermarks = () => {
+  // Comprehensive distribution of all visualization types
   const watermarks = [
-    { type: 'bar', x: 5, y: 10, delay: 0 },
-    { type: 'pie', x: 85, y: 15, delay: 2 },
-    { type: 'heat', x: 10, y: 70, delay: 1 },
-    { type: 'line', x: 70, y: 60, delay: 3 },
-    { type: 'bar', x: 50, y: 30, delay: 4 },
-    { type: 'pie', x: 20, y: 50, delay: 5 },
-    { type: 'heat', x: 80, y: 40, delay: 2.5 },
-    { type: 'line', x: 15, y: 80, delay: 1.5 },
+    { type: 'bar', x: 3, y: 8, delay: 0 },
+    { type: 'scatter', x: 88, y: 12, delay: 1 },
+    { type: 'box', x: 5, y: 75, delay: 2 },
+    { type: 'correlation', x: 85, y: 70, delay: 3 },
+    { type: 'timeseries', x: 45, y: 5, delay: 4 },
+    { type: 'histogram', x: 12, y: 45, delay: 5 },
+    { type: 'heat', x: 75, y: 40, delay: 1.5 },
+    { type: 'pie', x: 50, y: 25, delay: 6 },
+    { type: 'area', x: 25, y: 60, delay: 2.5 },
+    { type: 'bar', x: 70, y: 55, delay: 3.5 },
+    { type: 'scatter', x: 15, y: 20, delay: 4.5 },
+    { type: 'box', x: 80, y: 25, delay: 5.5 },
+    { type: 'correlation', x: 40, y: 80, delay: 1 },
+    { type: 'timeseries', x: 60, y: 15, delay: 2 },
+    { type: 'histogram', x: 30, y: 35, delay: 3 },
+    { type: 'heat', x: 90, y: 60, delay: 4 },
+    { type: 'pie', x: 10, y: 65, delay: 5 },
+    { type: 'area', x: 55, y: 50, delay: 6 },
   ];
 
   return (
@@ -212,14 +381,27 @@ const DataScienceWatermarks = () => {
           top: `${wm.y}%`,
           zIndex: 0,
         };
-        if (wm.type === 'bar') {
-          return <div key={idx} style={style}><BarChartWatermark delay={wm.delay} /></div>;
-        } else if (wm.type === 'pie') {
-          return <div key={idx} style={style}><PieChartWatermark delay={wm.delay} /></div>;
-        } else if (wm.type === 'heat') {
-          return <div key={idx} style={style}><HeatMapWatermark delay={wm.delay} /></div>;
-        } else {
-          return <div key={idx} style={style}><LineChartWatermark delay={wm.delay} /></div>;
+        switch (wm.type) {
+          case 'bar':
+            return <div key={idx} style={style}><BarChartWatermark delay={wm.delay} /></div>;
+          case 'scatter':
+            return <div key={idx} style={style}><ScatterPlotWatermark delay={wm.delay} /></div>;
+          case 'box':
+            return <div key={idx} style={style}><BoxPlotWatermark delay={wm.delay} /></div>;
+          case 'correlation':
+            return <div key={idx} style={style}><CorrelationMatrixWatermark delay={wm.delay} /></div>;
+          case 'timeseries':
+            return <div key={idx} style={style}><TimeSeriesWatermark delay={wm.delay} /></div>;
+          case 'histogram':
+            return <div key={idx} style={style}><HistogramWatermark delay={wm.delay} /></div>;
+          case 'heat':
+            return <div key={idx} style={style}><HeatMapWatermark delay={wm.delay} /></div>;
+          case 'pie':
+            return <div key={idx} style={style}><PieChartWatermark delay={wm.delay} /></div>;
+          case 'area':
+            return <div key={idx} style={style}><AreaChartWatermark delay={wm.delay} /></div>;
+          default:
+            return null;
         }
       })}
     </div>
