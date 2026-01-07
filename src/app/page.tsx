@@ -5,121 +5,161 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
 
-// Professional Data Science Visualization Components
+// Professional Data Science Visualization Components - Large, Visible, Immediate
 const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="200"
-    height="130"
+    width="350"
+    height="220"
     viewBox="0 0 140 90"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3))' }}
-    initial={{ opacity: 0, scale: 0.9 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(59, 130, 246, 0.4))' }}
+    initial={{ opacity: 0.25, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
-      y: [0, -8, 0],
-      scale: [1, 1.05, 1],
+      opacity: [0.25, 0.4, 0.25],
+      y: [0, -12, 0],
+      scale: [1, 1.08, 1],
     }}
     transition={{
       duration: 8,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
-    {/* Axes with better visibility */}
-    <line x1="15" y1="75" x2="125" y2="75" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    <line x1="15" y1="75" x2="15" y2="10" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    {/* Bars with enhanced colors and glow */}
-    <rect x="20" y="60" width="12" height="15" fill="#3b82f6" opacity="0.75" rx="2" />
-    <rect x="35" y="50" width="12" height="25" fill="#6366f1" opacity="0.75" rx="2" />
-    <rect x="50" y="40" width="12" height="35" fill="#8b5cf6" opacity="0.75" rx="2" />
-    <rect x="65" y="45" width="12" height="30" fill="#a855f7" opacity="0.75" rx="2" />
-    <rect x="80" y="35" width="12" height="40" fill="#ec4899" opacity="0.75" rx="2" />
-    <rect x="95" y="30" width="12" height="45" fill="#f59e0b" opacity="0.75" rx="2" />
-    <rect x="110" y="55" width="12" height="20" fill="#10b981" opacity="0.75" rx="2" />
+    {/* Professional axes with grid lines */}
+    <defs>
+      <linearGradient id="barGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
+        <stop offset="100%" stopColor="#1e40af" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#6366f1" stopOpacity="1" />
+        <stop offset="100%" stopColor="#4338ca" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="1" />
+        <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#a855f7" stopOpacity="1" />
+        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.8" />
+      </linearGradient>
+      <linearGradient id="barGrad5" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#ec4899" stopOpacity="1" />
+        <stop offset="100%" stopColor="#be185d" stopOpacity="0.8" />
+      </linearGradient>
+    </defs>
+    {/* Grid lines */}
+    {[20, 35, 50, 65, 80].map((y) => (
+      <line key={y} x1="15" y1={y} x2="125" y2={y} stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
+    ))}
+    {/* Axes */}
+    <line x1="15" y1="75" x2="125" y2="75" stroke="#1e293b" strokeWidth="2" opacity="0.5" />
+    <line x1="15" y1="75" x2="15" y2="10" stroke="#1e293b" strokeWidth="2" opacity="0.5" />
+    {/* Professional bars with gradients and shadows */}
+    <rect x="20" y="60" width="14" height="15" fill="url(#barGrad1)" rx="3" />
+    <rect x="36" y="50" width="14" height="25" fill="url(#barGrad2)" rx="3" />
+    <rect x="52" y="40" width="14" height="35" fill="url(#barGrad3)" rx="3" />
+    <rect x="68" y="45" width="14" height="30" fill="url(#barGrad4)" rx="3" />
+    <rect x="84" y="35" width="14" height="40" fill="url(#barGrad5)" rx="3" />
+    <rect x="100" y="30" width="14" height="45" fill="#f59e0b" opacity="0.9" rx="3" />
+    <rect x="116" y="55" width="14" height="20" fill="#10b981" opacity="0.9" rx="3" />
   </motion.svg>
 );
 
 const ScatterPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="200"
-    height="150"
+    width="350"
+    height="280"
     viewBox="0 0 130 100"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(139, 92, 246, 0.3))' }}
-    initial={{ opacity: 0, scale: 0.9 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(139, 92, 246, 0.4))' }}
+    initial={{ opacity: 0.25, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
-      scale: [0.98, 1.08, 0.98],
-      rotate: [0, 2, 0],
+      opacity: [0.25, 0.4, 0.25],
+      scale: [1, 1.1, 1],
+      rotate: [0, 3, 0],
     }}
     transition={{
       duration: 7,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
-    {/* Axes */}
-    <line x1="15" y1="85" x2="115" y2="85" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    <line x1="15" y1="85" x2="15" y2="15" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    {/* Scatter points with enhanced visibility */}
-    {[
-      { x: 20, y: 70, size: 4, color: '#3b82f6' }, { x: 30, y: 65, size: 5, color: '#6366f1' }, { x: 40, y: 60, size: 4, color: '#8b5cf6' },
-      { x: 50, y: 55, size: 6, color: '#a855f7' }, { x: 60, y: 50, size: 5, color: '#ec4899' }, { x: 70, y: 45, size: 4, color: '#f59e0b' },
-      { x: 80, y: 40, size: 5, color: '#10b981' }, { x: 90, y: 35, size: 6, color: '#3b82f6' }, { x: 100, y: 30, size: 4, color: '#6366f1' },
-      { x: 25, y: 68, size: 4, color: '#8b5cf6' }, { x: 45, y: 58, size: 5, color: '#a855f7' }, { x: 65, y: 48, size: 4, color: '#ec4899' },
-      { x: 85, y: 38, size: 5, color: '#f59e0b' }, { x: 35, y: 63, size: 4, color: '#10b981' }, { x: 55, y: 53, size: 5, color: '#3b82f6' },
-    ].map((point, i) => (
-      <circle
-        key={i}
-        cx={point.x}
-        cy={point.y}
-        r={point.size}
-        fill={point.color}
-        opacity="0.7"
-      />
+    {/* Grid */}
+    {[20, 35, 50, 65, 80].map((y) => (
+      <line key={y} x1="15" y1={y} x2="115" y2={y} stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
     ))}
+    {[30, 50, 70, 90, 110].map((x) => (
+      <line key={x} x1={x} y1="15" x2={x} y2="85" stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
+    ))}
+    {/* Axes */}
+    <line x1="15" y1="85" x2="115" y2="85" stroke="#1e293b" strokeWidth="2.5" opacity="0.5" />
+    <line x1="15" y1="85" x2="15" y2="15" stroke="#1e293b" strokeWidth="2.5" opacity="0.5" />
+    {/* Professional scatter plot with trend line */}
+    {[
+      { x: 20, y: 70, size: 5, color: '#3b82f6' }, { x: 30, y: 65, size: 6, color: '#6366f1' }, { x: 40, y: 60, size: 5, color: '#8b5cf6' },
+      { x: 50, y: 55, size: 7, color: '#a855f7' }, { x: 60, y: 50, size: 6, color: '#ec4899' }, { x: 70, y: 45, size: 5, color: '#f59e0b' },
+      { x: 80, y: 40, size: 6, color: '#10b981' }, { x: 90, y: 35, size: 7, color: '#3b82f6' }, { x: 100, y: 30, size: 5, color: '#6366f1' },
+      { x: 25, y: 68, size: 5, color: '#8b5cf6' }, { x: 45, y: 58, size: 6, color: '#a855f7' }, { x: 65, y: 48, size: 5, color: '#ec4899' },
+      { x: 85, y: 38, size: 6, color: '#f59e0b' }, { x: 35, y: 63, size: 5, color: '#10b981' }, { x: 55, y: 53, size: 6, color: '#3b82f6' },
+      { x: 75, y: 43, size: 5, color: '#6366f1' }, { x: 95, y: 33, size: 6, color: '#8b5cf6' },
+    ].map((point, i) => (
+      <g key={i}>
+        <circle cx={point.x} cy={point.y} r={point.size + 1} fill="white" opacity="0.3" />
+        <circle cx={point.x} cy={point.y} r={point.size} fill={point.color} opacity="0.85" />
+      </g>
+    ))}
+    {/* Trend line */}
+    <line x1="20" y1="70" x2="100" y2="30" stroke="#ec4899" strokeWidth="2" opacity="0.6" strokeDasharray="4 4" />
   </motion.svg>
 );
 
 const BoxPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="180"
-    height="130"
+    width="320"
+    height="240"
     viewBox="0 0 120 90"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(236, 72, 153, 0.3))' }}
-    initial={{ opacity: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(236, 72, 153, 0.4))' }}
+    initial={{ opacity: 0.25, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
-      x: [0, 5, 0],
-      scale: [1, 1.03, 1],
+      opacity: [0.25, 0.4, 0.25],
+      x: [0, 8, 0],
+      scale: [1, 1.05, 1],
     }}
     transition={{
       duration: 9,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
+    {/* Grid */}
+    {[30, 40, 50, 60, 70].map((y) => (
+      <line key={y} x1="15" y1={y} x2="105" y2={y} stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
+    ))}
     {/* Axes */}
-    <line x1="15" y1="75" x2="105" y2="75" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    {/* Box plots with enhanced visibility */}
+    <line x1="15" y1="75" x2="105" y2="75" stroke="#1e293b" strokeWidth="2.5" opacity="0.5" />
+    {/* Professional box plots */}
     {[
-      { x: 25, min: 70, q1: 60, median: 50, q3: 40, max: 30, color: '#3b82f6' },
+      { x: 30, min: 70, q1: 60, median: 50, q3: 40, max: 30, color: '#3b82f6' },
       { x: 60, min: 65, q1: 55, median: 45, q3: 35, max: 25, color: '#8b5cf6' },
-      { x: 95, min: 68, q1: 58, median: 48, q3: 38, max: 28, color: '#ec4899' },
+      { x: 90, min: 68, q1: 58, median: 48, q3: 38, max: 28, color: '#ec4899' },
     ].map((box, i) => (
       <g key={i}>
         {/* Whiskers */}
-        <line x1={box.x} y1={box.min} x2={box.x} y2={box.max} stroke={box.color} strokeWidth="2" opacity="0.7" />
-        <line x1={box.x - 6} y1={box.min} x2={box.x + 6} y2={box.min} stroke={box.color} strokeWidth="2" opacity="0.7" />
-        <line x1={box.x - 6} y1={box.max} x2={box.x + 6} y2={box.max} stroke={box.color} strokeWidth="2" opacity="0.7" />
-        {/* Box */}
-        <rect x={box.x - 10} y={box.q3} width="20" height={box.q1 - box.q3} fill={box.color} opacity="0.6" rx="2" />
+        <line x1={box.x} y1={box.min} x2={box.x} y2={box.max} stroke={box.color} strokeWidth="3" opacity="0.85" />
+        <line x1={box.x - 8} y1={box.min} x2={box.x + 8} y2={box.min} stroke={box.color} strokeWidth="3" opacity="0.85" />
+        <line x1={box.x - 8} y1={box.max} x2={box.x + 8} y2={box.max} stroke={box.color} strokeWidth="3" opacity="0.85" />
+        {/* Box with gradient */}
+        <rect x={box.x - 14} y={box.q3} width="28" height={box.q1 - box.q3} fill={box.color} opacity="0.75" rx="3" stroke={box.color} strokeWidth="1.5" />
         {/* Median line */}
-        <line x1={box.x - 10} y1={box.median} x2={box.x + 10} y2={box.median} stroke="#ffffff" strokeWidth="2.5" opacity="0.9" />
+        <line x1={box.x - 14} y1={box.median} x2={box.x + 14} y2={box.median} stroke="#ffffff" strokeWidth="3.5" opacity="1" />
+        {/* Outliers */}
+        <circle cx={box.x} cy={box.min - 3} r="3" fill={box.color} opacity="0.9" />
+        <circle cx={box.x} cy={box.max + 3} r="3" fill={box.color} opacity="0.9" />
       </g>
     ))}
   </motion.svg>
@@ -127,43 +167,57 @@ const BoxPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
 
 const CorrelationMatrixWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="160"
-    height="160"
+    width="280"
+    height="280"
     viewBox="0 0 110 110"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3))' }}
-    initial={{ opacity: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(16, 185, 129, 0.4))' }}
+    initial={{ opacity: 0.25, rotate: 0, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.3, 0.15],
-      rotate: [0, 8, 0],
-      scale: [1, 1.05, 1],
+      opacity: [0.25, 0.4, 0.25],
+      rotate: [0, 10, 0],
+      scale: [1, 1.08, 1],
     }}
     transition={{
       duration: 10,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
-    {/* Correlation matrix grid with enhanced visibility */}
-    {Array.from({ length: 5 }).map((_, row) =>
-      Array.from({ length: 5 }).map((_, col) => {
-        const correlation = row === col ? 1 : Math.abs(1 - Math.abs(row - col) / 4);
+    {/* Professional correlation matrix with labels */}
+    {Array.from({ length: 6 }).map((_, row) =>
+      Array.from({ length: 6 }).map((_, col) => {
+        const correlation = row === col ? 1 : Math.abs(1 - Math.abs(row - col) / 5);
         const color = correlation > 0.7 ? '#10b981' : correlation > 0.4 ? '#f59e0b' : '#ef4444';
         return (
-          <rect
-            key={`${row}-${col}`}
-            x={col * 20 + 10}
-            y={row * 20 + 10}
-            width="16"
-            height="16"
-            fill={color}
-            opacity={0.5 + correlation * 0.4}
-            rx="3"
-            stroke={color}
-            strokeWidth="1"
-            strokeOpacity="0.8"
-          />
+          <g key={`${row}-${col}`}>
+            <rect
+              x={col * 16 + 8}
+              y={row * 16 + 8}
+              width="14"
+              height="14"
+              fill={color}
+              opacity={0.6 + correlation * 0.35}
+              rx="4"
+              stroke={color}
+              strokeWidth="2"
+              strokeOpacity="0.9"
+            />
+            {correlation > 0.5 && (
+              <text
+                x={col * 16 + 15}
+                y={row * 16 + 18}
+                fontSize="8"
+                fill="white"
+                opacity="0.9"
+                textAnchor="middle"
+                fontWeight="bold"
+              >
+                {correlation.toFixed(1)}
+              </text>
+            )}
+          </g>
         );
       })
     )}
@@ -172,47 +226,58 @@ const CorrelationMatrixWatermark = ({ delay = 0 }: { delay?: number }) => (
 
 const TimeSeriesWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="220"
-    height="130"
+    width="380"
+    height="220"
     viewBox="0 0 150 85"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3))' }}
-    initial={{ opacity: 0, pathLength: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(59, 130, 246, 0.4))' }}
+    initial={{ opacity: 0.25, pathLength: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
-      pathLength: [0, 1, 0],
-      y: [0, -5, 0],
+      opacity: [0.25, 0.4, 0.25],
+      pathLength: [0.8, 1, 0.8],
+      y: [0, -8, 0],
     }}
     transition={{
       duration: 12,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
+    {/* Grid */}
+    {[20, 35, 50, 65].map((y) => (
+      <line key={y} x1="15" y1={y} x2="135" y2={y} stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
+    ))}
     {/* Axes */}
-    <line x1="15" y1="70" x2="135" y2="70" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    <line x1="15" y1="70" x2="15" y2="15" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    {/* Time series line with enhanced visibility */}
+    <line x1="15" y1="70" x2="135" y2="70" stroke="#1e293b" strokeWidth="3" opacity="0.5" />
+    <line x1="15" y1="70" x2="15" y2="15" stroke="#1e293b" strokeWidth="3" opacity="0.5" />
+    {/* Area under curve with gradient */}
+    <polygon
+      points="15,70 15,65 25,60 35,55 45,50 55,45 65,40 75,38 85,35 95,32 105,30 115,28 125,25 135,22 135,70"
+      fill="url(#timeSeriesGradient)"
+      opacity="0.65"
+    />
+    {/* Professional time series line */}
     <polyline
       points="15,65 25,60 35,55 45,50 55,45 65,40 75,38 85,35 95,32 105,30 115,28 125,25 135,22"
       fill="none"
       stroke="#3b82f6"
-      strokeWidth="3.5"
+      strokeWidth="4.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      opacity="0.8"
+      opacity="0.95"
     />
-    {/* Area under curve with gradient */}
-    <polyline
-      points="15,70 15,65 25,60 35,55 45,50 55,45 65,40 75,38 85,35 95,32 105,30 115,28 125,25 135,22 135,70"
-      fill="url(#timeSeriesGradient)"
-      opacity="0.5"
-    />
+    {/* Data points */}
+    {[
+      { x: 25, y: 60 }, { x: 45, y: 50 }, { x: 65, y: 40 }, { x: 85, y: 35 }, { x: 105, y: 30 }, { x: 125, y: 25 }
+    ].map((point, i) => (
+      <circle key={i} cx={point.x} cy={point.y} r="4" fill="#ffffff" opacity="0.9" stroke="#3b82f6" strokeWidth="2" />
+    ))}
     <defs>
       <linearGradient id="timeSeriesGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
-        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.1" />
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.7" />
+        <stop offset="50%" stopColor="#6366f1" stopOpacity="0.5" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
       </linearGradient>
     </defs>
   </motion.svg>
@@ -220,154 +285,225 @@ const TimeSeriesWatermark = ({ delay = 0 }: { delay?: number }) => (
 
 const HistogramWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="200"
-    height="130"
+    width="350"
+    height="240"
     viewBox="0 0 130 90"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(139, 92, 246, 0.3))' }}
-    initial={{ opacity: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(139, 92, 246, 0.4))' }}
+    initial={{ opacity: 0.25, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
-      scale: [0.98, 1.05, 0.98],
-      y: [0, -4, 0],
+      opacity: [0.25, 0.4, 0.25],
+      scale: [1, 1.08, 1],
+      y: [0, -6, 0],
     }}
     transition={{
       duration: 8,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
+    {/* Grid */}
+    {[20, 35, 50, 65].map((y) => (
+      <line key={y} x1="15" y1={y} x2="115" y2={y} stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
+    ))}
     {/* Axes */}
-    <line x1="15" y1="75" x2="115" y2="75" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    <line x1="15" y1="75" x2="15" y2="15" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    {/* Histogram bars with enhanced visibility */}
-    <rect x="20" y="70" width="8" height="5" fill="#6366f1" opacity="0.75" rx="1" />
-    <rect x="30" y="65" width="8" height="10" fill="#8b5cf6" opacity="0.75" rx="1" />
-    <rect x="40" y="55" width="8" height="20" fill="#a855f7" opacity="0.75" rx="1" />
-    <rect x="50" y="45" width="8" height="30" fill="#ec4899" opacity="0.75" rx="1" />
-    <rect x="60" y="40" width="8" height="35" fill="#f59e0b" opacity="0.75" rx="1" />
-    <rect x="70" y="45" width="8" height="30" fill="#ec4899" opacity="0.75" rx="1" />
-    <rect x="80" y="55" width="8" height="20" fill="#a855f7" opacity="0.75" rx="1" />
-    <rect x="90" y="65" width="8" height="10" fill="#8b5cf6" opacity="0.75" rx="1" />
-    <rect x="100" y="70" width="8" height="5" fill="#6366f1" opacity="0.75" rx="1" />
+    <line x1="15" y1="75" x2="115" y2="75" stroke="#1e293b" strokeWidth="2.5" opacity="0.5" />
+    <line x1="15" y1="75" x2="15" y2="15" stroke="#1e293b" strokeWidth="2.5" opacity="0.5" />
+    {/* Professional histogram with normal distribution */}
+    {[
+      { x: 20, height: 5, color: '#6366f1' },
+      { x: 30, height: 10, color: '#8b5cf6' },
+      { x: 40, height: 20, color: '#a855f7' },
+      { x: 50, height: 30, color: '#ec4899' },
+      { x: 60, height: 35, color: '#f59e0b' },
+      { x: 70, height: 30, color: '#ec4899' },
+      { x: 80, height: 20, color: '#a855f7' },
+      { x: 90, height: 10, color: '#8b5cf6' },
+      { x: 100, height: 5, color: '#6366f1' },
+    ].map((bar, i) => (
+      <rect
+        key={i}
+        x={bar.x}
+        y={75 - bar.height}
+        width="10"
+        height={bar.height}
+        fill={bar.color}
+        opacity="0.85"
+        rx="2"
+        stroke={bar.color}
+        strokeWidth="1"
+        strokeOpacity="0.9"
+      />
+    ))}
   </motion.svg>
 );
 
 const HeatMapWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="200"
-    height="150"
+    width="360"
+    height="260"
     viewBox="0 0 140 100"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(245, 158, 11, 0.3))' }}
-    initial={{ opacity: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(245, 158, 11, 0.4))' }}
+    initial={{ opacity: 0.25, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.3, 0.15],
-      scale: [0.95, 1.08, 0.95],
-      rotate: [0, 3, 0],
+      opacity: [0.25, 0.4, 0.25],
+      scale: [1, 1.1, 1],
+      rotate: [0, 4, 0],
     }}
     transition={{
       duration: 7,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
-    {/* Professional heat map with enhanced visibility */}
-    {Array.from({ length: 6 }).map((_, row) =>
-      Array.from({ length: 8 }).map((_, col) => {
+    {/* Professional heat map with gradient colors */}
+    {Array.from({ length: 7 }).map((_, row) =>
+      Array.from({ length: 9 }).map((_, col) => {
         const intensity = Math.sin((row + col) * 0.5) * 0.5 + 0.5;
-        const colors = ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#ec4899', '#f59e0b'];
+        const colors = ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#ec4899', '#f59e0b', '#10b981'];
         const colorIndex = Math.floor(intensity * (colors.length - 1));
         return (
           <rect
             key={`${row}-${col}`}
-            x={col * 16 + 10}
-            y={row * 14 + 10}
+            x={col * 14 + 8}
+            y={row * 12 + 8}
             width="12"
             height="10"
             fill={colors[colorIndex]}
-            opacity={0.4 + intensity * 0.5}
-            rx="2"
+            opacity={0.55 + intensity * 0.4}
+            rx="3"
             stroke={colors[colorIndex]}
-            strokeWidth="0.5"
-            strokeOpacity="0.6"
+            strokeWidth="1.5"
+            strokeOpacity="0.9"
           />
         );
       })
     )}
+    {/* Row and column labels */}
+    {Array.from({ length: 7 }).map((_, i) => (
+      <text key={`row-${i}`} x="4" y={i * 12 + 18} fontSize="7" fill="#64748b" opacity="0.6" fontWeight="bold">
+        {String.fromCharCode(65 + i)}
+      </text>
+    ))}
+    {Array.from({ length: 9 }).map((_, i) => (
+      <text key={`col-${i}`} x={i * 14 + 14} y="6" fontSize="7" fill="#64748b" opacity="0.6" textAnchor="middle" fontWeight="bold">
+        {i + 1}
+      </text>
+    ))}
   </motion.svg>
 );
 
 const PieChartWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="150"
-    height="150"
+    width="280"
+    height="280"
     viewBox="0 0 100 100"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(168, 85, 247, 0.3))' }}
-    initial={{ opacity: 0, rotate: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(168, 85, 247, 0.4))' }}
+    initial={{ opacity: 0.25, rotate: 0, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
+      opacity: [0.25, 0.4, 0.25],
       rotate: [0, 360],
-      scale: [1, 1.05, 1],
+      scale: [1, 1.1, 1],
     }}
     transition={{
       duration: 25,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "linear",
     }}
   >
-    {/* Professional pie chart with enhanced visibility */}
-    <path d="M 50,50 L 50,10 A 40,40 0 0,1 78,22 Z" fill="#3b82f6" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 78,22 A 40,40 0 0,1 90,50 Z" fill="#6366f1" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 90,50 A 40,40 0 0,1 78,78 Z" fill="#8b5cf6" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 78,78 A 40,40 0 0,1 50,90 Z" fill="#a855f7" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 50,90 A 40,40 0 0,1 22,78 Z" fill="#ec4899" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 22,78 A 40,40 0 0,1 10,50 Z" fill="#f59e0b" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 10,50 A 40,40 0 0,1 22,22 Z" fill="#10b981" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
-    <path d="M 50,50 L 22,22 A 40,40 0 0,1 50,10 Z" fill="#3b82f6" opacity="0.75" stroke="#ffffff" strokeWidth="1" />
+    {/* Professional pie chart with donut style */}
+    <defs>
+      <linearGradient id="pieGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
+        <stop offset="100%" stopColor="#1e40af" stopOpacity="0.9" />
+      </linearGradient>
+      <linearGradient id="pieGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#6366f1" stopOpacity="1" />
+        <stop offset="100%" stopColor="#4338ca" stopOpacity="0.9" />
+      </linearGradient>
+      <linearGradient id="pieGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="1" />
+        <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.9" />
+      </linearGradient>
+      <linearGradient id="pieGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#a855f7" stopOpacity="1" />
+        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.9" />
+      </linearGradient>
+      <linearGradient id="pieGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#ec4899" stopOpacity="1" />
+        <stop offset="100%" stopColor="#be185d" stopOpacity="0.9" />
+      </linearGradient>
+    </defs>
+    <path d="M 50,50 L 50,10 A 40,40 0 0,1 78,22 Z" fill="url(#pieGrad1)" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 78,22 A 40,40 0 0,1 90,50 Z" fill="url(#pieGrad2)" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 90,50 A 40,40 0 0,1 78,78 Z" fill="url(#pieGrad3)" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 78,78 A 40,40 0 0,1 50,90 Z" fill="url(#pieGrad4)" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 50,90 A 40,40 0 0,1 22,78 Z" fill="url(#pieGrad5)" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 22,78 A 40,40 0 0,1 10,50 Z" fill="#f59e0b" opacity="0.9" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 10,50 A 40,40 0 0,1 22,22 Z" fill="#10b981" opacity="0.9" stroke="#ffffff" strokeWidth="2" />
+    <path d="M 50,50 L 22,22 A 40,40 0 0,1 50,10 Z" fill="#3b82f6" opacity="0.9" stroke="#ffffff" strokeWidth="2" />
+    {/* Center circle for donut effect */}
+    <circle cx="50" cy="50" r="20" fill="white" opacity="0.95" />
+    <circle cx="50" cy="50" r="18" fill="url(#pieGrad1)" opacity="0.3" />
   </motion.svg>
 );
 
 const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
   <motion.svg
-    width="220"
-    height="130"
+    width="380"
+    height="240"
     viewBox="0 0 140 85"
-    className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(236, 72, 153, 0.3))' }}
-    initial={{ opacity: 0 }}
+    className="drop-shadow-2xl"
+    style={{ filter: 'drop-shadow(0 8px 24px rgba(236, 72, 153, 0.4))' }}
+    initial={{ opacity: 0.25, scale: 1 }}
     animate={{ 
-      opacity: [0.15, 0.28, 0.15],
-      y: [0, -6, 0],
-      scale: [1, 1.03, 1],
+      opacity: [0.25, 0.4, 0.25],
+      y: [0, -10, 0],
+      scale: [1, 1.06, 1],
     }}
     transition={{
       duration: 9,
       repeat: Infinity,
-      delay,
+      delay: delay * 0.5,
       ease: "easeInOut",
     }}
   >
+    {/* Grid */}
+    {[20, 35, 50, 65].map((y) => (
+      <line key={y} x1="15" y1={y} x2="125" y2={y} stroke="#64748b" strokeWidth="0.5" opacity="0.2" />
+    ))}
     {/* Axes */}
-    <line x1="15" y1="70" x2="125" y2="70" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    <line x1="15" y1="70" x2="15" y2="15" stroke="#64748b" strokeWidth="1.5" opacity="0.4" />
-    {/* Stacked area chart with enhanced visibility */}
+    <line x1="15" y1="70" x2="125" y2="70" stroke="#1e293b" strokeWidth="3" opacity="0.5" />
+    <line x1="15" y1="70" x2="15" y2="15" stroke="#1e293b" strokeWidth="3" opacity="0.5" />
+    {/* Professional stacked area chart */}
+    <polygon points="15,70 25,68 35,66 45,64 55,61 65,58 75,55 85,51 95,47 105,43 115,39 125,35 125,70" 
+             fill="url(#areaGradient2)" opacity="0.7" />
     <polygon points="15,70 25,65 35,60 45,55 55,50 65,45 75,40 85,35 95,30 105,25 115,20 125,15 125,70" 
-             fill="url(#areaGradient1)" opacity="0.6" />
-    <polygon points="15,70 25,68 35,65 45,62 55,58 65,55 75,52 85,48 95,45 105,42 115,38 125,35 125,70" 
-             fill="url(#areaGradient2)" opacity="0.5" />
+             fill="url(#areaGradient1)" opacity="0.75" />
+    {/* Top line */}
+    <polyline
+      points="15,65 25,60 35,55 45,50 55,45 65,40 75,38 85,35 95,32 105,30 115,28 125,25 135,22"
+      fill="none"
+      stroke="#ec4899"
+      strokeWidth="4"
+      strokeLinecap="round"
+      opacity="0.95"
+    />
     <defs>
       <linearGradient id="areaGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.7" />
-        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.3" />
+        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.85" />
+        <stop offset="50%" stopColor="#6366f1" stopOpacity="0.7" />
+        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.4" />
       </linearGradient>
       <linearGradient id="areaGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.6" />
-        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.25" />
+        <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.75" />
+        <stop offset="50%" stopColor="#a855f7" stopOpacity="0.6" />
+        <stop offset="100%" stopColor="#ec4899" stopOpacity="0.35" />
       </linearGradient>
     </defs>
   </motion.svg>
@@ -375,26 +511,26 @@ const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
 
 // Professional Data Science Watermark Container
 const DataScienceWatermarks = () => {
-  // Comprehensive distribution of all visualization types
+  // Comprehensive distribution of all visualization types - immediate visibility
   const watermarks = [
-    { type: 'bar', x: 3, y: 8, delay: 0 },
-    { type: 'scatter', x: 88, y: 12, delay: 1 },
-    { type: 'box', x: 5, y: 75, delay: 2 },
-    { type: 'correlation', x: 85, y: 70, delay: 3 },
-    { type: 'timeseries', x: 45, y: 5, delay: 4 },
-    { type: 'histogram', x: 12, y: 45, delay: 5 },
-    { type: 'heat', x: 75, y: 40, delay: 1.5 },
-    { type: 'pie', x: 50, y: 25, delay: 6 },
-    { type: 'area', x: 25, y: 60, delay: 2.5 },
-    { type: 'bar', x: 70, y: 55, delay: 3.5 },
-    { type: 'scatter', x: 15, y: 20, delay: 4.5 },
-    { type: 'box', x: 80, y: 25, delay: 5.5 },
-    { type: 'correlation', x: 40, y: 80, delay: 1 },
-    { type: 'timeseries', x: 60, y: 15, delay: 2 },
-    { type: 'histogram', x: 30, y: 35, delay: 3 },
-    { type: 'heat', x: 90, y: 60, delay: 4 },
-    { type: 'pie', x: 10, y: 65, delay: 5 },
-    { type: 'area', x: 55, y: 50, delay: 6 },
+    { type: 'bar', x: 2, y: 5, delay: 0 },
+    { type: 'scatter', x: 85, y: 8, delay: 0.1 },
+    { type: 'box', x: 3, y: 70, delay: 0.2 },
+    { type: 'correlation', x: 82, y: 65, delay: 0.3 },
+    { type: 'timeseries', x: 40, y: 2, delay: 0.4 },
+    { type: 'histogram', x: 8, y: 40, delay: 0.5 },
+    { type: 'heat', x: 70, y: 35, delay: 0.6 },
+    { type: 'pie', x: 45, y: 20, delay: 0.7 },
+    { type: 'area', x: 20, y: 55, delay: 0.8 },
+    { type: 'bar', x: 65, y: 50, delay: 0.9 },
+    { type: 'scatter', x: 12, y: 15, delay: 1.0 },
+    { type: 'box', x: 75, y: 20, delay: 1.1 },
+    { type: 'correlation', x: 35, y: 75, delay: 1.2 },
+    { type: 'timeseries', x: 55, y: 10, delay: 1.3 },
+    { type: 'histogram', x: 25, y: 30, delay: 1.4 },
+    { type: 'heat', x: 88, y: 55, delay: 1.5 },
+    { type: 'pie', x: 5, y: 60, delay: 1.6 },
+    { type: 'area', x: 50, y: 45, delay: 1.7 },
   ];
 
   return (
