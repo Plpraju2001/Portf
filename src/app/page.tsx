@@ -706,8 +706,11 @@ const Hero = () => {
     delay: Math.random() * 3,
   }));
 
+  const [imageError, setImageError] = useState(false);
+  const profileImage = '/profile_picture.jpg';
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-20 sm:pt-24 md:pt-0">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-32 sm:pt-36 md:pt-0">
       {/* Data Science Watermarks */}
       <DataScienceWatermarks />
       {/* Elegant floating particles */}
@@ -769,6 +772,48 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10 py-8 sm:py-0">
+        {/* Profile Picture - Centered above text on mobile, hidden on larger screens (shown in FixedProfilePicture) */}
+        <motion.div
+          className="flex justify-center mb-6 md:hidden"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.8,
+            delay: 0.1,
+            type: "spring",
+            stiffness: 100
+          }}
+        >
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-3 shadow-2xl border border-gray-200/50">
+            {!imageError ? (
+              <div className="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+                <img
+                  src={profileImage}
+                  alt="Lakshmipathiraju Pericharla"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                  style={{ 
+                    objectPosition: '58% 30%', 
+                    objectFit: 'cover',
+                    transform: 'scale(1.3)',
+                    transformOrigin: 'center center'
+                  }}
+                  onError={() => setImageError(true)}
+                  loading="eager"
+                />
+              </div>
+            ) : (
+              <div className="w-24 h-24 rounded-full border-2 border-blue-500 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-xl font-bold">
+                LP
+              </div>
+            )}
+            <div className="mt-2 text-center">
+              <h3 className="text-xs font-semibold text-gray-800 tracking-tight">Raju P</h3>
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -2600,13 +2645,13 @@ const Footer = () => (
       </footer>
 );
 
-// Fixed Profile Picture Component
+// Fixed Profile Picture Component - Hidden on mobile, shown on larger screens
 const FixedProfilePicture = () => {
   const [imageError, setImageError] = useState(false);
   const profileImage = '/profile_picture.jpg'; // Profile picture
 
   return (
-    <div className="fixed top-20 right-4 sm:right-6 z-50">
+    <div className="hidden md:block fixed top-20 right-4 sm:right-6 z-50">
       <div className="bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-2xl border border-gray-200/50">
         {!imageError ? (
           <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 overflow-hidden">
