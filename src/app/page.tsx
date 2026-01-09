@@ -2606,10 +2606,10 @@ const FixedProfilePicture = () => {
   const profileImage = '/profile_picture.jpg'; // Profile picture
 
   return (
-    <div className="fixed top-24 right-6 z-50 hidden lg:block">
-      <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-gray-200/50">
+    <div className="fixed top-20 right-4 sm:right-6 z-50">
+      <div className="bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-2xl border border-gray-200/50">
         {!imageError ? (
-          <div className="w-32 h-32 rounded-full border-4 border-blue-500 overflow-hidden">
+          <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 overflow-hidden">
             <img
               src={profileImage}
               alt="Lakshmipathiraju Pericharla"
@@ -2627,15 +2627,15 @@ const FixedProfilePicture = () => {
             />
           </div>
         ) : (
-          <div className="w-32 h-32 rounded-full border-4 border-blue-500 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold">
+          <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-lg sm:text-2xl font-bold">
             LP
           </div>
         )}
-        <div className="mt-3 text-center">
-          <h3 className="text-sm font-semibold text-gray-800 tracking-tight">Raju P</h3>
+        <div className="mt-2 sm:mt-3 text-center">
+          <h3 className="text-xs sm:text-sm font-semibold text-gray-800 tracking-tight">Raju P</h3>
         </div>
-        {/* Navigation Menu */}
-        <div className="mt-4 space-y-2">
+        {/* Navigation Menu - Hidden on mobile, visible on larger screens */}
+        <div className="hidden md:block mt-4 space-y-2">
           {['About', 'Interests', 'Projects', 'Experience', 'Blog', 'Contact'].map((item) => (
             <motion.a
               key={item}
