@@ -707,7 +707,7 @@ const Hero = () => {
   }));
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-20 sm:pt-24 md:pt-0">
       {/* Data Science Watermarks */}
       <DataScienceWatermarks />
       {/* Elegant floating particles */}
@@ -768,7 +768,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10 py-8 sm:py-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
