@@ -12,7 +12,7 @@ const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
     height="110"
     viewBox="0 0 140 90"
     className="drop-shadow-lg"
-    style={{ filter: 'drop-shadow(0 4px 12px rgba(59, 130, 246, 0.2))' }}
+    style={{ filter: 'drop-shadow(0 4px 12px rgba(59, 130, 246, 0.2))', willChange: 'transform', transform: 'translate3d(0,0,0)' }}
     initial={{ opacity: 0.12, scale: 1 }}
     animate={{ 
       opacity: [0.12, 0.2, 0.12],
@@ -511,8 +511,19 @@ const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
 
 // Professional Data Science Watermark Container
 const DataScienceWatermarks = () => {
-  // Comprehensive distribution of all visualization types - immediate visibility
-  const watermarks = [
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduced watermarks on mobile for better performance - full set on desktop
+  const allWatermarks = [
     { type: 'bar', x: 2, y: 5, delay: 0 },
     { type: 'scatter', x: 85, y: 8, delay: 0.1 },
     { type: 'box', x: 3, y: 70, delay: 0.2 },
@@ -533,14 +544,19 @@ const DataScienceWatermarks = () => {
     { type: 'area', x: 50, y: 45, delay: 1.7 },
   ];
 
+  // On mobile, show only 6 watermarks (every 3rd one) for better performance
+  const watermarks = isMobile ? allWatermarks.filter((_, idx) => idx % 3 === 0).slice(0, 6) : allWatermarks;
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0, willChange: 'transform', transform: 'translate3d(0,0,0)' }}>
       {watermarks.map((wm, idx) => {
         const style = {
           position: 'absolute' as const,
           left: `${wm.x}%`,
           top: `${wm.y}%`,
           zIndex: 0,
+          willChange: 'transform',
+          transform: 'translate3d(0,0,0)',
         };
         switch (wm.type) {
           case 'bar':
@@ -573,10 +589,17 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -691,13 +714,21 @@ const Header = () => {
 
 const Hero = () => {
   const [letters, setLetters] = useState<string[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setLetters('Raju'.split(''));
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Moderate elegant particles
-  const particles = Array.from({ length: 30 }, (_, i) => ({
+  // Reduced particles on mobile for better performance (15 on mobile, 30 on desktop)
+  const particleCount = isMobile ? 10 : 30;
+  const particles = Array.from({ length: particleCount }, (_, i) => ({
     id: i,
     size: Math.random() * 3 + 2,
     x: Math.random() * 100,
@@ -713,8 +744,8 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-32 sm:pt-36 md:pt-0">
       {/* Data Science Watermarks */}
       <DataScienceWatermarks />
-      {/* Elegant floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Elegant floating particles - Optimized for mobile */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}>
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
@@ -724,8 +755,13 @@ const Hero = () => {
               height: particle.size,
               left: `${particle.x}%`,
               top: `${particle.y}%`,
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)',
             }}
-            animate={{
+            animate={isMobile ? {
+              y: [-10, 10, -10],
+              opacity: [0.2, 0.4, 0.2],
+            } : {
               y: [-20, 20, -20],
               x: [-10, 10, -10],
               scale: [1, 1.2, 1],
@@ -741,11 +777,12 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Elegant floating background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Elegant floating background elements - Reduced blur on mobile */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}>
         <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl"
-          animate={{
+          className={`absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-full ${isMobile ? 'blur-xl' : 'blur-3xl'}`}
+          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
+          animate={isMobile ? {} : {
             x: [0, 200, -100, 0],
             y: [0, -100, 50, 0],
             scale: [1, 1.2, 0.8, 1],
@@ -757,8 +794,9 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-full blur-3xl"
-          animate={{
+          className={`absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-full ${isMobile ? 'blur-xl' : 'blur-3xl'}`}
+          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
+          animate={isMobile ? {} : {
             x: [0, -150, 100, 0],
             y: [0, 100, -50, 0],
             scale: [1, 0.9, 1.3, 1],
@@ -1874,8 +1912,20 @@ const Projects = () => {
 };
 
 const Experience = () => {
-  // Floating particles for experience section
-  const experienceParticles = Array.from({ length: 15 }, (_, i) => ({
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduced particles on mobile (5 on mobile, 15 on desktop)
+  const particleCount = isMobile ? 5 : 15;
+  const experienceParticles = Array.from({ length: particleCount }, (_, i) => ({
     id: i,
     size: Math.random() * 4 + 2,
     x: Math.random() * 100,
@@ -1931,8 +1981,13 @@ const Experience = () => {
               height: particle.size,
               left: `${particle.x}%`,
               top: `${particle.y}%`,
+              willChange: 'transform',
+              transform: 'translate3d(0,0,0)',
             }}
-            animate={{
+            animate={isMobile ? {
+              y: [-8, 8, -8],
+              opacity: [0.15, 0.3, 0.15],
+            } : {
               y: [-15, 15, -15],
               x: [-8, 8, -8],
               opacity: [0.2, 0.5, 0.2],
