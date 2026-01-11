@@ -20,7 +20,7 @@ const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.05, 1],
     }}
     transition={{
-      duration: 8,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -81,7 +81,7 @@ const ScatterPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
       rotate: [0, 2, 0],
     }}
     transition={{
-      duration: 7,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -130,7 +130,7 @@ const BoxPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.03, 1],
     }}
     transition={{
-      duration: 9,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -179,7 +179,7 @@ const CorrelationMatrixWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.04, 1],
     }}
     transition={{
-      duration: 10,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -238,7 +238,7 @@ const TimeSeriesWatermark = ({ delay = 0 }: { delay?: number }) => (
       y: [0, -5, 0],
     }}
     transition={{
-      duration: 12,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -297,7 +297,7 @@ const HistogramWatermark = ({ delay = 0 }: { delay?: number }) => (
       y: [0, -4, 0],
     }}
     transition={{
-      duration: 8,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -353,7 +353,7 @@ const HeatMapWatermark = ({ delay = 0 }: { delay?: number }) => (
       rotate: [0, 2, 0],
     }}
     transition={{
-      duration: 7,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -410,7 +410,7 @@ const PieChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.05, 1],
     }}
     transition={{
-      duration: 25,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "linear",
@@ -467,7 +467,7 @@ const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.04, 1],
     }}
     transition={{
-      duration: 9,
+      duration: 3,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
@@ -611,7 +611,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ 
-        duration: 0.6,
+            duration: 0.3,
         type: "spring",
         stiffness: 100,
         damping: 20
@@ -625,7 +625,7 @@ const Header = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
-              duration: 0.6,
+              duration: 0.3,
               delay: 0.2,
               type: "spring"
             }}
@@ -675,7 +675,7 @@ const Header = () => {
                 fill="currentColor" 
                 viewBox="0 0 24 24"
                 animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 1, repeat: Infinity }}
               >
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </motion.svg>
@@ -700,7 +700,7 @@ const Header = () => {
                 fill="currentColor" 
                 viewBox="0 0 24 24"
                 animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}
               >
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </motion.svg>
@@ -733,7 +733,7 @@ const Hero = () => {
     size: Math.random() * 3 + 2,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    duration: Math.random() * 15 + 10,
+    duration: Math.random() * 4 + 3,
     delay: Math.random() * 3,
   }));
 
@@ -788,7 +788,7 @@ const Hero = () => {
             scale: [1, 1.2, 0.8, 1],
           }}
           transition={{
-            duration: 15,
+            duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -802,7 +802,7 @@ const Hero = () => {
             scale: [1, 0.9, 1.3, 1],
           }}
           transition={{
-            duration: 20,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -816,7 +816,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.8,
+            duration: 0.4,
             delay: 0.1,
             type: "spring",
             stiffness: 100
@@ -856,7 +856,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ 
-            duration: 0.8,
+            duration: 0.4,
             type: "spring",
             stiffness: 100,
             damping: 20
@@ -880,7 +880,7 @@ const Hero = () => {
                     scale: 1
                   }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.4,
                     delay: index * 0.15,
                     type: "spring",
                     stiffness: 200,
@@ -907,7 +907,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.8, 
+              duration: 0.4, 
               delay: 0.2,
               type: "spring",
               stiffness: 80,
@@ -921,7 +921,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.8, 
+              duration: 0.4, 
               delay: 0.4,
               type: "spring",
               stiffness: 80,
@@ -956,7 +956,7 @@ const Hero = () => {
               }}
               transition={{
                 boxShadow: {
-                  duration: 2,
+                  duration: 1,
                   repeat: Infinity,
                   ease: "easeInOut",
                 },
@@ -968,7 +968,7 @@ const Hero = () => {
                 className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.4 }}
               />
               {/* Shimmer effect */}
               <motion.div
@@ -996,7 +996,7 @@ const Hero = () => {
               }}
               transition={{
                 boxShadow: {
-                  duration: 2,
+                  duration: 1,
                   repeat: Infinity,
                   ease: "easeInOut",
                 },
@@ -1021,7 +1021,7 @@ const Hero = () => {
                   opacity: [0.5, 1, 0.5],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 1,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -1041,7 +1041,7 @@ const Hero = () => {
               }}
               transition={{
                 boxShadow: {
-                  duration: 2,
+                  duration: 1,
                   repeat: Infinity,
                   ease: "easeInOut",
                 },
@@ -1077,7 +1077,7 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.8, 
+            duration: 0.4, 
             ease: [0.21, 1.02, 0.73, 1]
           }}
           viewport={{ once: false, margin: "-100px" }}
@@ -1088,7 +1088,7 @@ const About = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ 
-              duration: 0.6, 
+              duration: 0.3, 
               delay: 0.2,
               type: "spring",
               stiffness: 100
@@ -1098,7 +1098,7 @@ const About = () => {
             <motion.span
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
               viewport={{ once: false }}
             >
               About 
@@ -1107,7 +1107,7 @@ const About = () => {
               className="gradient-text"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
               viewport={{ once: false }}
             >
               Me
@@ -1120,7 +1120,7 @@ const About = () => {
             initial={{ opacity: 0, x: -100, rotateX: 90 }}
             whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
             transition={{ 
-              duration: 0.8, 
+              duration: 0.4, 
               delay: 0.3,
               ease: [0.21, 1.02, 0.73, 1]
             }}
@@ -1134,7 +1134,7 @@ const About = () => {
             initial={{ opacity: 0, x: 100, rotateX: -90 }}
             whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
             transition={{ 
-              duration: 0.8, 
+              duration: 0.4, 
               delay: 0.4,
               ease: [0.21, 1.02, 0.73, 1]
             }}
@@ -1150,7 +1150,7 @@ const About = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.8, 
+              duration: 0.4, 
               delay: 0.5,
               type: "spring",
               stiffness: 80,
@@ -1249,7 +1249,7 @@ const About = () => {
                     opacity: [1, 0, 1],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 1,
                     delay: index * 0.3,
                     repeat: Infinity,
                   }}
@@ -1261,7 +1261,7 @@ const About = () => {
                     opacity: [1, 0, 1],
                   }}
                   transition={{
-                    duration: 2.5,
+                    duration: 1.2,
                     delay: index * 0.5,
                     repeat: Infinity,
                   }}
@@ -1289,7 +1289,7 @@ const PersonalInterests = () => {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.7, 
+              duration: 0.35, 
               type: "spring",
               stiffness: 100,
               damping: 20
@@ -1304,7 +1304,7 @@ const PersonalInterests = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.6, 
+              duration: 0.3, 
               delay: 0.2,
               type: "spring",
               stiffness: 80
@@ -1363,7 +1363,7 @@ const PersonalInterests = () => {
                 initial={{ opacity: 0, y: 100, rotateX: -45, scale: 0.5 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                 transition={{ 
-                  duration: 0.8, 
+                  duration: 0.4, 
                   delay: index * 0.08, 
                   type: "spring",
                   stiffness: 150,
@@ -1399,7 +1399,7 @@ const PersonalInterests = () => {
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full"
                   initial={false}
                   whileHover={{ translateX: "100%" }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.4 }}
                 />
                 
                 {/* Floating emoji with bounce */}
@@ -1409,7 +1409,7 @@ const PersonalInterests = () => {
                     y: [0, -10, 0],
                   }}
                   transition={{
-                    duration: 2.5 + index * 0.2,
+                    duration: 1.2 + index * 0.1,
                     repeat: Infinity,
                     ease: "easeInOut",
                     delay: index * 0.1
@@ -1421,7 +1421,7 @@ const PersonalInterests = () => {
                       scale: [1, 1.1, 1],
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 1,
                       repeat: Infinity,
                       ease: "easeInOut",
                       delay: index * 0.15
@@ -1448,7 +1448,7 @@ const PersonalInterests = () => {
                     ],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 1,
                     repeat: Infinity,
                     ease: "easeInOut",
                     delay: index * 0.2,
@@ -1488,7 +1488,7 @@ const ProjectCard = ({ repo, index, getLanguageColor, formatDate }: { repo: Repo
       initial={{ opacity: 0, y: 60, rotateX: 20 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       transition={{ 
-        duration: 0.8, 
+              duration: 0.4,
         delay: index * 0.08,
         type: "spring",
         stiffness: 100,
@@ -1684,7 +1684,7 @@ const Projects = () => {
             y: [0, -30, 0],
           }}
           transition={{
-            duration: 15,
+            duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -1696,7 +1696,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.8, 
+            duration: 0.4, 
             type: "spring",
             stiffness: 80,
             damping: 20
@@ -1709,7 +1709,7 @@ const Projects = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ 
-              duration: 0.6, 
+              duration: 0.3, 
               delay: 0.2,
               type: "spring",
               stiffness: 100
@@ -1723,7 +1723,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.6, 
+              duration: 0.3, 
               delay: 0.3,
               type: "spring"
             }}
@@ -1741,7 +1741,7 @@ const Projects = () => {
               className="text-2xl font-bold text-gray-800 mb-8 text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
             >
               Completed Projects (GitHub)
@@ -1759,7 +1759,7 @@ const Projects = () => {
                     className="rounded-full bg-blue-600"
                     initial={{ width: 4, height: 4 }}
                     animate={{ width: 16, height: 16 }}
-                    transition={{ duration: 0.5, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 0.25, repeat: Infinity, ease: "easeInOut" }}
                     style={{ margin: 'auto', marginTop: 4 }}
                   />
                 </motion.div>
@@ -1788,7 +1788,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.7,
+              duration: 0.35,
               type: "spring",
               stiffness: 100
             }}
@@ -1805,7 +1805,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 60, rotateX: -20 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ 
-                duration: 0.8, 
+                duration: 0.4, 
                 delay: index * 0.1,
                 type: "spring",
                 stiffness: 100,
@@ -1853,7 +1853,7 @@ const Projects = () => {
                       ],
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 1,
                       repeat: Infinity,
                     }}
                   >
@@ -1896,7 +1896,7 @@ const Projects = () => {
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
                     animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    transition={{ duration: 1, repeat: Infinity }}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </motion.svg>
@@ -1930,7 +1930,7 @@ const Experience = () => {
     size: Math.random() * 4 + 2,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    duration: Math.random() * 12 + 8,
+    duration: Math.random() * 4 + 3,
     delay: Math.random() * 2,
   }));
 
@@ -2008,7 +2008,7 @@ const Experience = () => {
             scale: [1, 1.15, 1],
           }}
           transition={{
-            duration: 16,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -2018,7 +2018,7 @@ const Experience = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           viewport={{ once: false, margin: "-100px" }}
           className="text-center mb-16"
         >
@@ -2026,7 +2026,7 @@ const Experience = () => {
             className="text-4xl font-bold text-gray-800 mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: false, margin: "-100px" }}
           >
             Experience
@@ -2035,7 +2035,7 @@ const Experience = () => {
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
             viewport={{ once: false, margin: "-100px" }}
           >
             My professional journey in data science and analytics.
@@ -2050,7 +2050,7 @@ const Experience = () => {
               initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80, y: 40 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               transition={{ 
-                duration: 0.8, 
+                duration: 0.4, 
                 delay: index * 0.15,
                 type: "spring",
                 stiffness: 80,
@@ -2115,14 +2115,14 @@ const Experience = () => {
                       className="text-gray-600 leading-relaxed flex items-start"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.05 }}
+                      transition={{ duration: 0.25, delay: idx * 0.05 }}
                       viewport={{ once: true }}
                       whileHover={{ x: 3 }}
                     >
                       <motion.span 
                         className="text-blue-600 font-bold mr-2"
                         animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: idx * 0.3 }}
+                        transition={{ duration: 1, repeat: Infinity, delay: idx * 0.3 }}
                       >
                         •
                       </motion.span>
@@ -2175,7 +2175,7 @@ const Blog = () => {
             scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 14,
+            duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -2188,7 +2188,7 @@ const Blog = () => {
             scale: [1, 0.9, 1],
           }}
           transition={{
-            duration: 11,
+            duration: 4,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -2198,7 +2198,7 @@ const Blog = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           viewport={{ once: false, margin: "-100px" }}
           className="text-center mb-16"
         >
@@ -2206,7 +2206,7 @@ const Blog = () => {
             className="text-4xl font-bold text-gray-800 mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: false, margin: "-100px" }}
           >
             Data Science Blog
@@ -2215,7 +2215,7 @@ const Blog = () => {
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
             viewport={{ once: false, margin: "-100px" }}
           >
             Insights, tutorials, and deep dives into advanced data science concepts, 
@@ -2228,7 +2228,7 @@ const Blog = () => {
             className="bg-white rounded-lg shadow-md p-8 text-center"
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             viewport={{ once: false, margin: "-50px" }}
           >
             <div className="mb-6">
@@ -2252,7 +2252,7 @@ const Blog = () => {
               className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl p-6 text-white shadow-2xl max-w-md mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, scale: 1.02 }}
             >
@@ -2317,7 +2317,7 @@ const Education = () => (
           scale: [1, 1.1, 1],
         }}
         transition={{
-          duration: 12,
+          duration: 4,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -2330,7 +2330,7 @@ const Education = () => (
           scale: [1, 0.9, 1],
         }}
         transition={{
-          duration: 15,
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -2340,7 +2340,7 @@ const Education = () => (
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         viewport={{ once: false, margin: "-100px" }}
         className="text-center mb-16"
       >
@@ -2348,7 +2348,7 @@ const Education = () => (
           className="text-4xl font-bold text-gray-800 mb-4"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           viewport={{ once: false, margin: "-100px" }}
         >
           Education & Certifications
@@ -2357,7 +2357,7 @@ const Education = () => (
           className="text-lg text-gray-600 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           viewport={{ once: false, margin: "-100px" }}
         >
           My academic background and professional certifications that drive my expertise.
@@ -2370,7 +2370,7 @@ const Education = () => (
             className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
             initial={{ opacity: 0, y: 60, x: -60 }}
             whileInView={{ opacity: 1, y: 0, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             viewport={{ once: false, margin: "-50px" }}
             whileHover={{ y: -5, x: 3 }}
           >
@@ -2401,7 +2401,7 @@ const Education = () => (
             className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
             initial={{ opacity: 0, y: 60, x: 60 }}
             whileInView={{ opacity: 1, y: 0, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: false, margin: "-50px" }}
             whileHover={{ y: -5, x: -3 }}
           >
@@ -2433,7 +2433,7 @@ const Education = () => (
           className="bg-white rounded-lg shadow-md p-6"
           initial={{ opacity: 0, y: 60, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.35, delay: 0.4, ease: "easeOut" }}
           viewport={{ once: false, margin: "-50px" }}
           whileHover={{ y: -5, scale: 1.02 }}
         >
@@ -2441,7 +2441,7 @@ const Education = () => (
             className="text-xl font-semibold text-gray-800 mb-4"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.25 }}
             viewport={{ once: false }}
           >
             Professional Certifications
@@ -2454,7 +2454,7 @@ const Education = () => (
               className="text-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-300 relative overflow-hidden group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.25, delay: 0.1 }}
               viewport={{ once: false }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
@@ -2474,7 +2474,7 @@ const Education = () => (
               className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.25, delay: 0.2 }}
               viewport={{ once: false }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
@@ -2489,7 +2489,7 @@ const Education = () => (
               className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.25, delay: 0.3 }}
               viewport={{ once: false }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
@@ -2504,7 +2504,7 @@ const Education = () => (
               className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.25, delay: 0.4 }}
               viewport={{ once: false }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
@@ -2536,7 +2536,7 @@ const Contact = () => (
           scale: [1, 1.2, 1],
         }}
         transition={{
-          duration: 18,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -2549,7 +2549,7 @@ const Contact = () => (
           scale: [1, 0.85, 1],
         }}
         transition={{
-          duration: 14,
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -2559,7 +2559,7 @@ const Contact = () => (
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         viewport={{ once: false, margin: "-100px" }}
         className="text-center max-w-2xl mx-auto"
       >
@@ -2567,7 +2567,7 @@ const Contact = () => (
           className="text-4xl font-bold text-gray-800 mb-4"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           viewport={{ once: false, margin: "-100px" }}
         >
           Get In Touch
@@ -2576,7 +2576,7 @@ const Contact = () => (
           className="text-lg text-gray-600 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           viewport={{ once: false, margin: "-100px" }}
         >
           I&apos;m always interested in new opportunities and collaborations. 
@@ -2589,7 +2589,7 @@ const Contact = () => (
             className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 text-white shadow-lg"
             initial={{ opacity: 0, x: -60, y: 40 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             viewport={{ once: false, margin: "-50px" }}
             whileHover={{ y: -5, scale: 1.03, rotate: 1 }}
           >
@@ -2616,7 +2616,7 @@ const Contact = () => (
             className="bg-gradient-to-br from-green-600 to-teal-600 rounded-xl p-6 text-white shadow-lg"
             initial={{ opacity: 0, x: 60, y: 40 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.35, delay: 0.15, ease: "easeOut" }}
             viewport={{ once: false, margin: "-50px" }}
             whileHover={{ y: -5, scale: 1.03, rotate: -1 }}
           >
