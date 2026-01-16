@@ -914,7 +914,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Data Scientist with Advanced Data Engineering & Business Analytics Expertise
+            Data Scientist – Financial & Compliance Analytics | Fraud Detection | Financial Risk & Business Assurance
           </motion.p>
           <motion.p 
             className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-12"
@@ -928,8 +928,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Data Scientist with 3+ years of experience applying advanced data science and analytics to marketing and financial product domains. 
-            Specializing in campaign measurement, causal inference, econometrics, and ROI-driven optimization with proven results in campaign performance and retention.
+            Data Scientist specializing in Financial Analytics, Fraud Detection, and Business Assurance, with over 3 years of experience applying statistical modeling and machine learning to reduce financial risk, improve audit accuracy, and support enterprise compliance.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
@@ -1126,8 +1125,7 @@ const About = () => {
             }}
             viewport={{ once: false, margin: "-100px" }}
           >
-            My journey into data science began with a simple question: &quot;What if we could predict the future?&quot; This curiosity led me down a path where I discovered that data isn&apos;t just numbers—it&apos;s stories waiting to be told. 
-            I&apos;ve spent the last few years transforming complex datasets into actionable insights that drive real business impact.
+            I am a Data Scientist specializing in Financial Analytics, Fraud Detection, and Business Assurance, with over 3 years of experience applying statistical modeling and machine learning to reduce financial risk, improve audit accuracy, and support enterprise compliance.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1140,13 +1138,10 @@ const About = () => {
             }}
             viewport={{ once: false, margin: "-100px" }}
           >
-            What excites me most is the challenge of finding causality in a world full of correlation. I love diving deep into sophisticated statistical methods, 
-            but I&apos;m equally passionate about making complex concepts accessible to everyone. As a lifelong continuous learner, I&apos;m always exploring new methodologies 
-            and staying current with the latest developments in data science. Whether I&apos;m building advanced causal inference models or teaching others 
-            through my blog, I believe knowledge should be shared and understood.
+            Currently at UnitedHealth Group, I work closely with Finance and Business Assurance teams to analyze large-scale payment and transaction data, where my analytics have helped identify $1.2M+ in recoverable overpayments. I design and deploy fraud and anomaly detection models using Python and SQL, and build Databricks-based data pipelines that process terabytes of data across multiple financial systems.
           </motion.p>
           <motion.p 
-            className="text-lg text-gray-600 mb-12 leading-relaxed"
+            className="text-lg text-gray-600 mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -1158,16 +1153,57 @@ const About = () => {
             }}
             viewport={{ once: false, margin: "-100px" }}
           >
-            My vision is to bridge the gap between cutting-edge data science research and practical business applications. I want to help organizations make better decisions 
-            through data, while also contributing to the data science community by sharing what I learn along the way. The future of data science is collaborative, 
-            and I&apos;m excited to be part of that evolution.
+            Previously, at Brane Group, I focused on business risk and process optimization, developing predictive models to identify high-risk transactions and automating reconciliation and audit workflows. These solutions reduced audit cycle time by 40% and improved data reliability for internal compliance teams.
           </motion.p>
+          <motion.p 
+            className="text-lg text-gray-600 mb-8 leading-relaxed"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.6,
+              type: "spring",
+              stiffness: 80,
+              damping: 20
+            }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            My strength lies in bridging data science with business context—translating complex models into clear, actionable insights for finance leaders, auditors, and executives. I am experienced in building ETL pipelines, executive dashboards, and audit-ready analytics using Databricks, Snowflake, Tableau, and AWS.
+          </motion.p>
+          <motion.p 
+            className="text-lg text-gray-600 mb-12 leading-relaxed"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.7,
+              type: "spring",
+              stiffness: 80,
+              damping: 20
+            }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            I bring a disciplined, results-driven approach to data science, with a strong focus on financial integrity, compliance, and measurable business impact.
+          </motion.p>
+          
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.8 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            <p className="text-lg font-semibold text-gray-800 mb-4">Core Focus Areas:</p>
+            <p className="text-base text-gray-600">
+              Financial Risk Analytics · Fraud Detection · Compliance & Audit Analytics · ETL Automation · Databricks · Python · SQL · Tableau · Cloud Data Engineering
+            </p>
+          </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Advanced Data Science', desc: 'Causal Inference, Econometrics, Regression, Time-Series, A/B Testing', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
-              { title: 'High-End Data Engineering', desc: 'SQL/Python Pipelines, AWS Glue, Lambda, Terabyte+ Data Processing', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
-              { title: 'Business Analytics & BI', desc: 'Tableau, Power BI, Executive Dashboards, ROI Measurement', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
+              { title: 'Financial Risk Analytics', desc: 'Fraud Detection, Compliance & Audit Analytics, Statistical Modeling', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
+              { title: 'Data Engineering & ETL', desc: 'Databricks, SQL/Python Pipelines, Terabyte+ Data Processing, Cloud Data Engineering', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
+              { title: 'Business Analytics & BI', desc: 'Tableau, Power BI, Executive Dashboards, Audit-Ready Analytics', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
@@ -1936,33 +1972,39 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Data Scientist - Marketing Analytics',
+      title: 'Data Scientist – Financial & Compliance Analytics',
       company: 'UnitedHealth Group',
       period: 'Jul 2024 - Present',
+      location: 'San Jose, California, United States · Hybrid',
+      type: 'Contract',
       logo: '/logos/unitedhealth-group-logo.png',
       logoFallback: 'https://logos-world.net/wp-content/uploads/2020/11/UnitedHealth-Group-Logo.png',
       achievements: [
-        'Drove **22% engagement lift** and **15% churn reduction** through advanced causal inference analysis across multi-channel marketing campaigns',
-        'Engineered **scalable SQL/Python pipelines** processing **terabyte-scale** datasets, cutting data prep time by **45%**',
-        'Built **production-grade ML models** (regression, time-series) to quantify cross-channel ROI, informing multi-million dollar budget allocations',
-        'Delivered **executive dashboards** in Tableau translating complex analytics into actionable insights for C-suite decision making',
-        'Led **statistically rigorous A/B experiments** with marketing teams, applying hypothesis testing to validate campaign strategies',
-        'Advanced **causal modeling** capabilities to measure true incremental impact, driving channel optimization and budget reallocation'
+        'Partnered with Business Assurance and Finance teams to analyze payment patterns and detect anomalies, identifying $1.2M+ in recoverable claim overpayments',
+        'Developed statistical and ML-based fraud detection models using Python (Scikit-learn, Pandas) and SQL, increasing accuracy of anomaly detection by 25%',
+        'Built Databricks-based pipelines for real-time transaction validation and reconciliation across multiple data sources (>3 TB)',
+        'Created Tableau dashboards visualizing financial KPIs, audit exceptions, and BAC risk indicators, used by leadership for compliance oversight',
+        'Performed exploratory data analysis (EDA) to uncover process inefficiencies, enabling policy refinements that improved operational accuracy',
+        'Designed data documentation templates and data-quality standards to align business definitions with functional specifications',
+        'Presented analytic results to cross-functional leadership, articulating insights in both technical and financial terms for business decisions'
       ]
     },
     {
-      title: 'Marketing Data Analyst',
-      company: 'Brane Enterprises',
+      title: 'Data Scientist – Business Risk & Process Optimization',
+      company: 'Brane Group',
       period: 'Jan 2021 - Dec 2022',
+      location: 'Visakhapatnam, Andhra Pradesh, India · On-site',
+      type: 'Full-time',
       logo: '/logos/brane-enterprises-logo.png',
-      logoFallback: 'https://via.placeholder.com/150?text=Brane+Enterprises',
+      logoFallback: 'https://via.placeholder.com/150?text=Brane+Group',
       achievements: [
-        'Analyzed **50K+ records** across customer lifecycle and campaigns, uncovering targeting insights that improved precision marketing',
-        'Developed **automated ETL pipelines** (SQL, Python) reducing manual reporting errors by **35%** and enabling faster campaign iterations',
-        'Applied **econometric techniques** to measure attribution and retention, building predictive models for customer lifetime value',
-        'Created **interactive BI dashboards** (Tableau, Power BI) tracking campaign KPIs in real-time for executive monitoring',
-        'Partnered with product teams to design **experimental frameworks** for acquisition funnel optimization and conversion testing',
-        'Delivered data-driven insights that contributed to **22% ROI improvement** across marketing channel mix'
+        'Developed predictive models in Python and R for identifying fraudulent or high-risk financial transactions using transaction frequency, location, and behavioral data',
+        'Engineered ETL workflows in SQL, Spark, and Airflow to aggregate and cleanse financial and compliance data for advanced analytics',
+        'Built Tableau and Power BI dashboards summarizing fraud metrics, loss events, and process KPIs for internal audit teams',
+        'Partnered with auditors and engineers to translate business logic into data rules and statistical validation checks for automation',
+        'Automated reconciliation scripts in Python and SQL between Snowflake and MySQL, reducing audit cycle time by 40%',
+        'Documented feature logic, data lineage, and analytic assumptions for traceability and compliance with financial audit standards',
+        'Collaborated with product managers and compliance leads to define analytic requirements, performance metrics, and data validation goals'
       ]
     }
   ];
@@ -2099,6 +2141,26 @@ const Experience = () => {
                     >
                       {exp.company}
                     </motion.p>
+                    {exp.location && (
+                      <motion.p 
+                        className="text-gray-500 text-sm mt-1"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {exp.location}
+                      </motion.p>
+                    )}
+                    {exp.type && (
+                      <motion.p 
+                        className="text-gray-500 text-sm"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {exp.type}
+                      </motion.p>
+                    )}
                   </div>
                   <motion.span 
                     className="text-gray-500 text-sm mt-1 md:mt-0"
@@ -2375,8 +2437,9 @@ const Education = () => (
             whileHover={{ y: -5, x: 3 }}
           >
             <div className="flex-1">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Master of Science in Information Technology</h3>
-              <p className="text-blue-600 font-medium mb-2">Clark University, Worcester, MA</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Master&apos;s degree, Information Technology</h3>
+              <p className="text-blue-600 font-medium mb-2">Clark University</p>
+              <p className="text-gray-500 text-sm mb-2">Jan 2023 - May 2024 · Grade: 3.55</p>
               <p className="text-gray-600">Advanced studies in high-end data science, machine learning, cloud computing, database systems, and information systems management. Specialized coursework in data analytics, business intelligence, and enterprise architecture.</p>
             </div>
             <div className="flex-shrink-0 flex items-center justify-center">
@@ -2406,22 +2469,23 @@ const Education = () => (
             whileHover={{ y: -5, x: -3 }}
           >
             <div className="flex-1">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Bachelor of Technology in Mechanical Engineering</h3>
-              <p className="text-blue-600 font-medium mb-2">JNTUK, Visakhapatnam, Andhra Pradesh</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Bachelor&apos;s degree, Mechanical Engineering</h3>
+              <p className="text-blue-600 font-medium mb-2">Avanthi Institute of Engineering & Technology</p>
+              <p className="text-gray-500 text-sm mb-2">Jun 2019 - Jul 2022 · Grade: A</p>
               <p className="text-gray-600">Strong foundation in critical thinking and basic aptitude skills with good understanding of analytical problem-solving methodologies.</p>
             </div>
             <div className="flex-shrink-0 flex items-center justify-center">
               <div className="min-w-[120px] min-h-[120px] max-w-[140px] max-h-[140px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm">
                 <Image
                   src="/logos/jntuk-logo.png"
-                  alt="JNTUK Logo"
+                  alt="Avanthi Institute Logo"
                   width={120}
                   height={120}
                   className="object-contain w-auto h-auto max-w-full max-h-full"
                   onError={(e) => {
-                    // Fallback to external URL if local image doesn't exist
+                    // Fallback to placeholder if local image doesn't exist
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://jntuk.edu.in/wp-content/uploads/2019/05/JNTUK_logo.png';
+                    target.src = 'https://via.placeholder.com/150?text=Avanthi+Institute';
                   }}
                 />
               </div>
