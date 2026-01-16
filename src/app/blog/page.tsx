@@ -8,7 +8,7 @@ const blogPosts = [
     id: 6,
     title: 'Back from Holidays: Refreshed, Recharged, and Ready to Excel',
     excerpt: 'Returning from a wonderful holiday break, I\'m back with renewed energy and focus. Excited to share that I\'ve taken a DataCamp membership and am working towards earning the Data Scientist Professional certification. Here\'s to being more productive than ever!',
-    date: 'January 15, 2025',
+    date: 'January 15, 2026',
     readTime: '4 min read',
     category: 'Learning Journey',
     content: `
