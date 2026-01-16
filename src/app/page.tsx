@@ -2759,7 +2759,7 @@ const Footer = () => (
           </svg>
         </motion.a>
       </div>
-      <p className="text-gray-400">&copy; 2024 Lakshmipathiraju Pericharla. All rights reserved.</p>
+      <p className="text-gray-400">&copy; 2025 Lakshmipathiraju Pericharla. All rights reserved.</p>
     </div>
       </footer>
 );

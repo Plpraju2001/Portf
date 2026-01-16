@@ -68,7 +68,7 @@ const blogPosts = [
     id: 1,
     title: 'Completed Python Data Structures and Comprehensions',
     excerpt: 'Just finished mastering Python data structures and comprehensions with multiple practice assignments. Sharing my journey and key insights from working with lists, dictionaries, sets, and powerful comprehension techniques.',
-    date: 'November 16, 2025',
+    date: 'November 16, 2024',
     readTime: '3 min read',
     category: 'Learning Journey',
     content: `
@@ -139,7 +139,7 @@ for key, value in dictionary.items():
     id: 2,
     title: 'Starting My Data Science Bootcamp',
     excerpt: 'I\'ve just started a bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning.',
-    date: 'October 29, 2025',
+    date: 'October 29, 2024',
     readTime: '2 min read',
     category: 'Learning Journey',
     content: `
@@ -164,7 +164,7 @@ for key, value in dictionary.items():
     id: 3,
     title: 'Completed Data Science Basics',
     excerpt: 'I\'ve finished the basics of data science, machine learning, and deep learning. The field is booming with opportunities.',
-    date: 'October 30, 2025',
+    date: 'October 30, 2024',
     readTime: '3 min read',
     category: 'Career Insights',
     content: `
@@ -213,7 +213,7 @@ for key, value in dictionary.items():
     id: 4,
     title: 'Advanced Causal Inference: Beyond Traditional A/B Testing',
     excerpt: 'Deep dive into sophisticated causal inference methods I\'m exploring to solve complex business problems. Sharing insights from my latest research on uplift modeling and heterogeneous treatment effects.',
-    date: 'October 25, 2025',
+    date: 'October 25, 2024',
     readTime: '12 min read',
     category: 'Advanced Analytics',
     content: `
@@ -264,7 +264,7 @@ for key, value in dictionary.items():
     id: 5,
     title: 'Data Science Tips & Tricks: Pro Techniques from the Field',
     excerpt: 'Essential tips and tricks I\'ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results.',
-    date: 'October 28, 2025',
+    date: 'October 28, 2024',
     readTime: '8 min read',
     category: 'Tips & Tricks',
     content: `
@@ -618,7 +618,7 @@ export default function Blog() {
               </svg>
             </a>
           </div>
-          <p className="text-gray-400">&copy; 2024 Lakshmipathiraju Pericharla. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2025 Lakshmipathiraju Pericharla. All rights reserved.</p>
         </div>
       </footer>
     </div>
