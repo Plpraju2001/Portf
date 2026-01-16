@@ -5,10 +5,108 @@ import Link from 'next/link';
 
 const blogPosts = [
   {
+    id: 7,
+    title: 'Preparing for Upcoming Interviews: Strategy, Preparation, and Mindset',
+    excerpt: 'As I prepare for scheduled interviews, I\'m sharing my approach to technical preparation, behavioral questions, and maintaining the right mindset. Here\'s how I\'m getting ready to showcase my skills and experience.',
+    date: 'January 16, 2026',
+    readTime: '5 min read',
+    category: 'Career Insights',
+    content: `
+      <h2>Interview Preparation in Full Swing</h2>
+      <p>With several scheduled interviews on the horizon, I've been diving deep into preparation mode. This is an exciting time—opportunities to showcase my experience in financial analytics, fraud detection, and data science while exploring new roles that align with my career goals.</p>
+      
+      <h2>My Preparation Strategy</h2>
+      <p>Preparing for interviews, especially in the data science field, requires a multi-faceted approach. Here's how I'm structuring my preparation:</p>
+      
+      <h3>Technical Skills Review</h3>
+      <p>I'm revisiting core concepts and ensuring I can articulate my experience clearly:</p>
+      <ul>
+        <li><strong>Financial Analytics & Fraud Detection:</strong> Refreshing my knowledge of statistical modeling techniques, anomaly detection algorithms, and risk assessment methodologies</li>
+        <li><strong>Machine Learning & Data Engineering:</strong> Reviewing Python, SQL, Databricks, and cloud platforms (AWS) that I use daily</li>
+        <li><strong>Causal Inference & Advanced Analytics:</strong> Ensuring I can explain complex concepts clearly, from propensity score matching to instrumental variables</li>
+        <li><strong>Real-world Applications:</strong> Preparing to discuss specific projects, like the $1.2M+ in recoverable overpayments identified through fraud detection models</li>
+      </ul>
+      
+      <h3>Coding Practice</h3>
+      <p>I'm practicing algorithmic thinking and data manipulation challenges that mirror real-world scenarios:</p>
+      <ul>
+        <li>SQL queries for complex financial data joins and aggregations</li>
+        <li>Python data manipulation and model implementation</li>
+        <li>System design thinking for scalable data pipelines</li>
+        <li>Explaining my thought process clearly while coding</li>
+      </ul>
+      
+      <h3>Behavioral & Situational Preparation</h3>
+      <p>Beyond technical skills, I'm preparing stories that demonstrate:</p>
+      <ul>
+        <li><strong>Impact-driven work:</strong> How I've translated analytics into measurable business outcomes</li>
+        <li><strong>Cross-functional collaboration:</strong> Working with Finance, Business Assurance, and executive teams</li>
+        <li><strong>Problem-solving approach:</strong> How I've tackled complex challenges in fraud detection and compliance</li>
+        <li><strong>Learning and growth:</strong> My continuous improvement mindset and how I stay current with industry trends</li>
+      </ul>
+      
+      <h2>Key Areas I'm Focusing On</h2>
+      
+      <h3>1. Articulating Technical Concepts</h3>
+      <p>Data science interviews often involve explaining complex concepts to non-technical stakeholders. I'm practicing:</p>
+      <ul>
+        <li>Breaking down fraud detection models into understandable components</li>
+        <li>Explaining how Databricks pipelines process terabyte-scale data</li>
+        <li>Discussing the business impact of statistical models in financial contexts</li>
+      </ul>
+      
+      <h3>2. Portfolio & Project Discussions</h3>
+      <p>I'm preparing to walk through specific projects from my portfolio:</p>
+      <ul>
+        <li>End-to-end data science workflows I've built</li>
+        <li>Challenges faced and how I overcame them</li>
+        <li>Results achieved and lessons learned</li>
+        <li>How these projects demonstrate my expertise in financial analytics</li>
+      </ul>
+      
+      <h3>3. Domain Knowledge</h3>
+      <p>For roles in financial services and compliance:</p>
+      <ul>
+        <li>Understanding regulatory requirements and audit standards</li>
+        <li>Risk management frameworks and compliance best practices</li>
+        <li>Financial metrics and KPIs relevant to data science applications</li>
+      </ul>
+      
+      <h2>Maintaining the Right Mindset</h2>
+      <p>Interview preparation isn't just about technical skills—it's also about mindset. I'm focusing on:</p>
+      
+      <h3>Confidence Through Preparation</h3>
+      <p>The more I prepare, the more confident I feel. This isn't about memorizing answers, but about being able to think on my feet and draw from real experiences.</p>
+      
+      <h3>Authenticity</h3>
+      <p>I want to be genuine in interviews—sharing real experiences, challenges I've faced, and how I've grown. Authenticity builds trust and helps find the right fit.</p>
+      
+      <h3>Learning Opportunity</h3>
+      <p>Every interview is a chance to learn—about different companies, team structures, and how data science is applied in various contexts. Even if an opportunity isn't the right fit, there's value in the conversation.</p>
+      
+      <h2>What I'm Looking Forward To</h2>
+      <p>These interviews represent opportunities to:</p>
+      <ul>
+        <li><strong>Showcase my expertise:</strong> Demonstrate how I've applied data science to solve real business problems in financial analytics and fraud detection</li>
+        <li><strong>Learn about different roles:</strong> Understand how different organizations approach data science and what challenges they're solving</li>
+        <li><strong>Find the right fit:</strong> Identify opportunities where I can make meaningful impact while continuing to grow</li>
+      </ul>
+      
+      <h2>The Preparation Continues</h2>
+      <p>As I continue preparing, I'm staying organized, practicing consistently, and maintaining a positive mindset. The preparation process itself is valuable—it's helping me reflect on my experiences, clarify my goals, and feel more confident about my skills.</p>
+      
+      <p>Whether these interviews lead to immediate opportunities or not, the preparation and reflection are valuable. They're helping me understand what I bring to the table and what I'm looking for in my next role.</p>
+      
+      <p>Wish me luck! I'm excited to share my journey and see where these opportunities lead. I'll be sure to share insights and lessons learned along the way.</p>
+      
+      <p>If you're also preparing for interviews, remember: preparation builds confidence, but authenticity makes connections. Be yourself, share your real experiences, and trust the process. Here's to finding the right opportunities! 🚀</p>
+    `
+  },
+  {
     id: 6,
     title: 'Back from Holidays: Refreshed, Recharged, and Ready to Excel',
     excerpt: 'Returning from a wonderful holiday break, I\'m back with renewed energy and focus. Excited to share that I\'ve taken a DataCamp membership and am working towards earning the Data Scientist Professional certification. Here\'s to being more productive than ever!',
-    date: 'January 15, 2026',
+    date: 'January 12, 2026',
     readTime: '4 min read',
     category: 'Learning Journey',
     content: `
@@ -68,7 +166,7 @@ const blogPosts = [
     id: 1,
     title: 'Completed Python Data Structures and Comprehensions',
     excerpt: 'Just finished mastering Python data structures and comprehensions with multiple practice assignments. Sharing my journey and key insights from working with lists, dictionaries, sets, and powerful comprehension techniques.',
-    date: 'November 16, 2024',
+    date: 'November 16, 2025',
     readTime: '3 min read',
     category: 'Learning Journey',
     content: `
@@ -139,7 +237,7 @@ for key, value in dictionary.items():
     id: 2,
     title: 'Starting My Data Science Bootcamp',
     excerpt: 'I\'ve just started a bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning.',
-    date: 'October 29, 2024',
+    date: 'October 29, 2025',
     readTime: '2 min read',
     category: 'Learning Journey',
     content: `
@@ -164,7 +262,7 @@ for key, value in dictionary.items():
     id: 3,
     title: 'Completed Data Science Basics',
     excerpt: 'I\'ve finished the basics of data science, machine learning, and deep learning. The field is booming with opportunities.',
-    date: 'October 30, 2024',
+    date: 'October 30, 2025',
     readTime: '3 min read',
     category: 'Career Insights',
     content: `
@@ -213,7 +311,7 @@ for key, value in dictionary.items():
     id: 4,
     title: 'Advanced Causal Inference: Beyond Traditional A/B Testing',
     excerpt: 'Deep dive into sophisticated causal inference methods I\'m exploring to solve complex business problems. Sharing insights from my latest research on uplift modeling and heterogeneous treatment effects.',
-    date: 'October 25, 2024',
+    date: 'October 25, 2025',
     readTime: '12 min read',
     category: 'Advanced Analytics',
     content: `
@@ -264,7 +362,7 @@ for key, value in dictionary.items():
     id: 5,
     title: 'Data Science Tips & Tricks: Pro Techniques from the Field',
     excerpt: 'Essential tips and tricks I\'ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results.',
-    date: 'October 28, 2024',
+    date: 'October 28, 2025',
     readTime: '8 min read',
     category: 'Tips & Tricks',
     content: `
