@@ -6,17 +6,17 @@ import Link from 'next/link';
 const blogPosts = [
   {
     id: 8,
-    title: 'Earning Microsoft Certifications: Power BI Data Analyst & Azure Database Administrator - Why They Matter',
-    excerpt: 'I\'m excited to share that I\'ve recently earned two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why these certifications are valuable for data science professionals and how they complement my work in financial analytics and fraud detection.',
+    title: 'Renewing Microsoft Certifications: Power BI Data Analyst & Azure Database Administrator - Why Staying Current Matters',
+    excerpt: 'I\'m excited to share that I\'ve recently renewed two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why keeping certifications current is valuable for data science professionals and how they complement my work in financial analytics and fraud detection.',
     date: 'February 12, 2026',
     readTime: '6 min read',
     category: 'Career Insights',
     content: `
-      <h2>Celebrating Two New Microsoft Certifications</h2>
-      <p>I'm thrilled to announce that I've recently earned two Microsoft certifications that strengthen my expertise in data analytics and cloud database management: <strong>Power BI Data Analyst Associate</strong> and <strong>Azure Database Administrator Associate</strong>. These certifications represent a significant milestone in my professional development journey, and I wanted to share why they matter—not just for me, but for anyone working in data science and analytics.</p>
+      <h2>Renewing My Microsoft Certifications</h2>
+      <p>I'm thrilled to announce that I've recently renewed two Microsoft certifications that strengthen my expertise in data analytics and cloud database management: <strong>Power BI Data Analyst Associate</strong> and <strong>Azure Database Administrator Associate</strong>. Renewing these certifications represents my ongoing commitment to staying current with the latest tools and technologies, and I wanted to share why keeping certifications current matters—not just for me, but for anyone working in data science and analytics.</p>
       
-      <h2>Why Microsoft Certifications Matter in Data Science</h2>
-      <p>In the rapidly evolving field of data science, certifications serve multiple purposes. They validate your skills, demonstrate commitment to continuous learning, and show employers that you're serious about staying current with industry-standard tools and technologies. Microsoft certifications, in particular, are highly valued because Microsoft's ecosystem is widely adopted across enterprises, especially in financial services, healthcare, and compliance-focused industries.</p>
+      <h2>Why Renewing Microsoft Certifications Matters in Data Science</h2>
+      <p>In the rapidly evolving field of data science, keeping certifications current serves multiple purposes. Renewals validate that your skills are up-to-date with the latest features and best practices, demonstrate ongoing commitment to continuous learning, and show employers that you're serious about staying current with industry-standard tools and technologies. Microsoft certifications, in particular, are highly valued because Microsoft's ecosystem is widely adopted across enterprises, especially in financial services, healthcare, and compliance-focused industries. Renewing them ensures you're familiar with the latest updates and improvements.</p>
       
       <h2>Power BI Data Analyst Associate: Transforming Data into Business Insights</h2>
       <p>The <strong>Power BI Data Analyst Associate</strong> certification validates expertise in one of the most widely used business intelligence tools in the industry. Here's why this certification is particularly valuable:</p>
@@ -83,8 +83,8 @@ const blogPosts = [
         <li>Capability to create audit-ready analytics and dashboards</li>
       </ul>
       
-      <h2>The Certification Journey</h2>
-      <p>Earning these certifications wasn't just about passing exams—it was about deepening my understanding of these tools and how they're used in enterprise environments. The preparation process involved:</p>
+      <h2>The Certification Renewal Journey</h2>
+      <p>Renewing these certifications wasn't just about passing exams—it was about staying current with the latest features, best practices, and how these tools continue to evolve in enterprise environments. The renewal preparation process involved:</p>
       <ul>
         <li><strong>Hands-on practice:</strong> Working with Power BI and Azure in real scenarios</li>
         <li><strong>Understanding best practices:</strong> Learning industry-standard approaches to data visualization and database management</li>
@@ -124,7 +124,7 @@ const blogPosts = [
       <p>Certifications are valuable, but they're most powerful when combined with real-world experience. These Microsoft certifications validate skills I use daily in my work, making them meaningful additions to my professional profile.</p>
       
       <h2>Final Thoughts</h2>
-      <p>Earning these Microsoft certifications is a milestone I'm proud of. They represent not just technical knowledge, but a commitment to continuous learning and professional growth. In a field as dynamic as data science, staying current with industry-standard tools and technologies is essential.</p>
+      <p>Renewing these Microsoft certifications is a milestone I'm proud of. They represent not just technical knowledge, but an ongoing commitment to continuous learning and professional growth. In a field as dynamic as data science, staying current with industry-standard tools and technologies is essential, and renewals ensure you're always working with the latest features and best practices.</p>
       
       <p>As I continue my career journey, these certifications will help me:</p>
       <ul>
@@ -134,7 +134,7 @@ const blogPosts = [
         <li>Continue growing as a data science professional</li>
       </ul>
       
-      <p>If you're interested in learning more about my experience with these certifications or have questions about preparing for Microsoft certification exams, feel free to reach out. I'm always happy to share insights and help fellow data scientists on their certification journeys!</p>
+      <p>If you're interested in learning more about my experience with renewing these certifications or have questions about preparing for Microsoft certification renewals, feel free to reach out. I'm always happy to share insights and help fellow data scientists on their certification renewal journeys!</p>
       
       <p>Here's to continuous learning and professional growth! 🚀</p>
     `

@@ -1,0 +1,13 @@
+🎉 Just renewed two Microsoft certifications!
+
+✅ Power BI Data Analyst Associate
+✅ Azure Database Administrator Associate
+
+Renewing these certifications shows my commitment to staying current with the latest tools in business intelligence and cloud database management—critical skills for my work in financial analytics and fraud detection.
+
+I've written a blog post sharing why these certifications matter for data science professionals and how they complement enterprise data work.
+
+👉 Read the full post: lakshmipathirajup.com/blog
+
+#DataScience #MicrosoftCertified #PowerBI #Azure #DataAnalytics #ContinuousLearning
+
