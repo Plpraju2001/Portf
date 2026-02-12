@@ -1,5 +1,13 @@
 export const blogPosts = [
   {
+    id: 8,
+    title: 'Earning Microsoft Certifications: Power BI Data Analyst & Azure Database Administrator - Why They Matter',
+    excerpt: 'I\'m excited to share that I\'ve recently earned two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why these certifications are valuable for data science professionals and how they complement my work in financial analytics and fraud detection.',
+    date: 'January 16, 2026',
+    readTime: '6 min read',
+    category: 'Career Insights',
+  },
+  {
     id: 7,
     title: 'Preparing for Upcoming Interviews: Strategy, Preparation, and Mindset',
     excerpt: 'As I prepare for scheduled interviews, I\'m sharing my approach to technical preparation, behavioral questions, and maintaining the right mindset. Here\'s how I\'m getting ready to showcase my skills and experience.',
