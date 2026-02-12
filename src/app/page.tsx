@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, memo } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
@@ -20,10 +20,11 @@ const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.05, 1],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Professional axes with grid lines */}
@@ -81,10 +82,11 @@ const ScatterPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
       rotate: [0, 2, 0],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Grid */}
@@ -130,10 +132,11 @@ const BoxPlotWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.03, 1],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Grid */}
@@ -179,10 +182,11 @@ const CorrelationMatrixWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.04, 1],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Professional correlation matrix with labels */}
@@ -297,10 +301,11 @@ const HistogramWatermark = ({ delay = 0 }: { delay?: number }) => (
       y: [0, -4, 0],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Grid */}
@@ -353,10 +358,11 @@ const HeatMapWatermark = ({ delay = 0 }: { delay?: number }) => (
       rotate: [0, 2, 0],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Professional heat map with gradient colors */}
@@ -467,10 +473,11 @@ const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
       scale: [1, 1.04, 1],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
       delay: delay * 0.5,
       ease: "easeInOut",
+      type: "tween",
     }}
   >
     {/* Grid */}
@@ -509,8 +516,8 @@ const AreaChartWatermark = ({ delay = 0 }: { delay?: number }) => (
   </motion.svg>
 );
 
-// Professional Data Science Watermark Container
-const DataScienceWatermarks = () => {
+// Professional Data Science Watermark Container - Memoized for performance
+const DataScienceWatermarks = memo(() => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -518,12 +525,13 @@ const DataScienceWatermarks = () => {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const handleResize = () => checkMobile();
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Reduced watermarks on mobile for better performance - full set on desktop
-  const allWatermarks = [
+  // Optimized watermarks for smooth performance - reduced count on all devices
+  const allWatermarks = useMemo(() => [
     { type: 'bar', x: 2, y: 5, delay: 0 },
     { type: 'scatter', x: 85, y: 8, delay: 0.1 },
     { type: 'box', x: 3, y: 70, delay: 0.2 },
@@ -542,10 +550,14 @@ const DataScienceWatermarks = () => {
     { type: 'heat', x: 88, y: 55, delay: 1.5 },
     { type: 'pie', x: 5, y: 60, delay: 1.6 },
     { type: 'area', x: 50, y: 45, delay: 1.7 },
-  ];
+  ], []);
 
-  // On mobile, show only 6 watermarks (every 3rd one) for better performance
-  const watermarks = isMobile ? allWatermarks.filter((_, idx) => idx % 3 === 0).slice(0, 6) : allWatermarks;
+  const watermarks = useMemo(() => 
+    isMobile 
+      ? allWatermarks.filter((_, idx) => idx % 3 === 0).slice(0, 5) 
+      : allWatermarks.filter((_, idx) => idx % 2 === 0).slice(0, 10),
+    [isMobile, allWatermarks]
+  );
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0, willChange: 'transform', transform: 'translate3d(0,0,0)' }}>
@@ -583,7 +595,9 @@ const DataScienceWatermarks = () => {
       })}
     </div>
   );
-};
+});
+
+DataScienceWatermarks.displayName = 'DataScienceWatermarks';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -726,16 +740,16 @@ const Hero = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Reduced particles on mobile for better performance (15 on mobile, 30 on desktop)
-  const particleCount = isMobile ? 10 : 30;
-  const particles = Array.from({ length: particleCount }, (_, i) => ({
+  // Optimized particles for smooth performance (8 on mobile, 20 on desktop)
+  const particleCount = isMobile ? 8 : 20;
+  const particles = useMemo(() => Array.from({ length: particleCount }, (_, i) => ({
     id: i,
     size: Math.random() * 3 + 2,
     x: Math.random() * 100,
     y: Math.random() * 100,
     duration: Math.random() * 4 + 3,
     delay: Math.random() * 3,
-  }));
+  })), [particleCount]);
 
   const [imageError, setImageError] = useState(false);
   const profileImage = '/profile_picture.jpg';
@@ -759,19 +773,20 @@ const Hero = () => {
               transform: 'translate3d(0,0,0)',
             }}
             animate={isMobile ? {
-              y: [-10, 10, -10],
-              opacity: [0.2, 0.4, 0.2],
+              y: [-8, 8, -8],
+              opacity: [0.2, 0.35, 0.2],
             } : {
-              y: [-20, 20, -20],
-              x: [-10, 10, -10],
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
+              y: [-15, 15, -15],
+              x: [-8, 8, -8],
+              scale: [1, 1.15, 1],
+              opacity: [0.25, 0.5, 0.25],
             }}
             transition={{
               duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
               delay: particle.delay,
+              type: "tween",
             }}
           />
         ))}
@@ -802,9 +817,10 @@ const Hero = () => {
             scale: [1, 0.9, 1.3, 1],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
+            type: "tween",
           }}
         />
       </div>
@@ -880,17 +896,17 @@ const Hero = () => {
                     scale: 1
                   }}
                   transition={{
-                    duration: 0.4,
-                    delay: index * 0.15,
+                    duration: 0.3,
+                    delay: index * 0.08,
                     type: "spring",
-                    stiffness: 200,
-                    damping: 15
+                    stiffness: 150,
+                    damping: 20
                   }}
                   whileHover={{
-                    scale: 1.3,
-                    rotate: [0, 10, -10, 0],
-                    y: [0, -15, 0],
-                    transition: { duration: 0.4 }
+                    scale: 1.2,
+                    rotate: [0, 8, -8, 0],
+                    y: [0, -10, 0],
+                    transition: { duration: 0.3, ease: "easeOut" }
                   }}
                   style={{ 
                     display: "inline-block",
@@ -1079,7 +1095,7 @@ const About = () => {
             duration: 0.4, 
             ease: [0.21, 1.02, 0.73, 1]
           }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="max-w-4xl mx-auto text-center"
         >
           <motion.h2 
@@ -1092,13 +1108,13 @@ const About = () => {
               type: "spring",
               stiffness: 100
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <motion.span
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.3 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               About 
             </motion.span>
@@ -1107,7 +1123,7 @@ const About = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.4 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               Me
             </motion.span>
@@ -1123,7 +1139,7 @@ const About = () => {
               delay: 0.3,
               ease: [0.21, 1.02, 0.73, 1]
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             I am a Data Scientist specializing in Financial Analytics, Fraud Detection, and Business Assurance, with over 3 years of experience applying statistical modeling and machine learning to reduce financial risk, improve audit accuracy, and support enterprise compliance.
           </motion.p>
@@ -1136,7 +1152,7 @@ const About = () => {
               delay: 0.4,
               ease: [0.21, 1.02, 0.73, 1]
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Currently at UnitedHealth Group, I work closely with Finance and Business Assurance teams to analyze large-scale payment and transaction data, where my analytics have helped identify $1.2M+ in recoverable overpayments. I design and deploy fraud and anomaly detection models using Python and SQL, and build Databricks-based data pipelines that process terabytes of data across multiple financial systems.
           </motion.p>
@@ -1151,7 +1167,7 @@ const About = () => {
               stiffness: 80,
               damping: 20
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Previously, at Brane Group, I focused on business risk and process optimization, developing predictive models to identify high-risk transactions and automating reconciliation and audit workflows. These solutions reduced audit cycle time by 40% and improved data reliability for internal compliance teams.
           </motion.p>
@@ -1166,7 +1182,7 @@ const About = () => {
               stiffness: 80,
               damping: 20
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             My strength lies in bridging data science with business context—translating complex models into clear, actionable insights for finance leaders, auditors, and executives. I am experienced in building ETL pipelines, executive dashboards, and audit-ready analytics using Databricks, Snowflake, Tableau, and AWS.
           </motion.p>
@@ -1181,7 +1197,7 @@ const About = () => {
               stiffness: 80,
               damping: 20
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             I bring a disciplined, results-driven approach to data science, with a strong focus on financial integrity, compliance, and measurable business impact.
           </motion.p>
@@ -1191,7 +1207,7 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.8 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <p className="text-lg font-semibold text-gray-800 mb-4">Core Focus Areas:</p>
             <p className="text-base text-gray-600">
@@ -1217,7 +1233,7 @@ const About = () => {
                   stiffness: 150,
                   damping: 20
                 }}
-                viewport={{ once: false, margin: "-50px" }}
+                viewport={{ once: true, margin: "-50px" }}
                 whileHover={{ y: -15, scale: 1.05, rotateY: 8, rotateX: 5, rotateZ: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -1330,7 +1346,7 @@ const PersonalInterests = () => {
               stiffness: 100,
               damping: 20
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Personal Interests
           </motion.h2>
@@ -1345,7 +1361,7 @@ const PersonalInterests = () => {
               type: "spring",
               stiffness: 80
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             When I&apos;m not diving deep into data science, here&apos;s what keeps me inspired and energized:
           </motion.p>
@@ -1405,7 +1421,7 @@ const PersonalInterests = () => {
                   stiffness: 150,
                   damping: 20
                 }}
-                viewport={{ once: false, margin: "-50px" }}
+                viewport={{ once: true, margin: "-50px" }}
                 whileHover={{ y: -12, scale: 1.08, rotateX: -5, rotateY: 3, rotateZ: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -1737,7 +1753,7 @@ const Projects = () => {
             stiffness: 80,
             damping: 20
           }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <motion.h2 
@@ -1750,7 +1766,7 @@ const Projects = () => {
               type: "spring",
               stiffness: 100
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Data Science & Engineering <span className="gradient-text">Projects</span>
           </motion.h2>
@@ -1763,7 +1779,7 @@ const Projects = () => {
               delay: 0.3,
               type: "spring"
             }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             A combination of completed GitHub projects and upcoming advanced data science initiatives 
             focusing on causal inference, high-end data engineering, and sophisticated analytics solutions.
@@ -1828,7 +1844,7 @@ const Projects = () => {
               type: "spring",
               stiffness: 100
             }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             Upcoming Data Science Projects
           </motion.h3>
@@ -1847,7 +1863,7 @@ const Projects = () => {
                 stiffness: 100,
                 damping: 20
               }}
-              viewport={{ once: false, margin: "-50px" }}
+              viewport={{ once: true, margin: "-50px" }}
               whileHover={{ y: -10, scale: 1.03, rotateX: -5, rotateY: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -1959,16 +1975,16 @@ const Experience = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Reduced particles on mobile (5 on mobile, 15 on desktop)
-  const particleCount = isMobile ? 5 : 15;
-  const experienceParticles = Array.from({ length: particleCount }, (_, i) => ({
+  // Optimized particles for smooth performance (4 on mobile, 12 on desktop)
+  const particleCount = isMobile ? 4 : 12;
+  const experienceParticles = useMemo(() => Array.from({ length: particleCount }, (_, i) => ({
     id: i,
     size: Math.random() * 4 + 2,
     x: Math.random() * 100,
     y: Math.random() * 100,
     duration: Math.random() * 4 + 3,
     delay: Math.random() * 2,
-  }));
+  })), [particleCount]);
 
   const experiences = [
     {
@@ -2027,18 +2043,19 @@ const Experience = () => {
               transform: 'translate3d(0,0,0)',
             }}
             animate={isMobile ? {
-              y: [-8, 8, -8],
-              opacity: [0.15, 0.3, 0.15],
+              y: [-6, 6, -6],
+              opacity: [0.15, 0.25, 0.15],
             } : {
-              y: [-15, 15, -15],
-              x: [-8, 8, -8],
-              opacity: [0.2, 0.5, 0.2],
+              y: [-12, 12, -12],
+              x: [-6, 6, -6],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{
               duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
               delay: particle.delay,
+              type: "tween",
             }}
           />
         ))}
@@ -2050,9 +2067,10 @@ const Experience = () => {
             scale: [1, 1.15, 1],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
+            type: "tween",
           }}
         />
       </div>
@@ -2061,7 +2079,7 @@ const Experience = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <motion.h2 
@@ -2069,7 +2087,7 @@ const Experience = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Experience
           </motion.h2>
@@ -2078,7 +2096,7 @@ const Experience = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.3 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             My professional journey in data science and analytics.
           </motion.p>
@@ -2098,7 +2116,7 @@ const Experience = () => {
                 stiffness: 80,
                 damping: 20
               }}
-              viewport={{ once: false, margin: "-50px" }}
+              viewport={{ once: true, margin: "-50px" }}
               whileHover={{ scale: 1.02, y: -5 }}
             >
               {/* Animated border on hover */}
@@ -2261,7 +2279,7 @@ const Blog = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <motion.h2 
@@ -2269,7 +2287,7 @@ const Blog = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Data Science Blog
           </motion.h2>
@@ -2278,7 +2296,7 @@ const Blog = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.3 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             Insights, tutorials, and deep dives into advanced data science concepts, 
             causal inference, and marketing analytics.
@@ -2291,7 +2309,7 @@ const Blog = () => {
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="mb-6">
               <svg className="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2411,7 +2429,7 @@ const Education = () => (
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           Education & Certifications
         </motion.h2>
@@ -2420,7 +2438,7 @@ const Education = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.3 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           My academic background and professional certifications that drive my expertise.
         </motion.p>
@@ -2433,7 +2451,7 @@ const Education = () => (
             initial={{ opacity: 0, y: 60, x: -60 }}
             whileInView={{ opacity: 1, y: 0, x: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
             whileHover={{ y: -5, x: 3 }}
           >
             <div className="flex-1">
@@ -2465,7 +2483,7 @@ const Education = () => (
             initial={{ opacity: 0, y: 60, x: 60 }}
             whileInView={{ opacity: 1, y: 0, x: 0 }}
             transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
             whileHover={{ y: -5, x: -3 }}
           >
             <div className="flex-1">
@@ -2519,7 +2537,7 @@ const Education = () => (
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, delay: 0.1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
               <motion.div
@@ -2539,7 +2557,7 @@ const Education = () => (
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, delay: 0.2 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
               <motion.div
@@ -2554,7 +2572,7 @@ const Education = () => (
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, delay: 0.3 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
               <motion.div
@@ -2569,7 +2587,7 @@ const Education = () => (
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, delay: 0.4 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
               <motion.div
@@ -2632,7 +2650,7 @@ const Contact = () => (
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           Get In Touch
         </motion.h2>
@@ -2641,7 +2659,7 @@ const Contact = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.3 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           I&apos;m always interested in new opportunities and collaborations. 
           Let&apos;s discuss how we can work together to solve complex data challenges and drive business growth.
@@ -2654,7 +2672,7 @@ const Contact = () => (
             initial={{ opacity: 0, x: -60, y: 40 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
             whileHover={{ y: -5, scale: 1.03, rotate: 1 }}
           >
             <div className="text-center">
@@ -2681,7 +2699,7 @@ const Contact = () => (
             initial={{ opacity: 0, x: 60, y: 40 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.35, delay: 0.15, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-50px" }}
+            viewport={{ once: true, margin: "-50px" }}
             whileHover={{ y: -5, scale: 1.03, rotate: -1 }}
           >
             <div className="text-center">
