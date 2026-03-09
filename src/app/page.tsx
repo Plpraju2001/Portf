@@ -2199,33 +2199,19 @@ const Experience = () => {
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {exp.logoSVG ? (
-                    <img
-                      src={exp.logoSVG}
-                      alt={`${exp.company} Logo`}
-                      width={130}
-                      height={130}
-                      className="object-contain w-auto h-auto max-w-full max-h-full"
-                      style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = exp.logoFallback;
-                      }}
-                    />
-                  ) : (
-                    <div 
-                      className="w-full h-full flex items-center justify-center rounded"
-                      style={{ 
-                        backgroundColor: exp.company === 'Scale AI' ? '#000000' : '#006FCF',
-                        color: '#FFFFFF',
-                        minHeight: '100px'
-                      }}
-                    >
-                      <span className="font-bold text-xs text-center px-2">
-                        {exp.company === 'Scale AI' ? 'SCALE AI' : exp.company === 'American Express' ? 'AMEX' : exp.company.substring(0, 8)}
-                      </span>
-                    </div>
-                  )}
+                  <div 
+                    className="w-full h-full flex items-center justify-center rounded"
+                    style={{ 
+                      backgroundColor: exp.company === 'Scale AI' ? '#000000' : exp.company === 'American Express' ? '#006FCF' : '#4B5563',
+                      color: '#FFFFFF',
+                      minHeight: '100px',
+                      padding: '10px'
+                    }}
+                  >
+                    <span className="font-bold text-xs text-center px-2 leading-tight">
+                      {exp.company === 'Scale AI' ? 'SCALE AI' : exp.company === 'American Express' ? 'AMERICAN EXPRESS' : exp.company.toUpperCase()}
+                    </span>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
