@@ -1,5 +1,13 @@
 export const blogPosts = [
   {
+    id: 10,
+    title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
+    excerpt: 'As of March 8, 2026, I\'m actively looking for my next Data Scientist / ML Engineer role. After recent market shifts, I\'m focusing on opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team.',
+    date: 'March 8, 2026',
+    readTime: '6 min read',
+    category: 'Career Insights',
+  },
+  {
     id: 9,
     title: 'Navigating Tech Layoffs: Why I\'m Open to New Opportunities and What I Bring to the Table',
     excerpt: 'The tech industry has seen significant layoffs recently, affecting many talented professionals. As someone who\'s been impacted or is exploring new opportunities, I want to share my perspective on resilience, continuous learning, and why I\'m excited about the next chapter. Here\'s what makes me a valuable addition to any data science team.',

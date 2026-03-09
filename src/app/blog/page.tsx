@@ -5,6 +5,91 @@ import Link from 'next/link';
 
 const blogPosts = [
   {
+    id: 10,
+    title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
+    excerpt: 'As of March 8, 2026, I\'m actively looking for my next Data Scientist / ML Engineer role. After recent market shifts, I\'m focusing on opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what happened, what I bring, and what I\'m looking for next.',
+    date: 'March 8, 2026',
+    readTime: '6 min read',
+    category: 'Career Insights',
+    content: `
+      <h2>Where I Am Today – March 8, 2026</h2>
+      <p>The last few months in tech have been intense. Even strong performers and teams have been impacted by rapid organizational changes and budget shifts. Like many talented professionals across the industry, I’ve been affected by this wave and I’m now <strong>actively open to new opportunities</strong>.</p>
+
+      <p>Rather than seeing this as only a setback, I’m treating it as a chance to join a team where my experience in <strong>end-to-end ML lifecycle management</strong> and <strong>production ML systems</strong> can create even more impact.</p>
+      
+      <h2>A Quick Snapshot of My Profile</h2>
+      <ul>
+        <li><strong>Role:</strong> Data Scientist / Machine Learning Engineer</li>
+        <li><strong>Experience:</strong> 5+ years, with strong focus on production ML and MLOps</li>
+        <li><strong>Recent Companies:</strong> Scale AI (Senior Data Scientist), American Express (ML Engineer II)</li>
+        <li><strong>Strengths:</strong> ML lifecycle management, model deployment, monitoring, big data, cloud platforms</li>
+      </ul>
+
+      <h2>What I Bring to a New Team</h2>
+      <h3>1. End-to-End ML Ownership</h3>
+      <p>I’ve managed the full ML lifecycle—from data collection and feature engineering to deployment, monitoring, and continuous improvement. My experience includes:</p>
+      <ul>
+        <li>Designing and owning pipelines in Python and SQL</li>
+        <li>Training and evaluating models using Scikit-learn, PyTorch, and TensorFlow</li>
+        <li>Deploying services with Docker and Kubernetes into production environments</li>
+        <li>Monitoring performance with dashboards and alerting to keep models healthy over time</li>
+      </ul>
+
+      <h3>2. Proven Business Impact</h3>
+      <p>In my recent roles, I’ve delivered measurable results, including:</p>
+      <ul>
+        <li><strong>30% lift in model accuracy</strong> through advanced ML techniques and robust experimentation</li>
+        <li><strong>25% reduction in fraud false positives</strong>, improving customer experience while protecting risk</li>
+        <li><strong>40% faster data processing</strong> by optimizing data pipelines and infrastructure</li>
+        <li><strong>Higher engagement</strong> through integrating LLM-driven features into production systems</li>
+      </ul>
+
+      <h3>3. Production Mindset</h3>
+      <p>I don’t just build models—I make sure they work in the real world. That means:</p>
+      <ul>
+        <li>Thinking about latency, reliability, and scalability from day one</li>
+        <li>Partnering with engineering, data, and product teams to ship stable features</li>
+        <li>Adding observability and feedback loops so models can be iterated on safely</li>
+      </ul>
+
+      <h2>The Kind of Opportunity I’m Looking For</h2>
+      <p>I’m now looking for a role where I can:</p>
+      <ul>
+        <li>Own or co-own an ML problem end-to-end</li>
+        <li>Work closely with product and engineering to turn ideas into shipped features</li>
+        <li>Continue growing in ML engineering, MLOps, and large-scale systems</li>
+        <li>Be part of a team that values learning, trust, and clear impact</li>
+      </ul>
+
+      <h3>Roles I’m Best Suited For</h3>
+      <ul>
+        <li>Senior Data Scientist (with a strong engineering focus)</li>
+        <li>Machine Learning Engineer</li>
+        <li>Applied Scientist / ML Engineer hybrid roles</li>
+      </ul>
+
+      <h2>How This Blog Post Helps Recruiters</h2>
+      <p>If you’re a recruiter or hiring manager, this post is meant to give you a quick, honest view of where I am and how I can help your team:</p>
+      <ul>
+        <li>My background aligns with teams that care about <strong>production ML</strong>, not just experimentation</li>
+        <li>I can contribute immediately to model development, deployment, and monitoring</li>
+        <li>I’m comfortable owning complex systems and collaborating across functions</li>
+      </ul>
+
+      <h2>Let’s Connect</h2>
+      <p>If you’re hiring for Data Scientist / ML Engineer roles and this resonates, I’d love to talk.</p>
+      <ul>
+        <li><strong>Portfolio:</strong> You’re already here – feel free to explore my projects and experience</li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pericharla2001" target="_blank" rel="noopener noreferrer">Connect with me on LinkedIn</a></li>
+        <li><strong>Email:</strong> raju.perich@gmail.com</li>
+      </ul>
+
+      <p>Thank you for taking the time to learn about my journey. I’m excited about the next chapter and ready to bring my experience in ML lifecycle management, production systems, and data-driven problem solving to a new team.</p>
+
+      <p><strong>#OpenToWork #DataScientist #MachineLearning #MLEngineer #MLOps #Hiring #DataScienceJobs</strong></p>
+    `
+  },
+  {
     id: 9,
     title: 'Navigating Tech Layoffs: Why I\'m Open to New Opportunities and What I Bring to the Table',
     excerpt: 'The tech industry has seen significant layoffs recently, affecting many talented professionals. As someone who\'s been impacted or is exploring new opportunities, I want to share my perspective on resilience, continuous learning, and why I\'m excited about the next chapter. Here\'s what makes me a valuable addition to any data science team.',
