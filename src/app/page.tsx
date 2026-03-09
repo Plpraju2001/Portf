@@ -930,7 +930,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Machine Learning Engineer | ML Lifecycle Management | Production ML Systems
+            Data Scientist | Machine Learning | ML Lifecycle Management
           </motion.p>
           <motion.p 
             className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-12"
@@ -944,7 +944,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Machine Learning Engineer with 5+ years of experience specializing in managing the entire ML lifecycle, from data collection to deployment and monitoring, ensuring robust and reliable ML services at scale. Proven expertise in productionizing machine learning models and collaborating with cross-functional teams.
+            Data Scientist with 5+ years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. Proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
@@ -1141,7 +1141,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            I am a Machine Learning Engineer with 5+ years of experience specializing in managing the entire ML lifecycle, from data collection to deployment and monitoring, ensuring robust and reliable ML services at scale. I have proven expertise in collaborating with cross-functional teams, including Data Science, QA, and Infrastructure, to effectively productionize machine learning models and enhance operational efficiency.
+            I am a Data Scientist with 5+ years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. I have proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1154,7 +1154,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Currently at Scale AI, I spearhead the management of the entire Machine Learning lifecycle, utilizing Python and SQL to enhance model performance and reliability. I collaborate with cross-functional teams to productionize ML models, ensuring seamless integration and operational efficiency. I optimize code for production environments using Docker and Kubernetes, and have developed advanced ML algorithms resulting in a 30% increase in model accuracy.
+            Currently at Scale AI, I manage the entire Machine Learning lifecycle, utilizing Python and SQL to enhance model performance. I collaborate with cross-functional teams to productionize ML models and have developed advanced ML algorithms resulting in a 30% increase in model accuracy.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1169,10 +1169,10 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Previously at American Express, I engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%. I collaborated with data engineering teams to design and optimize data pipelines, leveraging Apache Airflow and EMR to streamline data processing and improve model training times.
+            Previously at American Express, I engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%.
           </motion.p>
           <motion.p 
-            className="text-lg text-gray-600 mb-8 leading-relaxed"
+            className="text-lg text-gray-600 mb-12 leading-relaxed"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -1184,42 +1184,27 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            My strength lies in bridging ML engineering with production systems—building scalable, reliable ML services using modern technologies like PyTorch, TensorFlow, Docker, Kubernetes, and cloud platforms. I am experienced in building data pipelines, implementing monitoring solutions, and deploying ML models at scale using AWS, SageMaker, and Databricks.
-          </motion.p>
-          <motion.p 
-            className="text-lg text-gray-600 mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.7,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            I bring a disciplined, results-driven approach to ML engineering, with a strong focus on scalability, reliability, and measurable business impact. I stay abreast of the latest developments in data science and machine learning, integrating new methodologies to drive innovation and maintain competitive advantage.
+            My strength lies in building scalable ML solutions using modern technologies like PyTorch, TensorFlow, Docker, Kubernetes, and cloud platforms. I am experienced in deploying ML models at scale using AWS, SageMaker, and Databricks.
           </motion.p>
           
           <motion.div 
             className="mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.8 }}
+            transition={{ duration: 0.4, delay: 0.7 }}
             viewport={{ once: true, margin: "-100px" }}
           >
             <p className="text-lg font-semibold text-gray-800 mb-4">Core Focus Areas:</p>
             <p className="text-base text-gray-600">
-              ML Lifecycle Management · Production ML Systems · Model Deployment & Monitoring · Big Data Technologies · Cloud Platforms · DevOps & MLOps · Deep Learning · LLMs
+              Machine Learning · ML Lifecycle Management · Model Deployment · Big Data Technologies · Cloud Platforms · Deep Learning
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'ML Lifecycle Management', desc: 'End-to-end ML pipeline management, from data collection to deployment and monitoring', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
-              { title: 'Production ML Systems', desc: 'Docker, Kubernetes, CI/CD, Model Deployment, Monitoring with Grafana and Datadog', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
-              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, Kafka, AWS, SageMaker, Databricks, EMR, Large-scale Data Processing', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
+              { title: 'Machine Learning', desc: 'Building and deploying ML models using PyTorch, TensorFlow, and advanced algorithms', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
+              { title: 'ML Production Systems', desc: 'Docker, Kubernetes, Model Deployment, Monitoring with Grafana and Datadog', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
+              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, AWS, SageMaker, Databricks, Large-scale Data Processing', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
@@ -1996,15 +1981,11 @@ const Experience = () => {
       logo: '/logos/scale-ai-logo.png',
       logoFallback: 'https://via.placeholder.com/150?text=Scale+AI',
       achievements: [
-        'Spearheaded the management of the entire Machine Learning (ML) lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance and reliability',
-        'Collaborated with cross-functional teams, including Data Science (DS), Quality Assurance (QA), and Infrastructure, to productionize ML models, ensuring seamless integration and operational efficiency',
-        'Optimized code for production environments, leveraging technologies like Docker and Kubernetes to ensure robustness and scalability of ML services across various applications',
-        'Developed and implemented advanced ML algorithms, including Gradient Boosting Trees and Neural Networks, to solve complex business problems, resulting in a 30% increase in model accuracy',
-        'Managed and evolved existing solutions by incorporating cutting-edge technologies such as Pytorch and TensorFlow, enhancing the capabilities of ML applications in real-time data processing',
-        'Conducted thorough presentations and documentation to convey complex ML concepts clearly to stakeholders, fostering better understanding and collaboration across teams',
-        'Enhanced data pipelines and streaming architecture using technologies like Apache Kafka and Spark, improving data processing efficiency by 40%',
-        'Implemented monitoring solutions with Grafana and Datadog to track model performance and system health, ensuring high availability and reliability of ML services',
-        'Mentored junior data scientists, providing guidance on ML best practices and fostering a culture of continuous learning and improvement within the team'
+        'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
+        'Collaborated with cross-functional teams to productionize ML models, ensuring seamless integration and operational efficiency',
+        'Developed and implemented advanced ML algorithms, including Gradient Boosting Trees and Neural Networks, resulting in a 30% increase in model accuracy',
+        'Optimized code for production environments using Docker and Kubernetes to ensure robustness and scalability of ML services',
+        'Enhanced data pipelines using Apache Kafka and Spark, improving data processing efficiency by 40%'
       ]
     },
     {
@@ -2016,16 +1997,11 @@ const Experience = () => {
       logo: '/logos/american-express-logo.png',
       logoFallback: 'https://logos-world.net/wp-content/uploads/2020/04/American-Express-Logo.png',
       achievements: [
-        'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%',
-        'Collaborated with data engineering teams to design and optimize data pipelines, leveraging Apache Airflow and EMR to streamline data processing and improve model training times',
-        'Developed RESTful APIs using Flask and FastAPI to facilitate seamless integration of ML models into existing applications, enhancing user experience and operational efficiency',
-        'Conducted extensive data analysis and feature engineering, applying statistical techniques to derive insights and improve model performance across various business units',
-        'Managed the deployment of ML models using AWS Sagemaker, ensuring scalability and reliability in a cloud environment, which supported over 1 million transactions daily',
-        'Implemented monitoring and logging solutions with Kibana to track model performance metrics and troubleshoot issues proactively, maintaining high service levels',
-        'Participated in Agile methodologies, contributing to sprint planning and daily standups to ensure timely delivery of projects and alignment with business goals',
-        'Researched and integrated large language models (LLMs) and prompt engineering techniques to enhance personalization features, resulting in a 20% increase in customer engagement',
-        'Trained and mentored new team members on ML lifecycle best practices, fostering a collaborative environment and enhancing team capabilities',
-        'Presented findings and model outcomes to senior management, effectively communicating complex technical concepts in an accessible manner'
+        'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to reduce false positives by 25%',
+        'Managed the deployment of ML models using AWS Sagemaker, ensuring scalability and reliability in a cloud environment supporting over 1 million transactions daily',
+        'Collaborated with data engineering teams to design and optimize data pipelines, leveraging Apache Airflow and EMR to streamline data processing',
+        'Researched and integrated large language models (LLMs) and prompt engineering techniques, resulting in a 20% increase in customer engagement',
+        'Developed RESTful APIs using Flask and FastAPI to facilitate seamless integration of ML models into existing applications'
       ]
     }
   ];
