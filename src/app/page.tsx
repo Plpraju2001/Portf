@@ -1043,7 +1043,7 @@ const Hero = () => {
               />
             </motion.a>
             <motion.a
-              href="/Lakshmipathiraju_resume.docx"
+              href="/Lakshmipathiraju_resume.pdf"
               download
               className="relative bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg"
               whileHover={{ scale: 1.15, y: -5, rotate: 1 }}
