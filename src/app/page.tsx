@@ -2184,35 +2184,39 @@ const Experience = () => {
               </div>
               <div className="flex-shrink-0 flex items-center justify-center relative z-10">
                 <motion.div 
-                  className="min-w-[130px] min-h-[130px] max-w-[150px] max-h-[150px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm"
+                  className="min-w-[130px] min-h-[130px] max-w-[150px] max-h-[150px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm overflow-hidden"
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
-                    src={(exp as any).logoSVG || exp.logoFallback}
-                    alt={`${exp.company} Logo`}
-                    width={130}
-                    height={130}
-                    className="object-contain w-auto h-auto max-w-full max-h-full"
-                    style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
-                    onError={(e) => {
-                      // Use SVG fallback if external URL fails
-                      const target = e.target as HTMLImageElement;
-                      if ((exp as any).logoSVG && target.src !== (exp as any).logoSVG) {
-                        target.src = (exp as any).logoSVG;
-                      } else {
-                        // Final fallback - show company initials
+                  {exp.company === 'Scale AI' ? (
+                    <div className="w-full h-full flex items-center justify-center bg-black rounded">
+                      <span className="text-white font-bold text-sm px-2 text-center">SCALE AI</span>
+                    </div>
+                  ) : exp.company === 'American Express' ? (
+                    <div className="w-full h-full flex items-center justify-center bg-blue-600 rounded">
+                      <span className="text-white font-bold text-xs px-2 text-center leading-tight">AMERICAN<br/>EXPRESS</span>
+                    </div>
+                  ) : (
+                    <img
+                      src={exp.logoFallback}
+                      alt={`${exp.company} Logo`}
+                      width={130}
+                      height={130}
+                      className="object-contain w-auto h-auto max-w-full max-h-full"
+                      style={{ maxWidth: '130px', maxHeight: '130px' }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent && !parent.querySelector('.logo-text')) {
                           const textDiv = document.createElement('div');
-                          textDiv.className = 'logo-text text-gray-600 font-semibold text-lg text-center w-full';
+                          textDiv.className = 'logo-text text-gray-600 font-semibold text-sm text-center w-full';
                           textDiv.textContent = exp.company.split(' ').map((w: string) => w[0]).join('').substring(0, 3);
                           parent.appendChild(textDiv);
                         }
-                      }
-                    }}
-                  />
+                      }}
+                    />
+                  )}
                 </motion.div>
               </div>
             </motion.div>
