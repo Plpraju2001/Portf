@@ -100,7 +100,7 @@ const blogPosts = [
       <h2>Acknowledging the Current Landscape</h2>
       <p>The tech industry has experienced unprecedented changes recently, with widespread layoffs affecting thousands of talented professionals across AI, data science, and engineering roles. While these transitions are challenging, they also represent opportunities for growth, new perspectives, and finding roles that better align with our skills and aspirations.</p>
       
-      <p>As a Data Scientist with 5+ years of experience specializing in ML lifecycle management and production systems, I've seen firsthand how the industry evolves. Today, I want to share why I'm actively exploring new opportunities and what I bring to organizations looking for experienced, results-driven data science talent.</p>
+      <p>As a Data Scientist with 5 years of experience specializing in ML lifecycle management and production systems, I've seen firsthand how the industry evolves. Today, I want to share why I'm actively exploring new opportunities and what I bring to organizations looking for experienced, results-driven data science talent.</p>
       
       <h2>Why I'm Open to New Opportunities</h2>
       <p>After building expertise at companies like Scale AI and American Express, I'm excited about the possibility of bringing my skills to a new organization where I can make an immediate impact. Here's what drives my search:</p>
@@ -134,7 +134,7 @@ const blogPosts = [
       </ul>
       
       <h2>What I Bring to the Table</h2>
-      <p>With 5+ years of experience managing ML lifecycles from data collection to deployment and monitoring, here's what makes me a valuable team member:</p>
+      <p>With 5 years of experience managing ML lifecycles from data collection to deployment and monitoring, here's what makes me a valuable team member:</p>
       
       <h3>Technical Expertise</h3>
       <p><strong>ML Lifecycle Management:</strong> I've managed end-to-end ML pipelines, ensuring models move from development to production seamlessly. This includes:</p>
@@ -652,7 +652,7 @@ for key, value in dictionary.items():
       </ul>
       
       <h2>Why This Matters</h2>
-      <p>With 5+ years of practical experience, I want to ensure I have solid fundamentals to build upon. The field moves fast, and having strong foundational knowledge will help me adapt to new technologies and techniques more effectively.</p>
+      <p>With 5 years of practical experience, I want to ensure I have solid fundamentals to build upon. The field moves fast, and having strong foundational knowledge will help me adapt to new technologies and techniques more effectively.</p>
       
       <p>I'll be documenting my journey as I go. Stay tuned for updates!</p>
     `

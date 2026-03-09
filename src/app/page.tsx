@@ -944,7 +944,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Data Scientist with 5+ years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. Proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
+            Data Scientist with 5 years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. Proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
@@ -1141,7 +1141,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            I am a Data Scientist with 5+ years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. I have proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
+            I am a Data Scientist with 5 years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. I have proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
