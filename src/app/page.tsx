@@ -2189,26 +2189,33 @@ const Experience = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src={exp.logoFallback}
+                    src={(exp as any).logoSVG || exp.logoFallback}
                     alt={`${exp.company} Logo`}
                     width={130}
                     height={130}
                     className="object-contain w-auto h-auto max-w-full max-h-full"
-                    style={{ maxWidth: '130px', maxHeight: '130px' }}
+                    style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
                     onError={(e) => {
-                      // Try local file if external fails
                       const target = e.target as HTMLImageElement;
-                      if (target.src === exp.logoFallback) {
+                      // Try SVG first, then external URL, then local file
+                      if (target.src === (exp as any).logoSVG) {
+                        target.src = exp.logoFallback;
+                      } else if (target.src === exp.logoFallback) {
                         target.src = exp.logo;
                       } else {
-                        // Show company name as final fallback
+                        // Final fallback - show colored box with company name
                         target.style.display = 'none';
                         const parent = target.parentElement;
-                        if (parent && !parent.querySelector('.logo-text')) {
-                          const textDiv = document.createElement('div');
-                          textDiv.className = 'logo-text text-gray-600 font-semibold text-xs text-center w-full px-2';
-                          textDiv.textContent = exp.company;
-                          parent.appendChild(textDiv);
+                        if (parent && !parent.querySelector('.logo-fallback')) {
+                          const fallbackDiv = document.createElement('div');
+                          fallbackDiv.className = 'logo-fallback w-full h-full flex items-center justify-center rounded';
+                          fallbackDiv.style.backgroundColor = exp.company === 'Scale AI' ? '#000000' : '#006FCF';
+                          fallbackDiv.style.color = '#FFFFFF';
+                          const textSpan = document.createElement('span');
+                          textSpan.className = 'font-bold text-xs text-center px-2';
+                          textSpan.textContent = exp.company === 'Scale AI' ? 'SCALE AI' : 'AMEX';
+                          fallbackDiv.appendChild(textSpan);
+                          parent.appendChild(fallbackDiv);
                         }
                       }
                     }}
