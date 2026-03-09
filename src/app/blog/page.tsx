@@ -7,7 +7,7 @@ const blogPosts = [
   {
     id: 8,
     title: 'Renewing Microsoft Certifications: Power BI Data Analyst & Azure Database Administrator - Why Staying Current Matters',
-    excerpt: 'I\'m excited to share that I\'ve recently renewed two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why keeping certifications current is valuable for data science professionals and how they complement my work in financial analytics and fraud detection.',
+    excerpt: 'I\'m excited to share that I\'ve recently renewed two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why keeping certifications current is valuable for data science professionals and how they complement my work in ML lifecycle management and production systems.',
     date: 'February 12, 2026',
     readTime: '6 min read',
     category: 'Career Insights',
@@ -30,15 +30,15 @@ const blogPosts = [
         <li><strong>Demonstrate business acumen:</strong> Power BI isn't just about technical skills—it's about understanding business needs and translating data into decisions</li>
       </ul>
       
-      <h3>Why It Matters for Financial Analytics</h3>
-      <p>In financial analytics and compliance work, visualization is crucial. I regularly create dashboards that help leadership understand:</p>
+      <h3>Why It Matters for ML Production Systems</h3>
+      <p>In ML lifecycle management and production systems, visualization is crucial. I regularly create dashboards that help teams understand:</p>
       <ul>
-        <li>Fraud detection metrics and anomaly patterns</li>
-        <li>Financial KPIs and audit exceptions</li>
-        <li>Risk indicators and compliance status</li>
-        <li>Recoverable overpayments and financial impact</li>
+        <li>Model performance metrics and accuracy trends</li>
+        <li>System health and monitoring KPIs</li>
+        <li>Data pipeline status and processing metrics</li>
+        <li>Model deployment and scaling metrics</li>
       </ul>
-      <p>The Power BI certification validates that I can create these types of executive-ready dashboards using industry-standard tools, which is essential for roles in finance, compliance, and business assurance.</p>
+      <p>The Power BI certification validates that I can create these types of executive-ready dashboards using industry-standard tools, which is essential for roles in ML engineering and production systems.</p>
       
       <h2>Azure Database Administrator Associate: Mastering Cloud Data Infrastructure</h2>
       <p>The <strong>Azure Database Administrator Associate</strong> certification is particularly relevant for my work in data engineering and large-scale data processing. Here's why this certification is valuable:</p>
@@ -48,7 +48,7 @@ const blogPosts = [
       <ul>
         <li><strong>Cloud database expertise:</strong> Understanding how to manage, secure, and optimize databases in Azure</li>
         <li><strong>Scalability knowledge:</strong> Knowing how to design database solutions that can handle large-scale data processing</li>
-        <li><strong>Security and compliance:</strong> Critical for financial data—understanding how to secure sensitive information and meet compliance requirements</li>
+        <li><strong>Security and compliance:</strong> Critical for production ML systems—understanding how to secure models and data pipelines</li>
         <li><strong>Integration capabilities:</strong> How Azure databases integrate with other cloud services and data pipelines</li>
       </ul>
       
@@ -56,7 +56,7 @@ const blogPosts = [
       <p>In my role, I manage the entire ML lifecycle, including building data pipelines and deploying ML models at scale. The Azure Database Administrator certification complements this work by:</p>
       <ul>
         <li>Validating my understanding of cloud database architecture</li>
-        <li>Demonstrating knowledge of data security and compliance—critical in financial services</li>
+        <li>Demonstrating knowledge of data security and compliance—critical in production ML environments</li>
         <li>Showing I can work with enterprise-scale data infrastructure</li>
         <li>Proving I understand how databases fit into larger data engineering workflows</li>
       </ul>
@@ -75,12 +75,12 @@ const blogPosts = [
       <p>Adding Power BI and Azure certifications means I'm now proficient across multiple cloud platforms and BI tools, making me more versatile and valuable to organizations regardless of their tech stack.</p>
       
       <h3>Domain Expertise</h3>
-      <p>In financial analytics and fraud detection, these certifications validate:</p>
+      <p>In ML lifecycle management and production systems, these certifications validate:</p>
       <ul>
         <li>Ability to work with enterprise BI tools (Power BI)</li>
         <li>Understanding of secure, compliant database management (Azure)</li>
-        <li>Knowledge of Microsoft's ecosystem, which many financial institutions use</li>
-        <li>Capability to create audit-ready analytics and dashboards</li>
+        <li>Knowledge of Microsoft's ecosystem, which many tech companies use</li>
+        <li>Capability to create production-ready monitoring dashboards</li>
       </ul>
       
       <h2>The Certification Renewal Journey</h2>
@@ -88,7 +88,7 @@ const blogPosts = [
       <ul>
         <li><strong>Hands-on practice:</strong> Working with Power BI and Azure in real scenarios</li>
         <li><strong>Understanding best practices:</strong> Learning industry-standard approaches to data visualization and database management</li>
-        <li><strong>Security and compliance:</strong> Deepening my knowledge of data security, which is crucial in financial services</li>
+        <li><strong>Security and compliance:</strong> Deepening my knowledge of data security, which is crucial in production ML systems</li>
         <li><strong>Integration patterns:</strong> Understanding how these tools fit into larger data science workflows</li>
       </ul>
       
@@ -104,10 +104,10 @@ const blogPosts = [
       <h2>Looking Forward</h2>
       <p>These certifications are part of my ongoing commitment to professional growth. They complement my existing experience in:</p>
       <ul>
-        <li>Financial analytics and fraud detection</li>
-        <li>Statistical modeling and machine learning</li>
+        <li>ML lifecycle management and production systems</li>
+        <li>Machine learning model development and deployment</li>
         <li>Data engineering and ETL pipelines</li>
-        <li>Business intelligence and executive reporting</li>
+        <li>Business intelligence and monitoring dashboards</li>
       </ul>
       
       <p>As I continue preparing for interviews and exploring new opportunities, these certifications strengthen my profile and demonstrate that I'm not just experienced—I'm also committed to staying current with industry-standard tools and technologies.</p>
@@ -115,7 +115,7 @@ const blogPosts = [
       <h2>For Fellow Data Scientists</h2>
       <p>If you're considering Microsoft certifications, here's my advice:</p>
       <ul>
-        <li><strong>Choose certifications aligned with your work:</strong> Power BI and Azure made sense for me because they're relevant to financial analytics and cloud data engineering</li>
+        <li><strong>Choose certifications aligned with your work:</strong> Power BI and Azure made sense for me because they're relevant to ML production systems and cloud data engineering</li>
         <li><strong>Practice hands-on:</strong> Don't just study—actually use the tools in real scenarios</li>
         <li><strong>Understand the "why":</strong> Know not just how to use the tools, but why certain approaches are best practices</li>
         <li><strong>Connect to your experience:</strong> Relate certification topics to real projects you've worked on</li>
@@ -148,7 +148,7 @@ const blogPosts = [
     category: 'Career Insights',
     content: `
       <h2>Interview Preparation in Full Swing</h2>
-      <p>With several scheduled interviews on the horizon, I've been diving deep into preparation mode. This is an exciting time—opportunities to showcase my experience in financial analytics, fraud detection, and data science while exploring new roles that align with my career goals.</p>
+      <p>With several scheduled interviews on the horizon, I've been diving deep into preparation mode. This is an exciting time—opportunities to showcase my experience in ML lifecycle management, production systems, and data science while exploring new roles that align with my career goals.</p>
       
       <h2>My Preparation Strategy</h2>
       <p>Preparing for interviews, especially in the data science field, requires a multi-faceted approach. Here's how I'm structuring my preparation:</p>
@@ -165,7 +165,7 @@ const blogPosts = [
       <h3>Coding Practice</h3>
       <p>I'm practicing algorithmic thinking and data manipulation challenges that mirror real-world scenarios:</p>
       <ul>
-        <li>SQL queries for complex financial data joins and aggregations</li>
+        <li>SQL queries for complex data joins and aggregations</li>
         <li>Python data manipulation and model implementation</li>
         <li>System design thinking for scalable data pipelines</li>
         <li>Explaining my thought process clearly while coding</li>
@@ -200,7 +200,7 @@ const blogPosts = [
       </ul>
       
       <h3>3. Domain Knowledge</h3>
-      <p>For roles in financial services and compliance:</p>
+      <p>For roles in ML engineering and production systems:</p>
       <ul>
         <li>Understanding ML model deployment and monitoring best practices</li>
         <li>System architecture and scalability frameworks</li>
@@ -388,7 +388,7 @@ for key, value in dictionary.items():
       </ul>
       
       <h2>Why This Matters</h2>
-      <p>With 3+ years of practical experience, I want to ensure I have solid fundamentals to build upon. The field moves fast, and having strong foundational knowledge will help me adapt to new technologies and techniques more effectively.</p>
+      <p>With 5+ years of practical experience, I want to ensure I have solid fundamentals to build upon. The field moves fast, and having strong foundational knowledge will help me adapt to new technologies and techniques more effectively.</p>
       
       <p>I'll be documenting my journey as I go. Stay tuned for updates!</p>
     `
