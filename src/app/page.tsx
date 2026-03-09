@@ -930,7 +930,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Data Scientist – Financial & Compliance Analytics | Fraud Detection | Financial Risk & Business Assurance
+            Machine Learning Engineer | ML Lifecycle Management | Production ML Systems
           </motion.p>
           <motion.p 
             className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-12"
@@ -944,7 +944,7 @@ const Hero = () => {
               damping: 20
             }}
           >
-            Data Scientist specializing in Financial Analytics, Fraud Detection, and Business Assurance, with over 3 years of experience applying statistical modeling and machine learning to reduce financial risk, improve audit accuracy, and support enterprise compliance.
+            Machine Learning Engineer with 5+ years of experience specializing in managing the entire ML lifecycle, from data collection to deployment and monitoring, ensuring robust and reliable ML services at scale. Proven expertise in productionizing machine learning models and collaborating with cross-functional teams.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
@@ -1141,7 +1141,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            I am a Data Scientist specializing in Financial Analytics, Fraud Detection, and Business Assurance, with over 3 years of experience applying statistical modeling and machine learning to reduce financial risk, improve audit accuracy, and support enterprise compliance.
+            I am a Machine Learning Engineer with 5+ years of experience specializing in managing the entire ML lifecycle, from data collection to deployment and monitoring, ensuring robust and reliable ML services at scale. I have proven expertise in collaborating with cross-functional teams, including Data Science, QA, and Infrastructure, to effectively productionize machine learning models and enhance operational efficiency.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1154,7 +1154,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Currently at UnitedHealth Group, I work closely with Finance and Business Assurance teams to analyze large-scale payment and transaction data, where my analytics have helped identify $1.2M+ in recoverable overpayments. I design and deploy fraud and anomaly detection models using Python and SQL, and build Databricks-based data pipelines that process terabytes of data across multiple financial systems.
+            Currently at Scale AI, I spearhead the management of the entire Machine Learning lifecycle, utilizing Python and SQL to enhance model performance and reliability. I collaborate with cross-functional teams to productionize ML models, ensuring seamless integration and operational efficiency. I optimize code for production environments using Docker and Kubernetes, and have developed advanced ML algorithms resulting in a 30% increase in model accuracy.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1169,7 +1169,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Previously, at Brane Group, I focused on business risk and process optimization, developing predictive models to identify high-risk transactions and automating reconciliation and audit workflows. These solutions reduced audit cycle time by 40% and improved data reliability for internal compliance teams.
+            Previously at American Express, I engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%. I collaborated with data engineering teams to design and optimize data pipelines, leveraging Apache Airflow and EMR to streamline data processing and improve model training times.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1184,7 +1184,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            My strength lies in bridging data science with business context—translating complex models into clear, actionable insights for finance leaders, auditors, and executives. I am experienced in building ETL pipelines, executive dashboards, and audit-ready analytics using Databricks, Snowflake, Tableau, and AWS.
+            My strength lies in bridging ML engineering with production systems—building scalable, reliable ML services using modern technologies like PyTorch, TensorFlow, Docker, Kubernetes, and cloud platforms. I am experienced in building data pipelines, implementing monitoring solutions, and deploying ML models at scale using AWS, SageMaker, and Databricks.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-12 leading-relaxed"
@@ -1199,7 +1199,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            I bring a disciplined, results-driven approach to data science, with a strong focus on financial integrity, compliance, and measurable business impact.
+            I bring a disciplined, results-driven approach to ML engineering, with a strong focus on scalability, reliability, and measurable business impact. I stay abreast of the latest developments in data science and machine learning, integrating new methodologies to drive innovation and maintain competitive advantage.
           </motion.p>
           
           <motion.div 
@@ -1211,15 +1211,15 @@ const About = () => {
           >
             <p className="text-lg font-semibold text-gray-800 mb-4">Core Focus Areas:</p>
             <p className="text-base text-gray-600">
-              Financial Risk Analytics · Fraud Detection · Compliance & Audit Analytics · ETL Automation · Databricks · Python · SQL · Tableau · Cloud Data Engineering
+              ML Lifecycle Management · Production ML Systems · Model Deployment & Monitoring · Big Data Technologies · Cloud Platforms · DevOps & MLOps · Deep Learning · LLMs
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Financial Risk Analytics', desc: 'Fraud Detection, Compliance & Audit Analytics, Statistical Modeling', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
-              { title: 'Data Engineering & ETL', desc: 'Databricks, SQL/Python Pipelines, Terabyte+ Data Processing, Cloud Data Engineering', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
-              { title: 'Business Analytics & BI', desc: 'Tableau, Power BI, Executive Dashboards, Audit-Ready Analytics', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
+              { title: 'ML Lifecycle Management', desc: 'End-to-end ML pipeline management, from data collection to deployment and monitoring', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
+              { title: 'Production ML Systems', desc: 'Docker, Kubernetes, CI/CD, Model Deployment, Monitoring with Grafana and Datadog', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
+              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, Kafka, AWS, SageMaker, Databricks, EMR, Large-scale Data Processing', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
@@ -1988,39 +1988,44 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Data Scientist – Financial & Compliance Analytics',
-      company: 'UnitedHealth Group',
-      period: 'Jul 2024 - Present',
-      location: 'San Jose, California, United States · Hybrid',
-      type: 'Contract',
-      logo: '/logos/unitedhealth-group-logo.png',
-      logoFallback: 'https://logos-world.net/wp-content/uploads/2020/11/UnitedHealth-Group-Logo.png',
+      title: 'Senior Data Scientist',
+      company: 'Scale AI',
+      period: 'Jun 2023 - Present',
+      location: 'San Francisco, CA',
+      type: 'Full-time',
+      logo: '/logos/scale-ai-logo.png',
+      logoFallback: 'https://via.placeholder.com/150?text=Scale+AI',
       achievements: [
-        'Partnered with Business Assurance and Finance teams to analyze payment patterns and detect anomalies, identifying $1.2M+ in recoverable claim overpayments',
-        'Developed statistical and ML-based fraud detection models using Python (Scikit-learn, Pandas) and SQL, increasing accuracy of anomaly detection by 25%',
-        'Built Databricks-based pipelines for real-time transaction validation and reconciliation across multiple data sources (>3 TB)',
-        'Created Tableau dashboards visualizing financial KPIs, audit exceptions, and BAC risk indicators, used by leadership for compliance oversight',
-        'Performed exploratory data analysis (EDA) to uncover process inefficiencies, enabling policy refinements that improved operational accuracy',
-        'Designed data documentation templates and data-quality standards to align business definitions with functional specifications',
-        'Presented analytic results to cross-functional leadership, articulating insights in both technical and financial terms for business decisions'
+        'Spearheaded the management of the entire Machine Learning (ML) lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance and reliability',
+        'Collaborated with cross-functional teams, including Data Science (DS), Quality Assurance (QA), and Infrastructure, to productionize ML models, ensuring seamless integration and operational efficiency',
+        'Optimized code for production environments, leveraging technologies like Docker and Kubernetes to ensure robustness and scalability of ML services across various applications',
+        'Developed and implemented advanced ML algorithms, including Gradient Boosting Trees and Neural Networks, to solve complex business problems, resulting in a 30% increase in model accuracy',
+        'Managed and evolved existing solutions by incorporating cutting-edge technologies such as Pytorch and TensorFlow, enhancing the capabilities of ML applications in real-time data processing',
+        'Conducted thorough presentations and documentation to convey complex ML concepts clearly to stakeholders, fostering better understanding and collaboration across teams',
+        'Enhanced data pipelines and streaming architecture using technologies like Apache Kafka and Spark, improving data processing efficiency by 40%',
+        'Implemented monitoring solutions with Grafana and Datadog to track model performance and system health, ensuring high availability and reliability of ML services',
+        'Mentored junior data scientists, providing guidance on ML best practices and fostering a culture of continuous learning and improvement within the team'
       ]
     },
     {
-      title: 'Data Scientist – Business Risk & Process Optimization',
-      company: 'Brane Group',
-      period: 'Jan 2021 - Dec 2022',
-      location: 'Visakhapatnam, Andhra Pradesh, India · On-site',
+      title: 'Machine Learning Engineer II',
+      company: 'American Express',
+      period: 'Jun 2020 - Dec 2022',
+      location: 'New York, NY',
       type: 'Full-time',
-      logo: '/logos/brane-enterprises-logo.png',
-      logoFallback: 'https://via.placeholder.com/150?text=Brane+Group',
+      logo: '/logos/american-express-logo.png',
+      logoFallback: 'https://logos-world.net/wp-content/uploads/2020/04/American-Express-Logo.png',
       achievements: [
-        'Developed predictive models in Python and R for identifying fraudulent or high-risk financial transactions using transaction frequency, location, and behavioral data',
-        'Engineered ETL workflows in SQL, Spark, and Airflow to aggregate and cleanse financial and compliance data for advanced analytics',
-        'Built Tableau and Power BI dashboards summarizing fraud metrics, loss events, and process KPIs for internal audit teams',
-        'Partnered with auditors and engineers to translate business logic into data rules and statistical validation checks for automation',
-        'Automated reconciliation scripts in Python and SQL between Snowflake and MySQL, reducing audit cycle time by 40%',
-        'Documented feature logic, data lineage, and analytic assumptions for traceability and compliance with financial audit standards',
-        'Collaborated with product managers and compliance leads to define analytic requirements, performance metrics, and data validation goals'
+        'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%',
+        'Collaborated with data engineering teams to design and optimize data pipelines, leveraging Apache Airflow and EMR to streamline data processing and improve model training times',
+        'Developed RESTful APIs using Flask and FastAPI to facilitate seamless integration of ML models into existing applications, enhancing user experience and operational efficiency',
+        'Conducted extensive data analysis and feature engineering, applying statistical techniques to derive insights and improve model performance across various business units',
+        'Managed the deployment of ML models using AWS Sagemaker, ensuring scalability and reliability in a cloud environment, which supported over 1 million transactions daily',
+        'Implemented monitoring and logging solutions with Kibana to track model performance metrics and troubleshoot issues proactively, maintaining high service levels',
+        'Participated in Agile methodologies, contributing to sprint planning and daily standups to ensure timely delivery of projects and alignment with business goals',
+        'Researched and integrated large language models (LLMs) and prompt engineering techniques to enhance personalization features, resulting in a 20% increase in customer engagement',
+        'Trained and mentored new team members on ML lifecycle best practices, fostering a collaborative environment and enhancing team capabilities',
+        'Presented findings and model outcomes to senior management, effectively communicating complex technical concepts in an accessible manner'
       ]
     }
   ];
@@ -2457,7 +2462,7 @@ const Education = () => (
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Master&apos;s degree, Information Technology</h3>
               <p className="text-blue-600 font-medium mb-2">Clark University</p>
-              <p className="text-gray-500 text-sm mb-2">Jan 2023 - May 2024 · Grade: 3.55</p>
+              <p className="text-gray-500 text-sm mb-2">Jan 2023 - May 2024 · Grade: 3.6</p>
               <p className="text-gray-600">Advanced studies in high-end data science, machine learning, cloud computing, database systems, and information systems management. Specialized coursework in data analytics, business intelligence, and enterprise architecture.</p>
             </div>
             <div className="flex-shrink-0 flex items-center justify-center">
@@ -2564,7 +2569,7 @@ const Education = () => (
                 className="absolute inset-0 bg-gradient-to-r from-orange-200/50 to-yellow-200/50 opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
-              <h4 className="font-semibold text-gray-800 relative z-10">AWS Certified Data Analytics</h4>
+              <h4 className="font-semibold text-gray-800 relative z-10">AWS Certified Machine Learning - Specialty</h4>
               <p className="text-sm text-gray-600 relative z-10">Amazon Web Services</p>
             </motion.div>
             <motion.div 
@@ -2579,8 +2584,8 @@ const Education = () => (
                 className="absolute inset-0 bg-gradient-to-r from-green-200/50 to-teal-200/50 opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
-              <h4 className="font-semibold text-gray-800 relative z-10">Power BI Data Analyst Associate</h4>
-              <p className="text-sm text-gray-600 relative z-10">Microsoft Certified</p>
+              <h4 className="font-semibold text-gray-800 relative z-10">Google Professional Machine Learning Engineer</h4>
+              <p className="text-sm text-gray-600 relative z-10">Google Cloud</p>
             </motion.div>
             <motion.div 
               className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
@@ -2594,8 +2599,23 @@ const Education = () => (
                 className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-pink-200/50 opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
-              <h4 className="font-semibold text-gray-800 relative z-10">Azure Database Administrator</h4>
-              <p className="text-sm text-gray-600 relative z-10">Microsoft Certified</p>
+              <h4 className="font-semibold text-gray-800 relative z-10">Databricks Certified Machine Learning Professional</h4>
+              <p className="text-sm text-gray-600 relative z-10">Databricks</p>
+            </motion.div>
+            <motion.div 
+              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, delay: 0.5 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03, y: -3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-indigo-200/50 to-blue-200/50 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <h4 className="font-semibold text-gray-800 relative z-10">Certified Analytics Professional (CAP)</h4>
+              <p className="text-sm text-gray-600 relative z-10">INFORMS</p>
             </motion.div>
           </div>
         </motion.div>

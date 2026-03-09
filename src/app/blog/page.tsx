@@ -22,7 +22,7 @@ const blogPosts = [
       <p>The <strong>Power BI Data Analyst Associate</strong> certification validates expertise in one of the most widely used business intelligence tools in the industry. Here's why this certification is particularly valuable:</p>
       
       <h3>Real-World Application</h3>
-      <p>In my current role at UnitedHealth Group, I use Tableau extensively to create executive dashboards that visualize financial KPIs, audit exceptions, and risk indicators. Power BI serves a similar purpose and is often the preferred tool in Microsoft-centric organizations. Having this certification means I can:</p>
+      <p>In my current role at Scale AI, I work extensively with ML lifecycle management and production systems. Power BI serves as a valuable tool for creating dashboards and visualizations that help track model performance and system health. Having this certification means I can:</p>
       <ul>
         <li><strong>Work across different BI platforms:</strong> While I'm proficient in Tableau, Power BI certification shows I can adapt to different organizational tech stacks</li>
         <li><strong>Create compelling data visualizations:</strong> The certification validates my ability to transform complex data into clear, actionable insights for business leaders</li>
@@ -44,7 +44,7 @@ const blogPosts = [
       <p>The <strong>Azure Database Administrator Associate</strong> certification is particularly relevant for my work in data engineering and large-scale data processing. Here's why this certification is valuable:</p>
       
       <h3>Cloud-First Data Architecture</h3>
-      <p>Modern data science work increasingly happens in the cloud. At UnitedHealth Group, I work with Databricks-based pipelines that process terabytes of data across multiple financial systems. Azure Database Administrator certification demonstrates:</p>
+      <p>Modern data science work increasingly happens in the cloud. At Scale AI, I work with production ML systems using Docker, Kubernetes, and cloud platforms like AWS and Databricks. Azure Database Administrator certification demonstrates:</p>
       <ul>
         <li><strong>Cloud database expertise:</strong> Understanding how to manage, secure, and optimize databases in Azure</li>
         <li><strong>Scalability knowledge:</strong> Knowing how to design database solutions that can handle large-scale data processing</li>
@@ -53,7 +53,7 @@ const blogPosts = [
       </ul>
       
       <h3>Relevance to My Current Work</h3>
-      <p>In my role, I build Databricks-based pipelines for real-time transaction validation and reconciliation across multiple data sources (>3 TB). The Azure Database Administrator certification complements this work by:</p>
+      <p>In my role, I manage the entire ML lifecycle, including building data pipelines and deploying ML models at scale. The Azure Database Administrator certification complements this work by:</p>
       <ul>
         <li>Validating my understanding of cloud database architecture</li>
         <li>Demonstrating knowledge of data security and compliance—critical in financial services</li>
@@ -156,10 +156,10 @@ const blogPosts = [
       <h3>Technical Skills Review</h3>
       <p>I'm revisiting core concepts and ensuring I can articulate my experience clearly:</p>
       <ul>
-        <li><strong>Financial Analytics & Fraud Detection:</strong> Refreshing my knowledge of statistical modeling techniques, anomaly detection algorithms, and risk assessment methodologies</li>
-        <li><strong>Machine Learning & Data Engineering:</strong> Reviewing Python, SQL, Databricks, and cloud platforms (AWS) that I use daily</li>
-        <li><strong>Causal Inference & Advanced Analytics:</strong> Ensuring I can explain complex concepts clearly, from propensity score matching to instrumental variables</li>
-        <li><strong>Real-world Applications:</strong> Preparing to discuss specific projects, like the $1.2M+ in recoverable overpayments identified through fraud detection models</li>
+        <li><strong>ML Lifecycle Management:</strong> Refreshing my knowledge of end-to-end ML pipeline management, from data collection to deployment and monitoring</li>
+        <li><strong>Machine Learning & Data Engineering:</strong> Reviewing Python, SQL, PyTorch, TensorFlow, Docker, Kubernetes, and cloud platforms (AWS) that I use daily</li>
+        <li><strong>Production ML Systems:</strong> Ensuring I can explain complex concepts clearly, from model deployment to monitoring and scaling ML services</li>
+        <li><strong>Real-world Applications:</strong> Preparing to discuss specific projects, like the 30% increase in model accuracy achieved through advanced ML algorithms</li>
       </ul>
       
       <h3>Coding Practice</h3>
@@ -174,9 +174,9 @@ const blogPosts = [
       <h3>Behavioral & Situational Preparation</h3>
       <p>Beyond technical skills, I'm preparing stories that demonstrate:</p>
       <ul>
-        <li><strong>Impact-driven work:</strong> How I've translated analytics into measurable business outcomes</li>
-        <li><strong>Cross-functional collaboration:</strong> Working with Finance, Business Assurance, and executive teams</li>
-        <li><strong>Problem-solving approach:</strong> How I've tackled complex challenges in fraud detection and compliance</li>
+        <li><strong>Impact-driven work:</strong> How I've translated ML models into production systems with measurable business outcomes</li>
+        <li><strong>Cross-functional collaboration:</strong> Working with Data Science, QA, Infrastructure, and executive teams</li>
+        <li><strong>Problem-solving approach:</strong> How I've tackled complex challenges in ML lifecycle management and production deployment</li>
         <li><strong>Learning and growth:</strong> My continuous improvement mindset and how I stay current with industry trends</li>
       </ul>
       
@@ -185,26 +185,26 @@ const blogPosts = [
       <h3>1. Articulating Technical Concepts</h3>
       <p>Data science interviews often involve explaining complex concepts to non-technical stakeholders. I'm practicing:</p>
       <ul>
-        <li>Breaking down fraud detection models into understandable components</li>
-        <li>Explaining how Databricks pipelines process terabyte-scale data</li>
-        <li>Discussing the business impact of statistical models in financial contexts</li>
+        <li>Breaking down ML lifecycle management into understandable components</li>
+        <li>Explaining how production ML systems scale using Docker and Kubernetes</li>
+        <li>Discussing the business impact of ML models in production environments</li>
       </ul>
       
       <h3>2. Portfolio & Project Discussions</h3>
       <p>I'm preparing to walk through specific projects from my portfolio:</p>
       <ul>
-        <li>End-to-end data science workflows I've built</li>
+        <li>End-to-end ML lifecycle workflows I've built</li>
         <li>Challenges faced and how I overcame them</li>
         <li>Results achieved and lessons learned</li>
-        <li>How these projects demonstrate my expertise in financial analytics</li>
+        <li>How these projects demonstrate my expertise in ML engineering and production systems</li>
       </ul>
       
       <h3>3. Domain Knowledge</h3>
       <p>For roles in financial services and compliance:</p>
       <ul>
-        <li>Understanding regulatory requirements and audit standards</li>
-        <li>Risk management frameworks and compliance best practices</li>
-        <li>Financial metrics and KPIs relevant to data science applications</li>
+        <li>Understanding ML model deployment and monitoring best practices</li>
+        <li>System architecture and scalability frameworks</li>
+        <li>Performance metrics and KPIs relevant to production ML systems</li>
       </ul>
       
       <h2>Maintaining the Right Mindset</h2>
@@ -222,7 +222,7 @@ const blogPosts = [
       <h2>What I'm Looking Forward To</h2>
       <p>These interviews represent opportunities to:</p>
       <ul>
-        <li><strong>Showcase my expertise:</strong> Demonstrate how I've applied data science to solve real business problems in financial analytics and fraud detection</li>
+        <li><strong>Showcase my expertise:</strong> Demonstrate how I've managed ML lifecycles and productionized ML models to solve real business problems</li>
         <li><strong>Learn about different roles:</strong> Understand how different organizations approach data science and what challenges they're solving</li>
         <li><strong>Find the right fit:</strong> Identify opportunities where I can make meaningful impact while continuing to grow</li>
       </ul>
