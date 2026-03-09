@@ -1,5 +1,13 @@
 export const blogPosts = [
   {
+    id: 9,
+    title: 'Navigating Tech Layoffs: Why I\'m Open to New Opportunities and What I Bring to the Table',
+    excerpt: 'The tech industry has seen significant layoffs recently, affecting many talented professionals. As someone who\'s been impacted or is exploring new opportunities, I want to share my perspective on resilience, continuous learning, and why I\'m excited about the next chapter. Here\'s what makes me a valuable addition to any data science team.',
+    date: 'March 9, 2026',
+    readTime: '7 min read',
+    category: 'Career Insights',
+  },
+  {
     id: 8,
     title: 'Renewing Microsoft Certifications: Power BI Data Analyst & Azure Database Administrator - Why Staying Current Matters',
     excerpt: 'I\'m excited to share that I\'ve recently renewed two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why keeping certifications current is valuable for data science professionals and how they complement my work in ML lifecycle management and production systems.',

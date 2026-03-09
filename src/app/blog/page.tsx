@@ -5,6 +5,185 @@ import Link from 'next/link';
 
 const blogPosts = [
   {
+    id: 9,
+    title: 'Navigating Tech Layoffs: Why I\'m Open to New Opportunities and What I Bring to the Table',
+    excerpt: 'The tech industry has seen significant layoffs recently, affecting many talented professionals. As someone who\'s been impacted or is exploring new opportunities, I want to share my perspective on resilience, continuous learning, and why I\'m excited about the next chapter. Here\'s what makes me a valuable addition to any data science team.',
+    date: 'March 9, 2026',
+    readTime: '7 min read',
+    category: 'Career Insights',
+    content: `
+      <h2>Acknowledging the Current Landscape</h2>
+      <p>The tech industry has experienced unprecedented changes recently, with widespread layoffs affecting thousands of talented professionals across AI, data science, and engineering roles. While these transitions are challenging, they also represent opportunities for growth, new perspectives, and finding roles that better align with our skills and aspirations.</p>
+      
+      <p>As a Data Scientist with 5+ years of experience specializing in ML lifecycle management and production systems, I've seen firsthand how the industry evolves. Today, I want to share why I'm actively exploring new opportunities and what I bring to organizations looking for experienced, results-driven data science talent.</p>
+      
+      <h2>Why I'm Open to New Opportunities</h2>
+      <p>After building expertise at companies like Scale AI and American Express, I'm excited about the possibility of bringing my skills to a new organization where I can make an immediate impact. Here's what drives my search:</p>
+      
+      <h3>1. Impact-Driven Work</h3>
+      <p>I'm looking for roles where I can directly contribute to business outcomes. My track record includes:</p>
+      <ul>
+        <li><strong>30% increase in model accuracy</strong> through advanced ML algorithms at Scale AI</li>
+        <li><strong>25% reduction in false positives</strong> in fraud detection models at American Express</li>
+        <li><strong>40% improvement in data processing efficiency</strong> through optimized pipelines</li>
+        <li><strong>20% increase in customer engagement</strong> through LLM integration</li>
+      </ul>
+      <p>I want to continue delivering measurable results that matter.</p>
+      
+      <h3>2. Growth and Learning</h3>
+      <p>The data science field evolves rapidly, and I'm committed to staying at the forefront. I'm looking for organizations that value:</p>
+      <ul>
+        <li>Continuous learning and professional development</li>
+        <li>Innovation in ML and AI technologies</li>
+        <li>Cross-functional collaboration</li>
+        <li>Mentorship and knowledge sharing</li>
+      </ul>
+      
+      <h3>3. Culture and Values Alignment</h3>
+      <p>Beyond technical skills, I'm seeking companies that prioritize:</p>
+      <ul>
+        <li>Work-life balance and employee well-being</li>
+        <li>Diversity and inclusion</li>
+        <li>Transparent communication</li>
+        <li>Long-term vision and stability</li>
+      </ul>
+      
+      <h2>What I Bring to the Table</h2>
+      <p>With 5+ years of experience managing ML lifecycles from data collection to deployment and monitoring, here's what makes me a valuable team member:</p>
+      
+      <h3>Technical Expertise</h3>
+      <p><strong>ML Lifecycle Management:</strong> I've managed end-to-end ML pipelines, ensuring models move from development to production seamlessly. This includes:</p>
+      <ul>
+        <li>Data collection and preprocessing pipelines</li>
+        <li>Model development using PyTorch, TensorFlow, and Scikit-learn</li>
+        <li>Production deployment with Docker and Kubernetes</li>
+        <li>Monitoring and maintenance with Grafana and Datadog</li>
+      </ul>
+      
+      <p><strong>Production Systems:</strong> I've built scalable ML services that handle millions of transactions daily, optimized for reliability and performance.</p>
+      
+      <p><strong>Big Data Technologies:</strong> Experienced with Spark, Airflow, Kafka, AWS, SageMaker, and Databricks for large-scale data processing.</p>
+      
+      <h3>Proven Business Impact</h3>
+      <p>My work isn't just technically sound—it drives business results:</p>
+      <ul>
+        <li>At Scale AI: Increased model accuracy by 30%, improving decision-making quality</li>
+        <li>At American Express: Reduced fraud detection false positives by 25%, improving customer experience while maintaining security</li>
+        <li>Enhanced data processing efficiency by 40%, reducing costs and improving system performance</li>
+        <li>Integrated LLMs to increase customer engagement by 20%</li>
+      </ul>
+      
+      <h3>Cross-Functional Collaboration</h3>
+      <p>I excel at working with diverse teams:</p>
+      <ul>
+        <li>Collaborated with Data Science, QA, and Infrastructure teams to productionize ML models</li>
+        <li>Worked with data engineering teams to optimize pipelines</li>
+        <li>Presented findings to senior management, translating technical concepts into business value</li>
+        <li>Mentored junior data scientists and contributed to team growth</li>
+      </ul>
+      
+      <h2>My Approach to Career Transitions</h2>
+      <p>Navigating career changes requires resilience, preparation, and a positive mindset. Here's how I'm approaching this transition:</p>
+      
+      <h3>Staying Current</h3>
+      <p>Even during transitions, I'm committed to continuous learning:</p>
+      <ul>
+        <li>Maintaining certifications (AWS ML Specialty, Google Professional ML Engineer, Databricks ML Professional, CAP)</li>
+        <li>Staying updated with latest ML/AI developments</li>
+        <li>Contributing to open-source projects</li>
+        <li>Networking with industry professionals</li>
+      </ul>
+      
+      <h3>Being Selective</h3>
+      <p>I'm not just looking for any role—I'm seeking opportunities where I can:</p>
+      <ul>
+        <li>Make meaningful contributions from day one</li>
+        <li>Work on challenging problems that push my skills</li>
+        <li>Collaborate with talented teams</li>
+        <li>Grow professionally and personally</li>
+      </ul>
+      
+      <h3>Adding Value Immediately</h3>
+      <p>I'm ready to hit the ground running with:</p>
+      <ul>
+        <li>Proven experience in ML lifecycle management</li>
+        <li>Track record of delivering measurable business impact</li>
+        <li>Strong technical skills across the ML stack</li>
+        <li>Ability to work independently and as part of a team</li>
+      </ul>
+      
+      <h2>What I'm Looking For</h2>
+      <p>I'm open to opportunities that align with my expertise and values:</p>
+      
+      <h3>Role Types</h3>
+      <ul>
+        <li><strong>Senior Data Scientist</strong> - Leading ML initiatives and mentoring teams</li>
+        <li><strong>ML Engineer</strong> - Building and deploying production ML systems</li>
+        <li><strong>Data Science Manager</strong> - Leading data science teams and strategy</li>
+        <li><strong>Applied Scientist</strong> - Research and development of ML solutions</li>
+      </ul>
+      
+      <h3>Industries</h3>
+      <p>I'm interested in roles across various industries, including:</p>
+      <ul>
+        <li>Technology and SaaS companies</li>
+        <li>Financial services and fintech</li>
+        <li>Healthcare and biotech</li>
+        <li>E-commerce and retail</li>
+        <li>Consulting and professional services</li>
+      </ul>
+      
+      <h3>Location Preferences</h3>
+      <ul>
+        <li>Remote opportunities (preferred)</li>
+        <li>Hybrid roles in major tech hubs (San Francisco, New York, Seattle, Boston)</li>
+        <li>Relocation considered for the right opportunity</li>
+      </ul>
+      
+      <h2>Why Now is a Great Time to Connect</h2>
+      <p>Despite the challenges in the industry, I believe this is an excellent time for organizations to bring on experienced data science talent. Here's why:</p>
+      
+      <ul>
+        <li><strong>Proven Track Record:</strong> I've delivered results at top companies and can do the same for your organization</li>
+        <li><strong>Immediate Availability:</strong> Ready to start and contribute quickly</li>
+        <li><strong>Fresh Perspective:</strong> New experiences bring new ideas and approaches</li>
+        <li><strong>Strong Network:</strong> Connections across the industry that can benefit your organization</li>
+        <li><strong>Resilience:</strong> Experience navigating change makes me adaptable and resourceful</li>
+      </ul>
+      
+      <h2>A Message to Recruiters and Hiring Managers</h2>
+      <p>If you're looking for a Data Scientist who can:</p>
+      <ul>
+        <li>Manage ML lifecycles from conception to production</li>
+        <li>Deliver measurable business impact</li>
+        <li>Work effectively across teams and functions</li>
+        <li>Bring fresh ideas and proven methodologies</li>
+        <li>Contribute immediately while continuing to grow</li>
+      </ul>
+      
+      <p>I'd love to connect. I'm actively exploring opportunities and excited to discuss how I can contribute to your team's success.</p>
+      
+      <h2>Let's Connect</h2>
+      <p>Whether you're a recruiter, hiring manager, or fellow data scientist navigating similar transitions, I'm always open to meaningful conversations. You can reach me through:</p>
+      <ul>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pericharla2001" target="_blank" rel="noopener noreferrer">Connect with me</a></li>
+        <li><strong>Email:</strong> raju.perich@gmail.com</li>
+        <li><strong>Portfolio:</strong> Check out my projects and experience on this site</li>
+      </ul>
+      
+      <h2>Final Thoughts</h2>
+      <p>Career transitions, whether by choice or circumstance, are opportunities for growth. The tech industry's current challenges don't diminish the value of experienced professionals who can deliver results. I'm confident in my skills, excited about new possibilities, and ready to contribute to organizations that value data-driven decision-making and innovation.</p>
+      
+      <p>To my fellow professionals navigating similar situations: stay resilient, keep learning, and remember that your experience and skills are valuable. The right opportunity is out there.</p>
+      
+      <p>To recruiters and hiring managers: let's talk about how I can help your organization achieve its data science goals. I'm ready to bring my expertise, passion, and proven track record to your team.</p>
+      
+      <p><strong>#OpenToWork #DataScientist #MachineLearning #MLOps #DataScienceJobs #TechJobs #HiringDataScientists #DataScienceCareer #MLEngineering #ProductionML</strong></p>
+      
+      <p>Here's to new opportunities and continued growth! 🚀</p>
+    `
+  },
+  {
     id: 8,
     title: 'Renewing Microsoft Certifications: Power BI Data Analyst & Azure Database Administrator - Why Staying Current Matters',
     excerpt: 'I\'m excited to share that I\'ve recently renewed two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why keeping certifications current is valuable for data science professionals and how they complement my work in ML lifecycle management and production systems.',
