@@ -1977,9 +1977,8 @@ const Experience = () => {
       company: 'Scale AI',
       period: 'Jun 2023 - Present',
       location: 'San Francisco, CA',
-      type: 'Full-time',
       logo: '/logos/scale-ai-logo.png',
-      logoFallback: 'https://via.placeholder.com/150?text=Scale+AI',
+      logoFallback: 'https://logos-world.net/wp-content/uploads/2021/02/Scale-AI-Logo.png',
       achievements: [
         'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
         'Collaborated with cross-functional teams to productionize ML models, ensuring seamless integration and operational efficiency',
@@ -1993,7 +1992,6 @@ const Experience = () => {
       company: 'American Express',
       period: 'Jun 2020 - Dec 2022',
       location: 'New York, NY',
-      type: 'Full-time',
       logo: '/logos/american-express-logo.png',
       logoFallback: 'https://logos-world.net/wp-content/uploads/2020/04/American-Express-Logo.png',
       achievements: [
@@ -2148,16 +2146,6 @@ const Experience = () => {
                         transition={{ duration: 0.3 }}
                       >
                         {exp.location}
-                      </motion.p>
-                    )}
-                    {exp.type && (
-                      <motion.p 
-                        className="text-gray-500 text-sm"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {exp.type}
                       </motion.p>
                     )}
                   </div>
