@@ -1043,7 +1043,7 @@ const Hero = () => {
               />
             </motion.a>
             <motion.a
-              href="/Lakshmipathiraju_resume.pdf"
+              href="/Lakshmipathiraju_resume.docx"
               download
               className="relative bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg"
               whileHover={{ scale: 1.15, y: -5, rotate: 1 }}
@@ -2678,9 +2678,9 @@ const Contact = () => (
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
-              <p className="text-sm mb-3">Plpraju.2000@gmail.com</p>
+              <p className="text-sm mb-3">raju.perich@gmail.com</p>
           <motion.a
-            href="mailto:Plpraju.2000@gmail.com"
+            href="mailto:raju.perich@gmail.com"
                 className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 inline-block text-sm"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -2705,9 +2705,9 @@ const Contact = () => (
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-2">Phone</h3>
-              <p className="text-sm mb-3">+1 (508) 410-3136</p>
+              <p className="text-sm mb-3">408-664-0364</p>
               <motion.a
-                href="tel:+15084103136"
+                href="tel:+14086640364"
                 className="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 inline-block text-sm"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
