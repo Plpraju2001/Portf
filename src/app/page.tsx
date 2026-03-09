@@ -1971,7 +1971,18 @@ const Experience = () => {
     delay: Math.random() * 2,
   })), [particleCount]);
 
-  const experiences = [
+  interface ExperienceItem {
+    title: string;
+    company: string;
+    period: string;
+    location: string;
+    logo: string;
+    logoFallback: string;
+    logoSVG?: string;
+    achievements: string[];
+  }
+
+  const experiences: ExperienceItem[] = [
     {
       title: 'Senior Data Scientist',
       company: 'Scale AI',
@@ -2188,38 +2199,33 @@ const Experience = () => {
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
-                    src={(exp as any).logoSVG || exp.logoFallback}
-                    alt={`${exp.company} Logo`}
-                    width={130}
-                    height={130}
-                    className="object-contain w-auto h-auto max-w-full max-h-full"
-                    style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      // Try SVG first, then external URL, then local file
-                      if (target.src === (exp as any).logoSVG) {
+                  {exp.logoSVG ? (
+                    <img
+                      src={exp.logoSVG}
+                      alt={`${exp.company} Logo`}
+                      width={130}
+                      height={130}
+                      className="object-contain w-auto h-auto max-w-full max-h-full"
+                      style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
                         target.src = exp.logoFallback;
-                      } else if (target.src === exp.logoFallback) {
-                        target.src = exp.logo;
-                      } else {
-                        // Final fallback - show colored box with company name
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent && !parent.querySelector('.logo-fallback')) {
-                          const fallbackDiv = document.createElement('div');
-                          fallbackDiv.className = 'logo-fallback w-full h-full flex items-center justify-center rounded';
-                          fallbackDiv.style.backgroundColor = exp.company === 'Scale AI' ? '#000000' : '#006FCF';
-                          fallbackDiv.style.color = '#FFFFFF';
-                          const textSpan = document.createElement('span');
-                          textSpan.className = 'font-bold text-xs text-center px-2';
-                          textSpan.textContent = exp.company === 'Scale AI' ? 'SCALE AI' : 'AMEX';
-                          fallbackDiv.appendChild(textSpan);
-                          parent.appendChild(fallbackDiv);
-                        }
-                      }
-                    }}
-                  />
+                      }}
+                    />
+                  ) : (
+                    <div 
+                      className="w-full h-full flex items-center justify-center rounded"
+                      style={{ 
+                        backgroundColor: exp.company === 'Scale AI' ? '#000000' : '#006FCF',
+                        color: '#FFFFFF',
+                        minHeight: '100px'
+                      }}
+                    >
+                      <span className="font-bold text-xs text-center px-2">
+                        {exp.company === 'Scale AI' ? 'SCALE AI' : exp.company === 'American Express' ? 'AMEX' : exp.company.substring(0, 8)}
+                      </span>
+                    </div>
+                  )}
                 </motion.div>
               </div>
             </motion.div>
