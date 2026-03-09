@@ -17,6 +17,21 @@ const nextConfig: NextConfig = {
         hostname: 'via.placeholder.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'logos-world.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'logo.clearbit.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        pathname: '/**',
+      },
     ],
   },
   trailingSlash: true,

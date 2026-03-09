@@ -1978,7 +1978,7 @@ const Experience = () => {
       period: 'Jun 2023 - Present',
       location: 'San Francisco, CA',
       logo: '/logos/scale-ai-logo.png',
-      logoFallback: 'https://logos-world.net/wp-content/uploads/2021/02/Scale-AI-Logo.png',
+      logoFallback: 'https://logo.clearbit.com/scale.com',
       achievements: [
         'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
         'Collaborated with cross-functional teams to productionize ML models, ensuring seamless integration and operational efficiency',
@@ -1993,7 +1993,7 @@ const Experience = () => {
       period: 'Jun 2020 - Dec 2022',
       location: 'New York, NY',
       logo: '/logos/american-express-logo.png',
-      logoFallback: 'https://logos-world.net/wp-content/uploads/2020/04/American-Express-Logo.png',
+      logoFallback: 'https://logo.clearbit.com/americanexpress.com',
       achievements: [
         'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to reduce false positives by 25%',
         'Managed the deployment of ML models using AWS Sagemaker, ensuring scalability and reliability in a cloud environment supporting over 1 million transactions daily',
@@ -2192,11 +2192,15 @@ const Experience = () => {
                     width={130}
                     height={130}
                     className="object-contain w-auto h-auto max-w-full max-h-full"
+                    style={{ maxWidth: '130px', maxHeight: '130px' }}
                     onError={(e) => {
                       // Fallback to placeholder if external URL fails
                       const target = e.target as HTMLImageElement;
-                      target.src = `https://via.placeholder.com/150?text=${encodeURIComponent(exp.company)}`;
+                      if (!target.src.includes('placeholder')) {
+                        target.src = `https://via.placeholder.com/150/2563eb/ffffff?text=${encodeURIComponent(exp.company.substring(0, 2))}`;
+                      }
                     }}
+                    loading="lazy"
                   />
                 </motion.div>
               </div>
