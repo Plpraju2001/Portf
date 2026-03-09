@@ -2192,15 +2192,20 @@ const Experience = () => {
                     width={130}
                     height={130}
                     className="object-contain w-auto h-auto max-w-full max-h-full"
-                    style={{ maxWidth: '130px', maxHeight: '130px' }}
+                    style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
+                    crossOrigin="anonymous"
                     onError={(e) => {
-                      // Fallback to placeholder if external URL fails
+                      // Fallback to company name if logo fails
                       const target = e.target as HTMLImageElement;
-                      if (!target.src.includes('placeholder')) {
-                        target.src = `https://via.placeholder.com/150/2563eb/ffffff?text=${encodeURIComponent(exp.company.substring(0, 2))}`;
+                      const parent = target.parentElement;
+                      if (parent && !parent.querySelector('.logo-text')) {
+                        target.style.display = 'none';
+                        const textDiv = document.createElement('div');
+                        textDiv.className = 'logo-text text-gray-600 font-semibold text-sm text-center';
+                        textDiv.textContent = exp.company;
+                        parent.appendChild(textDiv);
                       }
                     }}
-                    loading="lazy"
                   />
                 </motion.div>
               </div>

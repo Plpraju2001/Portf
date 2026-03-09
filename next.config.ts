@@ -32,6 +32,11 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.jsdelivr.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
+        pathname: '/**',
+      },
     ],
   },
   trailingSlash: true,
