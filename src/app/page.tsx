@@ -1978,7 +1978,7 @@ const Experience = () => {
       period: 'Jun 2023 - Present',
       location: 'San Francisco, CA',
       logo: '/logos/scale-ai-logo.png',
-      logoFallback: 'https://logo.clearbit.com/scale.com?size=130',
+      logoFallback: 'https://logo.clearbit.com/scale.com',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U2NhbGUgQUk8L3RleHQ+PC9zdmc+',
       achievements: [
         'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
@@ -1994,7 +1994,7 @@ const Experience = () => {
       period: 'Jun 2020 - Dec 2022',
       location: 'New York, NY',
       logo: '/logos/american-express-logo.png',
-      logoFallback: 'https://logo.clearbit.com/americanexpress.com?size=130',
+      logoFallback: 'https://logo.clearbit.com/americanexpress.com',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDZGRkMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QU1FWDwvdGV4dD48L3N2Zz4=',
       achievements: [
         'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to reduce false positives by 25%',
@@ -2194,16 +2194,14 @@ const Experience = () => {
                     width={130}
                     height={130}
                     className="object-contain w-auto h-auto max-w-full max-h-full"
-                    style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
+                    style={{ maxWidth: '130px', maxHeight: '130px' }}
                     onError={(e) => {
+                      // Try local file if external fails
                       const target = e.target as HTMLImageElement;
-                      // Try alternative logo sources
-                      if (exp.company === 'Scale AI' && !target.src.includes('brandfetch')) {
-                        target.src = 'https://logo.clearbit.com/scale.com';
-                      } else if (exp.company === 'American Express' && !target.src.includes('brandfetch')) {
-                        target.src = 'https://logo.clearbit.com/americanexpress.com';
+                      if (target.src === exp.logoFallback) {
+                        target.src = exp.logo;
                       } else {
-                        // Final fallback - show company name
+                        // Show company name as final fallback
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent && !parent.querySelector('.logo-text')) {
