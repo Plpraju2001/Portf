@@ -2,7 +2,7 @@ export const blogPosts = [
   {
     id: 10,
     title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
-    excerpt: 'As of March 8, 2026, I\'m actively looking for my next Data Scientist / ML Engineer role. After recent market shifts, I\'m focusing on opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team.',
+    excerpt: 'The tech market is experiencing rapid changes, and I\'m actively looking for my next Data Scientist / ML Engineer role. I\'m seeking opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what I bring and what I\'m looking for.',
     date: 'March 8, 2026',
     readTime: '6 min read',
     category: 'Career Insights',

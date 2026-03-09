@@ -7,15 +7,15 @@ const blogPosts = [
   {
     id: 10,
     title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
-    excerpt: 'As of March 8, 2026, I\'m actively looking for my next Data Scientist / ML Engineer role. After recent market shifts, I\'m focusing on opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what happened, what I bring, and what I\'m looking for next.',
+    excerpt: 'The tech market is experiencing rapid changes, and I\'m actively looking for my next Data Scientist / ML Engineer role. I\'m seeking opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what I bring and what I\'m looking for.',
     date: 'March 8, 2026',
     readTime: '6 min read',
     category: 'Career Insights',
     content: `
       <h2>Where I Am Today – March 8, 2026</h2>
-      <p>The last few months in tech have been intense. Even strong performers and teams have been impacted by rapid organizational changes and budget shifts. Like many talented professionals across the industry, I’ve been affected by this wave and I’m now <strong>actively open to new opportunities</strong>.</p>
+      <p>The tech market is experiencing rapid changes and shifts. In this dynamic environment, I'm <strong>actively looking for my next opportunity</strong> where I can leverage my experience in <strong>end-to-end ML lifecycle management</strong> and <strong>production ML systems</strong> to create meaningful impact.</p>
 
-      <p>Rather than seeing this as only a setback, I’m treating it as a chance to join a team where my experience in <strong>end-to-end ML lifecycle management</strong> and <strong>production ML systems</strong> can create even more impact.</p>
+      <p>I'm excited about the possibility of joining a team where I can contribute immediately while continuing to grow professionally. The market may be changing, but great opportunities are still out there, and I'm ready to find the right fit.</p>
       
       <h2>A Quick Snapshot of My Profile</h2>
       <ul>
