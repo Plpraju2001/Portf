@@ -17,7 +17,17 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Lakshmipathiraju Pericharla - Data Scientist Portfolio",
-  description: "Data Scientist with 3+ years experience in causal inference, econometrics, and ROI-driven analytics. Specializing in campaign measurement, advanced data engineering, and business intelligence with proven results in marketing and financial products.",
+  description: "Data Scientist with 5+ years of experience specializing in machine learning, ML lifecycle management, and production systems. Currently at Scale AI, previously at American Express. Expert in building and deploying ML models at scale.",
+  openGraph: {
+    title: "Lakshmipathiraju Pericharla - Data Scientist",
+    description: "Data Scientist with 5+ years of experience specializing in machine learning, ML lifecycle management, and production systems. Currently at Scale AI, previously at American Express.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lakshmipathiraju Pericharla - Data Scientist",
+    description: "Data Scientist with 5+ years of experience specializing in machine learning, ML lifecycle management, and production systems.",
+  },
   icons: {
     icon: '/plp-favicon.svg',
   },
