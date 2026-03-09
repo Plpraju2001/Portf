@@ -1978,7 +1978,7 @@ const Experience = () => {
       period: 'Jun 2023 - Present',
       location: 'San Francisco, CA',
       logo: '/logos/scale-ai-logo.png',
-      logoFallback: 'https://logo.clearbit.com/scale.com',
+      logoFallback: 'https://logo.clearbit.com/scale.com?size=130',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U2NhbGUgQUk8L3RleHQ+PC9zdmc+',
       achievements: [
         'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
@@ -1994,7 +1994,7 @@ const Experience = () => {
       period: 'Jun 2020 - Dec 2022',
       location: 'New York, NY',
       logo: '/logos/american-express-logo.png',
-      logoFallback: 'https://logo.clearbit.com/americanexpress.com',
+      logoFallback: 'https://logo.clearbit.com/americanexpress.com?size=130',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDZGRkMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QU1FWDwvdGV4dD48L3N2Zz4=',
       achievements: [
         'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to reduce false positives by 25%',
@@ -2188,35 +2188,33 @@ const Experience = () => {
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {exp.company === 'Scale AI' ? (
-                    <div className="w-full h-full flex items-center justify-center bg-black rounded">
-                      <span className="text-white font-bold text-sm px-2 text-center">SCALE AI</span>
-                    </div>
-                  ) : exp.company === 'American Express' ? (
-                    <div className="w-full h-full flex items-center justify-center bg-blue-600 rounded">
-                      <span className="text-white font-bold text-xs px-2 text-center leading-tight">AMERICAN<br/>EXPRESS</span>
-                    </div>
-                  ) : (
-                    <img
-                      src={exp.logoFallback}
-                      alt={`${exp.company} Logo`}
-                      width={130}
-                      height={130}
-                      className="object-contain w-auto h-auto max-w-full max-h-full"
-                      style={{ maxWidth: '130px', maxHeight: '130px' }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
+                  <img
+                    src={exp.logoFallback}
+                    alt={`${exp.company} Logo`}
+                    width={130}
+                    height={130}
+                    className="object-contain w-auto h-auto max-w-full max-h-full"
+                    style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      // Try alternative logo sources
+                      if (exp.company === 'Scale AI' && !target.src.includes('brandfetch')) {
+                        target.src = 'https://logo.clearbit.com/scale.com';
+                      } else if (exp.company === 'American Express' && !target.src.includes('brandfetch')) {
+                        target.src = 'https://logo.clearbit.com/americanexpress.com';
+                      } else {
+                        // Final fallback - show company name
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent && !parent.querySelector('.logo-text')) {
                           const textDiv = document.createElement('div');
-                          textDiv.className = 'logo-text text-gray-600 font-semibold text-sm text-center w-full';
-                          textDiv.textContent = exp.company.split(' ').map((w: string) => w[0]).join('').substring(0, 3);
+                          textDiv.className = 'logo-text text-gray-600 font-semibold text-xs text-center w-full px-2';
+                          textDiv.textContent = exp.company;
                           parent.appendChild(textDiv);
                         }
-                      }}
-                    />
-                  )}
+                      }
+                    }}
+                  />
                 </motion.div>
               </div>
             </motion.div>
