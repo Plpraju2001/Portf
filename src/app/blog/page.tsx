@@ -80,7 +80,7 @@ const blogPosts = [
       <p>If you’re hiring for Data Scientist / ML Engineer roles and this resonates, I’d love to talk.</p>
       <ul>
         <li><strong>Portfolio:</strong> You’re already here – feel free to explore my projects and experience</li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pericharla2k1" target="_blank" rel="noopener noreferrer">Connect with me on LinkedIn</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/pericharla2k1" target="_blank" rel="noopener noreferrer">Connect with me on LinkedIn</a></li>
         <li><strong>Email:</strong> raju.perich@gmail.com</li>
       </ul>
 
@@ -251,7 +251,7 @@ const blogPosts = [
       <h2>Let's Connect</h2>
       <p>Whether you're a recruiter, hiring manager, or fellow data scientist navigating similar transitions, I'm always open to meaningful conversations. You can reach me through:</p>
       <ul>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pericharla2k1" target="_blank" rel="noopener noreferrer">Connect with me</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/pericharla2k1" target="_blank" rel="noopener noreferrer">Connect with me</a></li>
         <li><strong>Email:</strong> raju.perich@gmail.com</li>
         <li><strong>Portfolio:</strong> Check out my projects and experience on this site</li>
       </ul>
@@ -1105,7 +1105,7 @@ export default function Blog() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/pericharla2k1"
+              href="https://linkedin.com/in/pericharla2k1"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"

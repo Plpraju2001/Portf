@@ -192,7 +192,7 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/pericharla2k1"
+              href="https://linkedin.com/in/pericharla2k1"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-800 transition-colors"

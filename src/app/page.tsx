@@ -695,7 +695,7 @@ const Header = () => {
               </motion.svg>
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/pericharla2k1"
+              href="https://linkedin.com/in/pericharla2k1"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-blue-600 transition-colors relative"
@@ -2513,7 +2513,7 @@ const Education = () => (
           </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <motion.a
-              href="https://www.linkedin.com/in/pericharla2k1/details/certifications/"
+              href="https://linkedin.com/in/pericharla2k1/details/certifications/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-300 relative overflow-hidden group"
@@ -2723,7 +2723,7 @@ const Contact = () => (
         {/* Additional Links */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <motion.a
-            href="https://www.linkedin.com/in/pericharla2k1"
+            href="https://linkedin.com/in/pericharla2k1"
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -2733,7 +2733,7 @@ const Contact = () => (
             Connect on LinkedIn
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/pericharla2k1/details/certifications/"
+            href="https://linkedin.com/in/pericharla2k1/details/certifications/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -2764,7 +2764,7 @@ const Footer = () => (
           </svg>
         </motion.a>
         <motion.a
-          href="https://www.linkedin.com/in/pericharla2k1"
+          href="https://linkedin.com/in/pericharla2k1"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-600 hover:text-gray-800 transition-colors"
