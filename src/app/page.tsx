@@ -2186,16 +2186,16 @@ const Experience = () => {
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Image
-                    src={exp.logo}
+                  <img
+                    src={exp.logoFallback}
                     alt={`${exp.company} Logo`}
                     width={130}
                     height={130}
                     className="object-contain w-auto h-auto max-w-full max-h-full"
                     onError={(e) => {
-                      // Fallback to external URL if local image doesn't exist
+                      // Fallback to placeholder if external URL fails
                       const target = e.target as HTMLImageElement;
-                      target.src = exp.logoFallback;
+                      target.src = `https://via.placeholder.com/150?text=${encodeURIComponent(exp.company)}`;
                     }}
                   />
                 </motion.div>
