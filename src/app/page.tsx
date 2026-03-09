@@ -1979,6 +1979,7 @@ const Experience = () => {
       location: 'San Francisco, CA',
       logo: '/logos/scale-ai-logo.png',
       logoFallback: 'https://logo.clearbit.com/scale.com',
+      logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U2NhbGUgQUk8L3RleHQ+PC9zdmc+',
       achievements: [
         'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
         'Collaborated with cross-functional teams to productionize ML models, ensuring seamless integration and operational efficiency',
@@ -1994,6 +1995,7 @@ const Experience = () => {
       location: 'New York, NY',
       logo: '/logos/american-express-logo.png',
       logoFallback: 'https://logo.clearbit.com/americanexpress.com',
+      logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDZGRkMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QU1FWDwvdGV4dD48L3N2Zz4=',
       achievements: [
         'Engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to reduce false positives by 25%',
         'Managed the deployment of ML models using AWS Sagemaker, ensuring scalability and reliability in a cloud environment supporting over 1 million transactions daily',
@@ -2187,23 +2189,27 @@ const Experience = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src={exp.logoFallback}
+                    src={(exp as any).logoSVG || exp.logoFallback}
                     alt={`${exp.company} Logo`}
                     width={130}
                     height={130}
                     className="object-contain w-auto h-auto max-w-full max-h-full"
                     style={{ maxWidth: '130px', maxHeight: '130px', display: 'block' }}
-                    crossOrigin="anonymous"
                     onError={(e) => {
-                      // Fallback to company name if logo fails
+                      // Use SVG fallback if external URL fails
                       const target = e.target as HTMLImageElement;
-                      const parent = target.parentElement;
-                      if (parent && !parent.querySelector('.logo-text')) {
+                      if ((exp as any).logoSVG && target.src !== (exp as any).logoSVG) {
+                        target.src = (exp as any).logoSVG;
+                      } else {
+                        // Final fallback - show company initials
                         target.style.display = 'none';
-                        const textDiv = document.createElement('div');
-                        textDiv.className = 'logo-text text-gray-600 font-semibold text-sm text-center';
-                        textDiv.textContent = exp.company;
-                        parent.appendChild(textDiv);
+                        const parent = target.parentElement;
+                        if (parent && !parent.querySelector('.logo-text')) {
+                          const textDiv = document.createElement('div');
+                          textDiv.className = 'logo-text text-gray-600 font-semibold text-lg text-center w-full';
+                          textDiv.textContent = exp.company.split(' ').map((w: string) => w[0]).join('').substring(0, 3);
+                          parent.appendChild(textDiv);
+                        }
                       }
                     }}
                   />
