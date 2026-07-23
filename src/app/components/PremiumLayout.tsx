@@ -2,7 +2,7 @@
 
 import { memo, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 export type SectionTheme = 'hero' | 'light' | 'frost' | 'dark' | 'mesh' | 'ink';
 
 const themeShell: Record<SectionTheme, string> = {
@@ -151,6 +151,8 @@ export const SectionHeader = memo(({
   >
     {eyebrow && <p className={`premium-eyebrow mb-4 ${light ? 'text-blue-300' : ''}`}>{eyebrow}</p>}
     <h2 className={`premium-display ${light ? 'text-white' : 'text-[#1d1d1f]'}`}>{title}</h2>
+    {!light && <div className="pro-section-rule" />}
+    {light && <div className="pro-section-rule bg-blue-400/60 mx-auto" />}
     {subtitle && (
       <p className={`premium-subdisplay max-w-2xl mx-auto mt-5 ${light ? 'text-gray-400' : 'text-[#86868b]'}`}>
         {subtitle}
@@ -188,3 +190,24 @@ export const PremiumButton = memo(({
   </motion.a>
 ));
 PremiumButton.displayName = 'PremiumButton';
+
+export const CompanyStrip = memo(() => (
+  <div className="company-strip justify-center lg:justify-start">
+    <span className="company-strip-label">Experience at</span>
+    {[
+      { src: '/logos/gdit-logo.png', alt: 'GDIT' },
+      { src: '/logos/scale-ai-logo.png', alt: 'Scale AI' },
+      { src: '/logos/american-express-logo.svg', alt: 'American Express' },
+    ].map((logo) => (
+      <Image
+        key={logo.alt}
+        src={logo.src}
+        alt={logo.alt}
+        width={120}
+        height={32}
+        className="company-strip-logo"
+      />
+    ))}
+  </div>
+));
+CompanyStrip.displayName = 'CompanyStrip';

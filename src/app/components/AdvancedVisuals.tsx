@@ -10,11 +10,8 @@ export const ScrollProgressBar = memo(() => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[3px] z-[100] origin-left"
-      style={{
-        scaleX,
-        background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4)',
-      }}
+      className="fixed top-0 left-0 right-0 h-[2px] z-[100] origin-left bg-[#0066cc]"
+      style={{ scaleX }}
     />
   );
 });
@@ -223,54 +220,29 @@ DataStreamDivider.displayName = 'DataStreamDivider';
 /* ─── Hero animated stat pills ─── */
 export const HeroStatPills = memo(() => {
   const stats = useMemo(() => [
-    { label: '5 Yrs Experience', icon: 'chart' },
-    { label: 'Production ML', icon: 'ml' },
-    { label: 'Healthcare Analytics', icon: 'health' },
-    { label: 'Cloud & Data Stack', icon: 'cloud' },
+    { label: '5 Yrs Experience' },
+    { label: 'Production ML' },
+    { label: 'Healthcare Analytics' },
+    { label: 'Cloud & Data Stack' },
   ], []);
-
-  const icons: Record<string, ReactNode> = {
-    chart: (
-      <svg className="w-4 h-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-    ml: (
-      <svg className="w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    health: (
-      <svg className="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-    cloud: (
-      <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-      </svg>
-    ),
-  };
 
   return (
     <motion.div
-      className="flex flex-wrap justify-center gap-3 mt-8 mb-4"
-      initial={{ opacity: 0, y: 20 }}
+      className="pro-stat-row justify-center lg:justify-start mt-8 mb-2"
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1, duration: 0.6 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
     >
       {stats.map((stat, i) => (
-        <motion.div
+        <motion.span
           key={stat.label}
-          className="flex items-center gap-2 px-4 py-2 rounded-full glass-effect text-sm font-medium text-gray-700 shadow-sm"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1 + i * 0.1, type: 'spring', stiffness: 200 }}
-          whileHover={{ scale: 1.05, y: -2, boxShadow: '0 8px 25px rgba(99,102,241,0.2)' }}
+          className="pro-stat"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.55 + i * 0.06 }}
         >
-          <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white shadow-sm">{icons[stat.icon]}</span>
-          <span>{stat.label}</span>
-        </motion.div>
+          {stat.label}
+        </motion.span>
       ))}
     </motion.div>
   );

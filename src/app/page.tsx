@@ -7,14 +7,13 @@ import { getLatestBlogPost } from './blog/blogData';
 import {
   ScrollProgressBar,
   HeroStatPills,
-  MLPipelineGraphic,
-  DataScienceFloatingSymbols,
 } from './components/AdvancedVisuals';
 import {
   PremiumHeroBackground,
   PremiumButton,
   SectionShell,
   SectionHeader,
+  CompanyStrip,
 } from './components/PremiumLayout';
 
 // Professional Data Science Visualization Components - Large, Visible, Immediate
@@ -659,79 +658,43 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 20 }}
     >
-      <nav className="container mx-auto px-6 py-3 max-w-6xl">
+      <nav className="container mx-auto px-6 py-3.5 max-w-6xl">
         <div className="flex justify-between items-center">
-          <motion.a
-            href="#"
-            className="group"
-            whileHover={{ opacity: 0.8 }}
-          >
-            <div className="text-base font-semibold text-[#1d1d1f] tracking-tight">L. Pericharla</div>
-            <div className="text-xs text-[#86868b]">Data Scientist</div>
-          </motion.a>
-          <div className="hidden md:flex items-center gap-8">
+          <a href="#" className="group min-w-0">
+            <div className="text-sm font-semibold text-[#1d1d1f] tracking-tight truncate">Lakshmipathiraju Pericharla</div>
+            <div className="text-xs text-[#86868b] font-medium">Data Scientist</div>
+          </a>
+          <div className="hidden lg:flex items-center gap-7">
             {['About', 'Projects', 'Experience', 'Education', 'Contact'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors"
-              >
+              <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">
                 {item}
               </a>
             ))}
-            <a href="/blog" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">Blog</a>
+            <a href="/blog" className="nav-link">Blog</a>
           </div>
-          <div className="flex items-center gap-3">
-            <motion.a
+          <div className="flex items-center gap-2">
+            <a
               href="https://github.com/Plpraju2001"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-gray-900 transition-colors relative"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                delay: 0.4,
-                type: "spring",
-                stiffness: 200
-              }}
-              whileHover={{ scale: 1.15, rotate: 5, y: -2 }}
-              whileTap={{ scale: 0.9 }}
+              className="p-2 text-[#424245] hover:text-[#1d1d1f] transition-colors rounded-lg hover:bg-black/[0.04]"
+              aria-label="GitHub"
             >
-              <motion.svg 
-                className="w-6 h-6" 
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-                animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </motion.svg>
-            </motion.a>
-            <motion.a
+              </svg>
+            </a>
+            <a
               href="https://linkedin.com/in/pericharla2k1"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-blue-600 transition-colors relative"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                delay: 0.5,
-                type: "spring",
-                stiffness: 200
-              }}
-              whileHover={{ scale: 1.15, rotate: -5, y: -2 }}
-              whileTap={{ scale: 0.9 }}
+              className="p-2 text-[#424245] hover:text-[#0066cc] transition-colors rounded-lg hover:bg-black/[0.04]"
+              aria-label="LinkedIn"
             >
-              <motion.svg 
-                className="w-6 h-6" 
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-                animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </motion.svg>
-            </motion.a>
+              </svg>
+            </a>
           </div>
         </div>
       </nav>
@@ -740,128 +703,70 @@ const Header = () => {
 };
 
 const Hero = () => {
-  const [letters, setLetters] = useState<string[]>([]);
-
-  useEffect(() => {
-    setLetters('Raju'.split(''));
-  }, []);
-
   const [imageError, setImageError] = useState(false);
   const profileImage = '/profile_picture.jpg';
 
   return (
-    <section className="theme-hero min-h-screen flex items-center justify-center relative overflow-hidden pt-28 md:pt-0">
+    <section className="theme-hero min-h-screen flex items-center relative overflow-hidden pt-24 lg:pt-20">
       <PremiumHeroBackground />
 
-      <div className="container mx-auto px-6 text-center relative z-10 py-12 sm:py-16 md:py-24 max-w-5xl">
-        {/* Profile Picture - Centered above text on mobile, hidden on larger screens (shown in FixedProfilePicture) */}
-        <motion.div
-          className="flex justify-center mb-6 md:hidden"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.4,
-            delay: 0.1,
-            type: "spring",
-            stiffness: 100
-          }}
-        >
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-3 shadow-2xl border border-gray-200/50">
-            {!imageError ? (
-              <div className="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden profile-ring-glow">
+      <div className="container mx-auto px-6 relative z-10 py-12 md:py-20 max-w-6xl w-full">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+          <motion.div
+            className="text-center lg:text-left order-2 lg:order-1"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="premium-eyebrow mb-5">Data Scientist · ML Production · Healthcare Analytics</p>
+            <h1 className="premium-hero-title mb-5">
+              Lakshmipathiraju<br className="hidden sm:block" />
+              <span className="gradient-text"> Pericharla</span>
+            </h1>
+            <p className="premium-hero-subtitle mb-5 max-w-xl mx-auto lg:mx-0">
+              Production machine learning and analytics at enterprise scale.
+            </p>
+            <p className="text-base text-[#86868b] max-w-xl mx-auto lg:mx-0 mb-2 leading-relaxed">
+              Five years building end-to-end ML systems — currently at GDIT delivering healthcare analytics
+              with Python, SQL, Snowflake, and Databricks.
+            </p>
+            <HeroStatPills />
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mt-8">
+              <PremiumButton href="#projects">View work</PremiumButton>
+              <PremiumButton href="#contact" variant="secondary">Contact</PremiumButton>
+            </div>
+            <CompanyStrip />
+          </motion.div>
+
+          <motion.div
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="pro-hero-photo w-full max-w-[340px]">
+              {!imageError ? (
                 <img
                   src={profileImage}
                   alt="Lakshmipathiraju Pericharla"
-                  width={96}
-                  height={96}
-                  className="w-full h-full object-cover object-center"
+                  width={340}
+                  height={340}
+                  className="w-full aspect-square object-cover"
                   onError={() => setImageError(true)}
                   loading="eager"
                 />
+              ) : (
+                <div className="w-full aspect-square bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-4xl font-semibold text-slate-500">
+                  LP
+                </div>
+              )}
+              <div className="pro-hero-photo-cap">
+                <p className="text-sm font-semibold text-[#1d1d1f]">Lakshmipathiraju Pericharla</p>
+                <p className="text-xs text-[#86868b] mt-0.5">Data Scientist · Massachusetts, USA</p>
               </div>
-            ) : (
-              <div className="w-24 h-24 rounded-full border-2 border-blue-500 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-xl font-bold">
-                LP
-              </div>
-            )}
-            <div className="mt-2 text-center">
-              <h3 className="text-xs font-semibold text-gray-800 tracking-tight">Raju P</h3>
             </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ 
-            duration: 0.4,
-            type: "spring",
-            stiffness: 100,
-            damping: 20
-          }}
-        >
-          <motion.p className="premium-eyebrow mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>
-            Data Scientist · Healthcare Analytics · ML Production
-          </motion.p>
-          <motion.h1 
-            className="premium-hero-title mb-6"
-            style={{ display: "inline-block" }}
-          >
-            Hello, I&apos;m{' '}
-            <span className="inline-flex">
-              {letters.map((letter, index) => (
-                <motion.span
-                  key={index}
-                  className="gradient-text"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.2 + index * 0.06,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  style={{ display: "inline-block", marginLeft: "0.05em" }}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </motion.span>
-              ))}
-            </span>
-          </motion.h1>
-          <motion.p 
-            className="premium-hero-subtitle mb-6 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.2,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
-          >
-            Data Scientist | Machine Learning | ML Lifecycle Management
-          </motion.p>
-          <motion.p 
-            className="text-base md:text-lg text-[#86868b] max-w-2xl mx-auto mb-10 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Five years building production ML systems — from model training to deployment at scale.
-            Currently at GDIT, designing healthcare analytics with Python, SQL, Snowflake &amp; Databricks.
-          </motion.p>
-          <HeroStatPills />
-          <MLPipelineGraphic />
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap mt-10"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <PremiumButton href="#projects">View My Work</PremiumButton>
-            <PremiumButton href="#contact" variant="secondary">Get In Touch</PremiumButton>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -903,22 +808,26 @@ const About = () => (
             My strength lies in building scalable ML and analytics solutions using PyTorch, TensorFlow, Snowflake, Docker, Kubernetes, and cloud platforms including AWS, SageMaker, and Databricks.
           </motion.p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { title: 'Machine Learning', desc: 'PyTorch, TensorFlow, and advanced algorithms for production ML systems', icon: '🎯' },
-              { title: 'ML Production', desc: 'Docker, Kubernetes, deployment pipelines, Grafana & Datadog monitoring', icon: '⚡' },
-              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, AWS, SageMaker, Databricks at enterprise scale', icon: '📊' }
+              { title: 'Machine Learning', desc: 'PyTorch, TensorFlow, and advanced algorithms for production ML systems', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' },
+              { title: 'ML Production', desc: 'Docker, Kubernetes, deployment pipelines, Grafana and Datadog monitoring', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, AWS, SageMaker, Databricks at enterprise scale', icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z' }
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
-                className="premium-card p-8 text-center"
-                initial={{ opacity: 0, y: 40 }}
+                className="premium-card p-7 text-center"
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="text-4xl mb-4">{skill.icon}</div>
-                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-3">{skill.title}</h3>
+                <div className="pro-skill-icon">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d={skill.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">{skill.title}</h3>
                 <p className="text-[#86868b] leading-relaxed text-sm">{skill.desc}</p>
               </motion.div>
             ))}
@@ -934,27 +843,27 @@ const PersonalInterests = () => (
         title="Personal interests"
         subtitle="What keeps me inspired and energized outside of data science."
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { title: 'Music & Singing', emoji: '🎵', desc: 'Exploring genres and finding creative perspectives on problems.' },
-              { title: 'Horror Books', emoji: '📚', desc: 'A good thriller keeps the mind sharp and imagination active.' },
-              { title: 'Long Drives', emoji: '🚗', desc: 'Clearing my mind with good music and fresh ideas.' },
-              { title: 'Hiking & Nature', emoji: '🥾', desc: 'Disconnecting from tech to reconnect with nature.' },
-              { title: 'Cooking', emoji: '👨‍🍳', desc: 'Experiment, measure, create — like data science with flavor.' },
-              { title: 'Team Collaboration', emoji: '🎯', desc: 'Thriving in groups and working independently when needed.' },
-              { title: 'Sarcastic Humor', emoji: '😄', desc: 'A joyful perspective — life is too short to take everything seriously.' },
-              { title: 'Continuous Learning', emoji: '🚀', desc: 'Always exploring new technologies and methodologies.' },
+              { title: 'Music & Singing', desc: 'Exploring genres and finding creative perspectives on problems.' },
+              { title: 'Horror Books', desc: 'A good thriller keeps the mind sharp and imagination active.' },
+              { title: 'Long Drives', desc: 'Clearing my mind with good music and fresh ideas.' },
+              { title: 'Hiking & Nature', desc: 'Disconnecting from tech to reconnect with nature.' },
+              { title: 'Cooking', desc: 'Experiment, measure, create — structured creativity outside of work.' },
+              { title: 'Team Collaboration', desc: 'Thriving in groups and working independently when needed.' },
+              { title: 'Continuous Learning', desc: 'Always exploring new technologies and methodologies.' },
+              { title: 'Travel & Culture', desc: 'New places, new perspectives — useful for problem-solving.' },
             ].map((interest, index) => (
               <motion.div
                 key={interest.title}
-                className="premium-card p-6"
-                initial={{ opacity: 0, y: 30 }}
+                className="premium-card p-5"
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
                 viewport={{ once: true }}
               >
-                <span className="text-2xl mb-3 block">{interest.emoji}</span>
-                <h3 className="text-base font-semibold text-[#1d1d1f] mb-2">{interest.title}</h3>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0066cc] mb-3" />
+                <h3 className="text-sm font-semibold text-[#1d1d1f] mb-1.5">{interest.title}</h3>
                 <p className="text-[#86868b] text-sm leading-relaxed">{interest.desc}</p>
               </motion.div>
             ))}
@@ -1176,7 +1085,6 @@ const Projects = () => {
         title="Data science & engineering projects"
         subtitle="Completed GitHub work and upcoming initiatives in causal inference, MMM, and experimentation."
       />
-      <DataScienceFloatingSymbols />
 
       <div>
         {repositories.length > 0 && (
@@ -1636,109 +1544,45 @@ const Contact = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-[#f5f5f7] border-t border-black/5 py-10">
-    <div className="container mx-auto px-6 max-w-6xl text-center">
-      <div className="flex justify-center gap-6 mb-4">
-        <motion.a
-          href="https://github.com/Plpraju2001"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-800 transition-colors"
-          whileHover={{ scale: 1.1 }}
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </motion.a>
-        <motion.a
-          href="https://linkedin.com/in/pericharla2k1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-800 transition-colors"
-          whileHover={{ scale: 1.1 }}
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </motion.a>
-      </div>
-      <p className="text-[#86868b] text-sm">&copy; 2026 Lakshmipathiraju Pericharla</p>
-    </div>
-      </footer>
-);
-
-// Fixed Profile Picture Component - Hidden on mobile, shown on larger screens
-const FixedProfilePicture = () => {
-  const [imageError, setImageError] = useState(false);
-  const profileImage = '/profile_picture.jpg'; // Profile picture
-
-  return (
-    <div className="hidden md:block fixed top-20 right-6 z-50">
-      <div className="surface-glass rounded-2xl p-4 shadow-lg">
-        {!imageError ? (
-          <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 overflow-hidden profile-ring-glow">
-            <img
-              src={profileImage}
-              alt="Lakshmipathiraju Pericharla"
-              width={128}
-              height={128}
-              className="w-full h-full object-cover object-center"
-              onError={() => setImageError(true)}
-              loading="eager"
-            />
-          </div>
-        ) : (
-          <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-lg sm:text-2xl font-bold">
-            LP
-          </div>
-        )}
-        <div className="mt-2 sm:mt-3 text-center">
-          <h3 className="text-xs sm:text-sm font-semibold text-gray-800 tracking-tight">Raju P</h3>
+  <footer className="bg-white border-t border-black/[0.06] py-12">
+    <div className="container mx-auto px-6 max-w-6xl">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+        <div>
+          <p className="text-sm font-semibold text-[#1d1d1f]">Lakshmipathiraju Pericharla</p>
+          <p className="text-xs text-[#86868b] mt-1">Data Scientist · Healthcare Analytics · ML Production</p>
         </div>
-        {/* Navigation Menu - Hidden on mobile, visible on larger screens */}
-        <div className="hidden md:block mt-4 space-y-2">
-          {['About', 'Interests', 'Projects', 'Experience', 'Blog', 'Contact'].map((item) => (
-            <motion.a
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {['About', 'Projects', 'Experience', 'Education', 'Blog', 'Contact'].map((item) => (
+            <a
               key={item}
               href={item === 'Blog' ? '/blog' : `#${item.toLowerCase()}`}
-              className="block text-xs text-gray-700 hover:text-blue-600 transition-colors duration-300 py-1 px-2 rounded hover:bg-blue-50"
-              whileHover={{ x: 2 }}
+              className="nav-link"
             >
               {item}
-            </motion.a>
+            </a>
           ))}
         </div>
       </div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-black/[0.06]">
+        <p className="text-[#86868b] text-xs">&copy; 2026 Lakshmipathiraju Pericharla. All rights reserved.</p>
+        <div className="flex gap-4">
+          <a href="https://github.com/Plpraju2001" target="_blank" rel="noopener noreferrer" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors" aria-label="GitHub">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/pericharla2k1" target="_blank" rel="noopener noreferrer" className="text-[#86868b] hover:text-[#0066cc] transition-colors" aria-label="LinkedIn">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-  );
-};
+  </footer>
+);
 
 export default function Home() {
   return (
-        <>
-          <style jsx global>{`
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-            * {
-              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            }
-            body {
-              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            }
-            h1, h2, h3, h4, h5, h6 {
-              font-weight: 700;
-              letter-spacing: -0.02em;
-            }
-            .gradient-text {
-              background: linear-gradient(135deg, #4285f4 0%, #6366f1 50%, #8b5cf6 100%);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-            }
-          `}</style>
-      <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-[#fafafa]">
       <ScrollProgressBar />
       <Header />
-      <FixedProfilePicture />
       <Hero />
       <About />
       <PersonalInterests />
@@ -1749,6 +1593,5 @@ export default function Home() {
       <Contact />
       <Footer />
     </div>
-    </>
   );
 }
