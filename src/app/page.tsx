@@ -846,13 +846,7 @@ const Hero = () => {
                   alt="Lakshmipathiraju Pericharla"
                   width={96}
                   height={96}
-                  className="w-full h-full object-cover"
-                  style={{ 
-                    objectPosition: '58% 30%', 
-                    objectFit: 'cover',
-                    transform: 'scale(1.3)',
-                    transformOrigin: 'center center'
-                  }}
+                  className="w-full h-full object-cover object-center"
                   onError={() => setImageError(true)}
                   loading="eager"
                 />
@@ -2857,13 +2851,7 @@ const FixedProfilePicture = () => {
               alt="Lakshmipathiraju Pericharla"
               width={128}
               height={128}
-              className="w-full h-full object-cover"
-              style={{ 
-                objectPosition: '58% 30%', 
-                objectFit: 'cover',
-                transform: 'scale(1.3)',
-                transformOrigin: 'center center'
-              }}
+              className="w-full h-full object-cover object-center"
               onError={() => setImageError(true)}
               loading="eager"
             />
