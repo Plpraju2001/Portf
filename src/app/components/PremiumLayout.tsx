@@ -2,176 +2,186 @@
 
 import { memo, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-/* Apple / Google Cloud inspired — minimal, premium backgrounds */
+export type SectionTheme = 'hero' | 'light' | 'frost' | 'dark' | 'mesh' | 'ink';
+
+const themeShell: Record<SectionTheme, string> = {
+  hero: 'theme-hero min-h-screen flex items-center',
+  light: 'theme-light',
+  frost: 'theme-frost',
+  dark: 'theme-dark',
+  mesh: 'theme-mesh',
+  ink: 'theme-ink',
+};
+
+/* ─── Per-section animated backgrounds (Google Cloud / Apple style) ─── */
+export const PremiumSectionBackground = memo(({ theme }: { theme: SectionTheme }) => {
+  if (theme === 'hero') return <PremiumHeroBackground />;
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+      {theme === 'light' && (
+        <>
+          <div className="absolute inset-0 premium-grid opacity-[0.35]" />
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-blue-100/50 to-transparent rounded-full blur-3xl" />
+        </>
+      )}
+      {theme === 'frost' && (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f5f5f7] via-white to-blue-50/40" />
+          <div className="absolute inset-0 premium-grid opacity-25" />
+          <motion.div
+            className="absolute top-1/4 -right-20 w-[420px] h-[420px] rounded-full bg-purple-200/30 blur-3xl"
+            animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </>
+      )}
+      {theme === 'dark' && (
+        <>
+          <div className="absolute inset-0 theme-dark-gradient" />
+          <div className="absolute inset-0 premium-grid-light opacity-[0.07]" />
+          <motion.div
+            className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[100px]"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[100px]"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          />
+        </>
+      )}
+      {theme === 'mesh' && (
+        <>
+          <div className="absolute inset-0 theme-mesh-gradient" />
+          <div className="absolute inset-0 premium-grid opacity-20" />
+          <motion.div
+            className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-cyan-200/25 blur-3xl"
+            animate={{ x: [0, 40, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-0 w-[450px] h-[450px] rounded-full bg-violet-200/25 blur-3xl"
+            animate={{ x: [0, -35, 0] }}
+            transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </>
+      )}
+      {theme === 'ink' && (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#111827] to-[#0a0f1a]" />
+          <div className="absolute inset-0 premium-grid-light opacity-[0.05]" />
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+        </>
+      )}
+    </div>
+  );
+});
+PremiumSectionBackground.displayName = 'PremiumSectionBackground';
+
 export const PremiumHeroBackground = memo(() => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-    <div className="absolute inset-0 premium-dot-grid opacity-40" />
-    <div className="absolute inset-0 premium-hero-gradient" />
+    <div className="absolute inset-0 theme-hero-gradient" />
+    <div className="absolute inset-0 premium-grid opacity-30" />
     <motion.div
-      className="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full premium-orb-blue"
-      animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.05, 1] }}
-      transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+      className="absolute -top-[10%] left-[5%] w-[55vw] max-w-[700px] h-[55vw] max-h-[700px] rounded-full bg-gradient-to-br from-blue-400/20 via-indigo-300/15 to-transparent blur-3xl"
+      animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.06, 1] }}
+      transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
     />
     <motion.div
-      className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] rounded-full premium-orb-purple"
-      animate={{ x: [0, -25, 0], y: [0, 15, 0], scale: [1, 1.08, 1] }}
-      transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}
+      className="absolute bottom-[5%] right-[0%] w-[45vw] max-w-[600px] h-[45vw] max-h-[600px] rounded-full bg-gradient-to-tl from-violet-400/15 via-purple-300/10 to-transparent blur-3xl"
+      animate={{ x: [0, -35, 0], y: [0, 25, 0], scale: [1, 1.08, 1] }}
+      transition={{ duration: 26, repeat: Infinity, ease: 'easeInOut' }}
+    />
+    <motion.div
+      className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[80vw] max-w-[900px] h-[1px] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent"
+      animate={{ opacity: [0.3, 0.7, 0.3], scaleX: [0.8, 1, 0.8] }}
+      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
     />
   </div>
 ));
 PremiumHeroBackground.displayName = 'PremiumHeroBackground';
 
-/* Google Cloud–style subtle section backdrop */
-export const PremiumSectionBackdrop = memo(({ variant = 'light' }: { variant?: 'light' | 'dark' }) => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-    {variant === 'light' ? (
-      <>
-        <div className="absolute inset-0 premium-dot-grid opacity-30" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-50/80 to-transparent rounded-full blur-3xl" />
-      </>
-    ) : (
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(66,133,244,0.15),transparent_60%)]" />
-    )}
-  </div>
-));
-PremiumSectionBackdrop.displayName = 'PremiumSectionBackdrop';
-
-/* Apple Store–style Master's spotlight — full premium dark section */
-export const MastersSpotlight = memo(() => (
-  <div className="relative overflow-hidden masters-spotlight py-24 md:py-32">
-    <PremiumSectionBackdrop variant="dark" />
-    <div className="absolute inset-0 masters-spotlight-shimmer" aria-hidden />
-
-    <div className="container mx-auto px-6 relative z-10 max-w-6xl">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true, margin: '-80px' }}
-        className="text-center mb-12 md:mb-16"
-      >
-        <p className="premium-eyebrow mb-4">Highest Degree</p>
-        <h2 className="premium-display text-white mb-4">
-          Master&apos;s in Information Technology
-        </h2>
-        <p className="premium-subdisplay text-gray-400 max-w-2xl mx-auto">
-          Advanced graduate education in data science, machine learning, and cloud systems — the foundation of my analytics career.
-        </p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.96 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        viewport={{ once: true, margin: '-60px' }}
-        className="relative"
-      >
-        <div className="masters-spotlight-card rounded-3xl p-8 md:p-12 lg:p-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Logo showcase — Apple product style */}
-            <div className="flex flex-col items-center lg:items-start">
-              <motion.div
-                className="masters-logo-stage mb-8"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="w-44 h-44 md:w-52 md:h-52 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center p-6 shadow-2xl">
-                  <Image
-                    src="/logos/clark-university-logo.png"
-                    alt="Clark University"
-                    width={160}
-                    height={160}
-                    className="object-contain w-full h-full brightness-110"
-                    onError={(e) => {
-                      const t = e.target as HTMLImageElement;
-                      t.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Clark_University_seal.svg/200px-Clark_University_seal.svg.png';
-                    }}
-                  />
-                </div>
-              </motion.div>
-              <div className="grid grid-cols-3 gap-4 w-full max-w-sm">
-                {[
-                  { value: '3.6', label: 'GPA' },
-                  { value: '2024', label: 'Graduated' },
-                  { value: 'M.S.', label: 'Degree' },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    className="text-center p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + i * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
-                    <p className="text-xs text-gray-400 mt-1 uppercase tracking-wider">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 mb-6">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-sm font-medium text-blue-200">Clark University · Worcester, MA</span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-tight">
-                Data Science. Machine Learning. Cloud Computing.
-              </h3>
-              <p className="text-gray-400 leading-relaxed mb-8 text-base md:text-lg">
-                Jan 2023 – May 2024 · Specialized coursework in data analytics, business intelligence,
-                enterprise architecture, database systems, and information systems management at the graduate level.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {['Data Science', 'Machine Learning', 'Cloud Computing', 'Business Intelligence', 'Database Systems', 'Enterprise Architecture'].map((tag, i) => (
-                  <motion.span
-                    key={tag}
-                    className="px-4 py-2 text-sm font-medium rounded-full bg-white/8 text-gray-200 border border-white/10 hover:bg-white/12 transition-colors"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 + i * 0.05 }}
-                    viewport={{ once: true }}
-                  >
-                    {tag}
-                  </motion.span>
-                ))}
-              </div>
-              <div className="flex items-center gap-3 text-sm text-gray-500">
-                <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
-                </svg>
-                <span>Primary academic credential · Graduate-level analytics &amp; IT specialization</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+/* ─── Section wrapper — consistent spacing + themed backgrounds ─── */
+export const SectionShell = memo(({
+  id,
+  theme = 'light',
+  children,
+  className = '',
+  noPadding = false,
+}: {
+  id?: string;
+  theme?: SectionTheme;
+  children: ReactNode;
+  className?: string;
+  noPadding?: boolean;
+}) => (
+  <section
+    id={id}
+    className={`relative overflow-hidden ${noPadding ? '' : 'py-24 md:py-32'} ${themeShell[theme]} ${className}`}
+  >
+    <PremiumSectionBackground theme={theme} />
+    <div className={`container mx-auto px-6 relative z-10 max-w-6xl ${theme === 'hero' ? 'w-full py-12 sm:py-16 md:py-24' : ''}`}>
+      {children}
     </div>
-  </div>
+  </section>
 ));
-MastersSpotlight.displayName = 'MastersSpotlight';
+SectionShell.displayName = 'SectionShell';
 
-/* Premium CTA buttons — Apple minimal style */
+/* ─── Unified section header ─── */
+export const SectionHeader = memo(({
+  eyebrow,
+  title,
+  subtitle,
+  light = false,
+}: {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  light?: boolean;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 32 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    viewport={{ once: true, margin: '-60px' }}
+    className="text-center mb-14 md:mb-20"
+  >
+    {eyebrow && <p className={`premium-eyebrow mb-4 ${light ? 'text-blue-300' : ''}`}>{eyebrow}</p>}
+    <h2 className={`premium-display ${light ? 'text-white' : 'text-[#1d1d1f]'}`}>{title}</h2>
+    {subtitle && (
+      <p className={`premium-subdisplay max-w-2xl mx-auto mt-5 ${light ? 'text-gray-400' : 'text-[#86868b]'}`}>
+        {subtitle}
+      </p>
+    )}
+  </motion.div>
+));
+SectionHeader.displayName = 'SectionHeader';
+
+/* ─── Premium CTA buttons ─── */
 export const PremiumButton = memo(({
   href,
   children,
   variant = 'primary',
+  light = false,
 }: {
   href: string;
   children: ReactNode;
   variant?: 'primary' | 'secondary';
+  light?: boolean;
 }) => (
   <motion.a
     href={href}
     className={
       variant === 'primary'
         ? 'premium-btn-primary'
-        : 'premium-btn-secondary'
+        : light
+          ? 'premium-btn-secondary-light'
+          : 'premium-btn-secondary'
     }
-    whileHover={{ scale: 1.04 }}
+    whileHover={{ scale: 1.03 }}
     whileTap={{ scale: 0.97 }}
   >
     {children}

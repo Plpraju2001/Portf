@@ -6,18 +6,15 @@ import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
 import {
   ScrollProgressBar,
-  NeuralNetworkBackground,
-  DataStreamDivider,
   HeroStatPills,
   MLPipelineGraphic,
-  AnimatedHeadingUnderline,
   DataScienceFloatingSymbols,
 } from './components/AdvancedVisuals';
 import {
   PremiumHeroBackground,
-  MastersSpotlight,
   PremiumButton,
-  PremiumSectionBackdrop,
+  SectionShell,
+  SectionHeader,
 } from './components/PremiumLayout';
 
 // Professional Data Science Visualization Components - Large, Visible, Immediate
@@ -660,51 +657,31 @@ const Header = () => {
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ 
-            duration: 0.3,
-        type: "spring",
-        stiffness: 100,
-        damping: 20
-      }}
+      transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 20 }}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 py-3 max-w-6xl">
         <div className="flex justify-between items-center">
-          <motion.div 
-            className="text-lg font-bold text-gray-800"
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ 
-              duration: 0.3,
-              delay: 0.2,
-              type: "spring"
-            }}
+          <motion.a
+            href="#"
+            className="group"
+            whileHover={{ opacity: 0.8 }}
           >
-            <motion.div 
-              className="text-xl font-bold text-gray-800"
-              whileHover={{ x: 3 }}
-            >
-              Lakshmipathiraju Pericharla
-            </motion.div>
-            <motion.div 
-              className="text-sm font-medium text-blue-600 mt-1"
-              animate={{
-                textShadow: [
-                  "0 0 0px rgba(59, 130, 246, 0)",
-                  "0 0 8px rgba(59, 130, 246, 0.5)",
-                  "0 0 0px rgba(59, 130, 246, 0)",
-                ],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              United States
-            </motion.div>
-          </motion.div>
-          <div className="flex space-x-4">
+            <div className="text-base font-semibold text-[#1d1d1f] tracking-tight">L. Pericharla</div>
+            <div className="text-xs text-[#86868b]">Data Scientist</div>
+          </motion.a>
+          <div className="hidden md:flex items-center gap-8">
+            {['About', 'Projects', 'Experience', 'Education', 'Contact'].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+            <a href="/blog" className="text-sm text-[#1d1d1f] hover:text-[#0071e3] transition-colors">Blog</a>
+          </div>
+          <div className="flex items-center gap-3">
             <motion.a
               href="https://github.com/Plpraju2001"
               target="_blank"
@@ -773,7 +750,7 @@ const Hero = () => {
   const profileImage = '/profile_picture.jpg';
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#fafafa] pt-32 sm:pt-36 md:pt-0">
+    <section className="theme-hero min-h-screen flex items-center justify-center relative overflow-hidden pt-28 md:pt-0">
       <PremiumHeroBackground />
 
       <div className="container mx-auto px-6 text-center relative z-10 py-12 sm:py-16 md:py-24 max-w-5xl">
@@ -890,461 +867,100 @@ const Hero = () => {
   );
 };
 
-const About = () => {
-
-  return (
-    <section id="about" className="py-24 md:py-32 bg-white relative overflow-hidden">
-      <PremiumSectionBackdrop variant="light" />
-      <DataScienceWatermarks />
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.4, 
-            ease: [0.21, 1.02, 0.73, 1]
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <motion.h2 
-            className="text-4xl font-bold text-gray-800 mb-8 tracking-tight"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.3, 
-              delay: 0.2,
-              type: "spring",
-              stiffness: 100
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <motion.span
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              About 
-            </motion.span>
-            <motion.span
-              className="gradient-text"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              Me
-            </motion.span>
-          </motion.h2>
-          
-
+const About = () => (
+    <SectionShell id="about" theme="light">
+      <SectionHeader
+        eyebrow="About"
+        title="Building ML systems that scale"
+        subtitle="Five years of production data science — from model training to deployment at GDIT, Scale AI, and American Express."
+      />
+      <div className="max-w-4xl mx-auto">
           <motion.p 
-            className="text-lg text-gray-600 mb-8 leading-relaxed"
-            initial={{ opacity: 0, x: -100, rotateX: 90 }}
-            whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.3,
-              ease: [0.21, 1.02, 0.73, 1]
-            }}
-            viewport={{ once: true, margin: "-100px" }}
+            className="text-lg text-[#424245] mb-6 leading-relaxed text-center"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
           >
             I am a Data Scientist with 5 years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. I have proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
           </motion.p>
           <motion.p 
-            className="text-lg text-gray-600 mb-8 leading-relaxed"
-            initial={{ opacity: 0, x: 100, rotateX: -90 }}
-            whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.4,
-              ease: [0.21, 1.02, 0.73, 1]
-            }}
-            viewport={{ once: true, margin: "-100px" }}
+            className="text-lg text-[#424245] mb-6 leading-relaxed text-center"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
           >
-            Currently at General Dynamics Information Technology, I design and deploy scalable, end-to-end healthcare analytics solutions using Python, SQL, Snowflake, and Databricks. I develop interactive business intelligence dashboards and statistical models to support executive decision-making and enterprise cloud modernization initiatives.
+            Currently at General Dynamics Information Technology, I design and deploy scalable, end-to-end healthcare analytics solutions using Python, SQL, Snowflake, and Databricks. I develop interactive business intelligence dashboards and statistical models to support executive decision-making.
           </motion.p>
           <motion.p 
-            className="text-lg text-gray-600 mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-lg text-[#424245] mb-12 leading-relaxed text-center"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.5,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
-            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
           >
-            Previously at Scale AI, I managed the entire Machine Learning lifecycle, utilizing Python and SQL to enhance model performance. I collaborated with cross-functional teams to productionize ML models and developed advanced ML algorithms resulting in a 30% increase in model accuracy.
+            My strength lies in building scalable ML and analytics solutions using PyTorch, TensorFlow, Snowflake, Docker, Kubernetes, and cloud platforms including AWS, SageMaker, and Databricks.
           </motion.p>
-          <motion.p 
-            className="text-lg text-gray-600 mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.55,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Earlier at American Express, I engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%.
-          </motion.p>
-          <motion.p 
-            className="text-lg text-gray-600 mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.6,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            My strength lies in building scalable ML and analytics solutions using modern technologies like PyTorch, TensorFlow, Snowflake, Docker, Kubernetes, and cloud platforms. I am experienced in deploying ML models at scale using AWS, SageMaker, and Databricks.
-          </motion.p>
-          <motion.div
-            className="mb-8 p-5 rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 shadow-md"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.65 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-indigo-600 uppercase tracking-wide mb-1">Highest Degree · Master&apos;s</p>
-                <p className="text-lg font-semibold text-gray-800">M.S. Information Technology — Clark University</p>
-                <p className="text-sm text-gray-600 mt-1">Data Science · Machine Learning · Cloud Computing · GPA 3.6</p>
-              </div>
-            </div>
-          </motion.div>
-          <motion.div 
-            className="mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.7 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <p className="text-lg font-semibold text-gray-800 mb-4">Core Focus Areas:</p>
-            <p className="text-base text-gray-600">
-              Machine Learning · ML Lifecycle Management · Model Deployment · Big Data Technologies · Cloud Platforms · Deep Learning
-            </p>
-          </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: 'Machine Learning', desc: 'Building and deploying ML models using PyTorch, TensorFlow, and advanced algorithms', icon: '🎯', gradient: 'from-blue-600 via-purple-600 to-pink-600', hoverGradient: 'from-blue-50 via-purple-50 to-pink-50' },
-              { title: 'ML Production Systems', desc: 'Docker, Kubernetes, Model Deployment, Monitoring with Grafana and Datadog', icon: '⚡', gradient: 'from-purple-600 via-indigo-600 to-blue-600', hoverGradient: 'from-purple-50 via-indigo-50 to-blue-50' },
-              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, AWS, SageMaker, Databricks, Large-scale Data Processing', icon: '📊', gradient: 'from-pink-600 via-purple-600 to-blue-600', hoverGradient: 'from-pink-50 via-purple-50 to-blue-50' }
+              { title: 'Machine Learning', desc: 'PyTorch, TensorFlow, and advanced algorithms for production ML systems', icon: '🎯' },
+              { title: 'ML Production', desc: 'Docker, Kubernetes, deployment pipelines, Grafana & Datadog monitoring', icon: '⚡' },
+              { title: 'Big Data & Cloud', desc: 'Spark, Airflow, AWS, SageMaker, Databricks at enterprise scale', icon: '📊' }
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
-                className="bg-white p-8 rounded-2xl shadow-2xl border-2 border-gray-100 relative overflow-hidden group cursor-pointer transform-3d"
-                initial={{ opacity: 0, y: 100, rotateY: 90, scale: 0.5 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0, scale: 1 }}
-                transition={{ 
-                  duration: 1, 
-                  delay: index * 0.2, 
-                  type: "spring",
-                  stiffness: 150,
-                  damping: 20
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ y: -15, scale: 1.05, rotateY: 8, rotateX: 5, rotateZ: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="premium-card p-8 text-center"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                {/* Animated gradient border */}
-                <motion.div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${skill.gradient} opacity-0 group-hover:opacity-20`}
-                  initial={false}
-                  whileHover={{ opacity: 0.3 }}
-                  transition={{ duration: 0.4 }}
-                />
-                
-                {/* Pulsing glow */}
-                <motion.div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${skill.gradient}`}
-                  animate={{
-                    opacity: [0.05, 0.1, 0.05],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                
-                {/* Hover gradient overlay */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${skill.hoverGradient} opacity-0 group-hover:opacity-100`}
-                  initial={false}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-                
-                {/* Shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
-                  initial={{ x: "-200%" }}
-                  whileHover={{ x: "200%" }}
-                  transition={{ duration: 1 }}
-                />
-                
-                {/* Animated icon with background */}
-                <motion.div
-                  className="relative z-10 mb-6"
-                >
-                  <motion.div
-                    className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-5xl mb-4"
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    {skill.icon}
-                  </motion.div>
-                </motion.div>
-                
-                {/* Pulse effect rings */}
-                <motion.div
-                  className="absolute top-4 right-4 w-3 h-3 rounded-full bg-blue-500"
-                  animate={{
-                    scale: [1, 2.5, 1],
-                    opacity: [1, 0, 1],
-                  }}
-                  transition={{
-                    duration: 1,
-                    delay: index * 0.3,
-                    repeat: Infinity,
-                  }}
-                />
-                <motion.div
-                  className="absolute top-4 right-4 w-3 h-3 rounded-full border-2 border-blue-500"
-                  animate={{
-                    scale: [1, 3, 1],
-                    opacity: [1, 0, 1],
-                  }}
-                  transition={{
-                    duration: 1.2,
-                    delay: index * 0.5,
-                    repeat: Infinity,
-                  }}
-                />
-                
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 tracking-tight relative z-10">{skill.title}</h3>
-                <p className="text-gray-600 leading-relaxed relative z-10">{skill.desc}</p>
+                <div className="text-4xl mb-4">{skill.icon}</div>
+                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-3">{skill.title}</h3>
+                <p className="text-[#86868b] leading-relaxed text-sm">{skill.desc}</p>
               </motion.div>
             ))}
           </div>
-        </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
-};
 
-const PersonalInterests = () => {
-  return (
-    <section id="interests" className="py-20 bg-gradient-to-br from-white to-purple-50/20 relative">
-      <DataScienceWatermarks />
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2 
-            className="text-4xl font-bold text-gray-800 mb-8 tracking-tight"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.35, 
-              type: "spring",
-              stiffness: 100,
-              damping: 20
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Personal Interests
-          </motion.h2>
-          
-          <motion.p 
-            className="text-lg text-gray-600 mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.3, 
-              delay: 0.2,
-              type: "spring",
-              stiffness: 80
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            When I&apos;m not diving deep into data science, here&apos;s what keeps me inspired and energized:
-          </motion.p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+const PersonalInterests = () => (
+    <SectionShell id="interests" theme="frost">
+      <SectionHeader
+        eyebrow="Beyond work"
+        title="Personal interests"
+        subtitle="What keeps me inspired and energized outside of data science."
+      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { 
-                title: '🎵 Music & Singing', 
-                desc: 'I love to sing and explore different genres. Music helps me think creatively and find new perspectives on problems.',
-                color: 'from-purple-500 to-pink-500'
-              },
-              { 
-                title: '📚 Horror Books', 
-                desc: "There's something thrilling about a good horror novel. It keeps my mind sharp and my imagination active.",
-                color: 'from-gray-700 to-gray-900'
-              },
-              { 
-                title: '🚗 Long Drives', 
-                desc: "Nothing beats a long drive with good music. It's my way of clearing my mind and getting fresh ideas.",
-                color: 'from-blue-500 to-cyan-500'
-              },
-              { 
-                title: '🥾 Hiking & Nature', 
-                desc: 'Hiking helps me disconnect from technology and reconnect with nature. Great for problem-solving and reflection.',
-                color: 'from-green-500 to-emerald-500'
-              },
-              { 
-                title: '👨‍🍳 Cooking', 
-                desc: 'Cooking is like data science - you experiment, measure, and create something amazing from raw ingredients.',
-                color: 'from-orange-500 to-red-500'
-              },
-              { 
-                title: '🎯 Team Collaboration', 
-                desc: "I thrive in group settings and love being a team player. I'm also comfortable working independently when needed.",
-                color: 'from-indigo-500 to-purple-500'
-              },
-              { 
-                title: '😄 Sarcastic Humor', 
-                desc: "I bring a joyful and sarcastic perspective to everything. Life's too short to take everything seriously!",
-                color: 'from-yellow-500 to-orange-500'
-              },
-              { 
-                title: '🚀 Continuous Learning', 
-                desc: "I'm always exploring new technologies and methodologies. The data science field never stops evolving.",
-                color: 'from-blue-600 to-purple-600'
-              }
+              { title: 'Music & Singing', emoji: '🎵', desc: 'Exploring genres and finding creative perspectives on problems.' },
+              { title: 'Horror Books', emoji: '📚', desc: 'A good thriller keeps the mind sharp and imagination active.' },
+              { title: 'Long Drives', emoji: '🚗', desc: 'Clearing my mind with good music and fresh ideas.' },
+              { title: 'Hiking & Nature', emoji: '🥾', desc: 'Disconnecting from tech to reconnect with nature.' },
+              { title: 'Cooking', emoji: '👨‍🍳', desc: 'Experiment, measure, create — like data science with flavor.' },
+              { title: 'Team Collaboration', emoji: '🎯', desc: 'Thriving in groups and working independently when needed.' },
+              { title: 'Sarcastic Humor', emoji: '😄', desc: 'A joyful perspective — life is too short to take everything seriously.' },
+              { title: 'Continuous Learning', emoji: '🚀', desc: 'Always exploring new technologies and methodologies.' },
             ].map((interest, index) => (
               <motion.div
                 key={interest.title}
-                className="bg-white p-6 rounded-2xl border-2 border-gray-200 relative overflow-hidden group cursor-pointer transform-3d"
-                initial={{ opacity: 0, y: 100, rotateX: -45, scale: 0.5 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: index * 0.08, 
-                  type: "spring",
-                  stiffness: 150,
-                  damping: 20
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ y: -12, scale: 1.08, rotateX: -5, rotateY: 3, rotateZ: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="premium-card p-6"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true }}
               >
-                {/* Continuous gradient glow */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${interest.color} rounded-2xl`}
-                  animate={{
-                    opacity: [0.03, 0.08, 0.03],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                
-                {/* Gradient border on hover */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${interest.color} opacity-0 rounded-2xl`}
-                  initial={false}
-                  whileHover={{ opacity: 0.2 }}
-                  transition={{ duration: 0.3 }}
-                />
-                
-                {/* Shimmer effect on hover */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full"
-                  initial={false}
-                  whileHover={{ translateX: "100%" }}
-                  transition={{ duration: 0.4 }}
-                />
-                
-                {/* Floating emoji with bounce */}
-                <motion.h3 
-                  className="text-2xl font-bold text-gray-800 mb-4 relative z-10 flex items-center gap-2"
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 1.2 + index * 0.1,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.1
-                  }}
-                >
-                  <motion.span
-                    animate={{
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.15
-                    }}
-                  >
-                    {interest.title.split(' ')[0]}
-                  </motion.span>
-                  <span className="text-base">{interest.title.split(' ').slice(1).join(' ')}</span>
-                </motion.h3>
-                
-                {/* Glow dot */}
-                <motion.div
-                  className="absolute top-3 right-3 w-2 h-2 rounded-full"
-                  style={{
-                    background: `linear-gradient(135deg, ${interest.color.includes('purple') ? 'rgb(147, 51, 234)' : interest.color.includes('blue') ? 'rgb(59, 130, 246)' : 'rgb(168, 85, 247)'})`
-                  }}
-                  animate={{
-                    scale: [1, 2, 1],
-                    opacity: [1, 0.5, 1],
-                    boxShadow: [
-                      "0 0 0 0 rgba(0, 0, 0, 0)",
-                      "0 0 10px 5px rgba(147, 51, 234, 0.5)",
-                      "0 0 0 0 rgba(0, 0, 0, 0)",
-                    ],
-                  }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.2,
-                  }}
-                />
-                
-                <p className="text-gray-600 text-sm leading-relaxed relative z-10">{interest.desc}</p>
+                <span className="text-2xl mb-3 block">{interest.emoji}</span>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-2">{interest.title}</h3>
+                <p className="text-[#86868b] text-sm leading-relaxed">{interest.desc}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
       </div>
-    </section>
+    </SectionShell>
   );
-};
 
 interface Repository {
   id: number;
@@ -1365,7 +981,7 @@ const ProjectCard = ({ repo, index, getLanguageColor, formatDate }: { repo: Repo
   return (
     <motion.div
       key={repo.id}
-      className="bg-white rounded-xl shadow-lg overflow-hidden relative group cursor-pointer transform-3d"
+      className="premium-card overflow-hidden relative group"
       initial={{ opacity: 0, y: 60, rotateX: 20 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       transition={{ 
@@ -1554,70 +1170,15 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden section-mesh">
-      <DataScienceWatermarks />
+    <SectionShell id="projects" theme="mesh">
+      <SectionHeader
+        eyebrow="Portfolio"
+        title="Data science & engineering projects"
+        subtitle="Completed GitHub work and upcoming initiatives in causal inference, MMM, and experimentation."
+      />
       <DataScienceFloatingSymbols />
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/4 left-0 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.4, 
-            type: "spring",
-            stiffness: 80,
-            damping: 20
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <motion.h2 
-            className="text-4xl font-bold text-gray-800 mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.3, 
-              delay: 0.2,
-              type: "spring",
-              stiffness: 100
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Data Science & Engineering <span className="gradient-text">Projects</span>
-          </motion.h2>
-          <AnimatedHeadingUnderline />
-          <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.3, 
-              delay: 0.3,
-              type: "spring"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            A combination of completed GitHub projects and upcoming advanced data science initiatives 
-            focusing on causal inference, high-end data engineering, and sophisticated analytics solutions.
-          </motion.p>
-        </motion.div>
-
-        {/* GitHub Projects Section */}
+      <div>
         {repositories.length > 0 && (
           <div className="mb-16">
             <motion.h3 
@@ -1684,139 +1245,44 @@ const Projects = () => {
             {upcomingProjects.map((project, index) => (
             <motion.div
               key={project.title}
-              className="bg-white rounded-xl shadow-lg overflow-hidden relative group cursor-pointer transform-3d"
-              initial={{ opacity: 0, y: 60, rotateX: -20 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ 
-                duration: 0.4, 
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100,
-                damping: 20
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              whileHover={{ y: -10, scale: 1.03, rotateX: -5, rotateY: -2 }}
-              whileTap={{ scale: 0.98 }}
+              className="premium-card overflow-hidden p-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              viewport={{ once: true }}
             >
-              {/* Pulse animation overlay */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-orange-200/30 to-yellow-200/30 pointer-events-none"
-                animate={{
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.2,
-                }}
-              />
-              
-              {/* Shimmer effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none"
-                initial={{ x: "-100%" }}
-                animate={{ x: "200%" }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatDelay: 2,
-                  ease: "linear",
-                }}
-              />
-              <div className="p-6 relative z-10">
-                <div className="flex justify-between items-start mb-3">
-                    <h4 className="text-xl font-semibold text-gray-800">{project.title}</h4>
-                  <motion.span 
-                    className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium"
-                    animate={{
-                      boxShadow: [
-                        "0 0 0 0px rgba(234, 88, 12, 0.4)",
-                        "0 0 0 4px rgba(234, 88, 12, 0)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                    }}
-                  >
-                    {project.status}
-                  </motion.span>
-                </div>
-                <p className="text-gray-600 mb-4 leading-relaxed relative z-10">{project.description}</p>
+              <div className="flex justify-between items-start mb-3 gap-3">
+                <h4 className="text-lg font-semibold text-[#1d1d1f]">{project.title}</h4>
+                <span className="tag-pill shrink-0">{project.status}</span>
+              </div>
+              <p className="text-[#424245] mb-4 leading-relaxed text-sm">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-6 relative z-10">
-                  {project.tech.map((tech, techIndex) => (
-                    <motion.span
-                      key={tech}
-                      className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        delay: techIndex * 0.05,
-                        type: "spring",
-                        stiffness: 200,
-                        damping: 10
-                      }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {tech}
-                    </motion.span>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="tag-pill">{tech}</span>
                   ))}
                 </div>
                 
                 <motion.a
                   href={`/projects/${project.slug}`}
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold relative z-10"
-                  whileHover={{ x: 8 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center text-[#0071e3] hover:text-[#0077ed] font-medium text-sm"
+                  whileHover={{ x: 4 }}
                 >
-                  View Project
-                  <motion.svg 
-                    className="w-4 h-4 ml-2" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  >
+                  View project
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </motion.svg>
+                  </svg>
                 </motion.a>
-              </div>
             </motion.div>
           ))}
           </div>
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 };
 
 const Experience = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Optimized particles for smooth performance (4 on mobile, 12 on desktop)
-  const particleCount = isMobile ? 4 : 12;
-  const experienceParticles = useMemo(() => Array.from({ length: particleCount }, (_, i) => ({
-    id: i,
-    size: Math.random() * 4 + 2,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 4 + 3,
-    delay: Math.random() * 2,
-  })), [particleCount]);
-
   interface ExperienceItem {
     title: string;
     company: string;
@@ -1882,195 +1348,50 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 relative overflow-hidden section-mesh">
-      <NeuralNetworkBackground density={0.4} />
-      <DataScienceWatermarks />
-      {/* Animated floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {experienceParticles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20"
-            style={{
-              width: particle.size,
-              height: particle.size,
-              left: `${particle.x}%`,
-              top: `${particle.y}%`,
-              willChange: 'transform',
-              transform: 'translate3d(0,0,0)',
-            }}
-            animate={isMobile ? {
-              y: [-6, 6, -6],
-              opacity: [0.15, 0.25, 0.15],
-            } : {
-              y: [-12, 12, -12],
-              x: [-6, 6, -6],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: particle.delay,
-              type: "tween",
-            }}
-          />
-        ))}
-        <motion.div
-          className="absolute top-1/4 right-10 w-64 h-64 bg-gradient-to-br from-indigo-200/20 to-blue-200/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            type: "tween",
-          }}
-        />
-      </div>
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <motion.h2 
-            className="text-4xl font-bold text-gray-800 mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Experience
-          </motion.h2>
-          <AnimatedHeadingUnderline />
-          <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            My professional journey in data science and analytics.
-          </motion.p>
-        </motion.div>
+    <SectionShell id="experience" theme="dark">
+      <SectionHeader
+        eyebrow="Career"
+        title="Professional experience"
+        subtitle="Building production ML and analytics systems at enterprise scale."
+        light
+      />
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-6">
           {experiences.map((exp, index) => (
             <motion.div
-              key={exp.title}
-              className="bg-white rounded-xl shadow-lg p-6 mb-6 flex items-start gap-6 relative overflow-hidden group cursor-pointer"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80, y: 40 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ 
-                duration: 0.4, 
-                delay: index * 0.15,
-                type: "spring",
-                stiffness: 80,
-                damping: 20
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              whileHover={{ scale: 1.02, y: -5 }}
+              key={`${exp.company}-${exp.period}`}
+              className="premium-card-dark p-6 md:p-8 flex flex-col md:flex-row items-start gap-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
-              {/* Animated border on hover */}
-              <motion.div
-                className="absolute inset-0 border-2 border-blue-500 opacity-0 group-hover:opacity-100 rounded-xl"
-                initial={false}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-              
-              {/* Subtle gradient overlay */}
-              <motion.div
-                className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-50/50 to-purple-50/50 rounded-bl-full"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.5,
-                }}
-              />
-
-              <div className="flex-1 relative z-10">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
                   <div>
-                    <motion.h3 
-                      className="text-xl font-semibold text-gray-800"
-                      whileHover={{ x: 3 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {exp.title}
-                    </motion.h3>
-                    <motion.p 
-                      className="text-blue-600 font-medium"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {exp.company}
-                    </motion.p>
-                    {exp.location && (
-                      <motion.p 
-                        className="text-gray-500 text-sm mt-1"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {exp.location}
-                      </motion.p>
-                    )}
+                    <h3 className="text-xl font-semibold text-white">{exp.title}</h3>
+                    <p className="text-blue-300 font-medium">{exp.company}</p>
+                    {exp.location && <p className="text-gray-400 text-sm mt-1">{exp.location}</p>}
                   </div>
-                  <motion.span 
-                    className="text-gray-500 text-sm mt-1 md:mt-0"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {exp.period}
-                  </motion.span>
+                  <span className="text-gray-400 text-sm whitespace-nowrap">{exp.period}</span>
                 </div>
                 <ul className="space-y-2">
                   {exp.achievements.map((achievement, idx) => (
-                    <motion.li 
-                      key={idx} 
-                      className="text-gray-600 leading-relaxed flex items-start"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.25, delay: idx * 0.05 }}
-                      viewport={{ once: true }}
-                      whileHover={{ x: 3 }}
-                    >
-                      <motion.span 
-                        className="text-blue-600 font-bold mr-2"
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 1, repeat: Infinity, delay: idx * 0.3 }}
-                      >
-                        •
-                      </motion.span>
-                      <span dangerouslySetInnerHTML={{ __html: achievement.replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-800 font-semibold">$1</strong>') }} />
-                    </motion.li>
+                    <li key={idx} className="text-gray-300 leading-relaxed flex items-start text-sm">
+                      <span className="text-blue-400 mr-2 mt-1">•</span>
+                      <span dangerouslySetInnerHTML={{ __html: achievement.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-medium">$1</strong>') }} />
+                    </li>
                   ))}
                 </ul>
               </div>
-              <div className="flex-shrink-0 flex items-center justify-center relative z-10">
-                <motion.div 
-                  className="min-w-[130px] min-h-[130px] max-w-[150px] max-h-[150px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm overflow-hidden"
-                  whileHover={{ rotate: 5, scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
+              <div className="flex-shrink-0 mx-auto md:mx-0">
+                <div className="w-24 h-24 md:w-28 md:h-28 bg-white/10 rounded-2xl border border-white/10 flex items-center justify-center p-3">
                   <Image
                     src={exp.logo}
                     alt={`${exp.company} Logo`}
-                    width={120}
-                    height={120}
-                    className="object-contain w-auto h-auto max-w-full max-h-full"
+                    width={100}
+                    height={100}
+                    className="object-contain w-full h-full"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (exp.logoFallback && !target.src.includes(exp.logoFallback)) {
@@ -2080,13 +1401,12 @@ const Experience = () => {
                       }
                     }}
                   />
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+    </SectionShell>
   );
 };
 
@@ -2094,504 +1414,223 @@ const Blog = () => {
   const latestPost = getLatestBlogPost();
   
   return (
-    <section id="blog" className="py-20 bg-gray-50 relative overflow-hidden">
-      <DataScienceWatermarks />
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/3 left-10 w-56 h-56 bg-gradient-to-br from-purple-200/25 to-pink-200/25 rounded-full blur-3xl"
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -25, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-10 w-48 h-48 bg-gradient-to-br from-blue-200/25 to-cyan-200/25 rounded-full blur-3xl"
-          animate={{
-            x: [0, -35, 0],
-            y: [0, 20, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <motion.h2 
-            className="text-4xl font-bold text-gray-800 mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Data Science Blog
-          </motion.h2>
-          <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Insights, tutorials, and deep dives into advanced data science concepts, 
-            causal inference, and marketing analytics.
-          </motion.p>
-        </motion.div>
+    <SectionShell id="blog" theme="frost">
+      <SectionHeader
+        eyebrow="Writing"
+        title="Data science blog"
+        subtitle="Deep dives into causal inference, marketing analytics, and advanced ML."
+      />
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <motion.div
-            className="bg-white rounded-lg shadow-md p-8 text-center"
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
+            className="premium-card p-8 md:p-10"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
           >
-            <div className="mb-6">
-              <svg className="w-16 h-16 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-              </svg>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {['Causal Inference', 'Marketing Analytics', 'Econometrics', 'A/B Testing'].map((tag) => (
+                <span key={tag} className="tag-pill">{tag}</span>
+              ))}
             </div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Coming Soon: Advanced Data Science Content</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              I&apos;m currently working on comprehensive blog posts covering advanced topics in causal inference, 
-              marketing mix modeling, and sophisticated analytics techniques. Stay tuned for deep dives into 
-              the methodologies that drive real business impact.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Causal Inference</span>
-              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Marketing Analytics</span>
-              <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Econometrics</span>
-              <span className="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">A/B Testing</span>
+
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#0071e3] mb-2">Latest · {latestPost.date}</p>
+            <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-3">&ldquo;{latestPost.title}&rdquo;</h3>
+            <p className="text-[#424245] mb-6 leading-relaxed">{latestPost.excerpt}</p>
+            
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <span className="text-sm text-[#86868b]">{latestPost.readTime}</span>
+              <PremiumButton href="/blog">Read article</PremiumButton>
             </div>
-            <motion.div
-              className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl p-6 text-white shadow-2xl max-w-md mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5, scale: 1.02 }}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">Latest Deep Dive</h3>
-                    <p className="text-sm text-white/80">{latestPost.date}</p>
-                  </div>
-                </div>
-                <div className="bg-white/20 px-2 py-1 rounded-full text-xs font-semibold">
-                  NEW
-                </div>
-              </div>
-              
-              <h4 className="text-lg font-bold mb-2">&quot;{latestPost.title}&quot;</h4>
-              <p className="text-white/90 mb-4 text-sm leading-relaxed">
-                {latestPost.excerpt}
-              </p>
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3 text-xs text-white/80">
-                  <span className="flex items-center">
-                    <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    {latestPost.readTime}
-                  </span>
-                </div>
-                <motion.a
-                  href="/blog"
-                  className="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-sm"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Read Deep Dive
-                </motion.a>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
-      </div>
-    </section>
+    </SectionShell>
   );
 };
 
 const Education = () => (
-  <section id="education" className="relative overflow-hidden bg-[#f5f5f7]">
-    <MastersSpotlight />
-    <div className="py-20 relative">
-      <PremiumSectionBackdrop variant="light" />
-      <DataScienceWatermarks />
-    <div className="container mx-auto px-6 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        viewport={{ once: false, margin: "-100px" }}
-        className="text-center mb-16"
-      >
-        <motion.h2 
-          className="premium-display text-[#1d1d1f] mb-4"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          Certifications &amp; Credentials
-        </motion.h2>
-        <AnimatedHeadingUnderline />
-        <motion.p 
-          className="premium-subdisplay text-[#86868b] max-w-2xl mx-auto mt-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          Professional certifications that complement my Master&apos;s degree and data science practice.
-        </motion.p>
-      </motion.div>
+  <SectionShell id="education" theme="light">
+      <SectionHeader
+        eyebrow="Education"
+        title="Degrees & certifications"
+        subtitle="Academic foundation and professional credentials in data science and cloud."
+      />
 
-      <div className="max-w-4xl mx-auto">
-        {/* Bachelor's Degree */}
-        <div className="grid grid-cols-1 gap-8 mb-12">
-          <motion.div
-            className="premium-card p-8 flex items-start gap-6"
-            initial={{ opacity: 0, y: 40, x: 40 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            transition={{ duration: 0.35, delay: 0.15, ease: 'easeOut' }}
-            viewport={{ once: true, margin: '-50px' }}
-            whileHover={{ y: -4 }}
-          >
-            <div className="flex-1">
-              <span className="inline-block px-2 py-0.5 text-xs font-medium text-gray-500 bg-gray-100 rounded mb-2">Bachelor&apos;s Degree</span>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Mechanical Engineering</h3>
-              <p className="text-blue-600 font-medium mb-2">Avanthi Institute of Engineering & Technology</p>
-              <p className="text-gray-500 text-sm mb-2">Jun 2019 - Jul 2022 · Grade: A</p>
-              <p className="text-gray-600">Strong foundation in critical thinking and analytical problem-solving methodologies.</p>
+      <div className="max-w-4xl mx-auto space-y-6">
+        {/* Master's — clean featured card, no spotlight banner */}
+        <motion.div
+          className="edu-masters-card rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-start gap-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex-1">
+            <span className="tag-pill mb-4">Master&apos;s Degree</span>
+            <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-2">M.S. Information Technology</h3>
+            <p className="text-[#0071e3] font-medium mb-1">Clark University · Worcester, MA</p>
+            <p className="text-[#86868b] text-sm mb-4">Jan 2023 – May 2024 · GPA 3.6</p>
+            <p className="text-[#424245] mb-5 leading-relaxed">
+              Graduate coursework in data science, machine learning, cloud computing, business intelligence, database systems, and enterprise architecture.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Data Science', 'Machine Learning', 'Cloud Computing', 'Business Intelligence'].map((tag) => (
+                <span key={tag} className="tag-pill">{tag}</span>
+              ))}
             </div>
-            <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="min-w-[100px] min-h-[100px] max-w-[110px] max-h-[110px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
-                <Image
-                  src="/logos/jntuk-logo.png"
-                  alt="Avanthi Institute Logo"
-                  width={100}
-                  height={100}
-                  className="object-contain w-auto h-auto max-w-full max-h-full"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = 'https://via.placeholder.com/150?text=Avanthi+Institute';
-                  }}
-                />
-              </div>
+          </div>
+          <div className="flex-shrink-0 mx-auto md:mx-0">
+            <div className="w-32 h-32 md:w-36 md:h-36 bg-white rounded-2xl border border-blue-100 flex items-center justify-center p-4 shadow-sm">
+              <Image
+                src="/logos/clark-university-logo.png"
+                alt="Clark University"
+                width={120}
+                height={120}
+                className="object-contain w-full h-full"
+                onError={(e) => {
+                  const t = e.target as HTMLImageElement;
+                  t.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Clark_University_seal.svg/200px-Clark_University_seal.svg.png';
+                }}
+              />
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="premium-card p-8 flex flex-col md:flex-row items-start gap-6"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex-1">
+            <span className="tag-pill mb-3">Bachelor&apos;s Degree</span>
+            <h3 className="text-xl font-semibold text-[#1d1d1f] mb-2">Mechanical Engineering</h3>
+            <p className="text-[#0071e3] font-medium mb-1">Avanthi Institute of Engineering & Technology</p>
+            <p className="text-[#86868b] text-sm mb-2">Jun 2019 – Jul 2022 · Grade: A</p>
+            <p className="text-[#424245]">Strong foundation in critical thinking and analytical problem-solving.</p>
+          </div>
+          <div className="flex-shrink-0 mx-auto md:mx-0">
+            <div className="w-24 h-24 bg-white rounded-xl border border-gray-100 flex items-center justify-center p-3">
+              <Image
+                src="/logos/jntuk-logo.png"
+                alt="Avanthi Institute"
+                width={80}
+                height={80}
+                className="object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/150?text=Avanthi';
+                }}
+              />
+            </div>
+          </div>
+        </motion.div>
 
         <motion.div
           className="premium-card p-8"
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.35, delay: 0.4, ease: "easeOut" }}
-          viewport={{ once: false, margin: "-50px" }}
-          whileHover={{ y: -5, scale: 1.02 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          viewport={{ once: true }}
         >
-          <motion.h3 
-            className="text-xl font-semibold text-gray-800 mb-4"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.25 }}
-            viewport={{ once: false }}
-          >
-            Professional Certifications
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <motion.a
+          <h3 className="text-xl font-semibold text-[#1d1d1f] mb-6">Professional certifications</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a
               href="https://linkedin.com/in/pericharla2k1/details/certifications/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-300 relative overflow-hidden group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, y: -3 }}
+              className="premium-card p-5 text-center hover:no-underline block"
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-200/50 to-purple-200/50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <div className="flex items-center justify-center mb-2 relative z-10">
-                <svg className="w-6 h-6 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                <h4 className="font-semibold text-gray-800">View All Certifications</h4>
-              </div>
-              <p className="text-sm text-gray-600 relative z-10">Click to view my LinkedIn certifications</p>
-            </motion.a>
-            <motion.a
+              <h4 className="font-semibold text-[#1d1d1f] mb-1">View all certifications</h4>
+              <p className="text-sm text-[#86868b]">LinkedIn profile</p>
+            </a>
+            <a
               href="https://www.datacamp.com/certificate/DSA0016288556604"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer block"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, y: -3 }}
+              className="premium-card p-5 text-center hover:no-underline block"
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-emerald-200/50 to-teal-200/50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <div className="flex items-center justify-center mb-2 relative z-10">
-                <Image
-                  src="/logos/datacamp-logo.png"
-                  alt="DataCamp Logo"
-                  width={120}
-                  height={48}
-                  className="object-contain h-12 w-auto"
-                />
+              <Image src="/logos/datacamp-logo.png" alt="DataCamp" width={100} height={40} className="object-contain h-10 w-auto mx-auto mb-2" />
+              <h4 className="font-semibold text-[#1d1d1f] mb-1">Data Scientist Associate</h4>
+              <p className="text-sm text-[#86868b]">DataCamp · Jul 2026</p>
+            </a>
+            {[
+              { name: 'AWS Certified ML – Specialty', org: 'Amazon Web Services' },
+              { name: 'Google Professional ML Engineer', org: 'Google Cloud' },
+              { name: 'Databricks Certified ML Professional', org: 'Databricks' },
+              { name: 'Certified Analytics Professional', org: 'INFORMS' },
+            ].map((cert) => (
+              <div key={cert.name} className="premium-card p-5 text-center">
+                <h4 className="font-semibold text-[#1d1d1f] mb-1 text-sm">{cert.name}</h4>
+                <p className="text-sm text-[#86868b]">{cert.org}</p>
               </div>
-              <h4 className="font-semibold text-gray-800 relative z-10">Data Scientist Associate</h4>
-              <p className="text-sm text-gray-600 relative z-10">DataCamp · Jul 2026 · Verified Certificate</p>
-            </motion.a>
-            <motion.div 
-              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.25 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, y: -3 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-orange-200/50 to-yellow-200/50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <h4 className="font-semibold text-gray-800 relative z-10">AWS Certified Machine Learning - Specialty</h4>
-              <p className="text-sm text-gray-600 relative z-10">Amazon Web Services</p>
-            </motion.div>
-            <motion.div 
-              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.3 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, y: -3 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-green-200/50 to-teal-200/50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <h4 className="font-semibold text-gray-800 relative z-10">Google Professional Machine Learning Engineer</h4>
-              <p className="text-sm text-gray-600 relative z-10">Google Cloud</p>
-            </motion.div>
-            <motion.div 
-              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.4 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, y: -3 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-pink-200/50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <h4 className="font-semibold text-gray-800 relative z-10">Databricks Certified Machine Learning Professional</h4>
-              <p className="text-sm text-gray-600 relative z-10">Databricks</p>
-            </motion.div>
-            <motion.div 
-              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.5 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, y: -3 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-indigo-200/50 to-blue-200/50 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <h4 className="font-semibold text-gray-800 relative z-10">Certified Analytics Professional (CAP)</h4>
-              <p className="text-sm text-gray-600 relative z-10">INFORMS</p>
-            </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
-    </div>
-    </div>
-  </section>
+  </SectionShell>
 );
 
 
 const Contact = () => (
-  <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-br from-white to-blue-50/30">
-    <DataScienceWatermarks />
-    {/* Animated background elements */}
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-purple-300/20 rounded-full blur-3xl"
-        animate={{
-          x: [0, 60, 0],
-          y: [0, -40, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+  <SectionShell id="contact" theme="ink">
+      <SectionHeader
+        eyebrow="Contact"
+        title="Get in touch"
+        subtitle="Open to new opportunities and collaborations on complex data challenges."
+        light
       />
-      <motion.div
-        className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-gradient-to-br from-pink-300/20 to-orange-300/20 rounded-full blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, 30, 0],
-          scale: [1, 0.85, 1],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-    </div>
-    <div className="container mx-auto px-6 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        viewport={{ once: false, margin: "-100px" }}
-        className="text-center max-w-2xl mx-auto"
-      >
-        <motion.h2 
-          className="text-4xl font-bold text-gray-800 mb-4"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          Get In Touch
-        </motion.h2>
-        <motion.p 
-          className="text-lg text-gray-600 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          I&apos;m always interested in new opportunities and collaborations. 
-          Let&apos;s discuss how we can work together to solve complex data challenges and drive business growth.
-        </motion.p>
-        
-        {/* Contact Information in Smaller Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
+
+      <div className="max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
           <motion.div
-            className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 text-white shadow-lg"
-            initial={{ opacity: 0, x: -60, y: 40 }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
-            whileHover={{ y: -5, scale: 1.03, rotate: 1 }}
+            className="premium-card-dark p-8 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Email</h3>
-              <p className="text-sm mb-3">raju.perich@gmail.com</p>
-          <motion.a
-            href="mailto:raju.perich@gmail.com"
-                className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 inline-block text-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Send Email
-          </motion.a>
+            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-5 h-5 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
             </div>
+            <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
+            <p className="text-gray-400 text-sm mb-4">raju.perich@gmail.com</p>
+            <PremiumButton href="mailto:raju.perich@gmail.com">Send email</PremiumButton>
           </motion.div>
 
           <motion.div
-            className="bg-gradient-to-br from-green-600 to-teal-600 rounded-xl p-6 text-white shadow-lg"
-            initial={{ opacity: 0, x: 60, y: 40 }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.15, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
-            whileHover={{ y: -5, scale: 1.03, rotate: -1 }}
+            className="premium-card-dark p-8 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            viewport={{ once: true }}
           >
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Phone</h3>
-              <p className="text-sm mb-3">408-664-0364</p>
-              <motion.a
-                href="tel:+14086640364"
-                className="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 inline-block text-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Call Now
-              </motion.a>
+            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
             </div>
+            <h3 className="text-lg font-semibold text-white mb-2">Phone</h3>
+            <p className="text-gray-400 text-sm mb-4">408-664-0364</p>
+            <PremiumButton href="tel:+14086640364" variant="secondary" light>Call now</PremiumButton>
           </motion.div>
         </div>
 
-        {/* Additional Links */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <motion.a
-            href="https://linkedin.com/in/pericharla2k1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Connect on LinkedIn
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com/in/pericharla2k1/details/certifications/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View Certifications
-          </motion.a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <PremiumButton href="https://linkedin.com/in/pericharla2k1" variant="secondary" light>LinkedIn</PremiumButton>
+          <PremiumButton href="https://linkedin.com/in/pericharla2k1/details/certifications/" variant="secondary" light>Certifications</PremiumButton>
         </div>
-      </motion.div>
-    </div>
-  </section>
+      </div>
+  </SectionShell>
 );
 
 const Footer = () => (
-  <footer className="bg-gray-100 text-gray-800 py-8">
-    <div className="container mx-auto px-6 text-center">
-      <div className="flex justify-center space-x-6 mb-4">
+  <footer className="bg-[#f5f5f7] border-t border-black/5 py-10">
+    <div className="container mx-auto px-6 max-w-6xl text-center">
+      <div className="flex justify-center gap-6 mb-4">
         <motion.a
           href="https://github.com/Plpraju2001"
           target="_blank"
@@ -2615,7 +1654,7 @@ const Footer = () => (
           </svg>
         </motion.a>
       </div>
-      <p className="text-gray-400">&copy; 2025 Lakshmipathiraju Pericharla. All rights reserved.</p>
+      <p className="text-[#86868b] text-sm">&copy; 2026 Lakshmipathiraju Pericharla</p>
     </div>
       </footer>
 );
@@ -2626,8 +1665,8 @@ const FixedProfilePicture = () => {
   const profileImage = '/profile_picture.jpg'; // Profile picture
 
   return (
-    <div className="hidden md:block fixed top-20 right-4 sm:right-6 z-50">
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-2xl border border-gray-200/50">
+    <div className="hidden md:block fixed top-20 right-6 z-50">
+      <div className="surface-glass rounded-2xl p-4 shadow-lg">
         {!imageError ? (
           <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 overflow-hidden profile-ring-glow">
             <img
@@ -2682,7 +1721,7 @@ export default function Home() {
               letter-spacing: -0.02em;
             }
             .gradient-text {
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              background: linear-gradient(135deg, #4285f4 0%, #6366f1 50%, #8b5cf6 100%);
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -2691,21 +1730,14 @@ export default function Home() {
       <div className="min-h-screen bg-[#fafafa]">
       <ScrollProgressBar />
       <Header />
-        <FixedProfilePicture />
+      <FixedProfilePicture />
       <Hero />
-      <DataStreamDivider />
       <About />
-      <DataStreamDivider variant="dark" />
       <PersonalInterests />
-      <DataStreamDivider />
       <Projects />
-      <DataStreamDivider variant="dark" />
       <Experience />
-      <DataStreamDivider />
       <Blog />
-      <DataStreamDivider variant="dark" />
       <Education />
-      <DataStreamDivider />
       <Contact />
       <Footer />
     </div>

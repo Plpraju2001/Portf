@@ -30,23 +30,80 @@ body {
 }
 
 /* ─── Premium design system (Apple / Google Cloud inspired) ─── */
+:root {
+  --surface: #ffffff;
+  --surface-muted: #f5f5f7;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent: #0071e3;
+  --accent-gcp: #4285f4;
+  --dark-bg: #0f172a;
+  --dark-surface: rgba(255, 255, 255, 0.04);
+}
+
+.premium-grid {
+  background-image:
+    linear-gradient(rgba(66, 133, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(66, 133, 244, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.premium-grid-light {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.theme-hero {
+  background: #fafafa;
+}
+
+.theme-hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(66, 133, 244, 0.08), transparent),
+    linear-gradient(180deg, #fafafa 0%, #f5f5f7 50%, #ffffff 100%);
+}
+
+.theme-light {
+  background: #ffffff;
+}
+
+.theme-frost {
+  background: #f5f5f7;
+}
+
+.theme-dark {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.theme-dark-gradient {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(66, 133, 244, 0.18), transparent),
+    linear-gradient(180deg, #0f172a 0%, #111827 50%, #0f172a 100%);
+}
+
+.theme-mesh {
+  background: #f8fafc;
+}
+
+.theme-mesh-gradient {
+  background:
+    radial-gradient(at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.theme-ink {
+  background: #0a0f1a;
+  color: #f8fafc;
+}
+
 .premium-dot-grid {
   background-image: radial-gradient(circle, rgba(66, 133, 244, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
-}
-
-.premium-hero-gradient {
-  background: linear-gradient(180deg, #fafafa 0%, #f5f5f7 40%, #ffffff 100%);
-}
-
-.premium-orb-blue {
-  background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, transparent 70%);
-  filter: blur(80px);
-}
-
-.premium-orb-purple {
-  background: radial-gradient(circle, rgba(142, 68, 173, 0.1) 0%, transparent 70%);
-  filter: blur(80px);
 }
 
 .premium-eyebrow {
@@ -130,49 +187,84 @@ body {
   background: rgba(0, 113, 227, 0.06);
 }
 
-/* Master's spotlight — Apple product-page dark section */
-.masters-spotlight {
-  background: linear-gradient(180deg, #0a0a0f 0%, #111827 50%, #0f172a 100%);
+.premium-btn-secondary-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: white;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 980px;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.masters-spotlight-shimmer {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(66, 133, 244, 0.25), transparent);
-}
-
-.masters-spotlight-card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05) inset,
-    0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.masters-logo-stage {
-  position: relative;
-}
-
-.masters-logo-stage::before {
-  content: '';
-  position: absolute;
-  inset: -20%;
-  background: radial-gradient(circle, rgba(66, 133, 244, 0.2) 0%, transparent 70%);
-  filter: blur(40px);
-  z-index: -1;
+.premium-btn-secondary-light:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .premium-card {
-  background: #ffffff;
-  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.06);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
 }
 
 .premium-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 24px 60px rgba(0, 0, 0, 0.1);
+}
+
+.premium-card-dark {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s ease;
+}
+
+.premium-card-dark:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.surface-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 980px;
+  background: rgba(66, 133, 244, 0.08);
+  color: #1d4ed8;
+  border: 1px solid rgba(66, 133, 244, 0.12);
+}
+
+.tag-pill-dark {
+  background: rgba(255, 255, 255, 0.06);
+  color: #93c5fd;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.edu-masters-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 50%, #f5f3ff 100%);
+  border: 1px solid rgba(66, 133, 244, 0.12);
+  box-shadow: 0 4px 24px rgba(66, 133, 244, 0.08), 0 16px 48px rgba(99, 102, 241, 0.06);
 }
 
 .gradient-text {
