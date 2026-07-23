@@ -2021,8 +2021,8 @@ const Experience = () => {
       company: 'Scale AI',
       period: 'Jun 2024 - May 2026',
       location: 'San Francisco, CA',
-      logo: '/logos/scale-ai-logo.svg',
-      logoFallback: 'https://logo.clearbit.com/scale.com',
+      logo: '/logos/scale-ai-logo.png',
+      logoFallback: '/logos/scale-ai-logo.png',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U2NhbGUgQUk8L3RleHQ+PC9zdmc+',
       achievements: [
         'Managed the entire Machine Learning lifecycle, from data collection to deployment and monitoring, utilizing Python and SQL to enhance model performance',
