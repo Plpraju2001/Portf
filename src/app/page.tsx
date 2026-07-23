@@ -7,15 +7,18 @@ import { getLatestBlogPost } from './blog/blogData';
 import {
   ScrollProgressBar,
   NeuralNetworkBackground,
-  AuroraBackground,
   DataStreamDivider,
   HeroStatPills,
   MLPipelineGraphic,
   AnimatedHeadingUnderline,
   DataScienceFloatingSymbols,
-  DataStackMarquee,
-  LiveChartWidget,
 } from './components/AdvancedVisuals';
+import {
+  PremiumHeroBackground,
+  MastersSpotlight,
+  PremiumButton,
+  PremiumSectionBackdrop,
+} from './components/PremiumLayout';
 
 // Professional Data Science Visualization Components - Large, Visible, Immediate
 const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
@@ -652,8 +655,8 @@ const Header = () => {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'premium-glass-nav shadow-sm' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -761,107 +764,19 @@ const Header = () => {
 
 const Hero = () => {
   const [letters, setLetters] = useState<string[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setLetters('Raju'.split(''));
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  // Optimized particles for smooth performance (8 on mobile, 20 on desktop)
-  const particleCount = isMobile ? 8 : 20;
-  const particles = useMemo(() => Array.from({ length: particleCount }, (_, i) => ({
-    id: i,
-    size: Math.random() * 3 + 2,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 4 + 3,
-    delay: Math.random() * 3,
-  })), [particleCount]);
 
   const [imageError, setImageError] = useState(false);
   const profileImage = '/profile_picture.jpg';
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-32 sm:pt-36 md:pt-0 section-mesh">
-      <AuroraBackground />
-      <NeuralNetworkBackground density={0.85} />
-      <DataScienceFloatingSymbols />
-      {/* Data Science Watermarks */}
-      <DataScienceWatermarks />
-      {/* Elegant floating particles - Optimized for mobile */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}>
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute rounded-full bg-gradient-to-br from-blue-400/30 to-purple-400/30"
-            style={{
-              width: particle.size,
-              height: particle.size,
-              left: `${particle.x}%`,
-              top: `${particle.y}%`,
-              willChange: 'transform',
-              transform: 'translate3d(0,0,0)',
-            }}
-            animate={isMobile ? {
-              y: [-8, 8, -8],
-              opacity: [0.2, 0.35, 0.2],
-            } : {
-              y: [-15, 15, -15],
-              x: [-8, 8, -8],
-              scale: [1, 1.15, 1],
-              opacity: [0.25, 0.5, 0.25],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: particle.delay,
-              type: "tween",
-            }}
-          />
-        ))}
-      </div>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#fafafa] pt-32 sm:pt-36 md:pt-0">
+      <PremiumHeroBackground />
 
-      {/* Elegant floating background elements - Reduced blur on mobile */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}>
-        <motion.div
-          className={`absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-full ${isMobile ? 'blur-xl' : 'blur-3xl'}`}
-          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
-          animate={isMobile ? {} : {
-            x: [0, 200, -100, 0],
-            y: [0, -100, 50, 0],
-            scale: [1, 1.2, 0.8, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className={`absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-400/20 rounded-full ${isMobile ? 'blur-xl' : 'blur-3xl'}`}
-          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
-          animate={isMobile ? {} : {
-            x: [0, -150, 100, 0],
-            y: [0, 100, -50, 0],
-            scale: [1, 0.9, 1.3, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            type: "tween",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-6 text-center relative z-10 py-8 sm:py-0">
+      <div className="container mx-auto px-6 text-center relative z-10 py-12 sm:py-16 md:py-24 max-w-5xl">
         {/* Profile Picture - Centered above text on mobile, hidden on larger screens (shown in FixedProfilePicture) */}
         <motion.div
           className="flex justify-center mb-6 md:hidden"
@@ -908,8 +823,11 @@ const Hero = () => {
             damping: 20
           }}
         >
+          <motion.p className="premium-eyebrow mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>
+            Data Scientist · Healthcare Analytics · ML Production
+          </motion.p>
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 tracking-tight"
+            className="premium-hero-title mb-6"
             style={{ display: "inline-block" }}
           >
             Hello, I&apos;m{' '}
@@ -918,30 +836,14 @@ const Hero = () => {
                 <motion.span
                   key={index}
                   className="gradient-text"
-                  initial={{ opacity: 0, y: -100, rotate: -180, scale: 0 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    rotate: 0,
-                    scale: 1
-                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.3,
-                    delay: index * 0.08,
-                    type: "spring",
-                    stiffness: 150,
-                    damping: 20
+                    duration: 0.5,
+                    delay: 0.2 + index * 0.06,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
-                  whileHover={{
-                    scale: 1.2,
-                    rotate: [0, 8, -8, 0],
-                    y: [0, -10, 0],
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                  style={{ 
-                    display: "inline-block",
-                    marginLeft: "0.05em"
-                  }}
+                  style={{ display: "inline-block", marginLeft: "0.05em" }}
                 >
                   {letter === ' ' ? '\u00A0' : letter}
                 </motion.span>
@@ -949,7 +851,7 @@ const Hero = () => {
             </span>
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed"
+            className="premium-hero-subtitle mb-6 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -963,118 +865,24 @@ const Hero = () => {
             Data Scientist | Machine Learning | ML Lifecycle Management
           </motion.p>
           <motion.p 
-            className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-12"
+            className="text-base md:text-lg text-[#86868b] max-w-2xl mx-auto mb-10 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.4, 
-              delay: 0.4,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
+            transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            Data Scientist with 5 years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. Proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
+            Five years building production ML systems — from model training to deployment at scale.
+            Currently at GDIT, designing healthcare analytics with Python, SQL, Snowflake &amp; Databricks.
           </motion.p>
           <HeroStatPills />
           <MLPipelineGraphic />
-          <DataStackMarquee />
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ 
-              duration: 1, 
-              delay: 0.8,
-              type: "spring",
-              stiffness: 80,
-              damping: 20
-            }}
+            className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap mt-10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.a
-              href="#projects"
-              className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg"
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 10px 40px rgba(59, 130, 246, 0.6), 0 0 0 0 rgba(59, 130, 246, 0.4)",
-                  "0 20px 60px rgba(59, 130, 246, 0.8), 0 0 0 4px rgba(59, 130, 246, 0)",
-                ],
-              }}
-              transition={{
-                boxShadow: {
-                  duration: 1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-            >
-              <span className="relative z-10">View My Work</span>
-              {/* Animated gradient wave */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.4 }}
-              />
-              {/* Shimmer effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-                animate={{
-                  x: ["-200%", "200%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="relative border-2 border-blue-600 text-blue-600 px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg bg-white"
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 10px 40px rgba(59, 130, 246, 0.3), 0 0 0 0 rgba(59, 130, 246, 0.4)",
-                  "0 20px 60px rgba(59, 130, 246, 0.5), 0 0 0 4px rgba(59, 130, 246, 0)",
-                ],
-              }}
-              transition={{
-                boxShadow: {
-                  duration: 1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-            >
-              <motion.span 
-                className="relative z-10"
-                initial={{ color: "#2563eb" }}
-                whileHover={{ color: "white" }}
-              >
-                Get In Touch
-              </motion.span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-              {/* Glowing border */}
-              <motion.div
-                className="absolute inset-0 border-2 border-blue-500 rounded-2xl"
-                animate={{
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.a>
+            <PremiumButton href="#projects">View My Work</PremiumButton>
+            <PremiumButton href="#contact" variant="secondary">Get In Touch</PremiumButton>
           </motion.div>
         </motion.div>
       </div>
@@ -1085,9 +893,9 @@ const Hero = () => {
 const About = () => {
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden section-mesh">
+    <section id="about" className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <PremiumSectionBackdrop variant="light" />
       <DataScienceWatermarks />
-      <DataScienceFloatingSymbols />
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -2428,39 +2236,11 @@ const Blog = () => {
 };
 
 const Education = () => (
-  <section id="education" className="py-20 bg-gray-50 relative overflow-hidden section-mesh">
-    <DataScienceWatermarks />
-    <DataScienceFloatingSymbols />
-    <NeuralNetworkBackground density={0.35} />
-    {/* Animated background elements */}
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <motion.div
-        className="absolute top-1/3 right-0 w-72 h-72 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, 30, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 left-0 w-64 h-64 bg-gradient-to-br from-green-200/20 to-teal-200/20 rounded-full blur-3xl"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -20, 0],
-          scale: [1, 0.9, 1],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-    </div>
+  <section id="education" className="relative overflow-hidden bg-[#f5f5f7]">
+    <MastersSpotlight />
+    <div className="py-20 relative">
+      <PremiumSectionBackdrop variant="light" />
+      <DataScienceWatermarks />
     <div className="container mx-auto px-6 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -2470,91 +2250,31 @@ const Education = () => (
         className="text-center mb-16"
       >
         <motion.h2 
-          className="text-4xl font-bold text-gray-800 mb-4"
+          className="premium-display text-[#1d1d1f] mb-4"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          Education & Certifications
+          Certifications &amp; Credentials
         </motion.h2>
         <AnimatedHeadingUnderline />
         <motion.p 
-          className="text-lg text-gray-600 max-w-2xl mx-auto"
+          className="premium-subdisplay text-[#86868b] max-w-2xl mx-auto mt-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          My academic background and professional certifications that drive my expertise.
+          Professional certifications that complement my Master&apos;s degree and data science practice.
         </motion.p>
       </motion.div>
 
       <div className="max-w-4xl mx-auto">
-        {/* Featured Master's Degree — Highest Degree */}
-        <motion.div
-          className="relative mb-10"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          viewport={{ once: true, margin: '-50px' }}
-        >
-          <div className="absolute -inset-[2px] rounded-2xl masters-glow-border opacity-80" />
-          <div className="relative masters-featured-card rounded-2xl p-8 md:p-10 overflow-hidden">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-200/30 to-purple-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" aria-hidden />
-            <LiveChartWidget className="absolute top-4 right-4 hidden lg:block opacity-90" />
-            <div className="flex flex-col md:flex-row items-start gap-6 relative z-10">
-              <div className="flex-shrink-0">
-                <div className="w-[140px] h-[140px] bg-white rounded-xl border-2 border-indigo-100 flex items-center justify-center p-4 shadow-lg ring-4 ring-indigo-50">
-                  <Image
-                    src="/logos/clark-university-logo.png"
-                    alt="Clark University Logo"
-                    width={120}
-                    height={120}
-                    className="object-contain w-auto h-auto max-w-full max-h-full"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Clark_University_seal.svg/200px-Clark_University_seal.svg.png';
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="flex-1">
-                <motion.span
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-md"
-                  animate={{ boxShadow: ['0 4px 15px rgba(59,130,246,0.4)', '0 4px 25px rgba(99,102,241,0.6)', '0 4px 15px rgba(59,130,246,0.4)'] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                  </svg>
-                  Highest Degree · Master&apos;s
-                </motion.span>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                  Master&apos;s Degree, Information Technology
-                </h3>
-                <p className="text-indigo-600 font-semibold text-lg mb-2">Clark University</p>
-                <p className="text-gray-500 text-sm mb-4">Jan 2023 – May 2024 · GPA: 3.6</p>
-                <p className="text-gray-600 leading-relaxed mb-5">
-                  Advanced graduate studies in data science, machine learning, cloud computing, database systems, and information systems management — with specialized coursework in data analytics, business intelligence, and enterprise architecture.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Data Science', 'Machine Learning', 'Cloud Computing', 'Business Intelligence', 'Database Systems'].map((tag) => (
-                    <span key={tag} className="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-700 border border-indigo-200">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Bachelor's Degree */}
         <div className="grid grid-cols-1 gap-8 mb-12">
           <motion.div
-            className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4 border border-gray-100"
+            className="premium-card p-8 flex items-start gap-6"
             initial={{ opacity: 0, y: 40, x: 40 }}
             whileInView={{ opacity: 1, y: 0, x: 0 }}
             transition={{ duration: 0.35, delay: 0.15, ease: 'easeOut' }}
@@ -2587,7 +2307,7 @@ const Education = () => (
         </div>
 
         <motion.div
-          className="bg-white rounded-lg shadow-md p-6"
+          className="premium-card p-8"
           initial={{ opacity: 0, y: 60, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.35, delay: 0.4, ease: "easeOut" }}
@@ -2717,6 +2437,7 @@ const Education = () => (
           </div>
         </motion.div>
       </div>
+    </div>
     </div>
   </section>
 );
@@ -2967,7 +2688,7 @@ export default function Home() {
               background-clip: text;
             }
           `}</style>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-[#fafafa]">
       <ScrollProgressBar />
       <Header />
         <FixedProfilePicture />

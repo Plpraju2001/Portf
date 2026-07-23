@@ -20,13 +20,173 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #1d1d1f;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* ─── Premium design system (Apple / Google Cloud inspired) ─── */
+.premium-dot-grid {
+  background-image: radial-gradient(circle, rgba(66, 133, 244, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.premium-hero-gradient {
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f7 40%, #ffffff 100%);
+}
+
+.premium-orb-blue {
+  background: radial-gradient(circle, rgba(66, 133, 244, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.premium-orb-purple {
+  background: radial-gradient(circle, rgba(142, 68, 173, 0.1) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.premium-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4285f4;
+}
+
+.premium-display {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.premium-subdisplay {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.premium-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #1d1d1f;
+}
+
+.premium-hero-subtitle {
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: #6e6e73;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.premium-glass-nav {
+  background: rgba(251, 251, 253, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.premium-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: white;
+  background: #0071e3;
+  border-radius: 980px;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.25);
+}
+
+.premium-btn-primary:hover {
+  background: #0077ed;
+}
+
+.premium-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: #0071e3;
+  background: transparent;
+  border: 1px solid #0071e3;
+  border-radius: 980px;
+  transition: background 0.3s ease;
+}
+
+.premium-btn-secondary:hover {
+  background: rgba(0, 113, 227, 0.06);
+}
+
+/* Master's spotlight — Apple product-page dark section */
+.masters-spotlight {
+  background: linear-gradient(180deg, #0a0a0f 0%, #111827 50%, #0f172a 100%);
+}
+
+.masters-spotlight-shimmer {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(66, 133, 244, 0.25), transparent);
+}
+
+.masters-spotlight-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.masters-logo-stage {
+  position: relative;
+}
+
+.masters-logo-stage::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle, rgba(66, 133, 244, 0.2) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+.premium-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4285f4 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.gradient-text:hover {
+  animation: gradientShift 2s ease infinite;
+  background-size: 200% 200%;
 }
 
 /* Custom scrollbar */
@@ -293,20 +453,7 @@ section {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  display: inline-block;
-}
-
-.gradient-text:hover {
-  animation: gradientShift 2s ease infinite;
-  background-size: 200% 200%;
-}
+/* Gradient text — premium palette (defined above) */
 
 /* Stagger animation helper */
 .stagger-1 { animation-delay: 0.1s; }
