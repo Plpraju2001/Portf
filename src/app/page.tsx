@@ -1154,7 +1154,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Currently at Scale AI, I manage the entire Machine Learning lifecycle, utilizing Python and SQL to enhance model performance. I collaborate with cross-functional teams to productionize ML models and have developed advanced ML algorithms resulting in a 30% increase in model accuracy.
+            Currently at General Dynamics Information Technology, I design and deploy scalable, end-to-end healthcare analytics solutions using Python, SQL, Snowflake, and Databricks. I develop interactive business intelligence dashboards and statistical models to support executive decision-making and enterprise cloud modernization initiatives.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -1169,7 +1169,22 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Previously at American Express, I engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%.
+            Previously at Scale AI, I managed the entire Machine Learning lifecycle, utilizing Python and SQL to enhance model performance. I collaborated with cross-functional teams to productionize ML models and developed advanced ML algorithms resulting in a 30% increase in model accuracy.
+          </motion.p>
+          <motion.p 
+            className="text-lg text-gray-600 mb-8 leading-relaxed"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: 0.55,
+              type: "spring",
+              stiffness: 80,
+              damping: 20
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            Earlier at American Express, I engineered and deployed machine learning models for fraud detection, utilizing Logistic Regression and Deep Learning techniques to enhance transaction security and reduce false positives by 25%.
           </motion.p>
           <motion.p 
             className="text-lg text-gray-600 mb-12 leading-relaxed"
@@ -1184,7 +1199,7 @@ const About = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            My strength lies in building scalable ML solutions using modern technologies like PyTorch, TensorFlow, Docker, Kubernetes, and cloud platforms. I am experienced in deploying ML models at scale using AWS, SageMaker, and Databricks.
+            My strength lies in building scalable ML and analytics solutions using modern technologies like PyTorch, TensorFlow, Snowflake, Docker, Kubernetes, and cloud platforms. I am experienced in deploying ML models at scale using AWS, SageMaker, and Databricks.
           </motion.p>
           
           <motion.div 
@@ -1984,11 +1999,29 @@ const Experience = () => {
 
   const experiences: ExperienceItem[] = [
     {
+      title: 'Data Scientist',
+      company: 'General Dynamics Information Technology',
+      period: 'May 2026 - Present',
+      location: 'Massachusetts, United States · Remote',
+      logo: '/logos/gdit-logo.svg',
+      logoFallback: 'https://logo.clearbit.com/gdit.com',
+      achievements: [
+        'Designed and deployed scalable, end-to-end healthcare analytics solutions leveraging Python, SQL, Snowflake, and Databricks to drive significant operational efficiency and cost optimization',
+        'Executed comprehensive analyses of multi-million record datasets to derive actionable business insights, identify critical anomalies, and elevate organizational data quality standards',
+        'Architected high-performance analytical workflows and optimized complex SQL queries to ensure robust performance within large-scale, high-concurrency cloud environments',
+        'Spearheaded data-driven strategic initiatives by developing interactive business intelligence dashboards and sophisticated statistical models to support executive-level decision-making',
+        'Collaborated with cross-functional teams to deliver enterprise-grade analytical solutions, adhering to modern data engineering best practices and cloud-native development standards',
+        'Integrated advanced AI-powered automation tools into data pipelines to accelerate insight generation cycles and enhance overall organizational productivity',
+        'Provided key technical leadership in enterprise cloud modernization initiatives, focusing on the migration, architectural design, and performance optimization of high-scale data platforms',
+        'Resolved complex business challenges by applying rigorous data validation, comprehensive root cause analysis, and advanced exploratory data modeling techniques to ensure reliable and scalable outcomes'
+      ]
+    },
+    {
       title: 'Senior Data Scientist',
       company: 'Scale AI',
-      period: 'Jun 2023 - Present',
+      period: 'Jun 2024 - May 2026',
       location: 'San Francisco, CA',
-      logo: '/logos/scale-ai-logo.png',
+      logo: '/logos/scale-ai-logo.svg',
       logoFallback: 'https://logo.clearbit.com/scale.com',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U2NhbGUgQUk8L3RleHQ+PC9zdmc+',
       achievements: [
@@ -2004,7 +2037,7 @@ const Experience = () => {
       company: 'American Express',
       period: 'Jun 2020 - Dec 2022',
       location: 'New York, NY',
-      logo: '/logos/american-express-logo.png',
+      logo: '/logos/american-express-logo.svg',
       logoFallback: 'https://logo.clearbit.com/americanexpress.com',
       logoSVG: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiMwMDZGRkMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QU1FWDwvdGV4dD48L3N2Zz4=',
       achievements: [
@@ -2199,19 +2232,21 @@ const Experience = () => {
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div 
-                    className="w-full h-full flex items-center justify-center rounded"
-                    style={{ 
-                      backgroundColor: exp.company === 'Scale AI' ? '#000000' : exp.company === 'American Express' ? '#006FCF' : '#4B5563',
-                      color: '#FFFFFF',
-                      minHeight: '100px',
-                      padding: '10px'
+                  <Image
+                    src={exp.logo}
+                    alt={`${exp.company} Logo`}
+                    width={120}
+                    height={120}
+                    className="object-contain w-auto h-auto max-w-full max-h-full"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (exp.logoFallback && !target.src.includes(exp.logoFallback)) {
+                        target.src = exp.logoFallback;
+                      } else if (exp.logoSVG) {
+                        target.src = exp.logoSVG;
+                      }
                     }}
-                  >
-                    <span className="font-bold text-xs text-center px-2 leading-tight">
-                      {exp.company === 'Scale AI' ? 'SCALE AI' : exp.company === 'American Express' ? 'AMERICAN EXPRESS' : exp.company.toUpperCase()}
-                    </span>
-                  </div>
+                  />
                 </motion.div>
               </div>
             </motion.div>
@@ -2535,11 +2570,38 @@ const Education = () => (
               </div>
               <p className="text-sm text-gray-600 relative z-10">Click to view my LinkedIn certifications</p>
             </motion.a>
+            <motion.a
+              href="https://www.datacamp.com/certificate/DSA0016288556604"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer block"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03, y: -3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-emerald-200/50 to-teal-200/50 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+              <div className="flex items-center justify-center mb-2 relative z-10">
+                <Image
+                  src="/logos/datacamp-logo.svg"
+                  alt="DataCamp Logo"
+                  width={100}
+                  height={40}
+                  className="object-contain h-10 w-auto"
+                />
+              </div>
+              <h4 className="font-semibold text-gray-800 relative z-10">Data Scientist Associate</h4>
+              <p className="text-sm text-gray-600 relative z-10">DataCamp · Verified Certificate</p>
+            </motion.a>
             <motion.div 
               className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.2 }}
+              transition={{ duration: 0.25, delay: 0.25 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.03, y: -3 }}
             >
