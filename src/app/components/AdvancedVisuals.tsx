@@ -223,11 +223,34 @@ DataStreamDivider.displayName = 'DataStreamDivider';
 /* ─── Hero animated stat pills ─── */
 export const HeroStatPills = memo(() => {
   const stats = useMemo(() => [
-    { label: '5 Yrs Experience', icon: '📊' },
-    { label: 'Production ML', icon: '⚡' },
-    { label: 'Healthcare Analytics', icon: '🏥' },
-    { label: 'Cloud & Data Stack', icon: '☁️' },
+    { label: '5 Yrs Experience', icon: 'chart' },
+    { label: 'Production ML', icon: 'ml' },
+    { label: 'Healthcare Analytics', icon: 'health' },
+    { label: 'Cloud & Data Stack', icon: 'cloud' },
   ], []);
+
+  const icons: Record<string, ReactNode> = {
+    chart: (
+      <svg className="w-4 h-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    ),
+    ml: (
+      <svg className="w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+    ),
+    health: (
+      <svg className="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
+    cloud: (
+      <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+    ),
+  };
 
   return (
     <motion.div
@@ -245,7 +268,7 @@ export const HeroStatPills = memo(() => {
           transition={{ delay: 1.1 + i * 0.1, type: 'spring', stiffness: 200 }}
           whileHover={{ scale: 1.05, y: -2, boxShadow: '0 8px 25px rgba(99,102,241,0.2)' }}
         >
-          <span>{stat.icon}</span>
+          <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white shadow-sm">{icons[stat.icon]}</span>
           <span>{stat.label}</span>
         </motion.div>
       ))}
@@ -425,3 +448,93 @@ export const MLPipelineGraphic = memo(() => {
   );
 });
 MLPipelineGraphic.displayName = 'MLPipelineGraphic';
+
+/* ─── Floating data-science symbols ─── */
+export const DataScienceFloatingSymbols = memo(() => {
+  const symbols = useMemo(() => [
+    { char: 'Σ', x: '8%', y: '15%', delay: 0, size: 'text-2xl' },
+    { char: 'μ', x: '92%', y: '20%', delay: 0.5, size: 'text-xl' },
+    { char: '∫', x: '85%', y: '75%', delay: 1, size: 'text-2xl' },
+    { char: 'ρ', x: '12%', y: '80%', delay: 1.5, size: 'text-xl' },
+    { char: 'θ', x: '75%', y: '45%', delay: 0.8, size: 'text-lg' },
+    { char: 'λ', x: '20%', y: '45%', delay: 1.2, size: 'text-lg' },
+  ], []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+      {symbols.map((s) => (
+        <motion.span
+          key={s.char + s.x}
+          className={`absolute font-serif font-bold text-indigo-400/20 select-none ${s.size}`}
+          style={{ left: s.x, top: s.y }}
+          animate={{ y: [0, -12, 0], opacity: [0.15, 0.28, 0.15], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 5 + s.delay, repeat: Infinity, delay: s.delay, ease: 'easeInOut' }}
+        >
+          {s.char}
+        </motion.span>
+      ))}
+    </div>
+  );
+});
+DataScienceFloatingSymbols.displayName = 'DataScienceFloatingSymbols';
+
+/* ─── Scrolling data stack marquee ─── */
+export const DataStackMarquee = memo(() => {
+  const tools = ['Python', 'SQL', 'Snowflake', 'Databricks', 'PyTorch', 'TensorFlow', 'Spark', 'AWS', 'Docker', 'Kubernetes', 'Power BI', 'Scikit-learn'];
+  return (
+    <div className="relative overflow-hidden py-4 mask-fade-edges" aria-hidden>
+      <motion.div
+        className="flex gap-4 whitespace-nowrap"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+      >
+        {[...tools, ...tools].map((tool, i) => (
+          <span
+            key={`${tool}-${i}`}
+            className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 shadow-sm"
+          >
+            {tool}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  );
+});
+DataStackMarquee.displayName = 'DataStackMarquee';
+
+/* ─── Mini live chart widget (decorative) ─── */
+export const LiveChartWidget = memo(({ className = '' }: { className?: string }) => (
+  <motion.div
+    className={`rounded-xl bg-white/80 backdrop-blur border border-indigo-100 shadow-lg p-3 ${className}`}
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    aria-hidden
+  >
+    <div className="flex items-center gap-2 mb-2">
+      <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+      <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Model Accuracy</span>
+    </div>
+    <svg width="120" height="40" viewBox="0 0 120 40">
+      <motion.polyline
+        points="0,35 15,30 30,28 45,22 60,18 75,15 90,10 105,8 120,5"
+        fill="none"
+        stroke="url(#chartLine)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        transition={{ duration: 2, ease: 'easeOut' }}
+        viewport={{ once: true }}
+      />
+      <defs>
+        <linearGradient id="chartLine" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#8b5cf6" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <p className="text-xs font-bold text-indigo-600 mt-1">+30% ↑</p>
+  </motion.div>
+));
+LiveChartWidget.displayName = 'LiveChartWidget';

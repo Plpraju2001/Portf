@@ -3,7 +3,7 @@ export const blogPosts = [
     id: 12,
     title: 'The Real Job Market in 2026: What Nobody Tells You (And What Actually Works)',
     excerpt: 'Layoffs, AI hype, hundreds of applicants per role — the 2026 job market is brutal on paper. But people are still getting hired every day. Here\'s an honest breakdown of what the market actually looks like, what separates candidates who land offers, and the mindset that gets you through it.',
-    date: 'July 22, 2026',
+    date: 'July 10, 2026',
     readTime: '8 min read',
     category: 'Career Insights',
   },
@@ -82,11 +82,10 @@ export const blogPosts = [
 ];
 
 export function getLatestBlogPost() {
-  // Sort by date, most recent first
   const sorted = [...blogPosts].sort((a, b) => {
-    const dateA = new Date(a.date).getTime();
-    const dateB = new Date(b.date).getTime();
-    return dateB - dateA;
+    const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+    if (dateDiff !== 0) return dateDiff;
+    return b.id - a.id;
   });
   return sorted[0];
 }

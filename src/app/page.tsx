@@ -12,6 +12,9 @@ import {
   HeroStatPills,
   MLPipelineGraphic,
   AnimatedHeadingUnderline,
+  DataScienceFloatingSymbols,
+  DataStackMarquee,
+  LiveChartWidget,
 } from './components/AdvancedVisuals';
 
 // Professional Data Science Visualization Components - Large, Visible, Immediate
@@ -788,6 +791,7 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-32 sm:pt-36 md:pt-0 section-mesh">
       <AuroraBackground />
       <NeuralNetworkBackground density={0.85} />
+      <DataScienceFloatingSymbols />
       {/* Data Science Watermarks */}
       <DataScienceWatermarks />
       {/* Elegant floating particles - Optimized for mobile */}
@@ -974,6 +978,7 @@ const Hero = () => {
           </motion.p>
           <HeroStatPills />
           <MLPipelineGraphic />
+          <DataStackMarquee />
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
             initial={{ opacity: 0, y: 50, scale: 0.8 }}
@@ -1082,6 +1087,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden section-mesh">
       <DataScienceWatermarks />
+      <DataScienceFloatingSymbols />
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -1196,7 +1202,27 @@ const About = () => {
           >
             My strength lies in building scalable ML and analytics solutions using modern technologies like PyTorch, TensorFlow, Snowflake, Docker, Kubernetes, and cloud platforms. I am experienced in deploying ML models at scale using AWS, SageMaker, and Databricks.
           </motion.p>
-          
+          <motion.div
+            className="mb-8 p-5 rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 border border-indigo-100 shadow-md"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.65 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm font-bold text-indigo-600 uppercase tracking-wide mb-1">Highest Degree · Master&apos;s</p>
+                <p className="text-lg font-semibold text-gray-800">M.S. Information Technology — Clark University</p>
+                <p className="text-sm text-gray-600 mt-1">Data Science · Machine Learning · Cloud Computing · GPA 3.6</p>
+              </div>
+            </div>
+          </motion.div>
           <motion.div 
             className="mb-8"
             initial={{ opacity: 0, y: 30 }}
@@ -1720,8 +1746,9 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden">
+    <section id="projects" className="py-20 bg-gradient-to-b from-blue-50/30 to-white relative overflow-hidden section-mesh">
       <DataScienceWatermarks />
+      <DataScienceFloatingSymbols />
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -2401,8 +2428,10 @@ const Blog = () => {
 };
 
 const Education = () => (
-  <section id="education" className="py-20 bg-gray-50 relative overflow-hidden">
+  <section id="education" className="py-20 bg-gray-50 relative overflow-hidden section-mesh">
     <DataScienceWatermarks />
+    <DataScienceFloatingSymbols />
+    <NeuralNetworkBackground density={0.35} />
     {/* Animated background elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
@@ -2449,6 +2478,7 @@ const Education = () => (
         >
           Education & Certifications
         </motion.h2>
+        <AnimatedHeadingUnderline />
         <motion.p 
           className="text-lg text-gray-600 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -2461,63 +2491,92 @@ const Education = () => (
       </motion.div>
 
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <motion.div
-            className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
-            initial={{ opacity: 0, y: 60, x: -60 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
-            whileHover={{ y: -5, x: 3 }}
-          >
-            <div className="flex-1">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Master&apos;s degree, Information Technology</h3>
-              <p className="text-blue-600 font-medium mb-2">Clark University</p>
-              <p className="text-gray-500 text-sm mb-2">Jan 2023 - May 2024 · Grade: 3.6</p>
-              <p className="text-gray-600">Advanced studies in high-end data science, machine learning, cloud computing, database systems, and information systems management. Specialized coursework in data analytics, business intelligence, and enterprise architecture.</p>
-            </div>
-            <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="min-w-[120px] min-h-[120px] max-w-[140px] max-h-[140px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm">
-                <Image
-                  src="/logos/clark-university-logo.png"
-                  alt="Clark University Logo"
-                  width={120}
-                  height={120}
-                  className="object-contain w-auto h-auto max-w-full max-h-full"
-                  onError={(e) => {
-                    // Fallback to external URL if local image doesn't exist
-                    const target = e.target as HTMLImageElement;
-                    target.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Clark_University_seal.svg/200px-Clark_University_seal.svg.png';
-                  }}
-                />
+        {/* Featured Master's Degree — Highest Degree */}
+        <motion.div
+          className="relative mb-10"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          <div className="absolute -inset-[2px] rounded-2xl masters-glow-border opacity-80" />
+          <div className="relative masters-featured-card rounded-2xl p-8 md:p-10 overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-200/30 to-purple-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" aria-hidden />
+            <LiveChartWidget className="absolute top-4 right-4 hidden lg:block opacity-90" />
+            <div className="flex flex-col md:flex-row items-start gap-6 relative z-10">
+              <div className="flex-shrink-0">
+                <div className="w-[140px] h-[140px] bg-white rounded-xl border-2 border-indigo-100 flex items-center justify-center p-4 shadow-lg ring-4 ring-indigo-50">
+                  <Image
+                    src="/logos/clark-university-logo.png"
+                    alt="Clark University Logo"
+                    width={120}
+                    height={120}
+                    className="object-contain w-auto h-auto max-w-full max-h-full"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Clark_University_seal.svg/200px-Clark_University_seal.svg.png';
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex-1">
+                <motion.span
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-md"
+                  animate={{ boxShadow: ['0 4px 15px rgba(59,130,246,0.4)', '0 4px 25px rgba(99,102,241,0.6)', '0 4px 15px rgba(59,130,246,0.4)'] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                  Highest Degree · Master&apos;s
+                </motion.span>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+                  Master&apos;s Degree, Information Technology
+                </h3>
+                <p className="text-indigo-600 font-semibold text-lg mb-2">Clark University</p>
+                <p className="text-gray-500 text-sm mb-4">Jan 2023 – May 2024 · GPA: 3.6</p>
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  Advanced graduate studies in data science, machine learning, cloud computing, database systems, and information systems management — with specialized coursework in data analytics, business intelligence, and enterprise architecture.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Data Science', 'Machine Learning', 'Cloud Computing', 'Business Intelligence', 'Database Systems'].map((tag) => (
+                    <span key={tag} className="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-700 border border-indigo-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </motion.div>
-          
+          </div>
+        </motion.div>
+
+        {/* Bachelor's Degree */}
+        <div className="grid grid-cols-1 gap-8 mb-12">
           <motion.div
-            className="bg-white rounded-lg shadow-md p-6 flex items-start gap-4"
-            initial={{ opacity: 0, y: 60, x: 60 }}
+            className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4 border border-gray-100"
+            initial={{ opacity: 0, y: 40, x: 40 }}
             whileInView={{ opacity: 1, y: 0, x: 0 }}
-            transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
-            whileHover={{ y: -5, x: -3 }}
+            transition={{ duration: 0.35, delay: 0.15, ease: 'easeOut' }}
+            viewport={{ once: true, margin: '-50px' }}
+            whileHover={{ y: -4 }}
           >
             <div className="flex-1">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Bachelor&apos;s degree, Mechanical Engineering</h3>
+              <span className="inline-block px-2 py-0.5 text-xs font-medium text-gray-500 bg-gray-100 rounded mb-2">Bachelor&apos;s Degree</span>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Mechanical Engineering</h3>
               <p className="text-blue-600 font-medium mb-2">Avanthi Institute of Engineering & Technology</p>
               <p className="text-gray-500 text-sm mb-2">Jun 2019 - Jul 2022 · Grade: A</p>
-              <p className="text-gray-600">Strong foundation in critical thinking and basic aptitude skills with good understanding of analytical problem-solving methodologies.</p>
+              <p className="text-gray-600">Strong foundation in critical thinking and analytical problem-solving methodologies.</p>
             </div>
             <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="min-w-[120px] min-h-[120px] max-w-[140px] max-h-[140px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-4 shadow-sm">
+              <div className="min-w-[100px] min-h-[100px] max-w-[110px] max-h-[110px] bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center p-3 shadow-sm">
                 <Image
                   src="/logos/jntuk-logo.png"
                   alt="Avanthi Institute Logo"
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
                   className="object-contain w-auto h-auto max-w-full max-h-full"
                   onError={(e) => {
-                    // Fallback to placeholder if local image doesn't exist
                     const target = e.target as HTMLImageElement;
                     target.src = 'https://via.placeholder.com/150?text=Avanthi+Institute';
                   }}
