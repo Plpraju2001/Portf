@@ -176,8 +176,8 @@ body {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  object-position: center 15%;
-  transform: scale(1.18);
+  object-position: center 12%;
+  transform: scale(1.08);
   display: block;
   border-radius: 50%;
 }
