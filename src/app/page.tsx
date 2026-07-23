@@ -1070,39 +1070,6 @@ const Hero = () => {
                 }}
               />
             </motion.a>
-            <motion.a
-              href="/Lakshmipathiraju_resume.pdf"
-              download
-              className="relative bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-2xl font-bold shadow-2xl overflow-hidden group text-lg"
-              whileHover={{ scale: 1.15, y: -5, rotate: 1 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 10px 40px rgba(59, 130, 246, 0.3), 0 0 0 0 rgba(59, 130, 246, 0.4)",
-                  "0 20px 60px rgba(59, 130, 246, 0.5), 0 0 0 4px rgba(59, 130, 246, 0)",
-                ],
-              }}
-              transition={{
-                boxShadow: {
-                  duration: 1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-            >
-              <motion.span
-                className="relative z-10"
-                initial={{ color: "#2563eb" }}
-                whileHover={{ color: "white" }}
-              >
-                Download Resume
-              </motion.span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0"
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
           </motion.div>
         </motion.div>
       </div>
