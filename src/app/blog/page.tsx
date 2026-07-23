@@ -5,6 +5,155 @@ import Link from 'next/link';
 
 const blogPosts = [
   {
+    id: 12,
+    title: 'The Real Job Market in 2026: What Nobody Tells You (And What Actually Works)',
+    excerpt: 'Layoffs, AI hype, hundreds of applicants per role — the 2026 job market is brutal on paper. But people are still getting hired every day. Here\'s an honest breakdown of what the market actually looks like, what separates candidates who land offers, and the mindset that gets you through it.',
+    date: 'July 22, 2026',
+    readTime: '8 min read',
+    category: 'Career Insights',
+    content: `
+      <h2>Let's Talk About the Market Honestly</h2>
+      <p>If you've been job searching in 2026, you've probably felt it: the market is <strong>harder than the headlines suggest</strong>. Layoffs haven't fully stopped. AI is reshaping what companies expect from data roles. And for every open position, there are often hundreds of qualified applicants — many with advanced degrees, production ML experience, and strong portfolios.</p>
+
+      <p>I'm not here to sugarcoat it. But I'm also not here to tell you it's impossible. Because it isn't. People are landing roles every single week — including in data science, ML engineering, and analytics. The difference is understanding <strong>how the market actually works</strong> versus how we wish it worked.</p>
+
+      <h2>What the 2026 Job Market Really Looks Like</h2>
+      <h3>1. It's Not One Market — It's Several</h3>
+      <p>When people say "tech is dead," they're usually talking about a slice of the industry: late-stage startups, over-hired product companies, and roles that got inflated during 2021–2022. But other sectors are actively hiring:</p>
+      <ul>
+        <li><strong>Healthcare &amp; life sciences</strong> — analytics, population health, operational efficiency</li>
+        <li><strong>Defense &amp; government contractors</strong> — stable budgets, long-term projects, cloud modernization</li>
+        <li><strong>Financial services</strong> — fraud, risk, compliance analytics (still strong)</li>
+        <li><strong>Enterprise SaaS &amp; infrastructure</strong> — companies with real revenue and cost discipline</li>
+      </ul>
+      <p>The mistake many candidates make is applying only to the same 20 companies everyone else is targeting. The real opportunity is often in sectors that don't trend on LinkedIn but have consistent hiring pipelines.</p>
+
+      <h3>2. AI Changed the Bar, Not Just the Hype</h3>
+      <p>Every company wants "AI" on their roadmap. But what they actually need are people who can:</p>
+      <ul>
+        <li>Build reliable data pipelines that don't break in production</li>
+        <li>Translate business problems into measurable analytical frameworks</li>
+        <li>Deploy and monitor models — not just train them in notebooks</li>
+        <li>Work with SQL, cloud platforms, and modern data stacks at scale</li>
+      </ul>
+      <p>The candidates who stand out aren't the ones who list "ChatGPT" on their resume. They're the ones who can show <strong>end-to-end ownership</strong>: from raw data to executive dashboards to production ML systems.</p>
+
+      <h3>3. Volume Alone Doesn't Win</h3>
+      <p>Spraying 500 identical applications through job boards feels productive. It rarely is. Recruiters can tell. Hiring managers can tell. What works better:</p>
+      <ul>
+        <li><strong>Targeted applications</strong> — 10–15 well-researched roles beat 200 generic ones</li>
+        <li><strong>Warm introductions</strong> — referrals still convert at 5–10x the rate of cold applies</li>
+        <li><strong>Proof of work</strong> — a portfolio, GitHub projects, or write-ups that show how you think</li>
+        <li><strong>Certifications that match the role</strong> — AWS ML, Databricks, DataCamp, Power BI — when they're relevant to the job</li>
+      </ul>
+
+      <h2>What Actually Separates Candidates Who Get Offers</h2>
+      <p>After five years in data science — across American Express, Scale AI, and now GDIT — here's what I've seen make the biggest difference:</p>
+
+      <h3>Storytelling With Numbers</h3>
+      <p>Don't say "I built ML models." Say: <em>"I reduced fraud false positives by 25% while maintaining detection rates, saving the business millions in customer friction costs."</em> Every bullet on your resume should answer: <strong>what was the problem, what did you do, and what changed?</strong></p>
+
+      <h3>Production Over Notebooks</h3>
+      <p>Interviewers in 2026 are tired of Kaggle-style answers. They want to hear about Docker, Kubernetes, monitoring, data quality, SQL optimization, and what happens when your model drifts in production. If you can speak to the full ML lifecycle, you're already ahead of most applicants.</p>
+
+      <h3>Resilience and Consistency</h3>
+      <p>The job search is a marathon with unpredictable timing. Some people get an offer in two weeks. Others take four months. The ones who succeed keep going — updating their portfolio, earning certifications, networking, and improving their story — even when silence is the only response.</p>
+
+      <h2>The Mindset That Gets You Through</h2>
+      <p>Rejection isn't a verdict on your ability. In a market with 200+ applicants per role, rejection is often arithmetic. What matters is whether you treat each "no" as data:</p>
+      <ul>
+        <li>Was my resume aligned with the role?</li>
+        <li>Did I have a referral or warm connection?</li>
+        <li>Was I targeting a sector that's actually hiring?</li>
+        <li>Can I add one more proof point before the next application?</li>
+      </ul>
+      <p>I recently joined <strong>General Dynamics Information Technology</strong> as a Data Scientist — a move into healthcare analytics and enterprise cloud modernization. That didn't happen because the market was easy. It happened because I kept building, kept applying strategically, and kept showing up with a clear story about what I bring to the table.</p>
+
+      <h2>Practical Advice If You're Searching Right Now</h2>
+      <ol>
+        <li><strong>Fix your LinkedIn headline</strong> — lead with role + impact, not just job titles</li>
+        <li><strong>Build or update your portfolio</strong> — recruiters Google you; give them something strong</li>
+        <li><strong>Apply to adjacent sectors</strong> — healthcare, defense, finance, not just FAANG</li>
+        <li><strong>Get one certification that matches your target roles</strong> — it signals commitment</li>
+        <li><strong>Reach out to 3 people per week</strong> — alumni, former colleagues, hiring managers</li>
+        <li><strong>Write about what you're learning</strong> — blog posts, LinkedIn posts — it builds visibility</li>
+      </ol>
+
+      <h2>Final Thought</h2>
+      <p>The 2026 job market is real, competitive, and emotionally draining at times. But it's not a closed door. Companies still need people who can turn data into decisions — especially people who understand production systems, business context, and how to communicate with non-technical stakeholders.</p>
+
+      <p>If you're in the middle of a search: keep going. Be strategic. Be specific. And remember — the right role isn't always the loudest one on the job board. Sometimes it's the one in healthcare, government tech, or enterprise analytics that nobody's talking about on Twitter.</p>
+
+      <p><strong>#JobMarket2026 #DataScience #MachineLearning #CareerAdvice #OpenToWork #TechJobs #Hiring</strong></p>
+    `
+  },
+  {
+    id: 11,
+    title: 'Starting a New Chapter: Why I Joined GDIT as a Data Scientist',
+    excerpt: 'I\'m excited to share that I\'ve joined General Dynamics Information Technology as a Data Scientist. After years in ML lifecycle management at Scale AI and American Express, I\'m now building scalable healthcare analytics solutions with Python, SQL, Snowflake, and Databricks. Here\'s why I made the move and what I\'m working on.',
+    date: 'July 16, 2026',
+    readTime: '6 min read',
+    category: 'Career Insights',
+    content: `
+      <h2>A New Chapter Begins</h2>
+      <p>I'm thrilled to share that I've joined <strong>General Dynamics Information Technology (GDIT)</strong> as a <strong>Data Scientist</strong>, working remotely from Massachusetts. After five years building and productionizing ML systems at companies like Scale AI and American Express, this role represents an exciting new direction — one where I can apply my skills to healthcare analytics at enterprise scale.</p>
+
+      <p>This isn't just a title change. It's a shift into a sector where data science directly impacts operational efficiency, patient outcomes, and organizational decision-making at the highest level. And honestly, that's exactly the kind of work I wanted next.</p>
+
+      <h2>Why GDIT?</h2>
+      <p>When I evaluated my next move, I wasn't just looking for any data science role. I was looking for three things:</p>
+      <ul>
+        <li><strong>Real business impact at scale</strong> — working with multi-million record datasets where analytical rigor actually changes outcomes</li>
+        <li><strong>Modern data stack</strong> — Python, SQL, Snowflake, Databricks, and cloud-native engineering practices</li>
+        <li><strong>Stability and growth</strong> — a sector with long-term demand, not hype-driven hiring cycles</li>
+      </ul>
+      <p>GDIT checked all three boxes. As one of the largest IT and professional services providers supporting government and healthcare organizations, GDIT sits at the intersection of mission-critical work and cutting-edge data infrastructure. That's a combination that's hard to find.</p>
+
+      <h2>What I'm Working On</h2>
+      <p>In my role as Data Scientist, I'm focused on designing and deploying scalable, end-to-end healthcare analytics solutions. Here's a snapshot of the kind of work I'm doing:</p>
+      <ul>
+        <li><strong>Healthcare analytics pipelines</strong> — building solutions with Python, SQL, Snowflake, and Databricks that drive operational efficiency and cost optimization</li>
+        <li><strong>Large-scale data analysis</strong> — executing comprehensive analyses on multi-million record datasets to surface actionable insights and improve data quality</li>
+        <li><strong>Performance optimization</strong> — architecting high-performance analytical workflows and optimizing complex SQL queries for high-concurrency cloud environments</li>
+        <li><strong>Executive dashboards</strong> — developing interactive business intelligence dashboards and statistical models that support strategic decision-making</li>
+        <li><strong>Cloud modernization</strong> — contributing to enterprise cloud migration initiatives, focusing on architectural design and performance optimization of high-scale data platforms</li>
+        <li><strong>AI-powered automation</strong> — integrating advanced automation tools into data pipelines to accelerate insight generation</li>
+      </ul>
+      <p>This is the kind of work where every analysis has a stakeholder, every dashboard has an audience, and every model needs to hold up under real-world scrutiny. That's the environment where I do my best work.</p>
+
+      <h2>What I Brought From Scale AI and American Express</h2>
+      <p>My previous experience shaped how I approach this role:</p>
+      <ul>
+        <li>At <strong>Scale AI</strong>, I managed the full ML lifecycle — from data collection to deployment and monitoring — and increased model accuracy by 30% through advanced algorithms and production optimization with Docker and Kubernetes</li>
+        <li>At <strong>American Express</strong>, I engineered fraud detection models that reduced false positives by 25%, deployed on AWS SageMaker at scale supporting over 1 million daily transactions</li>
+      </ul>
+      <p>Those experiences taught me that the best data scientists aren't just model builders — they're problem solvers who understand production systems, business context, and how to communicate findings to executives and engineers alike.</p>
+
+      <h2>First Impressions</h2>
+      <p>A few weeks in, here's what stands out about GDIT:</p>
+      <ul>
+        <li><strong>The scale is real.</strong> We're not working with sample datasets — we're working with enterprise-grade data that requires rigorous validation and thoughtful engineering</li>
+        <li><strong>Cross-functional collaboration matters.</strong> The best solutions come from working closely with engineers, analysts, and business leaders who understand the domain</li>
+        <li><strong>Healthcare analytics is deeply meaningful.</strong> When your work touches operational efficiency and data quality in healthcare, you feel the weight and the purpose of what you're building</li>
+        <li><strong>The tech stack is modern.</strong> Snowflake, Databricks, Python, SQL — this isn't legacy tooling. It's the stack that top data teams are standardizing on in 2026</li>
+      </ul>
+
+      <h2>Continuing to Grow</h2>
+      <p>Even as I settle into this role, I'm continuing to invest in my professional development. I recently earned my <strong>Data Scientist Associate certification from DataCamp</strong>, validating skills across data management, exploratory analysis, statistical experimentation, modeling, and communication — all core to what I do every day at GDIT.</p>
+
+      <p>I'm also keeping my portfolio updated, writing about what I'm learning, and staying connected with the data science community. Growth doesn't stop when you land a role — if anything, it's when the real learning accelerates.</p>
+
+      <h2>Looking Ahead</h2>
+      <p>I'm grateful for this opportunity and excited about what's ahead. GDIT represents a place where I can combine my ML lifecycle expertise, production engineering skills, and passion for data-driven decision-making into work that matters.</p>
+
+      <p>If you're exploring opportunities in healthcare analytics, enterprise data engineering, or data science roles in the defense and government technology space — this sector is hiring, and the work is genuinely impactful.</p>
+
+      <p>Thank you to everyone who supported me through the transition. Here's to the next chapter.</p>
+
+      <p><strong>#GDIT #DataScientist #HealthcareAnalytics #NewJob #Snowflake #Databricks #DataScience #CareerGrowth</strong></p>
+    `
+  },
+  {
     id: 10,
     title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
     excerpt: 'The tech market is experiencing rapid changes, and I\'m actively looking for my next Data Scientist / ML Engineer role. I\'m seeking opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what I bring and what I\'m looking for.',

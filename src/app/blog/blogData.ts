@@ -1,5 +1,21 @@
 export const blogPosts = [
   {
+    id: 12,
+    title: 'The Real Job Market in 2026: What Nobody Tells You (And What Actually Works)',
+    excerpt: 'Layoffs, AI hype, hundreds of applicants per role — the 2026 job market is brutal on paper. But people are still getting hired every day. Here\'s an honest breakdown of what the market actually looks like, what separates candidates who land offers, and the mindset that gets you through it.',
+    date: 'July 22, 2026',
+    readTime: '8 min read',
+    category: 'Career Insights',
+  },
+  {
+    id: 11,
+    title: 'Starting a New Chapter: Why I Joined GDIT as a Data Scientist',
+    excerpt: 'I\'m excited to share that I\'ve joined General Dynamics Information Technology as a Data Scientist. After years in ML lifecycle management at Scale AI and American Express, I\'m now building scalable healthcare analytics solutions with Python, SQL, Snowflake, and Databricks. Here\'s why I made the move and what I\'m working on.',
+    date: 'July 16, 2026',
+    readTime: '6 min read',
+    category: 'Career Insights',
+  },
+  {
     id: 10,
     title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
     excerpt: 'The tech market is experiencing rapid changes, and I\'m actively looking for my next Data Scientist / ML Engineer role. I\'m seeking opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what I bring and what I\'m looking for.',
