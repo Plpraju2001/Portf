@@ -4,6 +4,15 @@ import { useState, useEffect, useMemo, memo } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getLatestBlogPost } from './blog/blogData';
+import {
+  ScrollProgressBar,
+  NeuralNetworkBackground,
+  AuroraBackground,
+  DataStreamDivider,
+  HeroStatPills,
+  MLPipelineGraphic,
+  AnimatedHeadingUnderline,
+} from './components/AdvancedVisuals';
 
 // Professional Data Science Visualization Components - Large, Visible, Immediate
 const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
@@ -57,14 +66,35 @@ const BarChartWatermark = ({ delay = 0 }: { delay?: number }) => (
     {/* Axes */}
     <line x1="15" y1="75" x2="125" y2="75" stroke="#1e293b" strokeWidth="1.5" opacity="0.35" />
     <line x1="15" y1="75" x2="15" y2="10" stroke="#1e293b" strokeWidth="1.5" opacity="0.35" />
-    {/* Professional bars with gradients and shadows */}
-    <rect x="20" y="60" width="14" height="15" fill="url(#barGrad1)" opacity="0.6" rx="3" />
-    <rect x="36" y="50" width="14" height="25" fill="url(#barGrad2)" opacity="0.6" rx="3" />
-    <rect x="52" y="40" width="14" height="35" fill="url(#barGrad3)" opacity="0.6" rx="3" />
-    <rect x="68" y="45" width="14" height="30" fill="url(#barGrad4)" opacity="0.6" rx="3" />
-    <rect x="84" y="35" width="14" height="40" fill="url(#barGrad5)" opacity="0.6" rx="3" />
-    <rect x="100" y="30" width="14" height="45" fill="#f59e0b" opacity="0.55" rx="3" />
-    <rect x="116" y="55" width="14" height="20" fill="#10b981" opacity="0.55" rx="3" />
+    {/* Professional bars with animated growth */}
+    {[
+      { x: 20, h: 15, grad: 'barGrad1', delay: 0 },
+      { x: 36, h: 25, grad: 'barGrad2', delay: 0.1 },
+      { x: 52, h: 35, grad: 'barGrad3', delay: 0.2 },
+      { x: 68, h: 30, grad: 'barGrad4', delay: 0.3 },
+      { x: 84, h: 40, grad: 'barGrad5', delay: 0.4 },
+      { x: 100, h: 45, color: '#f59e0b', delay: 0.5 },
+      { x: 116, h: 20, color: '#10b981', delay: 0.6 },
+    ].map((bar) => (
+      <motion.rect
+        key={bar.x}
+        x={bar.x}
+        width="14"
+        rx="3"
+        fill={bar.color ?? `url(#${bar.grad})`}
+        opacity={0.65}
+        initial={{ y: 75, height: 0 }}
+        animate={{ y: 75 - bar.h, height: bar.h }}
+        transition={{
+          duration: 1.2,
+          delay: bar.delay + delay * 0.3,
+          repeat: Infinity,
+          repeatType: 'reverse',
+          repeatDelay: 3,
+          ease: 'easeInOut',
+        }}
+      />
+    ))}
   </motion.svg>
 );
 
@@ -755,7 +785,9 @@ const Hero = () => {
   const profileImage = '/profile_picture.jpg';
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-32 sm:pt-36 md:pt-0">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 pt-32 sm:pt-36 md:pt-0 section-mesh">
+      <AuroraBackground />
+      <NeuralNetworkBackground density={0.85} />
       {/* Data Science Watermarks */}
       <DataScienceWatermarks />
       {/* Elegant floating particles - Optimized for mobile */}
@@ -840,7 +872,7 @@ const Hero = () => {
         >
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-3 shadow-2xl border border-gray-200/50">
             {!imageError ? (
-              <div className="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden">
+              <div className="w-24 h-24 rounded-full border-2 border-blue-500 overflow-hidden profile-ring-glow">
                 <img
                   src={profileImage}
                   alt="Lakshmipathiraju Pericharla"
@@ -940,6 +972,8 @@ const Hero = () => {
           >
             Data Scientist with 5 years of experience specializing in machine learning, managing the entire ML lifecycle from data collection to deployment and monitoring. Proven expertise in building and productionizing ML models, collaborating with cross-functional teams to deliver scalable solutions.
           </motion.p>
+          <HeroStatPills />
+          <MLPipelineGraphic />
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
             initial={{ opacity: 0, y: 50, scale: 0.8 }}
@@ -1079,7 +1113,7 @@ const Hero = () => {
 const About = () => {
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden section-mesh">
       <DataScienceWatermarks />
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -1764,6 +1798,7 @@ const Projects = () => {
           >
             Data Science & Engineering <span className="gradient-text">Projects</span>
           </motion.h2>
+          <AnimatedHeadingUnderline />
           <motion.p 
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -2045,7 +2080,8 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="experience" className="py-20 bg-gray-50 relative overflow-hidden section-mesh">
+      <NeuralNetworkBackground density={0.4} />
       <DataScienceWatermarks />
       {/* Animated floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -2110,6 +2146,7 @@ const Experience = () => {
           >
             Experience
           </motion.h2>
+          <AnimatedHeadingUnderline />
           <motion.p 
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -2845,7 +2882,7 @@ const FixedProfilePicture = () => {
     <div className="hidden md:block fixed top-20 right-4 sm:right-6 z-50">
       <div className="bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-2xl border border-gray-200/50">
         {!imageError ? (
-          <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 overflow-hidden">
+          <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full border-2 sm:border-4 border-blue-500 overflow-hidden profile-ring-glow">
             <img
               src={profileImage}
               alt="Lakshmipathiraju Pericharla"
@@ -2905,15 +2942,23 @@ export default function Home() {
             }
           `}</style>
       <div className="min-h-screen bg-white">
+      <ScrollProgressBar />
       <Header />
         <FixedProfilePicture />
       <Hero />
+      <DataStreamDivider />
       <About />
+      <DataStreamDivider variant="dark" />
       <PersonalInterests />
+      <DataStreamDivider />
       <Projects />
+      <DataStreamDivider variant="dark" />
       <Experience />
+      <DataStreamDivider />
       <Blog />
+      <DataStreamDivider variant="dark" />
       <Education />
+      <DataStreamDivider />
       <Contact />
       <Footer />
     </div>
