@@ -703,7 +703,7 @@ const Header = () => {
 
 const Hero = () => {
   const [imageError, setImageError] = useState(false);
-  const profileImage = '/profile_picture.jpg?v=3';
+  const profileImage = '/profile_picture.jpg?v=4';
 
   return (
     <section className="theme-hero min-h-screen flex items-center relative overflow-hidden pt-24 lg:pt-20">
