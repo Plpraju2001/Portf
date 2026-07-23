@@ -10,6 +10,7 @@ const blogPosts = [
     excerpt: 'Layoffs, AI hype, hundreds of applicants per role — the 2026 job market is brutal on paper. But people are still getting hired every day. Here\'s an honest breakdown of what the market actually looks like, what separates candidates who land offers, and the mindset that gets you through it.',
     date: 'July 10, 2026',
     readTime: '8 min read',
+    likes: 18,
     category: 'Career Insights',
     content: `
       <h2>Let's Talk About the Market Honestly</h2>
@@ -93,6 +94,7 @@ const blogPosts = [
     excerpt: 'I\'m excited to share that I\'ve joined General Dynamics Information Technology as a Data Scientist. After years in ML lifecycle management at Scale AI and American Express, I\'m now building scalable healthcare analytics solutions with Python, SQL, Snowflake, and Databricks. Here\'s why I made the move and what I\'m working on.',
     date: 'July 16, 2026',
     readTime: '6 min read',
+    likes: 6,
     category: 'Career Insights',
     content: `
       <h2>A New Chapter Begins</h2>
@@ -154,11 +156,35 @@ const blogPosts = [
     `
   },
   {
+    id: 13,
+    title: 'Moving On From Scale AI — Excited for What\'s Next',
+    excerpt: 'I wrapped up my time at Scale AI in May after an incredible run in ML lifecycle management. Taking a breath, staying open, and staying in touch while I figure out the next chapter. If you\'re hiring or just want to connect — I\'d love to hear from you.',
+    date: 'June 15, 2026',
+    readTime: '2 min read',
+    likes: 17,
+    category: 'Career Insights',
+    content: `
+      <h2>Closing a Great Chapter</h2>
+      <p>I officially wrapped up my time at <strong>Scale AI</strong> in May 2026. It was an amazing experience — managing the full ML lifecycle, productionizing models, and working with a sharp team on problems that actually shipped. I'm genuinely grateful for everything I learned there.</p>
+
+      <h2>What's Next?</h2>
+      <p>I'm taking a moment to reset, explore what's out there, and get excited about the <strong>next move</strong>. I don't have all the answers yet — and that's okay. What I do know is I'm open, motivated, and ready for something meaningful in data science or ML engineering.</p>
+
+      <h2>Let's Stay in Touch</h2>
+      <p>If you're hiring, building something interesting, or just want to catch up — <strong>reach out</strong>. LinkedIn DMs, email, whatever works. The gap between March and now felt quiet on here; figured I'd share a quick update and keep the line open.</p>
+
+      <p>More soon. 👋</p>
+
+      <p><strong>#ScaleAI #DataScience #OpenToWork #CareerUpdate #MachineLearning #StayInTouch</strong></p>
+    `
+  },
+  {
     id: 10,
     title: 'Open to New Opportunities: My 2026 Job Search in a Rapidly Changing Tech World',
     excerpt: 'The tech market is experiencing rapid changes, and I\'m actively looking for my next Data Scientist / ML Engineer role. I\'m seeking opportunities where I can own the ML lifecycle end-to-end, drive measurable impact, and grow with a strong team. Here\'s what I bring and what I\'m looking for.',
     date: 'March 8, 2026',
     readTime: '6 min read',
+    likes: 19,
     category: 'Career Insights',
     content: `
       <h2>Where I Am Today – March 8, 2026</h2>
@@ -244,6 +270,7 @@ const blogPosts = [
     excerpt: 'The tech industry has seen significant layoffs recently, affecting many talented professionals. As someone who\'s been impacted or is exploring new opportunities, I want to share my perspective on resilience, continuous learning, and why I\'m excited about the next chapter. Here\'s what makes me a valuable addition to any data science team.',
     date: 'March 9, 2026',
     readTime: '7 min read',
+    likes: 16,
     category: 'Career Insights',
     content: `
       <h2>Acknowledging the Current Landscape</h2>
@@ -423,6 +450,7 @@ const blogPosts = [
     excerpt: 'I\'m excited to share that I\'ve recently renewed two Microsoft certifications: Power BI Data Analyst Associate and Azure Database Administrator Associate. Here\'s why keeping certifications current is valuable for data science professionals and how they complement my work in ML lifecycle management and production systems.',
     date: 'February 12, 2026',
     readTime: '6 min read',
+    likes: 20,
     category: 'Career Insights',
     content: `
       <h2>Renewing My Microsoft Certifications</h2>
@@ -558,6 +586,7 @@ const blogPosts = [
     excerpt: 'As I prepare for scheduled interviews, I\'m sharing my approach to technical preparation, behavioral questions, and maintaining the right mindset. Here\'s how I\'m getting ready to showcase my skills and experience.',
     date: 'February 12, 2026',
     readTime: '5 min read',
+    likes: 15,
     category: 'Career Insights',
     content: `
       <h2>Interview Preparation in Full Swing</h2>
@@ -656,6 +685,7 @@ const blogPosts = [
     excerpt: 'Returning from a wonderful holiday break, I\'m back with renewed energy and focus. Excited to share that I\'ve taken a DataCamp membership and am working towards earning the Data Scientist Professional certification. Here\'s to being more productive than ever!',
     date: 'January 12, 2026',
     readTime: '4 min read',
+    likes: 18,
     category: 'Learning Journey',
     content: `
       <h2>Welcome Back!</h2>
@@ -716,6 +746,7 @@ const blogPosts = [
     excerpt: 'Just finished mastering Python data structures and comprehensions with multiple practice assignments. Sharing my journey and key insights from working with lists, dictionaries, sets, and powerful comprehension techniques.',
     date: 'November 16, 2025',
     readTime: '3 min read',
+    likes: 18,
     category: 'Learning Journey',
     content: `
       <h2>Mastering Python Fundamentals</h2>
@@ -787,6 +818,7 @@ for key, value in dictionary.items():
     excerpt: 'I\'ve just started a bootcamp to strengthen my foundational skills in data science, machine learning, and deep learning.',
     date: 'October 29, 2025',
     readTime: '2 min read',
+    likes: 17,
     category: 'Learning Journey',
     content: `
       <h2>Just Getting Started</h2>
@@ -812,6 +844,7 @@ for key, value in dictionary.items():
     excerpt: 'I\'ve finished the basics of data science, machine learning, and deep learning. The field is booming with opportunities.',
     date: 'October 30, 2025',
     readTime: '3 min read',
+    likes: 16,
     category: 'Career Insights',
     content: `
       <h2>Basics Complete</h2>
@@ -861,6 +894,7 @@ for key, value in dictionary.items():
     excerpt: 'Deep dive into sophisticated causal inference methods I\'m exploring to solve complex business problems. Sharing insights from my latest research on uplift modeling and heterogeneous treatment effects.',
     date: 'October 25, 2025',
     readTime: '12 min read',
+    likes: 19,
     category: 'Advanced Analytics',
     content: `
       <h2>Introduction to Advanced Causal Inference</h2>
@@ -912,6 +946,7 @@ for key, value in dictionary.items():
     excerpt: 'Essential tips and tricks I\'ve learned from years of data science practice. From debugging models to optimizing performance, these insights will save you hours and improve your results.',
     date: 'October 28, 2025',
     readTime: '8 min read',
+    likes: 18,
     category: 'Tips & Tricks',
     content: `
       <h2>Introduction</h2>
@@ -1075,6 +1110,12 @@ const BlogPost = ({ post }: { post: typeof blogPosts[0] }) => (
         <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
           {post.readTime}
         </span>
+        <span className="bg-rose-50 text-rose-600 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          {post.likes} likes
+        </span>
       </div>
       
       <h1 className="text-3xl font-bold text-gray-800 mb-4">{post.title}</h1>
@@ -1224,7 +1265,7 @@ export default function Blog() {
               Latest Posts
             </motion.h2>
             
-            {blogPosts.map((post, index) => (
+            {[...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((post, index) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, y: 50 }}
