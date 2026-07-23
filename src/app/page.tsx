@@ -13,7 +13,6 @@ import {
   PremiumButton,
   SectionShell,
   SectionHeader,
-  CompanyStrip,
 } from './components/PremiumLayout';
 
 // Professional Data Science Visualization Components - Large, Visible, Immediate
@@ -735,35 +734,37 @@ const Hero = () => {
               <PremiumButton href="#projects">View work</PremiumButton>
               <PremiumButton href="#contact" variant="secondary">Contact</PremiumButton>
             </div>
-            <CompanyStrip />
           </motion.div>
 
           <motion.div
-            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            className="order-1 lg:order-2 flex flex-col items-center lg:items-end"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="pro-hero-photo w-full max-w-[340px]">
+            <div className="pro-hero-photo w-full max-w-[300px]">
               {!imageError ? (
                 <img
                   src={profileImage}
                   alt="Lakshmipathiraju Pericharla"
-                  width={340}
-                  height={340}
-                  className="w-full aspect-square object-cover"
+                  width={300}
+                  height={300}
+                  className="pro-hero-photo-img"
                   onError={() => setImageError(true)}
                   loading="eager"
                 />
               ) : (
-                <div className="w-full aspect-square bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-4xl font-semibold text-slate-500">
+                <div className="pro-hero-photo-img bg-slate-200 flex items-center justify-center text-4xl font-semibold text-slate-500">
                   LP
                 </div>
               )}
-              <div className="pro-hero-photo-cap">
-                <p className="text-sm font-semibold text-[#1d1d1f]">Lakshmipathiraju Pericharla</p>
-                <p className="text-xs text-[#86868b] mt-0.5">Data Scientist · Massachusetts, USA</p>
-              </div>
+            </div>
+            <div className="pro-hero-photo-cap text-center lg:text-right mt-5 w-full max-w-[300px]">
+              <p className="text-sm font-semibold text-[#1d1d1f] leading-snug">
+                General Dynamics Information Technology
+              </p>
+              <p className="text-sm text-[#0066cc] font-medium mt-1">Data Scientist</p>
+              <p className="text-xs text-[#86868b] mt-1">Massachusetts, United States · Remote</p>
             </div>
           </motion.div>
         </div>
