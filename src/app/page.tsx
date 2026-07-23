@@ -2003,8 +2003,8 @@ const Experience = () => {
       company: 'General Dynamics Information Technology',
       period: 'May 2026 - Present',
       location: 'Massachusetts, United States · Remote',
-      logo: '/logos/gdit-logo.svg',
-      logoFallback: 'https://logo.clearbit.com/gdit.com',
+      logo: '/logos/gdit-logo.png',
+      logoFallback: '/logos/gdit-logo.png',
       achievements: [
         'Designed and deployed scalable, end-to-end healthcare analytics solutions leveraging Python, SQL, Snowflake, and Databricks to drive significant operational efficiency and cost optimization',
         'Executed comprehensive analyses of multi-million record datasets to derive actionable business insights, identify critical anomalies, and elevate organizational data quality standards',
@@ -2587,15 +2587,15 @@ const Education = () => (
               />
               <div className="flex items-center justify-center mb-2 relative z-10">
                 <Image
-                  src="/logos/datacamp-logo.svg"
+                  src="/logos/datacamp-logo.png"
                   alt="DataCamp Logo"
-                  width={100}
-                  height={40}
-                  className="object-contain h-10 w-auto"
+                  width={120}
+                  height={48}
+                  className="object-contain h-12 w-auto"
                 />
               </div>
               <h4 className="font-semibold text-gray-800 relative z-10">Data Scientist Associate</h4>
-              <p className="text-sm text-gray-600 relative z-10">DataCamp · Verified Certificate</p>
+              <p className="text-sm text-gray-600 relative z-10">DataCamp · Jul 2026 · Verified Certificate</p>
             </motion.a>
             <motion.div 
               className="text-center p-4 bg-blue-50 rounded-lg relative overflow-hidden group cursor-pointer"
