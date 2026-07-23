@@ -196,7 +196,7 @@ const blogPosts = [
       <ul>
         <li><strong>Role:</strong> Data Scientist / Machine Learning Engineer</li>
         <li><strong>Experience:</strong> 5 years, with strong focus on production ML and MLOps</li>
-        <li><strong>Recent Companies:</strong> Scale AI (Senior Data Scientist), American Express (ML Engineer II)</li>
+        <li><strong>Recent Companies:</strong> Scale AI (Data Scientist), American Express (ML Engineer II)</li>
         <li><strong>Strengths:</strong> ML lifecycle management, model deployment, monitoring, big data, cloud platforms</li>
       </ul>
 

@@ -1223,7 +1223,7 @@ const Experience = () => {
       ]
     },
     {
-      title: 'Senior Data Scientist',
+      title: 'Data Scientist',
       company: 'Scale AI',
       period: 'Jun 2024 - May 2026',
       location: 'San Francisco, CA',
