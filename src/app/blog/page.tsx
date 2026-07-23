@@ -157,25 +157,25 @@ const blogPosts = [
   },
   {
     id: 13,
-    title: 'Moving On From Scale AI — Excited for What\'s Next',
-    excerpt: 'I wrapped up my time at Scale AI in May after an incredible run in ML lifecycle management. Taking a breath, staying open, and staying in touch while I figure out the next chapter. If you\'re hiring or just want to connect — I\'d love to hear from you.',
+    title: 'From Scale AI to a New Chapter — More Details Coming Soon',
+    excerpt: 'I wrapped up an incredible chapter at Scale AI in May — and right away stepped into a new role at one of the most exciting companies I\'ve ever been part of. I\'m not sharing the name just yet, but I\'ll tell you all about it soon. Stay tuned.',
     date: 'June 15, 2026',
     readTime: '2 min read',
     likes: 17,
     category: 'Career Insights',
     content: `
-      <h2>Closing a Great Chapter</h2>
-      <p>I officially wrapped up my time at <strong>Scale AI</strong> in May 2026. It was an amazing experience — managing the full ML lifecycle, productionizing models, and working with a sharp team on problems that actually shipped. I'm genuinely grateful for everything I learned there.</p>
+      <h2>Grateful for Scale AI</h2>
+      <p>I officially wrapped up my time at <strong>Scale AI</strong> in May 2026. It was an incredible run — managing the full ML lifecycle, productionizing models, and working alongside a team that pushed me to grow every day. I'm genuinely thankful for the experience and everything it taught me.</p>
 
-      <h2>What's Next?</h2>
-      <p>I'm taking a moment to reset, explore what's out there, and get excited about the <strong>next move</strong>. I don't have all the answers yet — and that's okay. What I do know is I'm open, motivated, and ready for something meaningful in data science or ML engineering.</p>
+      <h2>A New Chapter — Already Underway</h2>
+      <p>What I'm most excited to share is this: I didn't stay on the sidelines for long. As soon as I moved on from Scale, I was introduced to — and joined — what I honestly believe is <strong>one of the greatest companies I've ever been part of</strong>. The work, the mission, the people — it all clicked in a way that felt right from the start.</p>
 
-      <h2>Let's Stay in Touch</h2>
-      <p>If you're hiring, building something interesting, or just want to catch up — <strong>reach out</strong>. LinkedIn DMs, email, whatever works. The gap between March and now felt quiet on here; figured I'd share a quick update and keep the line open.</p>
+      <p>I'm holding off on naming the company in this post for now. Not because I'm being mysterious — I just want to share the full story properly when the time is right. <strong>I'll let you know soon.</strong></p>
 
-      <p>More soon. 👋</p>
+      <h2>Stay in Touch</h2>
+      <p>That's the quick update between my March posts and now. A lot changed, and I'm genuinely excited about what's ahead. If we've been out of touch — reach out anytime. More coming on this new chapter very soon.</p>
 
-      <p><strong>#ScaleAI #DataScience #OpenToWork #CareerUpdate #MachineLearning #StayInTouch</strong></p>
+      <p><strong>#ScaleAI #DataScience #CareerUpdate #MachineLearning #NewChapter #StayInTouch</strong></p>
     `
   },
   {

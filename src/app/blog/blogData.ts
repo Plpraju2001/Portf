@@ -19,8 +19,8 @@ export const blogPosts = [
   },
   {
     id: 13,
-    title: 'Moving On From Scale AI — Excited for What\'s Next',
-    excerpt: 'I wrapped up my time at Scale AI in May after an incredible run in ML lifecycle management. Taking a breath, staying open, and staying in touch while I figure out the next chapter. If you\'re hiring or just want to connect — I\'d love to hear from you.',
+    title: 'From Scale AI to a New Chapter — More Details Coming Soon',
+    excerpt: 'I wrapped up an incredible chapter at Scale AI in May — and right away stepped into a new role at one of the most exciting companies I\'ve ever been part of. I\'m not sharing the name just yet, but I\'ll tell you all about it soon. Stay tuned.',
     date: 'June 15, 2026',
     readTime: '2 min read',
     likes: 17,
